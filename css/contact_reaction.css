@@ -1,0 +1,102 @@
+/* TOC */
+/* 
+01  body
+02  main
+03  media queries min width 770px
+04  media queries min width 1100px
+
+*/
+
+/* 01 body */
+
+body {
+  font-family: neuzeit-grotesk, sans-serif;
+  font-style: normal;
+  font-size: calc(16px + 0.390625vw);
+  font-weight: 300;
+  color: #000000;
+}
+
+/* 02 main */
+
+main {
+  height: 80vh;
+  margin: 20% auto 0 auto;
+}
+
+h1 {
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+p.text {
+  text-align: center;
+  font-size: 1.7rem;
+  max-width: 70%;
+  margin: 3rem auto;
+  line-height: 2.3rem;
+}
+
+a.back-to-home {
+  display: block;
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 5rem auto;
+}
+
+/* 03 media queries min width 770px */
+
+@media (min-width: 770px) {
+
+  main {
+    height: 45vh;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: end;
+            align-items: flex-end;
+    -webkit-box-pack: justify;
+            justify-content: space-between;
+    margin: 0 5% 25rem 5%;
+  }
+  
+  p.text {
+    text-align: left;
+    font-size: 1.8rem;
+    max-width: 60%;
+    margin: 3rem 0 3rem 3rem;
+  }
+
+  a.back-to-home {
+    text-decoration: none;
+    margin: 3rem;
+  }
+
+  .back-to-home:hover {
+    text-decoration: underline;
+  }
+  
+}
+
+/* 04 media queries min width 1100px */
+
+@media (min-width: 1100px) {
+
+  main {
+    margin: 5% 5% 25% 5%;
+  }
+
+  p.text {
+    font-size: 2rem;
+  }
+
+  a.back-to-home {
+    font-size: 1.5rem;
+  }
+
+}

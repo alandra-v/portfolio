@@ -1,0 +1,262 @@
+/* TOC */
+/* 
+01  navigation mobile
+02  mobile menu overlay
+03  mobile menu overlay media queries min width 550px
+04  navigation media queries min width 770px
+05  navigation media queries min width 1100 px
+
+*/
+
+/* 01 navigation mobile */
+
+nav {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+          align-items: center;
+  margin: 0 5%;
+  padding: 3rem 1rem;
+  height: 10%;
+  position: relative;
+  z-index: 2;
+}
+
+nav a.avd-logo {
+  width: 50%;
+  max-width: 10rem;
+  height: auto;
+}
+
+nav button.burger-nav {
+  width: 10%;
+  max-width: 2rem;
+}
+
+nav ul {
+  display: none;
+  text-transform: uppercase;
+}
+
+/* 02 mobile menu overlay */
+
+div.overlay-menu {
+  display: none;
+}
+
+/* div.overlay-menu {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  z-index: 0;
+  left: 0;
+  top: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+  font-size: 5rem;
+}
+
+div.overlay-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 2rem;
+  height: 10rem;
+  position: relative;
+}
+
+button.burger-nav {
+  display: none;
+}
+
+a.avd-logo {
+  display: none;
+}
+
+a.avd-logo-overlay {
+  width: 50%;
+  max-width: 10rem;
+  height: auto;
+}
+
+button.close-button {
+  width: 20%;
+  max-width: 2rem;
+}
+
+ul.overlay-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 3rem;
+  gap: 1.5rem;
+  font-size: 1.5rem;
+  position: fixed;
+  top: 20%;
+  right: 0;
+} 
+
+a.contact-button-menu {
+  border: #09c1b2 2px solid;
+  box-shadow: 0 0 10px #09c1b2;
+  padding: 0.7rem 1.5rem;
+  font-size: 1.5rem;
+  background: transparent;
+  position: relative;
+  left: 30px;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+ul.small-menu {
+  text-align: right;
+  margin: 2rem 0;
+  font-size: 1.2rem;
+}
+
+button.dark-mode-switch {
+  width: 5rem;
+  max-width: 7rem;
+}
+
+button.language-switch-menu {
+  font-weight: 400;
+} */
+
+/* 03 mobile menu overlay media queries min width 550px */
+
+/* @media (min-width: 550px) {
+
+  ul.overlay-content {
+    gap: 2rem;
+    font-size: 2rem;
+  } 
+
+  div.small-menu {
+    font-size: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  button.language-switch-menu {
+    font-size: 1.5rem;
+  }
+  
+} */
+
+/* 04 navigation media queries min width 770px */
+
+@media (min-width: 760px) {
+
+  nav {
+    margin: 0 4rem;
+  }
+
+  nav a.avd-logo {
+    width: 60%;
+    max-width: 12rem;
+  }
+  
+  nav button.burger-nav {
+    width: 12%;
+    max-width: 2.5rem;
+  }
+
+}
+
+
+
+/* 05 navigation media queries min width 1000px */
+
+@media (min-width: 1000px) {
+  
+  nav {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+    -webkit-box-align: end;
+            align-items: flex-end;
+    position: relative;
+    font-size: 1rem;
+    height: 10rem;
+    padding: 2rem 0;
+    margin-right: 2.5rem;
+  }
+
+  nav a.avd-logo {
+    width: 20%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+    left: 3rem;
+  }
+
+  nav button.burger-nav {
+    display: none;
+  }
+
+  nav ul.nav-switches {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+            justify-content: center; 
+  }
+  
+  nav button.theme-switch {
+    width: 18px;
+    height: auto;
+  }
+
+  nav button.theme-switch :hover {
+    fill: #09c1b2;
+    stroke: #09c1b2;
+  }
+
+  nav button.language-switch-header {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center;
+    font-weight: 400;
+  }
+  
+  nav button.language-switch-header:hover {
+    color: #09c1b2;
+  }
+  
+  nav ul.site-nav {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: center;
+            align-items: center;
+  }
+  
+  nav li {
+    margin: 0 2rem;
+    list-style: none;
+  }
+  
+  nav li :hover {
+    color: #09c1b2;
+  }
+  
+  nav a.contact-button-header {
+    border: #09c1b2 2px solid;
+    box-shadow: 0 0 10px #09c1b2;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    background: transparent;
+  } 
+
+}

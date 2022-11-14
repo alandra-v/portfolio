@@ -1,0 +1,281 @@
+/* TOC */
+/* 
+01  body
+02  hero section
+03  main: sections
+04  media queries min width 500px
+05  media queries min width 700px
+06  media queries min width 1000px
+
+*/
+
+/* 01 body */
+
+body {
+  font-family: neuzeit-grotesk, sans-serif;
+  font-style: normal;
+  font-size: calc(16px + 0.390625vw);
+  font-weight: 300;
+  color: #000000;
+}
+
+/* 02 hero section */
+
+header {
+  width: 100vw;
+  height: 100vh;
+  color: #ffffff;
+  position: relative;
+  background-image: url(../images/ruinaulta_grisons.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  z-index: 1;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 50% 0 50% 10%;
+}
+
+a.hero-section-button {
+  border: #09c1b2 2px solid;
+  box-shadow: 0 0 10px #09c1b2;
+  background: transparent;
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 0.8rem 1.3rem;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin-left: 10%;
+}
+
+/* 03 main: sections */
+
+div.title-section {
+  margin: 4rem auto 2rem auto;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-left: 5%;
+}
+
+hr.title {
+  width: 90%;
+  border: 0.02rem solid #000;
+  text-align: center;
+  margin: 1rem auto 3rem auto;
+}
+
+div.logos {
+  display: -webkit-box;
+  display: flex;
+  justify-content: space-around;
+  -webkit-box-align: center;
+          align-items: center;
+  margin: 6rem 2rem;
+}
+
+img.logo {
+  width: 70%;
+}
+
+img.silvan-productions-logo {
+  width: 100%;
+}
+
+p {
+  width: 90%;
+  margin: 0 auto 3rem auto;
+}
+
+
+img.portrait {
+  width: 70%;
+  margin: 0 auto 5rem auto;
+}
+
+div.education-career-grid, .recognitions-grid {
+  display: grid;
+  width: 95%;
+  grid-template-columns: 2fr 1fr;
+  grid-auto-rows: auto;
+  margin: 0 auto 3rem auto;
+}
+
+p.date {
+  text-align: right;
+}
+
+a.contact-button, .view-projects-button {
+  display: block;
+  border: #09c1b2 2px solid;
+  box-shadow: 0 0 10px #09c1b2;
+  background: transparent;
+  color: #000000;
+  font-weight: 700;
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  padding: 1.2rem 3rem;
+  position: relative;
+  left: 50%;
+  margin-bottom: 5rem;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+/* 04 media queries min width 500px */
+
+@media (min-width:500px) {
+  
+  h1 {
+    margin: 20% 0 10% 10%;
+  }
+
+}
+
+/* 05 media queries min width 700px */
+
+@media (min-width: 700px) {
+
+  h1 {
+    font-size: 3rem;
+    margin: 30% 0 20% 10%;
+  }
+
+  a.hero-section-button {
+    font-size: 1.8rem;
+    padding: 1.2rem 3rem;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    margin-left: 10%;
+  }
+
+  p {
+    font-size: 1.5rem;
+  }
+
+  p.delimiter {
+    margin: 0;
+    width: 0;
+  }
+  
+}
+
+/* 06 media queries min width 1000px */
+
+@media (min-width: 1000px) {
+
+  h1 {
+    margin: 15% 0 10% 10%;
+  }
+
+  div.title-section {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center;
+    height: 3rem;
+    position: relative;
+    margin: 10rem 3rem 6rem 3rem;
+  }
+
+  a.hero-section-button:hover {
+    color: #09c1b2;
+  }
+  
+  h2 {
+    text-align: center;
+    margin: 0;
+  }
+  
+  hr.title {
+    width: 23vw;
+    border: 0.02rem solid #000;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    margin: 2rem;
+  }
+
+  div.about {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+            align-items: center;
+    padding: 0 5rem;
+    gap: 2rem;
+  }
+
+  div.cooperation-partners {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+            flex-direction: row-reverse;
+    -webkit-box-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+            align-items: center;
+  }
+
+  img.portrait {
+    width: 100%;
+  }
+
+  div.logos {
+    width: 40%;
+  }
+
+  a.selina-art-logo {
+    position: relative;
+    bottom: 5rem;
+    left: 3rem;
+  }
+
+  a.silvan-productions-logo {
+    position: relative;
+    top: 6rem;
+    right: 5rem;
+    width: 100%;
+  }
+
+  img.logo {
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+
+  img.logo:hover {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+
+  p.partners {
+    max-width: 40vw;
+  }
+
+  a.hero-section-button, .contact-button, .view-projects-button {
+    font-size: 1.8rem;
+  }
+
+  a.contact-button:hover, .view-projects-button:hover {
+    color: #09c1b2;
+  }
+
+  img.portrait {
+    margin: 0;
+    width: 50%;
+  }
+
+}

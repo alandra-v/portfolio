@@ -1,0 +1,352 @@
+/* TCO */
+/* 
+01  body
+02  page title
+03  form
+04  scheduling
+05  google maps embed
+06  address
+07  media queries min width 770px
+08  media queries min width 1200px
+
+*/
+
+/* 01 body */
+
+body {
+  font-family: neuzeit-grotesk, sans-serif;
+  font-style: normal;
+  font-size: calc(16px + 0.390625vw);
+  font-weight: 300;
+  color: #000000;
+  overflow-x: hidden;
+}
+
+/* 02 page title */
+
+h1 {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-left: 5%;
+}
+
+hr.title {
+  width: 90%;
+  border: 1px solid #000;
+  text-align: center;
+  margin: 1rem auto 3rem auto;
+}
+
+/* 03 form */
+
+form {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+          justify-content: center;
+  width: 90%;
+  margin: 1rem auto;
+}
+
+div.form-buttons {
+  width: 90%;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+input {
+  border: none;
+  border-bottom: 0.1rem solid #000; 
+  margin-bottom: 2rem;
+  height: 1rem;
+  width: 90vw;
+}
+
+/* input:invalid {
+  border-bottom: 0.2rem solid #ff0000;
+} */
+
+textarea {
+  width: 90%;
+}
+
+/* 04 scheduling */
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+  margin: 3rem auto;
+  max-width: 60%;
+}
+
+img.meeting-scheduling-software-embed {
+  width: 90%;
+  margin: 0 auto;
+}
+
+div.mail {
+  width: 100vw;
+  display: -webkit-box;
+  display: flex;
+  gap: 1rem;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  margin: 4rem auto;
+}
+
+p.phrase {
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+  margin: 3rem auto;
+  max-width: 60%;
+}
+
+/* 05 google maps embed */
+
+div.gmap_canvas {
+  max-width: 100vw;
+  max-height: 50vh;
+  margin: 10rem auto;
+  overflow:hidden;
+  background:none!important;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+iframe {
+  margin: 0 auto;
+}
+
+/* 06 address */
+
+div.address {
+  width: 100vw;
+  display: -webkit-box;
+  display: flex;
+  gap: 1rem;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  margin: 3rem auto;
+}
+
+h2.h2-address {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin: 0;
+}
+
+button.form-button svg {
+  width: 30px;
+  height: auto;
+  margin: 1rem;
+}
+
+a svg{
+  width: 30px;
+  height: auto;
+}
+
+div.address > svg {
+  width: 23px;
+  height: auto;
+}
+
+/* 07 media queries min width 770px */
+
+@media (min-width: 760px) {
+
+  h1 {
+    margin-left: 10%;
+  }
+  
+  hr.title {
+    width: 80%;
+    margin: 1rem auto 4rem auto;
+  }
+
+  form {
+    width: 80%;
+  }
+
+  div.name, .contact {
+    width: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    -webkit-column-gap: 3rem;
+       -moz-column-gap: 3rem;
+            column-gap: 3rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  div.form-buttons {
+    width: 100%;
+  }
+
+  button.appendix, .submit {
+    width: 2rem;
+    margin: 2rem 1.5rem;
+  }
+  
+  input {
+    width: 100%;
+  }
+
+  input#business {
+    margin-top: 1.5rem;
+  }
+  
+  textarea {
+    width: 80%;
+    margin-top: 2rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin: 4rem auto;
+  }
+
+  img.meeting-scheduling-software-embed {
+    width: 70%;
+  }
+
+  p.phrase {
+    font-size: 2rem;
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+
+  div.gmap_canvas {
+    margin: 7rem auto;
+  }
+
+  button.form-button svg:hover {
+    fill: #09c1b2;
+  }
+
+}
+
+/* 08 media queries min width 1200px */
+
+@media (min-width: 1200px) {
+
+  div.title-section {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center;
+    margin: 3rem 3rem 4rem 3rem;
+    height: 3rem;
+    position: relative;
+  }
+
+  hr.title {
+    height: 0.2rem;
+    width: 23vw;
+    background: #000000;
+    position: absolute;
+    left: 0;
+    margin: 2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    margin: 0;
+  }
+
+  textarea {
+    width: 100%;
+  }
+
+  section.scheduling {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 50vw 50vw;
+    grid-template-rows: 0.25fr 1.5fr;
+    -webkit-column-gap: 3rem;
+       -moz-column-gap: 3rem;
+            column-gap: 3rem;
+    margin: 0 auto;
+  }
+
+  h2.schedule {
+    font-size: 2rem;
+    margin: 2rem auto 0 auto;
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+
+  .embed {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    align-self: flex-start;
+  }
+   
+  img.meeting-scheduling-software-embed {
+    -o-object-fit: contain;
+       object-fit: contain;
+    aspect-ratio: 1/1;
+  }
+
+  p.phrase {
+    margin:10% auto;
+  }
+   
+  div.mail {
+    width: auto;
+    height: 90%;
+    margin: 0;
+    grid-column: 1/2;
+    grid-row: 2/3;
+    -webkit-box-align: center;
+            align-items: center;
+  }
+   
+  a.mail-icon {
+    width: 2.5rem;
+  }
+
+  a.mail-address {
+    font-size: 1.5rem;
+  }
+ 
+  section.address {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: end;
+            align-items: flex-end;
+    margin: 0 10% 10% 10%;
+  }
+  
+  div.gmap_canvas {
+    width: 150%;
+    margin: 3rem auto;
+    overflow: visible;
+  }
+
+  div.address {
+    -webkit-box-pack: start;
+            justify-content: flex-start;
+    margin: 0 0 3rem 5rem;
+  }
+  
+}

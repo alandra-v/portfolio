@@ -1,0 +1,537 @@
+/* TOC */
+/*
+01  body
+02  header
+03  hero section
+04  services section
+05  project previews section
+06  media queries min width 760px
+07  media queries min width 1000px
+
+*/
+
+/* 01 body */
+
+body {
+  font-family: neuzeit-grotesk, sans-serif;
+  font-style: normal;
+  font-size: calc(16px + 0.390625vw);
+  font-weight: 300;
+  color: #000000;
+  overflow-x: hidden;
+}
+
+/* 02 header */
+
+header {
+  width: 100vw;
+  height: 100vh;
+  color: #ffffff;
+  position: relative;
+  z-index: 1;
+}
+
+.background-img {
+  background-image: url(../images/hardbruecke_zurich_black_and_white.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  width: 100%;
+  min-height: 100vh;
+  z-index: 0;
+}
+
+/* 03 hero section */
+
+section.hero {
+  margin: 15% 2rem; 
+  width: 65%;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+          justify-content: center;
+  gap: 3rem;
+}
+
+p.hero-text {
+  -webkit-box-ordinal-group: 2;
+          order: 1;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+h1 {
+  -webkit-box-ordinal-group: 3;
+          order: 2;
+  font-size: 1.5rem;
+}
+
+a.contact-button-hero {
+  -webkit-box-ordinal-group: 4;
+          order: 3;
+  border: #09c1b2 2px solid;
+  box-shadow: 0 0 10px #09c1b2;
+  background: transparent;
+  font-size: 1.8rem;
+  font-weight: 700;
+  padding: 0.8rem 1.3rem;
+  text-align: center;
+}
+
+/* 04 services section */
+
+section.services {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+div.articles-grid {
+  margin-top: 5rem;
+}
+
+h2.section-title {
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+hr.title {
+  visibility: hidden;
+}
+
+hr.parting-line {
+  width: 80%;
+  border: 0.02rem solid #000;
+  margin: 2rem auto 2rem auto;
+}
+
+figure.device-frame {
+  display: none;
+}
+
+div.service {
+  width: 80%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: start;
+          align-items: flex-start;
+  gap: 1.5rem;
+}
+
+div.container-buttons {
+  width: 100%;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+
+a.ux-ui-icon {
+  font-weight: 700;
+  text-align: right;
+}
+
+a.icon {
+  width: 30px;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  grid-column: 3/4;
+  grid-row: 3/4;
+}
+
+a.development-icon {
+  width: 2rem;
+}
+
+h3 {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+p.service-description {
+  grid-column: 2/4;
+  grid-row: 2/3;
+}
+
+a.learn-more {
+  grid-column: 2/3;
+  grid-row: 3/4;
+}
+
+a.contact-button-services {
+  display: none;
+}
+
+/* 05 project previews section */
+
+section.project-previews {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  margin: 5rem auto 5rem auto;
+  position: relative;
+}
+
+a.projects-button {
+  display: none;
+}
+
+div.previews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  height: auto;
+  width: 90vw;
+  margin: 0 auto;
+  position: relative;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
+section.project-previews > button {
+  position: absolute;
+  font-size: 5rem;
+  font-weight: 300;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  top: 45%;
+}
+
+button.l-a {
+  left: 5%;
+}
+
+button.r-a {
+  left: 95%;
+}
+
+div.project {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+img.preview-img {
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+p.project-title {
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-top: 1rem;
+}
+
+a.view-project {
+  font-size: 1rem;
+}
+
+a.view-project:hover {
+  text-decoration: underline;
+}
+
+div.previews-grid div:nth-child(2) {
+  display: none;
+}
+
+div.previews-grid div:nth-child(3) {
+  display: none;
+}
+
+
+/* 06 media queries min width 760px */
+
+@media (min-width: 760px) {
+
+  section.hero {
+    gap: 3rem;
+    padding: 5% 3rem;
+    margin-top: 20%;
+    height: 60vh;
+    width: 90%;
+  }
+  
+  h1 {
+    font-size: 4rem;
+    line-height: 4rem;
+    -webkit-box-ordinal-group: 2;
+            order: 1;
+  }
+  
+  p.hero-text { 
+    font-size: 3rem;
+    font-weight: 300;
+    -webkit-box-ordinal-group: 3;
+            order: 2;
+  }
+  
+  a.contact-button-hero {
+    padding: 1.2rem 3rem;
+    width: 17rem;
+  }
+
+  a.development-icon {
+    -o-object-fit: fill;
+       object-fit: fill;
+    width: 2.3rem;
+  }
+
+  a.learn-more:hover {
+    text-decoration: underline;
+  }
+
+  /* section project previews */
+
+  div.previews-grid {
+    overflow: hidden;
+  }
+  
+  div.previews-grid div:nth-child(2) {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    margin: 0 auto;
+  }
+
+  img.preview-img {
+    max-width: 350px;
+  }
+
+}
+
+/* 07 media queries min width 1000px */
+
+@media (min-width: 1000px) {
+
+  section.hero {
+    margin-top: 5%;
+    padding: 5% 6rem;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    line-height: 4rem;
+    font-weight: 500;
+    -webkit-box-ordinal-group: 2;
+            order: 1;
+  }
+  
+  p.hero-text { 
+    font-size: 2rem;
+    -webkit-box-ordinal-group: 3;
+            order: 2;
+  }
+  
+  a.contact-button-hero {
+    -webkit-box-ordinal-group: 4;
+            order: 3;
+  }
+
+  section.services {
+    padding: 2rem;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+    -webkit-box-pack: center;
+            justify-content: center;
+    margin: 6rem auto;
+  }
+
+  div.title-section {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center;
+    padding: 2rem;
+    margin: 6rem auto;
+    width: 100%;
+    height: 3rem;
+    position: relative;
+  }
+
+  hr.title {
+    visibility: visible;
+    height: 3px;
+    width: 23vw;
+    background: #000000;
+    position: absolute;
+    left: 0;
+  }
+
+  h2.section-title {
+    width: auto;
+    height: auto;
+    position: static;
+    -webkit-clip-path: none;
+            clip-path: none;
+    clip: auto;
+    white-space: normal;
+    overflow: visible;
+    font-size: 2.5rem;
+    font-weight: 500;
+    text-align: center;
+    margin: 0;
+    color: #000;
+  }
+
+  h3:hover {
+    color: #09c1b2;
+  }
+
+  hr.parting-line {
+    display: none;
+  }
+
+  div.articles-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 10vw;
+    grid-row-gap: 25vh;
+    text-align: left;
+    margin-top: 0;
+  }
+  
+  div.service {
+    height: 30vh;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: start;
+            align-items: flex-start;
+    gap: 1rem;
+  }
+
+  figure.device-frame {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center;
+  }
+
+  .computer {
+    width: 17rem;
+  }
+
+  .tablet {
+    width: 12rem;
+  }
+
+  a.icon {
+    height: 1.8rem;
+  }
+
+  a.icon :hover {
+    fill: #09c1b2;
+    stroke: #09c1b2;
+  }
+
+  a.ux-ui-icon:hover {
+    color: #09c1b2;
+  }
+
+  svg {
+    overflow: visible;
+  }
+
+  a.contact-button-services, .projects-button {
+    display: block;
+    border: #09c1b2 2px solid;
+    box-shadow: 0 0 10px #09c1b2;
+    background: transparent;
+    color: #000000;
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 1.2rem 3rem;
+    margin-top: 4rem;
+  }
+  
+  a.contact-button-services:hover, .projects-button:hover, .contact-button-hero:hover {
+    color: #09c1b2;
+  }
+
+  /* section project previews */
+
+  section.project-previews {
+    padding: 2rem;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+    -webkit-box-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+            justify-content: center;
+  }
+
+  div.previews-grid div:nth-child(3) {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    margin: 0 auto;
+  }
+
+  img.preview-img {
+    max-width: 600px;
+  }
+
+  section.project-previews > button {
+    display: none;
+  }
+  
+}

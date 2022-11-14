@@ -1,0 +1,112 @@
+/* TOC */
+/* 
+01  body
+02  main
+03  media queries min width 600px
+04  media queries min width 770px
+05  media queries min width 1200px
+
+*/
+
+/* 01 body */
+
+body {
+  font-family: neuzeit-grotesk, sans-serif;
+  font-style: normal;
+  font-size: calc(16px + 0.390625vw);
+  font-weight: 300;
+  color: #000000;
+}
+
+/* 02 main */
+
+main {
+  height: 80vh;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-left: 5%;
+}
+
+hr.title {
+  width: 90%;
+  border: 1px solid #000;
+  text-align: center;
+  margin: 1rem auto 3rem auto;
+}
+
+p {
+  margin: 20% 0 50% 5%;
+  line-height: 3rem;
+  font-size: 1.2rem;
+}
+
+/* 03 media queries min width 600px */
+
+@media (min-width: 600px) {
+
+  p {
+    font-size: 1.5rem;
+  }
+
+  p.delimiter {
+    margin: 0;
+    width: 0;
+  }
+
+}
+
+/* 04 media queries min width 770px */
+
+@media (min-width: 770px) {
+  
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+  }
+
+  p {
+    font-size: 2rem;
+  }
+
+}
+
+/* 05 media queries min width 1200px */
+
+@media (min-width: 1200px) {
+  
+  div.title-section {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center;
+    margin: 3rem 3rem 4rem 3rem;
+    height: 3rem;
+    position: relative;
+  }
+  
+  hr.title {
+    height: 0.2rem;
+    width: 23vw;
+    background: #000000;
+    position: absolute;
+    left: 0;
+    margin: 2rem;
+  }
+  
+  h1 {
+    font-size: 2.8rem;
+    text-align: center;
+    margin: 0;
+  }
+
+  p {
+    margin: 15% 0 60% 5%;
+    font-size: 2.3rem;
+  }
+
+}
