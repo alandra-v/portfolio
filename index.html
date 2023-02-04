@@ -24,6 +24,8 @@
   <link rel="stylesheet" href="css/nav.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/footer.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="js/home_preview_slider.js" type="module" defer></script>
 </head>
 
 <body>
@@ -248,73 +250,209 @@
         <h2 class="section-title">Projects</h2>
       </div>
       <button class="l-a">&lsaquo;</button>
-      <div class="previews-grid">
-        <div class="project">
-          <picture>
-            <source media="(min-width:760px)" srcset="images/aebele_home.webp 2848w, images/aebele_home.png 2848w">
-            <source srcset="images/aebele_home_small.webp 1600w, images/aebele_home_small.png 1600w"><img
-              src="images/aebele_home.png" width="2848" height="1800" alt="Landing page Aebele interiors"
-              class="preview-img">
-          </picture>
-          <picture>
-            <source media="(min-width:760px)" srcset="images/aebele_2.webp 2848w, images/aebele_2.png 2848w">
-            <source srcset="images/aebele_2_small.webp 1600w, images/aebele_2_small.png 1600w"><img
-              src="images/aebele_2.png" width="2848" height="1800" alt="Gallery page Aebele interiors"
-              class="preview-img">
-          </picture>
-          <picture>
-            <source media="(min-width:760px)" srcset="images/aebele_3.webp 2848w, images/aebele_3.png 2848w">
-            <source srcset="images/aebele_3_small.webp 1600w, images/aebele_3_small.png 1600w"><img
-              src="images/aebele_3.png" width="2848" height="1800" alt="Shop Aebele interiors" class="preview-img">
-          </picture>
-          <p class="project-title">Aebele</p>
-          <a href="project_aebele_interiors.html" class="view-project">>View project</a>
-        </div>
-        <div class="project">
-          <picture>
-            <source media="(min-width:760px)" srcset="images/hyer_2.webp 2848w, images/hyer_2.png 2848w">
-            <source srcset="images/hyer_2_small.webp 1600w, images/hyer_2_small.png 1600w"><img src="images/hyer_2.png"
-              width="2848" height="1800" alt="Example page Hyer personalised aviation" class="preview-img">
-          </picture>
-          <picture>
-            <source media="(min-width:760px)" srcset="images/hyer_3.webp 2848w, images/hyer_3.png 2848w">
-            <source srcset="images/hyer_3_small.webp 1600w, images/hyer_3_small.png 1600w"><img src="images/hyer_3.png"
-              width="2848" height="1800" alt="Financial advantages section on page Hyer personalised aviation"
-              class="preview-img">
-          </picture>
-          <picture>
-            <source media="(min-width:760px)" srcset="images/hyer_home.webp 2848w, images/hyer_home.png 2848w">
-            <source srcset="images/hyer_home_small.webp 1600w, images/hyer_home_small.png 1600w"><img
-              src="images/hyer_home.png" width="2848" height="1800" alt="Landing page Hyer personalised aviation"
-              class="preview-img">
-          </picture>
-          <p class="project-title">Hyer</p>
-          <a href="#" class="view-project">>View project</a>
-        </div>
-        <div class="project">
-          <picture>
-            <source media="(min-width:760px)" srcset="images/mikks_2.webp 2848w, images/mikks_2.png 2848w">
-            <source srcset="images/mikks_2_small.webp 1600w, images/mikks_2_small.png 1600w"><img
-              src="images/mikks_2.png" width="2848" height="1800" alt="Recipe page Mikks all natural drink mixers"
-              class="preview-img">
-          </picture>
-          <picture>
-            <source media="(min-width:760px)" srcset="images/mikks_3.webp 2848w, images/mikks_3.png 2848w">
-            <source srcset="images/mikks_3_small.webp 1600w, images/mikks_3_small.png 1600w"><img
-              src="images/mikks_3.png" width="2848" height="1800" alt="Product page Mikks all natural drink mixers"
-              class="preview-img">
-          </picture>
-          <picture>
-            <source media="(min-width:760px)" srcset="images/mikks_home.webp 2848w, images/mikks_home.png 2848w">
-            <source srcset="images/mikks_home_small.webp 1600w, images/mikks_home_small.png 1600w"><img
-              src="images/mikks_home.png" width="2848" height="1800" alt="Landing page Mikks all natural drink mixers"
-              class="preview-img">
-          </picture>
-          <p class="project-title">Mikks</p>
-          <a href="#" class="view-project">>View project</a>
+      <button class="r-a">&rsaquo;</button>
+      <div class="previews-container">
+        <div class="previews">
+          <ul class="previews-ul">
+            <li>
+              <div class="project">
+                <picture>
+                  <source media="(min-width:760px)"
+                    srcset="images/aebele_home.webp 2848w, images/aebele_home.png 2848w">
+                  <source srcset="images/aebele_home_small.webp 1600w, images/aebele_home_small.png 1600w"><img
+                    src="images/aebele_home.png" width="2848" height="1800" alt="Landing page Aebele interiors"
+                    class="preview-img">
+                </picture>
+                <picture>
+                  <source media="(min-width:760px)" srcset="images/aebele_2.webp 2848w, images/aebele_2.png 2848w">
+                  <source srcset="images/aebele_2_small.webp 1600w, images/aebele_2_small.png 1600w"><img
+                    src="images/aebele_2.png" width="2848" height="1800" alt="Gallery page Aebele interiors"
+                    class="preview-img">
+                </picture>
+                <picture>
+                  <source media="(min-width:760px)" srcset="images/aebele_3.webp 2848w, images/aebele_3.png 2848w">
+                  <source srcset="images/aebele_3_small.webp 1600w, images/aebele_3_small.png 1600w"><img
+                    src="images/aebele_3.png" width="2848" height="1800" alt="Shop Aebele interiors"
+                    class="preview-img">
+                </picture>
+                <p class="project-title">Aebele</p>
+                <a href="project_aebele_interiors.html" class="view-project">>View project</a>
+              </div>
+            </li>
+
+            <li>
+              <div class="project">
+                <picture>
+                  <source media="(min-width:760px)" srcset="images/hyer_2.webp 2848w, images/hyer_2.png 2848w">
+                  <source srcset="images/hyer_2_small.webp 1600w, images/hyer_2_small.png 1600w"><img
+                    src="images/hyer_2.png" width="2848" height="1800" alt="Example page Hyer personalised aviation"
+                    class="preview-img">
+                </picture>
+                <picture>
+                  <source media="(min-width:760px)" srcset="images/hyer_3.webp 2848w, images/hyer_3.png 2848w">
+                  <source srcset="images/hyer_3_small.webp 1600w, images/hyer_3_small.png 1600w"><img
+                    src="images/hyer_3.png" width="2848" height="1800"
+                    alt="Financial advantages section on page Hyer personalised aviation" class="preview-img">
+                </picture>
+                <picture>
+                  <source media="(min-width:760px)" srcset="images/hyer_home.webp 2848w, images/hyer_home.png 2848w">
+                  <source srcset="images/hyer_home_small.webp 1600w, images/hyer_home_small.png 1600w"><img
+                    src="images/hyer_home.png" width="2848" height="1800" alt="Landing page Hyer personalised aviation"
+                    class="preview-img">
+                </picture>
+                <p class="project-title">Hyer</p>
+                <a href="#" class="view-project">>View project</a>
+              </div>
+            </li>
+
+            <li>
+              <div class="project">
+                <picture>
+                  <source media="(min-width:760px)" srcset="images/mikks_2.webp 2848w, images/mikks_2.png 2848w">
+                  <source srcset="images/mikks_2_small.webp 1600w, images/mikks_2_small.png 1600w"><img
+                    src="images/mikks_2.png" width="2848" height="1800" alt="Recipe page Mikks all natural drink mixers"
+                    class="preview-img">
+                </picture>
+                <picture>
+                  <source media="(min-width:760px)" srcset="images/mikks_3.webp 2848w, images/mikks_3.png 2848w">
+                  <source srcset="images/mikks_3_small.webp 1600w, images/mikks_3_small.png 1600w"><img
+                    src="images/mikks_3.png" width="2848" height="1800"
+                    alt="Product page Mikks all natural drink mixers" class="preview-img">
+                </picture>
+                <picture>
+                  <source media="(min-width:760px)" srcset="images/mikks_home.webp 2848w, images/mikks_home.png 2848w">
+                  <source srcset="images/mikks_home_small.webp 1600w, images/mikks_home_small.png 1600w"><img
+                    src="images/mikks_home.png" width="2848" height="1800"
+                    alt="Landing page Mikks all natural drink mixers" class="preview-img">
+                </picture>
+                <p class="project-title">Mikks</p>
+                <a href="#" class="view-project">>View project</a>
+              </div>
+            </li>
+
+            <li>
+              <div class="project">
+                <picture>
+                  <source media="(min-width:760px)"
+                    srcset="images/gravityglobalgroup_home.webp 2848w, images/gravityglobalgroup_home.png 2848w">
+                  <source
+                    srcset="images/gravityglobalgroup_home_small.webp 1600w, images/gravityglobalgroup_home_small.png 1600w">
+                  <img src="images/gravityglobalgroup_home.png" width="2848" height="1800"
+                    alt="Landing page gravity global group" class="preview-img">
+                </picture>
+                <picture>
+                  <source media="(min-width:760px)"
+                    srcset="images/gravityglobalgroup_1.webp 2848w, images/gravityglobalgroup_1.png  2848w">
+                  <source
+                    srcset="images/gravityglobalgroup_1_small.webp 1600w, images/gravityglobalgroup_1_small.png 1600w">
+                  <img src="images/gravityglobalgroup_1_small.png" width="2848" height="1800"
+                    alt="Idea page gravity global group" class="preview-img">
+                </picture>
+                <picture>
+                  <source media="(min-width:760px)"
+                    srcset="images/gravityglobalgroup_2.webp 2848w, images/gravityglobalgroup_2.png 2848w">
+                  <source
+                    srcset="images/gravityglobalgroup_2_small.webp 1600w, images/gravityglobalgroup_2_small.png 1600w">
+                  <img src="gravityglobalgroup_2_small.png" width="2848" height="1800"
+                    alt="Gravity global group healthcare" class="preview-img">
+                </picture>
+                <p class="project-title">Gravity Global</p>
+                <a href="#" class="view-project">>View project</a>
+              </div>
+            </li>
+
+            <li>
+              <div class="project">
+                <picture>
+                  <source media="(min-width:760px)"
+                    srcset="images/what_is_missing_home.webp 2848w, images/what_is_missing_home.png 2848w">
+                  <source
+                    srcset="images/what_is_missing_home_small.webp 1600w, images/what_is_missing_home_small.png 1600w">
+                  <img src="what_is_missing_home.png" width="2848" height="1800" alt="Landing page of whatismissing.org"
+                    class="preview-img">
+                </picture>
+                <picture>
+                  <source media="(min-width:760px)"
+                    srcset="images/what_is_missing_1.webp 2848w, images/what_is_missing_1.png 2848w">
+                  <source srcset="images/what_is_missing_1_small.webp 1600w, images/what_is_missing_1_small.png 1600w">
+                  <img src="what_is_missing_1.png" width="2848" height="1800" alt="Navigation of whatismissing.org"
+                    class="preview-img">
+                </picture>
+                <picture>
+                  <source media="(min-width:760px)"
+                    srcset="images/what_is_missing_2.webp 2848w, images/what_is_missing_2.png 2848w">
+                  <source srcset="images/what_is_missing_2_small.webp 1600w, images/what_is_missing_2_small.png 1600w">
+                  <img src="what_is_missing_2.png" width="2848" height="1800"
+                    alt="Greenprint overview of whatismissing.org" class="preview-img">
+                </picture>
+                <p class="project-title">What is missing? A Memorial to the Planet</p>
+                <a href="#" class="view-project">>View project</a>
+              </div>
+            </li>
+
+            <li>
+              <div class="project">
+                <picture>
+                  <source media="(min-width:760px)"
+                    srcset="images/dimorph_home.webp 2848w, images/dimorph_home.png 2848w">
+                  <source srcset="images/dimorph_home_small.webp 1600w, images/dimorph_home_small.png 1600w"><img
+                    src="dimorph_home.png" width="2848" height="1800" alt="Dimorph Createive Web Studio landing page"
+                    class="preview-img">
+                </picture>
+                <picture>
+                  <source media="(min-width:760px)" srcset="images/dimorph_1.webp 2848w, images/dimorph_1.png 2848w">
+                  <source srcset="images/dimorph_1_small.webp 1600w, images/dimorph_1_small.png  1600w"><img
+                    src="dimorph_1.png " width="2848" height="1800" alt="Dimorph work page" class="preview-img">
+                </picture>
+                <picture>
+                  <source media="(min-width:760px)" srcset="images/dimorph_2.webp  2848w, images/dimorph_2.png  2848w">
+                  <source srcset="images/dimorph_2_small.webp  1600w, images/dimorph_2_small.png  1600w"><img
+                    src="dimorph_2.png " width="2848" height="1800" alt="Dimorph studio page" class="preview-img">
+                </picture>
+                <p class="project-title">Dimorph Creative Web Studio</p>
+                <a href="#" class="view-project">>View project</a>
+              </div>
+            </li>
+
+            <li>
+              <div class="project">
+                <picture>
+                  <source media="(min-width:760px)"
+                    srcset="images/celia_lopez_1.webp 2848w, images/celia_lopez_1.png 2848w">
+                  <source srcset="images/celia_lopez_1_small.webp 1600w, images/celia_lopez_1_small.png 1600w"><img
+                    src="celia_lopez_1.png" width="2848" height="1800" alt="Célia Lopez projects page"
+                    class="preview-img">
+                </picture>
+                <picture>
+                  <source media="(min-width:760px)"
+                    srcset="images/celia_lopez_2.webp 2848w, images/celia_lopez_2.png 2848w">
+                  <source srcset="images/celia_lopez_2_small.webp 1600w, images/celia_lopez_2_small.png 1600w"><img
+                    src="celia_lopez_2.png" width="2848" height="1800" alt="Célia Lopez everdays page"
+                    class="preview-img">
+                </picture>
+                <picture>
+                  <source media="(min-width:760px)"
+                    srcset="images/celia_lopez_3.webp 2848w, images/celia_lopez_3.png 2848w">
+                  <source srcset="images/celia_lopez_3_small.webp 1600w, images/celia_lopez_3_small.png 1600w"><img
+                    src="celia_lopez_3.png" width="2848" height="1800" alt="Célia Lopez everydays preview"
+                    class="preview-img">
+                </picture>
+                <p class="project-title">Célia Lopez Interactive & 3D designer</p>
+                <a href="#" class="view-project">>View project</a>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
-      <button class="r-a">&rsaquo;</button>
+      <div class="autoplay-btn">
+        <div class="toggle-container">
+          <div class="toggle">
+            <div class="toggle-btn"></div>
+            <div class="toggle-text">OFF</div>
+            <div class="autoplay-text">Autoplay</div>
+          </div>
+        </div>
+      </div>
       <a href="work.html" class="projects-button">VIEW PROJECTS</a>
     </section>
   </main>
