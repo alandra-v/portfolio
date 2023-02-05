@@ -1,57 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="We offer a variety of different services before/during/after the go-live of your web project ranging from design to technical implementation.">
+  <meta name="description"
+    content="We offer a variety of different services before/during/after the go-live of your web project ranging from design to technical implementation.">
   <title>Services</title>
-  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="favicon/apple-touch-icon-57x57.png"/>
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="favicon/apple-touch-icon-114x114.png"/>
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="favicon/apple-touch-icon-72x72.png"/>
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="favicon/apple-touch-icon-144x144.png"/>
-  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="favicon/apple-touch-icon-120x120.png"/>
-  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="favicon/apple-touch-icon-152x152.png"/>
-  <link rel="icon" type="image/png" href="favicon/favicon-16x16.png" sizes="16x16"/>
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="favicon/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="favicon/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="favicon/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="favicon/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="favicon/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="favicon/apple-touch-icon-152x152.png" />
+  <link rel="icon" type="image/png" href="favicon/favicon-16x16.png" sizes="16x16" />
   <link rel="icon" href="favicon/favicon.ico">
-  <meta name="application-name" content="AVD"/>
-  <meta name="msapplication-TileColor" content="#FFFFFF"/>
-  <meta name="msapplication-TileImage" content="favicon/mstile-144x144.png"/>
+  <meta name="application-name" content="AVD" />
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="favicon/mstile-144x144.png" />
   <link rel="preload" as="font" href="https://use.typekit.net/zoc8kfz.css">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/nav.css">
   <link rel="stylesheet" href="css/services.css">
   <link rel="stylesheet" href="css/footer.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="js/services.js" defer></script>
 </head>
+
 <body>
   <header>
     <nav>
-      <a href="index.html" class="avd-logo" aria-label="Home"><img src="icons/avd_logo_black.svg" width="200" height="100" alt="Alandra Villalaz Development logo"></a>
-      <button class="burger-nav" aria-label="Open the navigation"><img src="icons/burger_navigation_icon_black.svg" width="50" height="50" alt="" id="burger-nav"></button>
-        <div class="overlay-menu">
-          <div class="overlay-header">
-            <a href=index.html class="avd-logo-overlay" aria-label="Home"><img src="icons/avd_logo_black.svg" width="200" height="100" alt="Alandra Villalaz Development logo"></a>
-            <button class="close-button" aria-label="Close the navigation"><img src="icons/close_icon.svg" width="50" height="50" alt=""></button>
-          </div>
-          <ul class="overlay-content">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="work.html">Work</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html" class="contact-button-menu">CONTACT</a></li>
-            <li>
-              <ul class="small-menu">
-                <li><a href="legal_disclosure.html">Legal disclosure</a></li>
-                <li><a href="privacy_policy.html">Privacy policy</a></li>
-              </ul>
-            </li>
-            <li><button class="dark-mode-switch" aria-label="Switch to dark mode"><img src="icons/dark_mode_switch.svg" width="50" height="50" alt=""></button></li>
-            <li><button class="language-switch-menu" aria-label="Change the language to german">EN &#10072; DE</button></li>
-          </ul>
+      <a href="index.html" class="avd-logo" aria-label="Home"><img src="icons/avd_logo_black.svg" width="200"
+          height="100" alt="Alandra Villalaz Development logo"></a>
+      <button class="burger-nav" aria-label="Open the navigation"><img src="icons/burger_navigation_icon_black.svg"
+          width="50" height="50" alt="" id="burger-nav"></button>
+      <div class="overlay-menu">
+        <div class="overlay-header">
+          <a href=index.html class="avd-logo-overlay" aria-label="Home"><img src="icons/avd_logo_black.svg" width="200"
+              height="100" alt="Alandra Villalaz Development logo"></a>
+          <button class="close-button" aria-label="Close the navigation"><img src="icons/close_icon.svg" width="50"
+              height="50" alt=""></button>
         </div>
+        <ul class="overlay-content">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" class="contact-button-menu">CONTACT</a></li>
+          <li>
+            <ul class="small-menu">
+              <li><a href="legal_disclosure.html">Legal disclosure</a></li>
+              <li><a href="privacy_policy.html">Privacy policy</a></li>
+            </ul>
+          </li>
+          <li><button class="dark-mode-switch" aria-label="Switch to dark mode"><img src="icons/dark_mode_switch.svg"
+                width="50" height="50" alt=""></button></li>
+          <li><button class="language-switch-menu" aria-label="Change the language to german">EN &#10072; DE</button>
+          </li>
+        </ul>
+      </div>
       <ul class="nav-switches">
-        <li><button class="theme-switch" aria-label="Switch to dark mode"><?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41.81 58.22"><defs><style>.cls-1{stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px;}</style></defs><g><path class="cls-1" d="M40.81,29.11c0,15.53-12.58,28.11-28.11,28.11-3.46,0-6.77-.63-9.84-1.77,10.68-3.99,18.27-14.27,18.27-26.34S13.55,6.76,2.86,2.77c3.06-1.14,6.38-1.77,9.84-1.77,15.53,0,28.11,12.58,28.11,28.11Z"/></g></svg></button></li>
-        <li><button class="language-switch-header" aria-label="Change the language to german">EN &#10072; DE</button></li>
+        <li><button class="theme-switch" aria-label="Switch to dark mode">
+            <?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41.81 58.22">
+              <defs>
+                <style>
+                  .cls-1 {
+                    stroke: #000;
+                    stroke-linecap: round;
+                    stroke-miterlimit: 10;
+                    stroke-width: 2px;
+                  }
+                </style>
+              </defs>
+              <g>
+                <path class="cls-1"
+                  d="M40.81,29.11c0,15.53-12.58,28.11-28.11,28.11-3.46,0-6.77-.63-9.84-1.77,10.68-3.99,18.27-14.27,18.27-26.34S13.55,6.76,2.86,2.77c3.06-1.14,6.38-1.77,9.84-1.77,15.53,0,28.11,12.58,28.11,28.11Z" />
+              </g>
+            </svg>
+          </button></li>
+        <li><button class="language-switch-header" aria-label="Change the language to german">EN &#10072; DE</button>
+        </li>
       </ul>
       <ul class="site-nav">
         <li><a href="index.html">Home</a></li>
@@ -63,10 +92,12 @@
     </nav>
     <section>
       <p class="hero-text-1">A unique partner for <br>unique projects.</p>
-      <p class="hero-text-2">We love small projects with passion as much as complex platforms. Regardless of the project dimension, we are happy to advise you.</p>
+      <p class="hero-text-2">We love small projects with passion as much as complex platforms. Regardless of the project
+        dimension, we are happy to advise you.</p>
       <div class="title-section">
         <h1>Explore our services</h1>
-        <button class="services-navigation" aria-label="Open services navigation"><img src="icons/filter_icon.svg" alt="" height="35" width="30"></button>
+        <button class="services-navigation" aria-label="Open services navigation"><img src="icons/filter_icon.svg"
+            alt="" height="35" width="30"></button>
       </div>
       <div class="services-nav">
         <ul class="services-nav">
@@ -87,51 +118,57 @@
       <div class="ux-ui-icon service-icon">UX/UI</div>
       <hr class="parting-line">
       <h2 id="web-design">Web design</h2>
-      <p class="service-text">We accompany you as an entrepreneur or on the way to your successful redesign/relaunch!</p>
-      <button class="drop-down-icon" aria-label="Learn more about our web design services"><img src="icons/drop-down_icon.svg" width="30" height="20" alt=""></button>
-        <!-- <div class="service-article">
-          <div class="article-webdesign">
-            <div class="category">
-              <img src="../icons/wings_icon.svg" width="50" height="50" alt="" class="wings">
-              <h3 class="individual-concept">Individual concept</h3>
-              <p class="category">We develop an individual concept based on research of the needs of your customers.</p>
-            </div>
-            <div class="category">
-              <img src="../icons/wings_icon.svg" width="50" height="50" alt="" class="wings">
-              <h3 class="ux-ui">User experience and interface</h3>
-              <p class="category">With well-thought-out web design, we create a well comprehensible and user-oriented website. A perfect symbiosis between functionality and aesthetics.</p>
-            </div>
-            <div class="category">
-              <img src="../icons/wings_icon.svg" width="50" height="50" alt="" class="wings">
-              <h3 class="ucd">User centered design testing</h3>
-              <p class="category">To ensure that the design and information architecture work as expected, we conduct various tests.</p>
-            </div>
-            <div class="category">
-              <img src="../icons/wings_icon.svg" width="50" height="50" alt="" class="wings">
-              <h3 class="responsive">Responsive web design</h3>
-              <p class="category">We optimize for different terminals and screen sizes.</p>
-            </div>
-            <div class="category">
-              <img src="../icons/wings_icon.svg" width="50" height="50" alt="" class="wings">
-              <h3 class="content-creation">Content creation</h3>
-              <p class="category">On request, we create content for the websites with our partners.</p>
-            </div>
-            <div class="category">
-              <img src="../icons/wings_icon.svg" width="50" height="50" alt="" class="wings">
-              <h3 class="prototype">Prototype</h3>
-              <p class="category">Before the technical implementation, the prototype is tested on various terminals.</p>
-            </div>
+      <p class="service-text">We accompany you as an entrepreneur or on the way to your successful redesign/relaunch!
+      </p>
+      <button class="drop-down-icon" aria-label="Learn more about our web design services"><img
+          src="icons/drop-down_icon.svg" width="50" height="40" alt=""></button>
+      <div class="service-article hidden">
+        <div class="article-webdesign">
+          <div class="category">
+            <img src="../icons/wings_icon.svg" width="50" height="50" alt="" class="wings">
+            <h3 class="individual-concept">Individual concept</h3>
+            <p class="category">We develop an individual concept based on research of the needs of your customers.</p>
           </div>
-          <a href="contact.html" class="button-get-in-touch">GET IN TOUCH</a>
-        </div> -->
+          <div class="category">
+            <img src="../icons/wings_icon.svg" width="50" height="50" alt="" class="wings">
+            <h3 class="ux-ui">User experience and interface</h3>
+            <p class="category">With well-thought-out web design, we create a well comprehensible and user-oriented
+              website. A perfect symbiosis between functionality and aesthetics.</p>
+          </div>
+          <div class="category">
+            <img src="../icons/wings_icon.svg" width="50" height="50" alt="" class="wings">
+            <h3 class="ucd">User centered design testing</h3>
+            <p class="category">To ensure that the design and information architecture work as expected, we conduct
+              various tests.</p>
+          </div>
+          <div class="category">
+            <img src="../icons/wings_icon.svg" width="50" height="50" alt="" class="wings">
+            <h3 class="responsive">Responsive web design</h3>
+            <p class="category">We optimize for different terminals and screen sizes.</p>
+          </div>
+          <div class="category">
+            <img src="../icons/wings_icon.svg" width="50" height="50" alt="" class="wings">
+            <h3 class="content-creation">Content creation</h3>
+            <p class="category">On request, we create content for the websites with our partners.</p>
+          </div>
+          <div class="category">
+            <img src="../icons/wings_icon.svg" width="50" height="50" alt="" class="wings">
+            <h3 class="prototype">Prototype</h3>
+            <p class="category">Before the technical implementation, the prototype is tested on various terminals.</p>
+          </div>
+        </div>
+        <a href="contact.html" class="button-get-in-touch">GET IN TOUCH</a>
+      </div>
     </div>
 
     <div class="service">
       <img src="icons/development_icon.svg" width="50" height="50" alt="" class="service-icon">
       <hr class="parting-line">
       <h2 id="development">Development</h2>
-      <p class="service-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur tempora quibusdam ipsum! Consequuntur, quis placeat.</p>
-      <button class="drop-down-icon" aria-label="Learn more about our development services"><img src="icons/drop-down_icon.svg" width="30" height="20" alt=""></button>
+      <p class="service-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur tempora quibusdam
+        ipsum! Consequuntur, quis placeat.</p>
+      <button class="drop-down-icon" aria-label="Learn more about our development services"><img
+          src="icons/drop-down_icon.svg" width="30" height="20" alt=""></button>
     </div>
 
 
@@ -139,62 +176,65 @@
       <img src="icons/branding_icon.svg" width="50" height="50" alt="" class="service-icon">
       <hr class="parting-line">
       <h2 id="branding">Branding</h2>
-      <p class="service-text">Together we'll find your USP's that we focus on and with which we design/redesign your online visual identity to align with your products/services and brand values.</p>
-      <button class="drop-down-icon" aria-label="Learn more about our branding services"><img src="icons/drop-down_icon.svg" width="30" height="20" alt=""></button>
-        <!-- <div class="service-article">
-          <div class="article-branding">
-            <div class="category">
-              <h3 class="branding">Brand analysis</h3>
-              <hr>
-              <p>The process to review and refine your company's
-                current brand to later change or build
-                perceptions. To understand your brand and
-                customers/users better these might be a few of
-                the included elements:
-                <br>&bull;  Company summary
-                <br>&bull;  Branding goals
-                <br>&bull;  Objectives
-                <br>&bull;  Objective results
-                <br>&bull;  Internal feedback
-                <br>&bull;  Customer feedback
-                <br>&bull;  Competition
-                <br>&bull;  Market analysis
-              </p>
-            </div>
-            <div class="category">
-              <h3 class="branding">Brand strategy</h3>
-              <hr>
-              <p>For a sustainable brand identity, we use long-term
-                planning of goals to communicate your corporate identity
-                in the best possible way - both in print media and on the
-                Internet.
-                Our goal is to create a brand that is unique, authentic, and powerful.
-                Using the analysis we make a strategy tailored to your company, to help reach your goals.</p>
-            </div>
-            <div class="category">
-              <h3 class="branding">Logo design</h3>
-              <hr>
-              <p>A logo that communicates your brand. <br>Unique. Functional. Brand reflecting.</p>
-            </div>
-            <div class="category">
-              <h3 class="branding">Corporate identity design</h3>
-              <hr>
-              <p>Corporate identity is the manner in which
-                your business presents itself to the public,
-                containing font, images, style consistency,
-                and other visual elements. <br><br>We create a custom manual with all brand guidelines of your brand strategy. For more brand awareness and a stronger identity.</p>
-            </div>
-            <div class="category">
-              <h3 class="branding">Rebranding</h3>
-              <hr>
-              <p>You already have a brand but are not
-                satisfied? We'll take a look at your
-                options. Even small changes can make
-                a big difference.</p>
-            </div>
+      <p class="service-text">Together we'll find your USP's that we focus on and with which we design/redesign your
+        online visual identity to align with your products/services and brand values.</p>
+      <button class="drop-down-icon" aria-label="Learn more about our branding services"><img
+          src="icons/drop-down_icon.svg" width="30" height="20" alt=""></button>
+      <div class="service-article hidden">
+        <div class="article-branding">
+          <div class="category">
+            <h3 class="branding">Brand analysis</h3>
+            <hr>
+            <p>The process to review and refine your company's
+              current brand to later change or build
+              perceptions. To understand your brand and
+              customers/users better these might be a few of
+              the included elements:
+              <br>&bull; Company summary
+              <br>&bull; Branding goals
+              <br>&bull; Objectives
+              <br>&bull; Objective results
+              <br>&bull; Internal feedback
+              <br>&bull; Customer feedback
+              <br>&bull; Competition
+              <br>&bull; Market analysis
+            </p>
           </div>
-          <a href="contact.html" class="button-get-in-touch">GET IN TOUCH</a>
-        </div> -->
+          <div class="category">
+            <h3 class="branding">Brand strategy</h3>
+            <hr>
+            <p>For a sustainable brand identity, we use long-term
+              planning of goals to communicate your corporate identity
+              in the best possible way - both in print media and on the
+              Internet.
+              Our goal is to create a brand that is unique, authentic, and powerful.
+              Using the analysis we make a strategy tailored to your company, to help reach your goals.</p>
+          </div>
+          <div class="category">
+            <h3 class="branding">Logo design</h3>
+            <hr>
+            <p>A logo that communicates your brand. <br>Unique. Functional. Brand reflecting.</p>
+          </div>
+          <div class="category">
+            <h3 class="branding">Corporate identity design</h3>
+            <hr>
+            <p>Corporate identity is the manner in which
+              your business presents itself to the public,
+              containing font, images, style consistency,
+              and other visual elements. <br><br>We create a custom manual with all brand guidelines of your brand
+              strategy. For more brand awareness and a stronger identity.</p>
+          </div>
+          <div class="category">
+            <h3 class="branding">Rebranding</h3>
+            <hr>
+            <p>You already have a brand but are not
+              satisfied? We'll take a look at your
+              options. Even small changes can make
+              a big difference.</p>
+          </div>
+        </div>
+        <a href="contact.html" class="button-get-in-touch">GET IN TOUCH</a>
+      </div>
     </div>
 
 
@@ -202,8 +242,10 @@
       <img src="icons/seo_optimization_icon.svg" width="50" height="50" alt="" class="service-icon">
       <hr class="parting-line">
       <h2 id="seo-sea">SEO & SEA optimization</h2>
-      <p class="service-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit perspiciatis sit veritatis aut, commodi quia.</p>
-      <button class="drop-down-icon" aria-label="Learn more about our SEO and SEA optimization services"><img src="icons/drop-down_icon.svg" width="30" height="20" alt=""></button>
+      <p class="service-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit perspiciatis sit veritatis
+        aut, commodi quia.</p>
+      <button class="drop-down-icon" aria-label="Learn more about our SEO and SEA optimization services"><img
+          src="icons/drop-down_icon.svg" width="30" height="20" alt=""></button>
     </div>
 
 
@@ -211,8 +253,10 @@
       <img src="icons/cms_icon.svg" width="50" height="50" alt="" class="service-icon">
       <hr class="parting-line">
       <h2 id="cms">CMS</h2>
-      <p class="service-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate deserunt omnis earum modi fugit quia?</p>
-      <button class="drop-down-icon" aria-label="Learn more about our content management system services"><img src="icons/drop-down_icon.svg" width="30" height="20" alt=""></button>
+      <p class="service-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate deserunt omnis earum
+        modi fugit quia?</p>
+      <button class="drop-down-icon" aria-label="Learn more about our content management system services"><img
+          src="icons/drop-down_icon.svg" width="30" height="20" alt=""></button>
     </div>
 
 
@@ -220,12 +264,30 @@
       <img src="icons/support_icon.svg" width="50" height="50" alt="" class="service-icon">
       <hr class="parting-line">
       <h2 id="support">Support</h2>
-      <p class="service-text">Do you need help with technical problems with your website or our support with maintaining the site? Do you have any questions about your CMS, updates, or general questions? <br>Get support now!</p>
+      <p class="service-text">Do you need help with technical problems with your website or our support with maintaining
+        the site? Do you have any questions about your CMS, updates, or general questions? <br>Get support now!</p>
       <div class="mail">
-        <a href="mailto:alandra.villalaz@gmail.com" class="mail-icon" aria-label="Send us an email"><?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 97.51 69.2"><defs><style>.cls-1{stroke:#000;stroke-miterlimit:10;stroke-width:3px;}</style></defs><g><path class="cls-1" d="M10.23,62.27c.93,.45,1.98,.71,3.09,.71H84.19c1.11,0,2.15-.25,3.09-.71l-27.92-26.28-9.1,7.5c-.87,.72-2.13,.72-3,0l-9.1-7.5L10.23,62.27h0Zm-3.32-3.36s.04-.04,.07-.07l27.5-25.88L7.09,10.41c-.06-.05-.12-.1-.17-.15-.44,.93-.69,1.96-.69,3.06V55.89c0,1.08,.24,2.11,.68,3.03h0Zm83.7,0c.43-.92,.68-1.94,.68-3.03V13.31c0-1.09-.25-2.13-.69-3.06-.05,.05-.11,.11-.17,.15l-27.38,22.55,27.5,25.88s.05,.04,.07,.07h0Zm-3.37-52c-.92-.44-1.96-.69-3.05-.69H13.31c-1.09,0-2.12,.25-3.05,.69l38.48,31.69L87.24,6.91h0ZM13.31,1.5H84.19c6.52,0,11.81,5.29,11.81,11.81V55.89c0,6.52-5.29,11.81-11.81,11.81H13.31c-6.52,0-11.81-5.29-11.81-11.81V13.31C1.5,6.79,6.79,1.5,13.31,1.5Z"/></g></svg></a>
-        <a href="mailto:alandra.villalaz@gmail.com" class="mail-address" aria-label="Send us an email">alandra.villalaz@bluewin.ch</a>
+        <a href="mailto:alandra.villalaz@gmail.com" class="mail-icon" aria-label="Send us an email">
+          <?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 97.51 69.2">
+            <defs>
+              <style>
+                .cls-1 {
+                  stroke: #000;
+                  stroke-miterlimit: 10;
+                  stroke-width: 3px;
+                }
+              </style>
+            </defs>
+            <g>
+              <path class="cls-1"
+                d="M10.23,62.27c.93,.45,1.98,.71,3.09,.71H84.19c1.11,0,2.15-.25,3.09-.71l-27.92-26.28-9.1,7.5c-.87,.72-2.13,.72-3,0l-9.1-7.5L10.23,62.27h0Zm-3.32-3.36s.04-.04,.07-.07l27.5-25.88L7.09,10.41c-.06-.05-.12-.1-.17-.15-.44,.93-.69,1.96-.69,3.06V55.89c0,1.08,.24,2.11,.68,3.03h0Zm83.7,0c.43-.92,.68-1.94,.68-3.03V13.31c0-1.09-.25-2.13-.69-3.06-.05,.05-.11,.11-.17,.15l-27.38,22.55,27.5,25.88s.05,.04,.07,.07h0Zm-3.37-52c-.92-.44-1.96-.69-3.05-.69H13.31c-1.09,0-2.12,.25-3.05,.69l38.48,31.69L87.24,6.91h0ZM13.31,1.5H84.19c6.52,0,11.81,5.29,11.81,11.81V55.89c0,6.52-5.29,11.81-11.81,11.81H13.31c-6.52,0-11.81-5.29-11.81-11.81V13.31C1.5,6.79,6.79,1.5,13.31,1.5Z" />
+            </g>
+          </svg>
+        </a>
+        <a href="mailto:alandra.villalaz@gmail.com" class="mail-address"
+          aria-label="Send us an email">alandra.villalaz@bluewin.ch</a>
       </div>
-      
+
     </div>
 
 
@@ -248,4 +310,5 @@
     </div>
   </footer>
 </body>
+
 </html>
