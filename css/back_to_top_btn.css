@@ -1,0 +1,35 @@
+* {
+  scroll-behavior: smooth;
+}
+
+button#scroll-btn {
+  opacity: 0;
+  width: 4rem;
+  height: 4rem;
+  background: #fff;
+  position: fixed;
+  bottom: 10%;
+  right: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+button#scroll-btn.show {
+  opacity: 1;
+  transition: opacity 1s, transform 1s;
+}
+
+button#scroll-btn>svg {
+  width: 50%;
+}
+
+@media (min-width: 1000px) {
+
+  button#scroll-btn {
+    display: none;
+  }
+
+}
