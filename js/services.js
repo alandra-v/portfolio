@@ -29,7 +29,7 @@ $("button.drop-down-icon").click(function () {
 const wingsArr = $("img.wings");
 
 for (let i = 0; i <= wingsArr.length; i++) {
-  let wingsIndex = $(wingsArr[i]);
+  let wing = $(wingsArr[i]);
   let rotation = i * 30;
   wingsIndex.css({
     "transform": `rotate(${rotation}deg)`
