@@ -96,6 +96,7 @@ div.overlay-menu {
   left: 0;
   top: 0;
   background-color: #fff;
+  color: #000;
   overflow-x: hidden;
   font-size: 5rem;
 }
