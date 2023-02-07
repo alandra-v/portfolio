@@ -26,11 +26,18 @@ header {
   height: 100vh;
   color: #ffffff;
   position: relative;
+  z-index: 1;
+}
+
+.background-img {
   background-image: url(../images/ruinaulta_grisons.webp);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center;
-  z-index: 1;
+  background-position: center;
+  position: absolute;
+  width: 100%;
+  min-height: 100vh;
+  z-index: 0;
 }
 
 h1 {
@@ -75,7 +82,7 @@ div.logos {
   display: flex;
   justify-content: space-around;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   margin: 6rem 2rem;
 }
 
@@ -98,7 +105,8 @@ img.portrait {
   margin: 0 auto 5rem auto;
 }
 
-div.education-career-grid, .recognitions-grid {
+div.education-career-grid,
+.recognitions-grid {
   display: grid;
   width: 95%;
   grid-template-columns: 2fr 1fr;
@@ -110,7 +118,8 @@ p.date {
   text-align: right;
 }
 
-a.contact-button, .view-projects-button {
+a.contact-button,
+.view-projects-button {
   display: block;
   border: #09c1b2 2px solid;
   box-shadow: 0 0 10px #09c1b2;
@@ -125,13 +134,13 @@ a.contact-button, .view-projects-button {
   left: 50%;
   margin-bottom: 5rem;
   -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 
 /* 04 media queries min width 500px */
 
 @media (min-width:500px) {
-  
+
   h1 {
     margin: 20% 0 10% 10%;
   }
@@ -164,7 +173,7 @@ a.contact-button, .view-projects-button {
     margin: 0;
     width: 0;
   }
-  
+
 }
 
 /* 06 media queries min width 1000px */
@@ -179,9 +188,9 @@ a.contact-button, .view-projects-button {
     display: -webkit-box;
     display: flex;
     -webkit-box-pack: center;
-            justify-content: center;
+    justify-content: center;
     -webkit-box-align: center;
-            align-items: center;
+    align-items: center;
     height: 3rem;
     position: relative;
     margin: 10rem 3rem 6rem 3rem;
@@ -190,12 +199,12 @@ a.contact-button, .view-projects-button {
   a.hero-section-button:hover {
     color: #09c1b2;
   }
-  
+
   h2 {
     text-align: center;
     margin: 0;
   }
-  
+
   hr.title {
     width: 23vw;
     border: 0.02rem solid #000;
@@ -209,9 +218,9 @@ a.contact-button, .view-projects-button {
     display: -webkit-box;
     display: flex;
     -webkit-box-pack: justify;
-            justify-content: space-between;
+    justify-content: space-between;
     -webkit-box-align: center;
-            align-items: center;
+    align-items: center;
     padding: 0 5rem;
     gap: 2rem;
   }
@@ -221,11 +230,11 @@ a.contact-button, .view-projects-button {
     display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: reverse;
-            flex-direction: row-reverse;
+    flex-direction: row-reverse;
     -webkit-box-pack: justify;
-            justify-content: space-between;
+    justify-content: space-between;
     -webkit-box-align: center;
-            align-items: center;
+    align-items: center;
   }
 
   img.portrait {
@@ -251,12 +260,12 @@ a.contact-button, .view-projects-button {
 
   img.logo {
     -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
   }
 
   img.logo:hover {
     -webkit-transform: scale(1.2);
-            transform: scale(1.2);
+    transform: scale(1.2);
     -webkit-transition: 0.5s;
     transition: 0.5s;
   }
@@ -265,11 +274,14 @@ a.contact-button, .view-projects-button {
     max-width: 40vw;
   }
 
-  a.hero-section-button, .contact-button, .view-projects-button {
+  a.hero-section-button,
+  .contact-button,
+  .view-projects-button {
     font-size: 1.8rem;
   }
 
-  a.contact-button:hover, .view-projects-button:hover {
+  a.contact-button:hover,
+  .view-projects-button:hover {
     color: #09c1b2;
   }
 
