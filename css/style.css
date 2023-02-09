@@ -566,6 +566,10 @@ a.view-project:hover {
 
   /* section project previews */
 
+  div.title-section-previews {
+    margin: 6rem 2rem;
+  }
+
   ul.previews-ul>li {
     width: calc((100vw / 3) - (10rem / 3));
   }
