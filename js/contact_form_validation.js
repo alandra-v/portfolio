@@ -389,6 +389,9 @@ document.querySelector("form").addEventListener("submit", function (event) {
     console.error("there are still errors")
   } else {
 
+    // disable submit button to prevent double submit
+    document.querySelector("button.submit").disabled = true;
+
     data.title = title;
     data.givenName = givenName;
     data.familyName = familyName;
