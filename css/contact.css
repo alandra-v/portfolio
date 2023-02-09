@@ -199,6 +199,7 @@ input#input-file {
   border: #09c1b2 2px solid;
   box-shadow: 0 0 10px #09c1b2;
   background: transparent;
+  padding: 0.5rem;
 }
 
 /* validation error style */
