@@ -32,11 +32,8 @@ let validationErrors = {
 
 business = businessInput.value;
 file = fileInput.value;
-
-/* TODO */
-// file input drop zone
-// let dropbox;
-// dropbox = document.querySelector(".file");
+// file input container (dropbox)
+const dropbox = document.querySelector(".dropbox");
 
 // console.log(fileInput.files)
 
@@ -350,29 +347,30 @@ telInput.addEventListener("focusout", telValidation);
 emailInput.addEventListener("focusout", emailValidation);
 messageTextarea.addEventListener("focusout", messageValidation);
 
-/* TODO */
-// file input drag and drop
-// dropbox.addEventListener("dragenter", function (e) {
-//   console.log("dragenter");
-//   e.preventDefault();
-//   document.querySelector("#file-upload-button").classList.add("highlight");
-// });
-// dropbox.addEventListener("dragover", function (e) {
-//   console.log("dragover");
-//   e.preventDefault();
-//   document.querySelector("#file-upload-button").classList.add("highlight");
-// });
-// dropbox.addEventListener("dragleave", function (e) {
-//   console.log("dragleave");
-//   e.preventDefault();
-//   document.querySelector("#file-upload-button").classList.remove("highlight");
-// });
-// dropbox.addEventListener("drop", function (e) {
-//   e.preventDefault();
-//   const dt = e.dataTransfer;
-//   const files = dt.files;
-//   handleFiles(files);
-// });
+// file input drag and drop 
+
+window.addEventListener("dragover", (event) => {
+  // prevent file from being opened in browser
+  event.preventDefault();
+  // console.log("dragover");
+  dropbox.classList.add("highlight");
+});
+
+window.addEventListener("dragleave", (event) => {
+  // console.log("dragleave");
+  dropbox.classList.remove("highlight");
+});
+
+window.addEventListener("drop", (event) => {
+  // prevent file from being opened in browser
+  event.preventDefault();
+  // console.log("drop");
+  dropbox.classList.remove("highlight");
+  // process the drop
+  [...event.dataTransfer.files].forEach((file, i) => {
+    console.log(`… file[${i}].name = ${file.name}`);
+  });
+});
 
 
 // form validation on "sumbit"
