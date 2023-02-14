@@ -411,9 +411,6 @@ document.querySelector("form").addEventListener("submit", function (event) {
   }
 });
 
-// prevent user from being able to use browser back button when submitted the form
-window.history.forward();
-
 
 /*******************/
 /* send animation */
