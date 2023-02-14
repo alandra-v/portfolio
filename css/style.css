@@ -203,6 +203,7 @@ ul.previews-ul {
   display: flex;
   gap: 2.5rem;
   width: max-content;
+  position: relative;
 }
 
 ul.previews-ul>li {
