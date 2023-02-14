@@ -8,11 +8,15 @@
 let projectWidth = $("ul.previews-ul>li").width();
 let gapWidth = calcGapWidth();
 let slideWidth = projectWidth + gapWidth;
-
+// console.log(slideWidth);
 
 // start with the 1. slide
 $("ul.previews-ul > li").last().prependTo(".previews-ul");
 
+// add negative margin to the previews ul on page load
+$(document).ready(function () {
+  $("ul.previews-ul").css("left", "-" + slideWidth + "px");
+})
 
 
 /* FUNCTIONS */
@@ -34,7 +38,8 @@ function calcGapWidth() {
 $(window).resize(function () {
   projectWidth = $("ul.previews-ul>li").width();
   gapWidth = calcGapWidth();
-  let slideWidth = projectWidth + gapWidth;
+  slideWidth = projectWidth + gapWidth;
+  $("ul.previews-ul").css("left", "-" + slideWidth + "px");
 });
 
 
@@ -44,7 +49,7 @@ function moveLeft() {
   },
     500,
     function () {
-      $(".previews-ul").css("left", "");
+      $(".previews-ul").css("left", "-" + slideWidth + "px");
       $("ul.previews-ul>li").first().appendTo(".previews-ul");
     });
 };
@@ -55,7 +60,7 @@ function moveRight() {
   },
     500,
     function () {
-      $(".previews-ul").css("left", "");
+      $(".previews-ul").css("left", "-" + slideWidth + "px");
       $("ul.previews-ul>li").last().prependTo(".previews-ul");
     });
 };
