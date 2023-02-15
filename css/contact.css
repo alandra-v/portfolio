@@ -290,10 +290,22 @@ h2.h2-address {
   margin: 0;
 }
 
-button.submit svg {
-  width: 30px;
-  height: auto;
-  margin: 1rem;
+div#lottie-container {
+  position: relative;
+}
+
+button.submit {
+  width: 70px;
+  height: 70px;
+  z-index: 999;
+}
+
+div#lottie-container svg {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  bottom: 0;
+  z-index: 0;
 }
 
 a svg {
@@ -345,8 +357,7 @@ div.address>svg {
     width: 100%;
   }
 
-  button.appendix,
-  .submit {
+  button.appendix {
     width: 2rem;
     margin: 2rem 1.5rem;
   }
@@ -385,10 +396,6 @@ div.address>svg {
 
   div.gmap_canvas {
     margin: 7rem auto;
-  }
-
-  button.submit svg:hover {
-    fill: #09c1b2;
   }
 
 }
@@ -431,6 +438,20 @@ div.address>svg {
 
   input#input-file:valid+label {
     left: 15%;
+  }
+
+  button.submit {
+    width: 80px;
+    height: 80px;
+  }
+
+  button.submit:hover {
+    cursor: pointer;
+  }
+
+  div#lottie-container svg {
+    width: 80px;
+    height: 80px;
   }
 
   section.scheduling {
