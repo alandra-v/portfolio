@@ -30,11 +30,11 @@ function calcGapWidth() {
   // console.log(space);
   return space;
 
-};
+}
 // console.log($("ul.previews-ul:nth-child(1)").offset());
 
 
-// recalculate li width when window is rezized (responsive)
+// recalculate li width when window is resized (responsive)
 $(window).resize(function () {
   projectWidth = $("ul.previews-ul>li").width();
   gapWidth = calcGapWidth();
@@ -52,7 +52,7 @@ function moveLeft() {
       $(".previews-ul").css("left", "-" + slideWidth + "px");
       $("ul.previews-ul>li").first().appendTo(".previews-ul");
     });
-};
+}
 
 function moveRight() {
   $(".previews-ul").animate({
@@ -63,7 +63,7 @@ function moveRight() {
       $(".previews-ul").css("left", "-" + slideWidth + "px");
       $("ul.previews-ul>li").last().prependTo(".previews-ul");
     });
-};
+}
 
 
 /* EVENTLISTENERS */
@@ -113,8 +113,8 @@ function toggleAnimated() {
   } else {
     toggleText.text = "OFF";
     toggleText.attr("aria-label", "Autoplay is off");
-  };
-};
+  }
+}
 
 // timer function
 function timer() {
@@ -126,7 +126,7 @@ function timer() {
     }, 3000);
   } else {
     clearInterval(autoplayTimer);
-  };
+  }
 }
 
 // clearInterval on left/right buttons
