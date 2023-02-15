@@ -67,7 +67,7 @@ nav span.burger:nth-child(4) {
 nav button.open span.burger:nth-child(1),
 nav button.open span.burger:nth-child(4) {
   top: 45%;
-  width: 0%;
+  width: 0;
   left: 50%;
 }
 
