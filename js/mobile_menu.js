@@ -20,18 +20,18 @@ burgerNav.click(function () {
     $("body").css({ "overflow": "hidden" });
     // ensure icons are black
     $("span.burger").css("background", "#000");
-    $(".avd-logo-svg").attr("src", "icons/avd_logo_black.svg");
+    $(".avd-logo-svg").attr("src", "assets/icons/avd_logo_black.svg");
   } else {
     // enable scroll
     $("body").css({ "overflow": "auto" });
     // if there is a background image use white icons
     if ($("div.background-img").length) {
       $("span.burger").css("background", "#fff");
-      $(".avd-logo-svg").attr("src", "icons/avd_logo.svg");
+      $(".avd-logo-svg").attr("src", "assets/icons/avd_logo.svg");
 
     } else {
       $("span.burger").css("background", "#000");
-      $(".avd-logo-svg").attr("src", "icons/avd_logo_black.svg");
+      $(".avd-logo-svg").attr("src", "assets/icons/avd_logo_black.svg");
     }
   }
 
@@ -41,7 +41,7 @@ burgerNav.click(function () {
 // if so change nav icons to white
 if ($("div.background-img").length) {
   $("span.burger").css("background", "#fff");
-  $(".avd-logo-svg").attr("src", "icons/avd_logo.svg");
+  $(".avd-logo-svg").attr("src", "assets/icons/avd_logo.svg");
 }
 
 
@@ -53,5 +53,15 @@ $(window).on("resize", function () {
       menuOverlay.hide();
     }
   }, 100);
+
+  // if there is a background image use white icons
+  if ($("div.background-img").length) {
+    $("span.burger").css("background", "#fff");
+    $(".avd-logo-svg").attr("src", "assets/icons/avd_logo.svg");
+
+  } else {
+    $("span.burger").css("background", "#000");
+    $(".avd-logo-svg").attr("src", "assets/icons/avd_logo_black.svg");
+  }
 });
 
