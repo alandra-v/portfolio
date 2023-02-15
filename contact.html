@@ -88,7 +88,7 @@
     <!-- CONTACT FORM -->
     <form method="post" id="contact-form" novalidate>
       <div class="user-title-container">
-        <label for="user-title">*Title</label>
+        <label for="user-title" aria-label="title">*Title</label>
         <select name="titles" id="user-title">
           <option value="">Title</option>
           <option value="mr">Mr.</option>
@@ -98,49 +98,52 @@
       </div>
       <div class="names-container">
         <div class="input-container given-name-container">
-          <input type="text" id="given-name" autocomplete="given-name" placeholder="*First name" required>
+          <input type="text" id="given-name" aria-label="given-name" autocomplete="given-name" placeholder="*First name"
+            required>
           <label for="given-name" class="placeholder">*First name</label>
         </div>
         <div class="input-container family-name-container">
-          <input type="text" id="family-name" autocomplete="family-name" placeholder="*Last name" required>
+          <input type="text" id="family-name" aria-label="family-name" autocomplete="family-name"
+            placeholder="*Last name" required>
           <label for="family-name" class="placeholder">*Last name</label>
         </div>
       </div>
       <div class="input-container business-container" placeholder="Business">
-        <input type="text" id="business">
+        <input type="text" id="business" aria-label="business">
         <label for="business" class="placeholder">Business</label>
       </div>
       <div class="address-container">
         <div class="input-container street-container">
-          <input type="text" id="address" placeholder="*Address" required>
+          <input type="text" id="address" aria-label="address" placeholder="*Address" required>
           <label for="address" class="placeholder">*Address</label>
         </div>
         <div class="input-container zip-container">
-          <input type="text" id="zip" autocomplete="postal-code" placeholder="*Post code" required>
+          <input type="text" id="zip" aria-label="zip" autocomplete="postal-code" placeholder="*Post code" required>
           <label for="zip" class="placeholder">*Post code</label>
         </div>
       </div>
       <div class="input-container town-container">
-        <input type="text" id="town" placeholder="*Town" required>
+        <input type="text" id="town" aria-label="town" placeholder="*Town" required>
         <label for="town" class="placeholder">*Town</label>
       </div>
       <div class="contact-methods-container">
         <div class="input-container tel-container">
-          <input type="tel" id="tel" autocomplete="tel" placeholder="*Tel" required>
+          <input type="tel" id="tel" aria-label="phone-number" autocomplete="tel" placeholder="*Tel" required>
           <label for="tel" class="placeholder">*Tel <small>(please include country code)</small></label>
         </div>
         <div class="input-container email-container">
-          <input type="email" id="email" autocomplete="email" placeholder="*E-mail" required>
+          <input type="email" id="email" aria-label="email" autocomplete="email" placeholder="*E-mail" required>
           <label for="email" class="placeholder">*E-mail</label>
         </div>
       </div>
       <div class="message-container">
         <label for="message">*Message <small>(min. 30 characters)</small></label>
       </div>
-      <textarea name="message" id="message" cols="30" rows="8" required></textarea>
+      <textarea name="message" id="message" aria-label="your message" cols="30" rows="8" required></textarea>
       <div class="form-buttons">
         <div class="dropbox">
-          <input type="file" id="input-file">
+          <input type="file" id="input-file" aria-label="Chose file" multiple>
+          <label for="input-file" id="input-file-label">No file chosen</label>
         </div>
         <div class="animation-container">
           <button type="submit" class="submit" aria-label="Submit the contact form">
