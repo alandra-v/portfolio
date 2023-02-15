@@ -109,8 +109,10 @@ function toggleAnimated() {
 
   if (toggle.hasClass("active")) {
     toggleText.text = "ON";
+    toggleText.attr("aria-label", "Autoplay is on");
   } else {
     toggleText.text = "OFF";
+    toggleText.attr("aria-label", "Autoplay is off");
   };
 };
 
