@@ -18,4 +18,4 @@ function scrollBtnDisplay() {
   window.scrollY > window.innerHeight
     ? scrollBtn.classList.add("show")
     : scrollBtn.classList.remove("show");
-};
+}
