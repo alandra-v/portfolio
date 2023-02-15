@@ -232,7 +232,7 @@ div.article-branding {
 
 div.article-branding::before {
   content: "";
-  background-image: url(../illustrations/dna_polygon.png);
+  background-image: url(../assets/illustrations/dna_polygon.png);
   background-repeat: no-repeat;
   background-size: contain;
   opacity: 0.6;

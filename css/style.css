@@ -33,7 +33,7 @@ header {
 }
 
 .background-img {
-  background-image: url(../images/hardbruecke_zurich_black_and_white.webp);
+  background-image: url(../assets/images/hardbruecke_zurich_black_and_white.webp);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

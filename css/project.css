@@ -34,9 +34,9 @@ div.title {
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   margin: 2rem;
 }
 
@@ -56,7 +56,7 @@ div.logo-positioning-container {
 img.logo {
   position: absolute;
   -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
   left: 50%;
   width: 5rem;
 }
@@ -64,7 +64,7 @@ img.logo {
 /* 03 section previews */
 
 div.computer-frame {
-  background-image: url(../illustrations/computer_frame_black.svg);
+  background-image: url(../assets/illustrations/computer_frame_black.svg);
   background-size: cover;
   background-repeat: no-repeat;
   width: 360px;
@@ -83,7 +83,7 @@ iframe.computer {
 }
 
 div.mobile-frame {
-  background-image: url(../illustrations/mobile_frame_black.svg);
+  background-image: url(../assets/illustrations/mobile_frame_black.svg);
   background-repeat: no-repeat;
   width: 200px;
   height: 400px;
@@ -135,7 +135,7 @@ a.back-button {
   div.computer-frame {
     margin: 3rem auto;
   }
-  
+
   img.hero {
     width: 65vw;
   }
@@ -153,11 +153,11 @@ a.back-button {
     display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: reverse;
-            flex-direction: row-reverse;
+    flex-direction: row-reverse;
     -webkit-box-pack: justify;
-            justify-content: space-between;
+    justify-content: space-between;
     -webkit-box-align: center;
-            align-items: center;
+    align-items: center;
     width: 60vw;
     margin: 0 auto;
   }
@@ -175,7 +175,7 @@ a.back-button {
   a.visit-website:hover {
     text-decoration: underline;
   }
-  
+
   img.hero {
     position: relative;
     margin: 0 3rem;
@@ -189,7 +189,7 @@ a.back-button {
 
   img.img-1:hover {
     -webkit-transform: scale(1.1);
-            transform: scale(1.1);
+    transform: scale(1.1);
     -webkit-transition: 0.5s;
     transition: 0.5s;
   }
@@ -204,7 +204,7 @@ a.back-button {
   img.img-2:hover {
     z-index: 1;
     -webkit-transform: scale(1.1);
-            transform: scale(1.1);
+    transform: scale(1.1);
     -webkit-transition: 0.5s;
     transition: 0.5s;
   }
@@ -219,7 +219,7 @@ a.back-button {
   a.contact-button:hover {
     color: #09c1b2;
   }
-  
+
   a.back-button:hover {
     text-decoration: underline;
   }
