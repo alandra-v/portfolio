@@ -1,7 +1,6 @@
 /* VARIABLES */
 
 const burgerNav = $(".burger-nav");
-const nav = $("nav");
 const menuOverlay = $(".overlay-menu");
 let resizeTimer;
 let scrolling = true;
@@ -47,7 +46,7 @@ if ($("div.background-img").length) {
 
 
 // hide mobile menu when window size is changed
-$(window).on("resize", function (e) {
+$(window).on("resize", function () {
   clearTimeout(resizeTimer);
   resizeTimer = setTimeout(function () {
     if ($(window).width() > 1000) {
