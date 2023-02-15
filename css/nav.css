@@ -2,7 +2,8 @@
 /* 
 01  navigation mobile
 02  mobile menu overlay
-03  navigation media queries min width 760px
+03  skip navigation link
+04  navigation media queries min width 760px
 05  navigation media queries min width 1100 px
 */
 
@@ -146,7 +147,27 @@ button.language-switch-menu {
   font-weight: 400;
 }
 
-/* 03 navigation media queries min width 770px */
+/* 03 skip navigation link */
+
+a.skip-nav-link {
+  position: absolute;
+  left: -999px;
+  z-index: 999;
+  padding: 1rem;
+  background-color: #000;
+  color: white;
+  opacity: 0;
+}
+
+a.skip-nav-link:focus {
+  left: 50%;
+  top: 10%;
+  transform: translateX(-50%);
+  opacity: 1;
+  border: 1px solid #fff;
+}
+
+/* 04 navigation media queries min width 770px */
 
 @media (min-width: 760px) {
 
