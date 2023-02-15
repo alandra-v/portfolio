@@ -6,6 +6,7 @@
 04  media queries min width 500px
 05  media queries min width 700px
 06  media queries min width 1000px
+07  media queries min width 2000px
 
 */
 
@@ -157,12 +158,16 @@ a.contact-button,
   }
 
   a.hero-section-button {
-    font-size: 1.8rem;
-    padding: 1.2rem 3rem;
+    font-size: 1.6rem;
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
     margin-left: 10%;
+  }
+
+  a.contact-button,
+  a.view-projects-button {
+    font-size: 1.6rem;
   }
 
   p {
@@ -288,6 +293,25 @@ a.contact-button,
   img.portrait {
     margin: 0;
     width: 50%;
+  }
+
+}
+
+/* 07  media queries min width 2000px */
+
+@media (min-width:2000px) {
+
+  section {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  hr.title {
+    width: 18vw;
+  }
+
+  p.partners {
+    width: 30vw;
   }
 
 }

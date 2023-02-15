@@ -5,6 +5,8 @@
 03  skip navigation link
 04  navigation media queries min width 760px
 05  navigation media queries min width 1100 px
+06  navigation media queries min width 1800px
+
 */
 
 /* 01 navigation mobile */
@@ -292,6 +294,16 @@ a.skip-nav-link:focus {
     padding: 0.7rem 1.5rem;
     font-size: 1rem;
     background: transparent;
+  }
+
+}
+
+/* 06  navigation media queries min width 1800px */
+
+@media (min-width: 1800px) {
+
+  nav {
+    font-size: 1.2rem;
   }
 
 }

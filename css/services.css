@@ -7,6 +7,7 @@
 05  media queries min width 760px
 06  media queries min width 1000px
 07  media queries min width 1200px
+08  media queries min width 1800px
 
 */
 
@@ -161,6 +162,7 @@ a.get-in-touch-button {
   width: -moz-max-content;
   width: max-content;
   margin: 3.5rem auto;
+  text-align: center;
 }
 
 .hidden {
@@ -303,8 +305,7 @@ div.article-branding>div.category>p {
   }
 
   a.get-in-touch-button {
-    font-size: 1.8rem;
-    padding: 1.2rem 3rem;
+    font-size: 1.6rem;
   }
 
   /* article webdesign */
@@ -431,6 +432,10 @@ div.article-branding>div.category>p {
     grid-row: 2/3;
   }
 
+  div.category>h3 {
+    font-size: 1.4rem;
+  }
+
   div.mail {
     grid-column: 2/3;
     grid-row: 4/5;
@@ -466,10 +471,6 @@ div.article-branding>div.category>p {
     margin: 0 auto 5rem auto;
   }
 
-  a.get-in-touch-button {
-    font-size: 2rem;
-  }
-
   a.get-in-touch-button:hover {
     color: #09c1b2;
   }
@@ -498,6 +499,23 @@ div.article-branding>div.category>p {
 
   p.hero-text-1 {
     margin-top: 10rem;
+  }
+
+}
+
+/* 08  media queries min width 1800px */
+
+@media (min-width: 1800px) {
+
+  p.hero-text-2 {
+    font-size: 2.2rem;
+    margin-top: 10rem;
+    margin-left: 10rem;
+    width: 45vw;
+  }
+
+  ul.services-nav {
+    margin-top: 15%;
   }
 
 }

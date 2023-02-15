@@ -8,6 +8,7 @@
 06  media queries min width 760px
 07  media queries min width 1000px
 08  media queries min width 1350 px
+09  media queries min width 1800 px
 
 */
 
@@ -359,8 +360,8 @@ a.view-project:hover {
   }
 
   a.contact-button-hero {
-    padding: 1.2rem 3rem;
-    width: 17rem;
+    width: 15rem;
+    font-size: 1.6rem;
   }
 
   a.development-icon {
@@ -491,8 +492,6 @@ a.view-project:hover {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 10vw;
-    grid-row-gap: 25vh;
     text-align: left;
     margin-top: 0;
     gap: 10vh 10vw;
@@ -553,10 +552,12 @@ a.view-project:hover {
     box-shadow: 0 0 10px #09c1b2;
     background: transparent;
     color: #000000;
-    font-size: 2rem;
     font-weight: 700;
-    padding: 1.2rem 3rem;
+    padding: 0.8rem 1.3rem;
     margin-top: 4rem;
+    width: 15rem;
+    font-size: 1.6rem;
+    text-align: center;
   }
 
   a.contact-button-services:hover,
@@ -617,6 +618,32 @@ a.view-project:hover {
 
   button.r-a {
     left: 100%;
+  }
+
+}
+
+/* 09 media queries min width 1800px */
+
+@media (min-width:1800px) {
+
+  hr.title {
+    width: 18vw;
+  }
+
+  div.articles-grid {
+    gap: 5vh 10vw;
+  }
+
+  p.service-description {
+    font-size: 1.2rem;
+  }
+
+  div.previews {
+    margin-bottom: 10rem;
+  }
+
+  button.autoplay-button {
+    top: 103%;
   }
 
 }
