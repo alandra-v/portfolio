@@ -112,12 +112,11 @@ input:valid::placeholder {
 }
 
 input:focus+label,
-input:valid+label,
-input:not(#input-file:valid+label) {
+input:valid+label {
   opacity: 1;
-  top: -0.8rem;
+  top: 0.5rem;
   left: 0;
-  transform: translateY(-100%) scale (0.75);
+  transform: translateY(-100%) scale(0.75);
   color: #000;
   background: #fff;
   width: 100%;
@@ -135,8 +134,8 @@ input#business {
 
 div.business-container>label {
   left: 0;
-  top: -0.8rem;
-  transform: translateY(-100%) scale (0.75);
+  top: 0.5rem;
+  transform: translateY(-100%) scale(0.75);
   opacity: 1;
   color: rgb(111, 111, 111);
 }
@@ -179,8 +178,16 @@ div.file {
 input#input-file {
   border: none;
   outline: none;
-  width: 7rem;
+  width: 50%;
   font-size: 1rem;
+  position: relative;
+}
+
+input#input-file:valid+label {
+  position: absolute;
+  left: 40%;
+  top: 50%;
+  width: auto;
 }
 
 ::-webkit-file-upload-button {
@@ -358,7 +365,7 @@ div.address>svg {
   }
 
   input#input-file:valid+label {
-    top: 2.5rem;
+    left: 25%;
   }
 
   h2 {
@@ -420,6 +427,10 @@ div.address>svg {
 
   textarea {
     width: 100%;
+  }
+
+  input#input-file:valid+label {
+    left: 15%;
   }
 
   section.scheduling {
