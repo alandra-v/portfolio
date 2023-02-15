@@ -10,6 +10,7 @@ let scrolling = true;
 
 // burger menu transition
 burgerNav.click(function () {
+
   $(this).toggleClass("open");
 
   menuOverlay.toggle();
@@ -18,12 +19,13 @@ burgerNav.click(function () {
   if (this.classList.contains("open")) {
     // disable scroll
     $("body").css({ "overflow": "hidden" });
-    // ensure close button is black
+    // ensure icons are black
     $("span.burger").css("background", "#000");
     $(".avd-logo-svg").attr("src", "icons/avd_logo_black.svg");
   } else {
     // enable scroll
     $("body").css({ "overflow": "auto" });
+    // if there is a background image use white icons
     if ($("div.background-img").length) {
       $("span.burger").css("background", "#fff");
       $(".avd-logo-svg").attr("src", "icons/avd_logo.svg");
@@ -33,10 +35,6 @@ burgerNav.click(function () {
       $(".avd-logo-svg").attr("src", "icons/avd_logo_black.svg");
     }
   }
-
-  // replace logo with black logo when menu is open
-
-  // $("span.burger").toggle("close");
 
 });
 
