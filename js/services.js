@@ -15,8 +15,12 @@ $("button.drop-down-icon").click(function () {
 
   if ($(this).siblings("div.service-article").hasClass("hidden")) {
     $(this).siblings("div.service-article").slideDown().removeClass("hidden");
+    $(this).css("transform", "rotate(180deg)");
+
   } else {
     $(this).siblings("div.service-article").slideUp().addClass("hidden");
+    $(this).css("transform", "rotate(360deg)");
+
   }
 
 })
