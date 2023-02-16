@@ -16,7 +16,7 @@ $("ul.previews-ul > li").last().prependTo(".previews-ul");
 // add negative margin to the previews ul on page load
 $(document).ready(function () {
   $("ul.previews-ul").css("left", "-" + slideWidth + "px");
-})
+});
 
 
 /* FUNCTIONS */
@@ -26,9 +26,7 @@ function calcGapWidth() {
 
   let positionProject1 = $("ul.previews-ul li:nth-child(1)").offset().left + $("ul.previews-ul li:nth-child(1)").width();
   let positionProject2 = $("ul.previews-ul li:nth-child(2)").offset().left;
-  let space = positionProject2 - positionProject1;
-  // console.log(space);
-  return space;
+  return positionProject2 - positionProject1;
 
 }
 // console.log($("ul.previews-ul:nth-child(1)").offset());
@@ -98,7 +96,7 @@ let autoplayTimer;
 toggle.click(function (e) {
   toggleAnimated(e);
   timer(e);
-})
+});
 
 /* FUNCTIONS */
 
