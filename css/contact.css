@@ -297,6 +297,7 @@ div#lottie-container {
 button.submit {
   width: 70px;
   height: 70px;
+  position: relative;
   z-index: 999;
 }
 
@@ -502,6 +503,11 @@ div.address>svg {
 
   a.mail-icon {
     width: 2.5rem;
+  }
+
+  a.mail-icon>svg :hover {
+    fill: #09c1b2;
+    stroke: #09c1b2;
   }
 
   a.mail-address {
