@@ -25,11 +25,3 @@ button#scroll-btn.show {
 button#scroll-btn>svg {
   width: 50%;
 }
-
-@media (min-width: 1000px) {
-
-  button#scroll-btn {
-    display: none;
-  }
-
-}
