@@ -23,7 +23,7 @@ $("button.drop-down-icon").click(function () {
 
   }
 
-})
+});
 
 
 /******************/
