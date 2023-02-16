@@ -486,6 +486,7 @@ div.address>svg {
 
   p.phrase {
     margin: 10% auto;
+    height: 10vh;
   }
 
   div.mail {
@@ -505,6 +506,10 @@ div.address>svg {
 
   a.mail-address {
     font-size: 1.5rem;
+  }
+
+  a.mail-address:hover {
+    color: #09c1b2;
   }
 
   section.address {
