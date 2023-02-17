@@ -378,19 +378,19 @@ messageTextarea.addEventListener("focusout", messageValidation);
 // if (isAdvancedUpload) {
 // console.log("this browser supports advanced upload");
 
-window.addEventListener("dragover", (event) => {
+dropbox.addEventListener("dragover", (event) => {
   // prevent file from being opened in browser
   event.preventDefault();
   // console.log("dragover");
   dropbox.classList.add("highlight");
 });
 
-window.addEventListener("dragleave", (event) => {
+dropbox.addEventListener("dragleave", (event) => {
   // console.log("dragleave");
   dropbox.classList.remove("highlight");
 });
 
-window.addEventListener("drop", (event) => {
+dropbox.addEventListener("drop", (event) => {
   // console.log("drop");
   dropbox.classList.remove("highlight");
   // process the drop
