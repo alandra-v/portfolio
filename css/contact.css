@@ -178,16 +178,9 @@ div.file {
 input#input-file {
   border: none;
   outline: none;
-  width: 50%;
+  width: 100%;
   font-size: 1rem;
   position: relative;
-}
-
-input#input-file:valid+label {
-  position: absolute;
-  left: 40%;
-  top: 50%;
-  width: auto;
 }
 
 ::-webkit-file-upload-button {
