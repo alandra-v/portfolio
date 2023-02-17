@@ -415,8 +415,12 @@ document.querySelector("form").addEventListener("submit", function (event) {
     //send form (data object) to backend
     console.log("sending form data to backend");
 
-    // redirecting to contact reaction page 
-    window.location.href = "/contact_reaction.html";
+    // play send animation
+    animation.play()
+    setTimeout(() => {
+      // redirecting to contact reaction page 
+      window.location.href = "/contact_reaction.html";
+    }, 2000)
 
   }
 });
@@ -426,10 +430,10 @@ document.querySelector("form").addEventListener("submit", function (event) {
 /* send animation */
 /*******************/
 
-// const animation = bodymovin.loadAnimation({
-//   container: document.getElementsByClassName("animation-container"),
-//   path: "../animations/send_animation.json",
-//   loop: false,
-//   autoplay: true,
-//   name: "send animation",
-// })
+let animation = lottie.loadAnimation({
+  container: document.getElementById("lottie-container"),
+  renderer: "svg",
+  loop: false,
+  autoplay: false,
+  path: "../assets/animation/send_animation.json",
+});
