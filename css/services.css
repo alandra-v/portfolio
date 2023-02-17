@@ -69,12 +69,12 @@ div.services-nav {
   position: absolute;
   bottom: 20vh;
   right: 5vw;
-  height: 50vh;
+  height: 60vh;
 }
 
 ul.services-nav {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   flex-direction: column;
   align-items: flex-end;
   width: 100vw;
@@ -279,6 +279,10 @@ div.article-branding>div.category>p {
   p.hero-text-2 {
     font-size: 1.5rem;
     margin: 0 0 1rem 2rem;
+  }
+
+  ul.services-nav {
+    padding: 7rem 1rem;
   }
 
   div.title-section {
