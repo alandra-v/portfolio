@@ -71,7 +71,15 @@ function displayErrorMsg(errorMessage, containerName, inputID) {
   errorDisplay.innerText = `${errorMessage}`;
   document.querySelector(`.${containerName} label`).after(errorDisplay);
   document.querySelector(`#${inputID}`).style.borderColor = "#F50404";
+}
+
+// display select error message
+function displaySelectErrorMsg(errorMessage, containerName, inputID) {
+  const errorDisplay = document.createElement("span");
+  errorDisplay.classList.add("error-span");
+  errorDisplay.innerText = `${errorMessage}`;
   document.querySelector(`.${containerName} select`).after(errorDisplay);
+  document.querySelector(`#${inputID}`).style.borderColor = "#F50404";
 }
 
 // valid input field style
@@ -90,7 +98,7 @@ function titleValidation() {
     // console.error("No title provided");
     validationErrors.title = "Title is required";
     detectErrorMsg();
-    displayErrorMsg(
+    displaySelectErrorMsg(
       validationErrors.title,
       "user-title-container",
       "user-title");
