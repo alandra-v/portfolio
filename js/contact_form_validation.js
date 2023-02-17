@@ -366,7 +366,17 @@ telInput.addEventListener("focusout", telValidation);
 emailInput.addEventListener("focusout", emailValidation);
 messageTextarea.addEventListener("focusout", messageValidation);
 
-// file input drag and drop 
+/* FILE INPUT DRAG AND DROP */
+
+// to check if browser supports drag and drop:
+
+// const isAdvancedUpload = function () {
+//   let div = document.createElement("div");
+//   return (("draggable" in div) || ("ondragstart" in div && "ondrop" in div)) && "FormData" in window && "FileReader" in window;
+// }();
+
+// if (isAdvancedUpload) {
+// console.log("this browser supports advanced upload");
 
 window.addEventListener("dragover", (event) => {
   // prevent file from being opened in browser
@@ -381,15 +391,17 @@ window.addEventListener("dragleave", (event) => {
 });
 
 window.addEventListener("drop", (event) => {
-  // prevent file from being opened in browser
-  event.preventDefault();
   // console.log("drop");
   dropbox.classList.remove("highlight");
   // process the drop
   [...event.dataTransfer.files].forEach((file, i) => {
     console.log(`… file[${i}].name = ${file.name}`);
   });
+  // handleFiles();
+  // upload dragged&dropped files with e.g. ajax
 });
+
+// }
 
 
 // form validation on "submit"
