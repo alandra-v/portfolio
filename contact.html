@@ -14,10 +14,8 @@
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/favicon/apple-touch-icon-144x144.png" />
   <link rel="apple-touch-icon-precomposed" sizes="120x120" href="assets/favicon/apple-touch-icon-120x120.png" />
   <link rel="apple-touch-icon-precomposed" sizes="152x152" href="assets/favicon/apple-touch-icon-152x152.png" />
-  <link rel="icon" type="image/png" href="assets/favicon/favicon-16x16.png" sizes="16x16" />
-  <link rel="icon" href="assets/favicon/favicon.ico">
-  <link rel="icon" type="image/png" href="assets/favicon/favicon-16x16-fff.png" sizes="16x16" />
-  <link rel="icon" href="assets/favicon/favicon-fff.ico" />
+  <link rel="icon" id="16" type="image/png" href="assets/favicon/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" id="ico" href="assets/favicon/favicon.ico">
   <meta name="application-name" content="AVD" />
   <meta name="msapplication-TileColor" content="#FFFFFF" />
   <meta name="msapplication-TileImage" content="favicon/mstile-144x144.png" />
@@ -29,7 +27,7 @@
   <link rel="stylesheet" href="css/back_to_top_btn.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.7/lottie.min.js" defer></script>
-  <script src="js/mobile_menu.js" defer></script>
+  <script src="js/mobile_navigation.js" defer></script>
   <script src="js/contact_form_validation.js" defer></script>
   <script src="js/back_to_top_btn.js" defer></script>
   <script src="js/favicon_match_media.js" defer></script>
@@ -188,10 +186,13 @@
     </section>
     <!-- ADDRESS AND GOOGLE MAPS -->
     <section class="address">
+      <!-- NOTE -->
+      <!-- the current google maps embed will be replaced by the usage of the google maps ebmed API -->
       <div class="gmap_canvas">
         <iframe title="Google maps embed" width="700" height="500" id="gmap_canvas"
           src="https://maps.google.com/maps?q=zurich&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no"
-          marginheight="0" marginwidth="0"></iframe>
+          marginheight="0" marginwidth="0">
+        </iframe>
       </div>
       <div class="address">
         <?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65.17 104.14">
