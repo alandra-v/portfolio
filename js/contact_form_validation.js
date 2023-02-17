@@ -16,15 +16,15 @@ const messageTextarea = document.querySelector("#message");
 const fileInput = document.querySelector("#input-file");
 
 // user input value collection
-let title, givenName, familyName, address, town, zip, tel, email, message, file;
+let title, givenName, familyName, address, zip, town, tel, email, message, file;
 let data = {};
 let validationErrors = {
   title,
   givenName,
   familyName,
   address,
-  town,
   zip,
+  town,
   tel,
   email,
   message,
@@ -167,6 +167,9 @@ function familyNameValidation() {
   }
 }
 
+/* NOTE */
+// in the future the address input will be validated by google address validation API
+// it will fix missing, unconfirmed and malformed address components
 
 function addressValidation() {
   detectErrorMsg("address-container");
@@ -187,25 +190,10 @@ function addressValidation() {
   }
 }
 
-function townValidation() {
-  detectErrorMsg("town-container");
-
-  town = townInput.value;
-  if (!town) {
-    // console.error("No town provided");
-    validationErrors.town = "Town is required";
-    detectErrorMsg();
-    displayErrorMsg(
-      validationErrors.town,
-      "town-container",
-      "town");
-  } else {
-    // console.info(`${town} is valid`);
-    delete validationErrors.town;
-    validStyle("town");
-  }
-}
-
+/* NOTE */
+// in the future the zip input will be validated by google address validation API
+// instead of regular expressions
+// respectively autocompleted from an individual component of the address input data
 
 function zipValidation() {
   detectErrorMsg("zip-container");
@@ -238,6 +226,29 @@ function zipValidation() {
       delete validationErrors.zip;
       validStyle("zip");
     }
+  }
+}
+
+/* NOTE */
+// in the future the town input will be validated by google address validation API
+// respectively autocompleted from an individual component of the address input data
+
+function townValidation() {
+  detectErrorMsg("town-container");
+
+  town = townInput.value;
+  if (!town) {
+    // console.error("No town provided");
+    validationErrors.town = "Town is required";
+    detectErrorMsg();
+    displayErrorMsg(
+      validationErrors.town,
+      "town-container",
+      "town");
+  } else {
+    // console.info(`${town} is valid`);
+    delete validationErrors.town;
+    validStyle("town");
   }
 }
 
@@ -303,7 +314,7 @@ function messageValidation() {
 
   message = messageTextarea.value;
   if (!message) {
-    // console.error("No messgae provided");
+    // console.error("No message provided");
     validationErrors.message = "Message is required";
     detectErrorMsg();
     displayErrorMsg(
@@ -341,8 +352,8 @@ titleInput.addEventListener("focusout", titleValidation);
 givenNameInput.addEventListener("focusout", givenNameValidation);
 familyNameInput.addEventListener("focusout", familyNameValidation);
 addressInput.addEventListener("focusout", addressValidation);
-townInput.addEventListener("focusout", townValidation);
 zipInput.addEventListener("focusout", zipValidation);
+townInput.addEventListener("focusout", townValidation);
 telInput.addEventListener("focusout", telValidation);
 emailInput.addEventListener("focusout", emailValidation);
 messageTextarea.addEventListener("focusout", messageValidation);
@@ -373,7 +384,7 @@ window.addEventListener("drop", (event) => {
 });
 
 
-// form validation on "sumbit"
+// form validation on "submit"
 document.querySelector("form").addEventListener("submit", function (event) {
 
   event.preventDefault();
@@ -383,7 +394,6 @@ document.querySelector("form").addEventListener("submit", function (event) {
   // send data to backend
   if (Object.keys(validationErrors).length > 0) {
     alert("Please fill out all required fields correctly.")
-    // displayErrors(validationErrors);
     console.error("there are still errors")
   } else {
 
@@ -395,8 +405,8 @@ document.querySelector("form").addEventListener("submit", function (event) {
     data.familyName = familyName;
     data.business = business;
     data.address = address;
-    data.town = town;
     data.zip = zip;
+    data.town = town;
     data.tel = tel;
     data.email = email;
     data.message = message;
