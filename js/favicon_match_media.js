@@ -1,19 +1,26 @@
-// css media matcher
-let matchResult = window.matchMedia("(prefers-color-scheme: dark)");
+let favicon16x16 = document.getElementById("16");
+let faviconICO = document.getElementById("ico");
 
-
-// add / remove the elements from html head
-lightSchemeIcon = document.querySelector("link#light-scheme-icon");
-darkSchemeIcon = document.querySelector("link#dark-scheme-icon");
-
-function onUpdate() {
-  if (matchResult.matches) {
-    lightSchemeIcon.remove();
-    document.head.append(darkSchemeIcon);
-    // console.log("true");
+const darkModeListener = (e) => {
+  if (e.matches) {
+    console.log("dark");
+    favicon16x16.setAttribute("href", "assets/favicon/favicon-16x16-fff.png");
+    faviconICO.setAttribute("href", "assets/favicon/favicon-fff.ico");
   } else {
-    document.head.append(lightSchemeIcon);
-    darkSchemeIcon.remove();
-    // console.log("false");
+    console.log("light");
+    favicon16x16.setAttribute("href", "iassets/favicon/favicon-16x16.png");
+    faviconICO.setAttribute("href", "assets/favicon/favicon.ico");
   }
+}
+
+// update favicon on mode change
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", darkModeListener);
+
+// check mode on load
+if (window.matchMedia && window.matchMedia("(prefers-color-scheme:dark)").matches) {
+  favicon16x16.setAttribute("href", "iassets/favicon/favicon-16x16-fff.png");
+  faviconICO.setAttribute("href", "assets/favicon/favicon-fff.ico");
+} else {
+  favicon16x16.setAttribute("href", "assets/favicon/favicon-16x16.png");
+  faviconICO.setAttribute("href", "assets/favicon/favicon.ico");
 }
