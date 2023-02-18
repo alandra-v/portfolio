@@ -153,7 +153,7 @@ label[for="message"] {
 textarea {
   display: inline;
   width: 90%;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 div.form-buttons {
@@ -166,6 +166,7 @@ div.form-buttons {
   align-items: center;
   position: absolute;
   top: 100%;
+  margin-top: 1rem;
 }
 
 /* file input */
@@ -210,6 +211,17 @@ span.error-span {
   text-align: left;
   width: 100%;
   margin-top: 0.5rem;
+}
+
+div.alert {
+  opacity: 1;
+  border-left: 5px solid #F50404;
+  box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+}
+
+div.alert>p {
+  font-size: 1rem;
+  padding: 0.5rem;
 }
 
 /* 04 scheduling */
@@ -371,6 +383,12 @@ div.address>svg {
 
   input#input-file:valid+label {
     left: 25%;
+  }
+
+  div.alert {
+    position: absolute;
+    top: 98%;
+    right: 0;
   }
 
   h2 {
