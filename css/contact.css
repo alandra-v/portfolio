@@ -45,8 +45,7 @@ form {
   align-items: flex-start;
   justify-content: center;
   width: 90vw;
-  margin: 1vw auto;
-  margin-bottom: 8rem;
+  margin: 1vw auto 8rem auto;
   position: relative;
 }
 
@@ -170,11 +169,6 @@ div.form-buttons {
 }
 
 /* file input */
-
-div.file {
-  height: 5rem;
-  width: 20rem;
-}
 
 input#input-file {
   border: none;
@@ -363,11 +357,6 @@ div.address>svg {
     width: 100%;
   }
 
-  button.appendix {
-    width: 2rem;
-    margin: 2rem 1.5rem;
-  }
-
   input {
     width: 100%;
   }
@@ -504,8 +493,7 @@ div.address>svg {
   div.mail {
     width: auto;
     height: 20%;
-    margin: 0;
-    margin-top: 35%;
+    margin: 35% 0 0 0;
     grid-column: 1/2;
     grid-row: 2/3;
     -webkit-box-align: center;
