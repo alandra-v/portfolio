@@ -385,7 +385,7 @@ dropbox.addEventListener("dragover", (event) => {
   dropbox.classList.add("highlight");
 });
 
-dropbox.addEventListener("dragleave", (event) => {
+dropbox.addEventListener("dragleave", () => {
   // console.log("dragleave");
   dropbox.classList.remove("highlight");
 });
