@@ -409,14 +409,23 @@ document.querySelector("form").addEventListener("submit", function (event) {
 
   event.preventDefault();
 
-  titleValidation();
-
   // send data to backend
   if (Object.keys(validationErrors).length > 0) {
-    alert("Please fill out all required fields correctly.")
-    console.error("there are still errors")
+    // create submit fail message
+    const alert = document.createElement("div");
+    alert.classList.add("alert");
+    const alertMsg = document.createElement("p");
+    alertMsg.innerText = "❗️ Please fill out all required fields correctly"
+    alert.appendChild(alertMsg);
+    document.querySelector("div.form-buttons").after(alert);
+
+    // console.error("there are still errors")
   } else {
 
+    // remove submit fail message
+    if (document.querySelector("div.alert")) {
+      document.querySelector("div.alert").style.display = "none";
+    }
     // disable submit button to prevent double submit
     document.querySelector("button.submit").disabled = true;
 
