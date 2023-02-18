@@ -47,7 +47,7 @@ div.title-section {
   -webkit-box-align: center;
   align-items: center;
   font-size: 1.5rem;
-  margin: 22vh auto 1rem auto;
+  margin: 20vh auto 1rem auto;
   width: 90%;
 }
 
@@ -389,7 +389,8 @@ div.article-branding>div.category>p {
     -webkit-box-align: center;
     align-items: center;
     gap: 1rem;
-    margin: 20% auto 20% auto;
+    margin: 0 auto 20% auto;
+    padding: 5rem 1rem;
     font-size: 1.2rem;
     font-weight: 500;
   }
@@ -505,6 +506,12 @@ div.article-branding>div.category>p {
     margin-top: 10rem;
   }
 
+  ul.services-nav {
+    margin: 10% auto 20% auto;
+    padding: 7rem 1rem;
+    max-width: 1500px;
+  }
+
 }
 
 /* 08  media queries min width 1800px */
@@ -520,6 +527,7 @@ div.article-branding>div.category>p {
 
   ul.services-nav {
     margin-top: 15%;
+    font-size: 1.5rem;
   }
 
 }
