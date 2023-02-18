@@ -3,7 +3,6 @@
 const burgerNav = $(".burger-nav");
 const menuOverlay = $(".overlay-menu");
 let resizeTimer;
-let scrolling = true;
 
 /* FUNCTIONS */
 
