@@ -15,6 +15,9 @@ const emailInput = document.querySelector("#email");
 const messageTextarea = document.querySelector("#message");
 const fileInput = document.querySelector("#input-file");
 
+const validColor = "#008000";
+const errorColor = "#F50404";
+
 // user input value collection
 let title, givenName, familyName, address, zip, town, tel, email, message, file;
 let data = {};
@@ -64,29 +67,25 @@ function detectErrorMsg(containerName) {
   }
 }
 
-// display error messages
-function displayErrorMsg(errorMessage, containerName, inputID) {
-  const errorDisplay = document.createElement("span");
-  errorDisplay.classList.add("error-span");
-  errorDisplay.innerText = `${errorMessage}`;
-  document.querySelector(`.${containerName} label`).after(errorDisplay);
-  document.querySelector(`#${inputID}`).style.borderColor = "#F50404";
+// display error message
+function displayErrorMsg(errorMessage, containerName, inputID, selector = "label") {
+  const errorDisplay = createErrorSpan(errorMessage);
+  document.querySelector(`.${containerName} ${selector}`).after(errorDisplay);
+  document.querySelector(`#${inputID}`).style.borderColor = errorColor;
   document.querySelector(`#${inputID}`).setAttribute("aria-invalid", "true");
 }
 
-// display select error message
-function displaySelectErrorMsg(errorMessage, containerName, inputID) {
-  const errorDisplay = document.createElement("span");
-  errorDisplay.classList.add("error-span");
-  errorDisplay.innerText = `${errorMessage}`;
-  document.querySelector(`.${containerName} select`).after(errorDisplay);
-  document.querySelector(`#${inputID}`).style.borderColor = "#F50404";
-  document.querySelector(`#${inputID}`).setAttribute("aria-invalid", "true");
+// const create error span
+function createErrorSpan(errorMessage) {
+  const errorSpan = document.createElement("span");
+  errorSpan.classList.add("error-span");
+  errorSpan.innerText = errorMessage;
+  return errorSpan;
 }
 
 // valid input field style
 function validStyle(inputID) {
-  document.querySelector(`#${inputID}`).style.borderColor = "#008000";
+  document.querySelector(`#${inputID}`).style.borderColor = validColor;
   document.querySelector(`#${inputID}`).setAttribute("aria-invalid", "false");
 }
 
@@ -101,10 +100,11 @@ function titleValidation() {
     // console.error("No title provided");
     validationErrors.title = "Title is required";
     detectErrorMsg();
-    displaySelectErrorMsg(
+    displayErrorMsg(
       validationErrors.title,
       "user-title-container",
-      "user-title");
+      "user-title",
+      "select");
   } else {
     delete validationErrors.title;
     validStyle("user-title");
