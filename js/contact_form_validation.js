@@ -71,6 +71,7 @@ function displayErrorMsg(errorMessage, containerName, inputID) {
   errorDisplay.innerText = `${errorMessage}`;
   document.querySelector(`.${containerName} label`).after(errorDisplay);
   document.querySelector(`#${inputID}`).style.borderColor = "#F50404";
+  document.querySelector(`#${inputID}`).setAttribute("aria-invalid", "true");
 }
 
 // display select error message
@@ -80,11 +81,13 @@ function displaySelectErrorMsg(errorMessage, containerName, inputID) {
   errorDisplay.innerText = `${errorMessage}`;
   document.querySelector(`.${containerName} select`).after(errorDisplay);
   document.querySelector(`#${inputID}`).style.borderColor = "#F50404";
+  document.querySelector(`#${inputID}`).setAttribute("aria-invalid", "true");
 }
 
 // valid input field style
 function validStyle(inputID) {
   document.querySelector(`#${inputID}`).style.borderColor = "#008000";
+  document.querySelector(`#${inputID}`).setAttribute("aria-invalid", "false");
 }
 
 
