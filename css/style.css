@@ -570,6 +570,7 @@ a.view-project:hover {
 
   div.title-section-previews {
     margin: 6rem 2rem;
+    width: 95vw;
   }
 
   ul.previews-ul>li {
@@ -597,6 +598,10 @@ a.view-project:hover {
   section.project-previews {
     max-width: 1350px;
     margin: 0 auto;
+  }
+
+  div.title-section-previews {
+    width: auto;
   }
 
   div.previews {
