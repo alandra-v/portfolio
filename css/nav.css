@@ -36,7 +36,9 @@ nav button.burger-nav {
   width: 10%;
   height: 2rem;
   max-width: 3rem;
+  -webkit-transform: rotate(0deg);
   transform: rotate(0deg);
+  -webkit-transition: .5s ease-in-out;
   transition: .5s ease-in-out;
   position: relative;
 }
@@ -50,7 +52,9 @@ nav span.burger {
   border-radius: 10px;
   opacity: 1;
   left: 0;
+  -webkit-transform: rotate(0deg);
   transform: rotate(0deg);
+  -webkit-transition: .25s ease-in-out;
   transition: .25s ease-in-out;
 }
 
@@ -75,10 +79,12 @@ nav button.open span.burger:nth-child(4) {
 }
 
 nav button.open span.burger:nth-child(2) {
+  -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 
 nav button.open span.burger:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
 
@@ -104,9 +110,14 @@ div.overlay-menu {
 }
 
 ul.overlay-content {
+  display: -webkit-box;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
   flex-direction: column;
+  -webkit-box-align: end;
   align-items: flex-end;
+  -webkit-box-pack: center;
   justify-content: center;
   padding: 0 3rem;
   gap: 1.5rem;
@@ -164,6 +175,7 @@ a.skip-nav-link {
 a.skip-nav-link:focus {
   left: 50%;
   top: 10%;
+  -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   opacity: 1;
   border: 1px solid #fff;

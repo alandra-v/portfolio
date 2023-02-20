@@ -26,7 +26,7 @@ main {
 
 h1 {
   -webkit-clip-path: inset(100%);
-          clip-path: inset(100%);
+  clip-path: inset(100%);
   clip: rect(1px, 1px, 1px, 1px);
   height: 1px;
   overflow: hidden;
@@ -59,12 +59,12 @@ a.back-to-home {
     display: -webkit-box;
     display: flex;
     -webkit-box-align: end;
-            align-items: flex-end;
+    align-items: flex-end;
     -webkit-box-pack: justify;
-            justify-content: space-between;
+    justify-content: space-between;
     margin: 0 5% 25rem 5%;
   }
-  
+
   p.text {
     text-align: left;
     font-size: 1.8rem;
@@ -80,7 +80,7 @@ a.back-to-home {
   .back-to-home:hover {
     text-decoration: underline;
   }
-  
+
 }
 
 /* 04 media queries min width 1100px */

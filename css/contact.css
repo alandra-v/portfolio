@@ -40,9 +40,14 @@ hr.title {
 /* 03 contact form */
 
 form {
+  display: -webkit-box;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
   flex-direction: column;
+  -webkit-box-align: start;
   align-items: flex-start;
+  -webkit-box-pack: center;
   justify-content: center;
   width: 90vw;
   margin: 1vw auto 8rem auto;
@@ -50,6 +55,7 @@ form {
 }
 
 div.user-title-container {
+  display: -webkit-box;
   display: flex;
   align-content: center;
   gap: 5rem;
@@ -83,9 +89,14 @@ label {
   top: 0;
   left: 1rem;
   pointer-events: none;
+  -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
+  -webkit-transform-origin: left top;
   transform-origin: left top;
+  -webkit-transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1), tp 150ms, -webkit-transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1), tp 150ms, -webkit-transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1), color 150ms cubic-bezier(0.4, 0, 0.2, 1), tp 150ms;
+  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1), color 150ms cubic-bezier(0.4, 0, 0.2, 1), tp 150ms, -webkit-transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 1.1rem;
   color: rgb(111, 111, 111);
   opacity: 0;
@@ -105,6 +116,26 @@ input:valid {
   border-bottom: 0.1rem solid #000;
 }
 
+input:focus::-webkit-input-placeholder,
+input:valid::-webkit-input-placeholder {
+  opacity: 0;
+}
+
+input:focus::-moz-placeholder,
+input:valid::-moz-placeholder {
+  opacity: 0;
+}
+
+input:focus:-ms-input-placeholder,
+input:valid:-ms-input-placeholder {
+  opacity: 0;
+}
+
+input:focus::-ms-input-placeholder,
+input:valid::-ms-input-placeholder {
+  opacity: 0;
+}
+
 input:focus::placeholder,
 input:valid::placeholder {
   opacity: 0;
@@ -115,6 +146,7 @@ input:valid+label {
   opacity: 1;
   top: 0.5rem;
   left: 0;
+  -webkit-transform: translateY(-100%) scale(0.75);
   transform: translateY(-100%) scale(0.75);
   color: #000;
   background: #fff;
@@ -123,6 +155,7 @@ input:valid+label {
 
 label[for="user-title"] {
   position: initial;
+  -webkit-transform: translateY(0%);
   transform: translateY(0%);
   opacity: 1;
 }
@@ -134,6 +167,7 @@ input#business {
 div.business-container>label {
   left: 0;
   top: 0.5rem;
+  -webkit-transform: translateY(-100%) scale(0.75);
   transform: translateY(-100%) scale(0.75);
   opacity: 1;
   color: rgb(111, 111, 111);
@@ -339,9 +373,14 @@ div.address>svg {
   .address-container,
   .contact-methods-container {
     width: 100%;
+    display: -webkit-box;
     display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
     flex-direction: row;
+    -webkit-box-pack: justify;
     justify-content: space-between;
+    -webkit-box-align: center;
     align-items: center;
   }
 
