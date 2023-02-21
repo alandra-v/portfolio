@@ -71,12 +71,14 @@ $(".r-a").click(function () {
   clearInterval(autoplayTimer);
   // console.log("interval cleared");
   removeTimer();
+  playerOff();
 });
 
 $(".l-a").click(function () {
   moveRight();
   clearInterval(autoplayTimer);
   removeTimer();
+  playerOff();
 });
 
 
@@ -109,9 +111,14 @@ function toggleAnimated() {
     toggleText.text("ON");
     toggleText.attr("aria-label", "Autoplay is on");
   } else {
-    toggleText.text("OFF");
-    toggleText.attr("aria-label", "Autoplay is off");
+    playerOff();
   }
+}
+
+// autoplay button state off
+function playerOff() {
+  toggleText.text("OFF");
+  toggleText.attr("aria-label", "Autoplay is off");
 }
 
 // timer function
