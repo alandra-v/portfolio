@@ -38,7 +38,7 @@ for (let i = 0; i <= wingsArr.length; i++) {
   wingsIndex.css({
     "transform": `rotate(${rotation}deg)`
   });
-  console.log(rotation);
+  // console.log(rotation);
 
 }
 

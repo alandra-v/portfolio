@@ -398,7 +398,7 @@ dropbox.addEventListener("drop", (event) => {
   dropbox.classList.remove("highlight");
   // process the drop
   [...event.dataTransfer.files].forEach((file, i) => {
-    console.log(`… file[${i}].name = ${file.name}`);
+    // console.log(`… file[${i}].name = ${file.name}`);
   });
   // handleFiles();
   // upload dragged&dropped files with e.g. ajax
@@ -445,7 +445,7 @@ document.querySelector("form").addEventListener("submit", function (event) {
     data.file = file;
 
     //send form (data object) to backend
-    console.log("sending form data to backend");
+    // console.log("sending form data to backend");
 
     // play send animation
     animation.play()

@@ -3,11 +3,11 @@ let faviconICO = document.getElementById("ico");
 
 const darkModeListener = (e) => {
   if (e.matches) {
-    console.log("dark");
+    // console.log("dark");
     favicon16x16.setAttribute("href", "assets/favicon/favicon-16x16-fff.png");
     faviconICO.setAttribute("href", "assets/favicon/favicon-fff.ico");
   } else {
-    console.log("light");
+    // console.log("light");
     favicon16x16.setAttribute("href", "assets/favicon/favicon-16x16.png");
     faviconICO.setAttribute("href", "assets/favicon/favicon.ico");
   }
