@@ -34,53 +34,9 @@
   <a href="#main" class="skip-nav-link">Skip to main content</a>
   <header>
     <div class="background-img">
-      <nav>
-        <a href="index.html" class="avd-logo" aria-label="Home"><img src="assets/icons/avd_logo_black.svg"
-            class="avd-logo-svg" width="200" height="100" alt="Alandra Villalaz Development logo"></a>
-        <button class="burger-nav" aria-label="Open the navigation">
-          <span class="burger"></span>
-          <span class="burger"></span>
-          <span class="burger"></span>
-          <span class="burger"></span>
-        </button>
-        <div class="overlay-menu">
-          <ul class="overlay-content">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="work.html">Work</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html" class="contact-button-menu">CONTACT</a></li>
-            <li>
-              <ul class="small-menu">
-                <li><a href="legal_disclosure.html">Legal disclosure</a></li>
-                <li><a href="privacy_policy.html">Privacy policy</a></li>
-              </ul>
-            </li>
-            <li><button class="dark-mode-switch" aria-label="Switch to dark mode"><img
-                  src="assets/icons/dark_mode_switch.svg" width="50" height="50" alt=""></button></li>
-            <li><button class="language-switch-menu" aria-label="Change the language to german">EN &#10072; DE</button>
-            </li>
-          </ul>
-        </div>
-        <ul class="nav-switches">
-          <li><button class="theme-switch" aria-label="Switch to dark mode"><svg xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 41.81 58.22">
-                <path fill="#fff" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"
-                  d="M40.81 29.11c0 15.53-12.58 28.11-28.11 28.11-3.46 0-6.77-.63-9.84-1.77 10.68-3.99 18.27-14.27 18.27-26.34S13.55 6.76 2.86 2.77C5.92 1.63 9.24 1 12.7 1c15.53 0 28.11 12.58 28.11 28.11Z" />
-              </svg></button></li>
-          <li><button class="language-switch-header" aria-label="Change the language to german">EN &#10072; DE</button>
-          </li>
-        </ul>
-        <ul class="site-nav">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="work.html">Work</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html" class="contact-button-header">CONTACT</a></li>
-        </ul>
-      </nav>
+      <?php include('includes/navigation.inc.php'); ?>
       <h1>We are AVD</h1>
-      <a href="contact.html" class="hero-section-button">GET IN TOUCH</a>
+      <a href="contact.php" class="hero-section-button">GET IN TOUCH</a>
     </div>
   </header>
   <main id="main">
@@ -97,13 +53,10 @@
                               assets/images/selina_art_logo.jpg 1500w">
               <source srcset="assets/images/selina_art_logo_small.webp 500w,
                               assets/images/selina_art_logo_small.jpg 500w">
-              <img src="assets/images/selina_art_logo.jpg" width="1500" height="1096" alt="Selina Art logo"
-                class="logo">
+              <img src="assets/images/selina_art_logo.jpg" width="1500" height="1096" alt="Selina Art logo" class="logo">
             </picture>
           </a>
-          <a href="https://www.silvanproductions.ch/" class="silvan-productions-logo"
-            aria-label="Visit Silvan Productions website"><img src="assets/images/silvan_productions_logo.png.webp"
-              width="234" height="105" alt="Silvan Productions logo" class="logo silvan-productions-logo"></a>
+          <a href="https://www.silvanproductions.ch/" class="silvan-productions-logo" aria-label="Visit Silvan Productions website"><img src="assets/images/silvan_productions_logo.png.webp" width="234" height="105" alt="Silvan Productions logo" class="logo silvan-productions-logo"></a>
         </div>
         <p class="partners">We closely work together with Selina Caderas (graduate designer HR communication design with
           specialisation in photography) and Silvan Wagner (videographer, digital film producer).</p>
@@ -120,8 +73,7 @@
                           assets/images/portrait.jpg 1920w">
           <source srcset="assets/images/portrait_small.webp 500w,
                           assets/images/portrait_small.jpg 500w">
-          <img src="assets/images/portrait.jpg" width="1920" height="2880"
-            alt="Woman with brown long hair wearing a jean jacket" class="portrait">
+          <img src="assets/images/portrait.jpg" width="1920" height="2880" alt="Woman with brown long hair wearing a jean jacket" class="portrait">
         </picture>
         <p class="about">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, ducimus accusamus deleniti et
           beatae illum in similique nobis. Distinctio quod soluta, veniam, dolorum facilis pariatur sit odio, rerum nam
@@ -145,7 +97,7 @@
         <p class="date">2017 - 2020</p>
       </div>
     </section>
-    <a href="contact.html" class="contact-button">CONTACT</a>
+    <a href="contact.php" class="contact-button">CONTACT</a>
     <section class="recognitions">
       <div class="title-section">
         <h2>Recognitions</h2>
@@ -159,22 +111,7 @@
         <p>Cssdesignawards website of the month</p>
         <p class="date">05.2021</p>
       </div>
-      <a href="work.html" class="view-projects-button">VIEW PROJECTS</a>
+      <a href="work.php" class="view-projects-button">VIEW PROJECTS</a>
     </section>
   </main>
-  <footer>
-    <div class="footer-left">
-      <button class="language-switch-footer" aria-label="Change the language to german">EN &#10072; DE</button>
-    </div>
-    <div class="footer-right">
-      <div class="legals">
-        <a href="legal_disclosure.html" class="footer-element"><small>Legal disclosure</small></a>
-        <p class="delimiter">&#10072;</p>
-        <a href="privacy_policy.html" class="footer-element"><small>Privacy policy</small></a>
-      </div>
-      <a href="contact.html" class="footer-element"><small>Contact</small></a>
-    </div>
-  </footer>
-</body>
-
-</html>
+  <?php include('includes/footer.inc.php'); ?>

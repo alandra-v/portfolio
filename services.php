@@ -5,8 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="We offer a variety of different services before/during/after the go-live of your web project ranging from design to technical implementation.">
+  <meta name="description" content="We offer a variety of different services before/during/after the go-live of your web project ranging from design to technical implementation.">
   <title>Services</title>
   <link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/favicon/apple-touch-icon-57x57.png" />
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/favicon/apple-touch-icon-114x114.png" />
@@ -35,59 +34,14 @@
 <body>
   <a href="#main" class="skip-nav-link">Skip to main content</a>
   <header>
-    <nav>
-      <a href="index.html" class="avd-logo" aria-label="Home"><img src="assets/icons/avd_logo_black.svg"
-          class="avd-logo-svg" width="200" height="100" alt="Alandra Villalaz Development logo"></a>
-      <button class="burger-nav" aria-label="Open the navigation">
-        <span class="burger"></span>
-        <span class="burger"></span>
-        <span class="burger"></span>
-        <span class="burger"></span>
-      </button>
-      <div class="overlay-menu">
-        <ul class="overlay-content">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="work.html">Work</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html" class="contact-button-menu">CONTACT</a></li>
-          <li>
-            <ul class="small-menu">
-              <li><a href="legal_disclosure.html">Legal disclosure</a></li>
-              <li><a href="privacy_policy.html">Privacy policy</a></li>
-            </ul>
-          </li>
-          <li><button class="dark-mode-switch" aria-label="Switch to dark mode"><img
-                src="assets/icons/dark_mode_switch.svg" width="50" height="50" alt=""></button></li>
-          <li><button class="language-switch-menu" aria-label="Change the language to german">EN &#10072; DE</button>
-          </li>
-        </ul>
-      </div>
-      <ul class="nav-switches">
-        <li><button class="theme-switch" aria-label="Switch to dark mode"><svg xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 41.81 58.22">
-              <path stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"
-                d="M40.81 29.11c0 15.53-12.58 28.11-28.11 28.11-3.46 0-6.77-.63-9.84-1.77 10.68-3.99 18.27-14.27 18.27-26.34S13.55 6.76 2.86 2.77C5.92 1.63 9.24 1 12.7 1c15.53 0 28.11 12.58 28.11 28.11Z" />
-            </svg></button></li>
-        <li><button class="language-switch-header" aria-label="Change the language to german">EN &#10072; DE</button>
-        </li>
-      </ul>
-      <ul class="site-nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="work.html">Work</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html" class="contact-button-header">CONTACT</a></li>
-      </ul>
-    </nav>
+    <?php include('includes/navigation.inc.php'); ?>
     <section>
       <p class="hero-text-1">A unique partner for <br>unique projects.</p>
       <p class="hero-text-2">We love small projects with passion as much as complex platforms. Regardless of the project
         dimension, we are happy to advise you.</p>
       <div class="title-section">
         <h1>Explore our services</h1>
-        <button class="services-navigation" aria-label="Open services navigation"><img
-            src="assets/icons/filter_icon.svg" alt="" height="35" width="30"></button>
+        <button class="services-navigation" aria-label="Open services navigation"><img src="assets/icons/filter_icon.svg" alt="" height="35" width="30"></button>
       </div>
       <div class="services-nav">
         <ul class="services-nav">
@@ -110,8 +64,7 @@
       <h2 id="web-design">Web design</h2>
       <p class="service-text">We accompany you as an entrepreneur or on the way to your successful redesign/relaunch!
       </p>
-      <button class="drop-down-icon" aria-label="Learn more about our web design services"><img
-          src="assets/icons/drop-down_icon.svg" width="50" height="40" alt=""></button>
+      <button class="drop-down-icon" aria-label="Learn more about our web design services"><img src="assets/icons/drop-down_icon.svg" width="50" height="40" alt=""></button>
       <div class="service-article hidden">
         <div class="article-webdesign">
           <div class="category">
@@ -147,7 +100,7 @@
             <p class="category">Before the technical implementation, the prototype is tested on various terminals.</p>
           </div>
         </div>
-        <a href="contact.html" class="button-get-in-touch">GET IN TOUCH</a>
+        <a href="contact.php" class="button-get-in-touch">GET IN TOUCH</a>
       </div>
     </div>
 
@@ -157,8 +110,7 @@
       <h2 id="development">Development</h2>
       <p class="service-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur tempora quibusdam
         ipsum! Consequuntur, quis placeat.</p>
-      <button class="drop-down-icon" aria-label="Learn more about our development services"><img
-          src="assets/icons/drop-down_icon.svg" width="30" height="20" alt=""></button>
+      <button class="drop-down-icon" aria-label="Learn more about our development services"><img src="assets/icons/drop-down_icon.svg" width="30" height="20" alt=""></button>
     </div>
 
 
@@ -168,8 +120,7 @@
       <h2 id="branding">Branding</h2>
       <p class="service-text">Together we'll find your USP's that we focus on and with which we design/redesign your
         online visual identity to align with your products/services and brand values.</p>
-      <button class="drop-down-icon" aria-label="Learn more about our branding services"><img
-          src="assets/icons/drop-down_icon.svg" width="30" height="20" alt=""></button>
+      <button class="drop-down-icon" aria-label="Learn more about our branding services"><img src="assets/icons/drop-down_icon.svg" width="30" height="20" alt=""></button>
       <div class="service-article hidden">
         <div class="article-branding">
           <div class="category">
@@ -223,7 +174,7 @@
               a big difference.</p>
           </div>
         </div>
-        <a href="contact.html" class="button-get-in-touch">GET IN TOUCH</a>
+        <a href="contact.php" class="button-get-in-touch">GET IN TOUCH</a>
       </div>
     </div>
 
@@ -234,8 +185,7 @@
       <h2 id="seo-sea">SEO & SEA optimization</h2>
       <p class="service-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit perspiciatis sit veritatis
         aut, commodi quia.</p>
-      <button class="drop-down-icon" aria-label="Learn more about our SEO and SEA optimization services"><img
-          src="assets/icons/drop-down_icon.svg" width="30" height="20" alt=""></button>
+      <button class="drop-down-icon" aria-label="Learn more about our SEO and SEA optimization services"><img src="assets/icons/drop-down_icon.svg" width="30" height="20" alt=""></button>
     </div>
 
 
@@ -245,8 +195,7 @@
       <h2 id="cms">CMS</h2>
       <p class="service-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate deserunt omnis earum
         modi fugit quia?</p>
-      <button class="drop-down-icon" aria-label="Learn more about our content management system services"><img
-          src="assets/icons/drop-down_icon.svg" width="30" height="20" alt=""></button>
+      <button class="drop-down-icon" aria-label="Learn more about our content management system services"><img src="assets/icons/drop-down_icon.svg" width="30" height="20" alt=""></button>
     </div>
 
 
@@ -259,35 +208,17 @@
       <div class="mail">
         <a href="mailto:alandra.villalaz@gmail.com" class="mail-icon" aria-label="Send us an email">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 97.51 69.2">
-            <path stroke="#000" stroke-miterlimit="10" stroke-width="3"
-              d="M10.23 62.27c.93.45 1.98.71 3.09.71h70.87c1.11 0 2.15-.25 3.09-.71L59.36 35.99l-9.1 7.5c-.87.72-2.13.72-3 0l-9.1-7.5-27.93 26.28Zm-3.32-3.36.07-.07 27.5-25.88L7.09 10.41c-.06-.05-.12-.1-.17-.15-.44.93-.69 1.96-.69 3.06v42.57c0 1.08.24 2.11.68 3.03Zm83.7 0c.43-.92.68-1.94.68-3.03V13.31c0-1.09-.25-2.13-.69-3.06-.05.05-.11.11-.17.15L63.05 32.95l27.5 25.88s.05.04.07.07Zm-3.37-52a7.07 7.07 0 0 0-3.05-.69H13.31c-1.09 0-2.12.25-3.05.69L48.74 38.6l38.5-31.69ZM13.31 1.5h70.88C90.71 1.5 96 6.79 96 13.31v42.58c0 6.52-5.29 11.81-11.81 11.81H13.31C6.79 67.7 1.5 62.41 1.5 55.89V13.31C1.5 6.79 6.79 1.5 13.31 1.5Z" />
+            <path stroke="#000" stroke-miterlimit="10" stroke-width="3" d="M10.23 62.27c.93.45 1.98.71 3.09.71h70.87c1.11 0 2.15-.25 3.09-.71L59.36 35.99l-9.1 7.5c-.87.72-2.13.72-3 0l-9.1-7.5-27.93 26.28Zm-3.32-3.36.07-.07 27.5-25.88L7.09 10.41c-.06-.05-.12-.1-.17-.15-.44.93-.69 1.96-.69 3.06v42.57c0 1.08.24 2.11.68 3.03Zm83.7 0c.43-.92.68-1.94.68-3.03V13.31c0-1.09-.25-2.13-.69-3.06-.05.05-.11.11-.17.15L63.05 32.95l27.5 25.88s.05.04.07.07Zm-3.37-52a7.07 7.07 0 0 0-3.05-.69H13.31c-1.09 0-2.12.25-3.05.69L48.74 38.6l38.5-31.69ZM13.31 1.5h70.88C90.71 1.5 96 6.79 96 13.31v42.58c0 6.52-5.29 11.81-11.81 11.81H13.31C6.79 67.7 1.5 62.41 1.5 55.89V13.31C1.5 6.79 6.79 1.5 13.31 1.5Z" />
           </svg>
         </a>
-        <a href="mailto:alandra.villalaz@gmail.com" class="mail-address"
-          aria-label="Send us an email">alandra.villalaz@gmail.com</a>
+        <a href="mailto:alandra.villalaz@gmail.com" class="mail-address" aria-label="Send us an email">alandra.villalaz@gmail.com</a>
       </div>
 
     </div>
 
 
     <hr class="services-end">
-    <a href="contact.html" class="get-in-touch-button">GET IN TOUCH</a>
-
+    <a href="contact.php" class="get-in-touch-button">GET IN TOUCH</a>
 
   </main>
-  <footer>
-    <div class="footer-left">
-      <button class="language-switch-footer" aria-label="Change the language to german">EN &#10072; DE</button>
-    </div>
-    <div class="footer-right">
-      <div class="legals">
-        <a href="legal_disclosure.html" class="footer-element"><small>Legal disclosure</small></a>
-        <p class="delimiter">&#10072;</p>
-        <a href="privacy_policy.html" class="footer-element"><small>Privacy policy</small></a>
-      </div>
-      <a href="contact.html" class="footer-element"><small>Contact</small></a>
-    </div>
-  </footer>
-</body>
-
-</html>
+  <?php include('includes/footer.inc.php'); ?>

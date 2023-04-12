@@ -5,8 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="We’re looking forward to hearing about your project. Contact us now or schedule a meeting.">
+  <meta name="description" content="We’re looking forward to hearing about your project. Contact us now or schedule a meeting.">
   <title>Contact</title>
   <link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/favicon/apple-touch-icon-57x57.png" />
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/favicon/apple-touch-icon-114x114.png" />
@@ -36,51 +35,7 @@
 <body>
   <a href="#main" class="skip-nav-link">Skip to main content</a>
   <header>
-    <nav>
-      <a href="index.html" class="avd-logo" aria-label="Home"><img src="assets/icons/avd_logo_black.svg"
-          class="avd-logo-svg" width="200" height="100" alt="Alandra Villalaz Development logo"></a>
-      <button class="burger-nav" aria-label="Open the navigation">
-        <span class="burger"></span>
-        <span class="burger"></span>
-        <span class="burger"></span>
-        <span class="burger"></span>
-      </button>
-      <div class="overlay-menu">
-        <ul class="overlay-content">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="work.html">Work</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html" class="contact-button-menu">CONTACT</a></li>
-          <li>
-            <ul class="small-menu">
-              <li><a href="legal_disclosure.html">Legal disclosure</a></li>
-              <li><a href="privacy_policy.html">Privacy policy</a></li>
-            </ul>
-          </li>
-          <li><button class="dark-mode-switch" aria-label="Switch to dark mode"><img
-                src="assets/icons/dark_mode_switch.svg" width="50" height="50" alt=""></button></li>
-          <li><button class="language-switch-menu" aria-label="Change the language to german">EN &#10072; DE</button>
-          </li>
-        </ul>
-      </div>
-      <ul class="nav-switches">
-        <li><button class="theme-switch" aria-label="Switch to dark mode"><svg xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 41.81 58.22">
-              <path stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"
-                d="M40.81 29.11c0 15.53-12.58 28.11-28.11 28.11-3.46 0-6.77-.63-9.84-1.77 10.68-3.99 18.27-14.27 18.27-26.34S13.55 6.76 2.86 2.77C5.92 1.63 9.24 1 12.7 1c15.53 0 28.11 12.58 28.11 28.11Z" />
-            </svg></button></li>
-        <li><button class="language-switch-header" aria-label="Change the language to german">EN &#10072; DE</button>
-        </li>
-      </ul>
-      <ul class="site-nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="work.html">Work</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html" class="contact-button-header">CONTACT</a></li>
-      </ul>
-    </nav>
+    <?php include('includes/navigation.inc.php'); ?>
   </header>
   <main id="main">
     <div class="title-section">
@@ -101,13 +56,11 @@
       </div>
       <div class="names-container">
         <div class="input-container given-name-container">
-          <input type="text" id="given-name" aria-label="given-name" autocomplete="given-name" placeholder="*First name"
-            required>
+          <input type="text" id="given-name" aria-label="given-name" autocomplete="given-name" placeholder="*First name" required>
           <label for="given-name" class="placeholder">*First name</label>
         </div>
         <div class="input-container family-name-container">
-          <input type="text" id="family-name" aria-label="family-name" autocomplete="family-name"
-            placeholder="*Last name" required>
+          <input type="text" id="family-name" aria-label="family-name" autocomplete="family-name" placeholder="*Last name" required>
           <label for="family-name" class="placeholder">*Last name</label>
         </div>
       </div>
@@ -157,18 +110,15 @@
       <h2 class="schedule">Schedule a meeting</h2>
       <picture class="embed">
         <source srcset="assets/images/calendar_embed.webp">
-        <img src="assets/images/calendar_embed.jpeg" alt="Meeting scheduling software embed"
-          class="meeting-scheduling-software-embed" width="1220" height="697">
+        <img src="assets/images/calendar_embed.jpeg" alt="Meeting scheduling software embed" class="meeting-scheduling-software-embed" width="1220" height="697">
       </picture>
       <div class="mail">
         <a href="mailto:alandra.villalaz@gmail.com" class="mail-icon" aria-label="Send us an email">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 97.51 69.2">
-            <path stroke="#000" stroke-miterlimit="10" stroke-width="3"
-              d="M10.23 62.27c.93.45 1.98.71 3.09.71h70.87c1.11 0 2.15-.25 3.09-.71L59.36 35.99l-9.1 7.5c-.87.72-2.13.72-3 0l-9.1-7.5-27.93 26.28Zm-3.32-3.36.07-.07 27.5-25.88L7.09 10.41c-.06-.05-.12-.1-.17-.15-.44.93-.69 1.96-.69 3.06v42.57c0 1.08.24 2.11.68 3.03Zm83.7 0c.43-.92.68-1.94.68-3.03V13.31c0-1.09-.25-2.13-.69-3.06-.05.05-.11.11-.17.15L63.05 32.95l27.5 25.88s.05.04.07.07Zm-3.37-52a7.07 7.07 0 0 0-3.05-.69H13.31c-1.09 0-2.12.25-3.05.69L48.74 38.6l38.5-31.69ZM13.31 1.5h70.88C90.71 1.5 96 6.79 96 13.31v42.58c0 6.52-5.29 11.81-11.81 11.81H13.31C6.79 67.7 1.5 62.41 1.5 55.89V13.31C1.5 6.79 6.79 1.5 13.31 1.5Z" />
+            <path stroke="#000" stroke-miterlimit="10" stroke-width="3" d="M10.23 62.27c.93.45 1.98.71 3.09.71h70.87c1.11 0 2.15-.25 3.09-.71L59.36 35.99l-9.1 7.5c-.87.72-2.13.72-3 0l-9.1-7.5-27.93 26.28Zm-3.32-3.36.07-.07 27.5-25.88L7.09 10.41c-.06-.05-.12-.1-.17-.15-.44.93-.69 1.96-.69 3.06v42.57c0 1.08.24 2.11.68 3.03Zm83.7 0c.43-.92.68-1.94.68-3.03V13.31c0-1.09-.25-2.13-.69-3.06-.05.05-.11.11-.17.15L63.05 32.95l27.5 25.88s.05.04.07.07Zm-3.37-52a7.07 7.07 0 0 0-3.05-.69H13.31c-1.09 0-2.12.25-3.05.69L48.74 38.6l38.5-31.69ZM13.31 1.5h70.88C90.71 1.5 96 6.79 96 13.31v42.58c0 6.52-5.29 11.81-11.81 11.81H13.31C6.79 67.7 1.5 62.41 1.5 55.89V13.31C1.5 6.79 6.79 1.5 13.31 1.5Z" />
           </svg>
         </a>
-        <a href="mailto:alandra.villalaz@gmail.com" class="mail-address"
-          aria-label="Send us an email">alandra.villalaz@gmail.com</a>
+        <a href="mailto:alandra.villalaz@gmail.com" class="mail-address" aria-label="Send us an email">alandra.villalaz@gmail.com</a>
       </div>
       <p class="phrase">We're looking forward to hearing about your project!</p>
     </section>
@@ -177,33 +127,15 @@
       <!-- NOTE -->
       <!-- the current google maps embed will be replaced by the usage of the google maps ebmed API -->
       <div class="gmap_canvas">
-        <iframe title="Google maps embed" width="700" height="500" id="gmap_canvas"
-          src="https://maps.google.com/maps?q=zurich&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no"
-          marginheight="0" marginwidth="0">
+        <iframe title="Google maps embed" width="700" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=zurich&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
         </iframe>
       </div>
       <div class="address">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65.17 104.14">
-          <path
-            d="M32.58 0C14.59 0 0 14.59 0 32.58c0 3.61.59 7.09 1.68 10.34 1.37 2.74 2.75 5.48 4.12 8.22 8.86 17.66 17.7 35.33 26.56 53 8.86-17.45 17.71-34.91 26.57-52.36 1.57-3.11 3.15-6.21 4.73-9.33l.04-.12c.96-3.08 1.48-6.35 1.48-9.74C65.17 14.59 50.58 0 32.58 0Zm4.79 42.58c-1.45.7-3.08 1.09-4.79 1.09s-3.2-.36-4.6-1c-3.83-1.74-6.49-5.6-6.49-10.08 0-6.12 4.96-11.09 11.09-11.09s11.09 4.97 11.09 11.09c0 4.41-2.57 8.21-6.3 10Z" />
+          <path d="M32.58 0C14.59 0 0 14.59 0 32.58c0 3.61.59 7.09 1.68 10.34 1.37 2.74 2.75 5.48 4.12 8.22 8.86 17.66 17.7 35.33 26.56 53 8.86-17.45 17.71-34.91 26.57-52.36 1.57-3.11 3.15-6.21 4.73-9.33l.04-.12c.96-3.08 1.48-6.35 1.48-9.74C65.17 14.59 50.58 0 32.58 0Zm4.79 42.58c-1.45.7-3.08 1.09-4.79 1.09s-3.2-.36-4.6-1c-3.83-1.74-6.49-5.6-6.49-10.08 0-6.12 4.96-11.09 11.09-11.09s11.09 4.97 11.09 11.09c0 4.41-2.57 8.21-6.3 10Z" />
         </svg>
         <h2 class="h2-address">Zurich, Switzerland</h2>
       </div>
     </section>
   </main>
-  <footer>
-    <div class="footer-left">
-      <button class="language-switch-footer" aria-label="Change the language to german">EN &#10072; DE</button>
-    </div>
-    <div class="footer-right">
-      <div class="legals">
-        <a href="legal_disclosure.html" class="footer-element"><small>Legal disclosure</small></a>
-        <p class="delimiter">&#10072;</p>
-        <a href="privacy_policy.html" class="footer-element"><small>Privacy policy</small></a>
-      </div>
-      <a href="contact.html" class="footer-element"><small>Contact</small></a>
-    </div>
-  </footer>
-</body>
-
-</html>
+  <?php include('includes/footer.inc.php'); ?>

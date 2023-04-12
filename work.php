@@ -33,51 +33,7 @@
 <body>
   <a href="#main" class="skip-nav-link">Skip to main content</a>
   <header>
-    <nav>
-      <a href="index.html" class="avd-logo" aria-label="Home"><img src="assets/icons/avd_logo_black.svg"
-          class="avd-logo-svg" width="200" height="100" alt="Alandra Villalaz Development logo"></a>
-      <button class="burger-nav" aria-label="Open the navigation">
-        <span class="burger"></span>
-        <span class="burger"></span>
-        <span class="burger"></span>
-        <span class="burger"></span>
-      </button>
-      <div class="overlay-menu">
-        <ul class="overlay-content">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="work.html">Work</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html" class="contact-button-menu">CONTACT</a></li>
-          <li>
-            <ul class="small-menu">
-              <li><a href="legal_disclosure.html">Legal disclosure</a></li>
-              <li><a href="privacy_policy.html">Privacy policy</a></li>
-            </ul>
-          </li>
-          <li><button class="dark-mode-switch" aria-label="Switch to dark mode"><img
-                src="assets/icons/dark_mode_switch.svg" width="50" height="50" alt=""></button></li>
-          <li><button class="language-switch-menu" aria-label="Change the language to german">EN &#10072; DE</button>
-          </li>
-        </ul>
-      </div>
-      <ul class="nav-switches">
-        <li><button class="theme-switch" aria-label="Switch to dark mode"><svg xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 41.81 58.22">
-              <path stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"
-                d="M40.81 29.11c0 15.53-12.58 28.11-28.11 28.11-3.46 0-6.77-.63-9.84-1.77 10.68-3.99 18.27-14.27 18.27-26.34S13.55 6.76 2.86 2.77C5.92 1.63 9.24 1 12.7 1c15.53 0 28.11 12.58 28.11 28.11Z" />
-            </svg></button></li>
-        <li><button class="language-switch-header" aria-label="Change the language to german">EN &#10072; DE</button>
-        </li>
-      </ul>
-      <ul class="site-nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="work.html">Work</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html" class="contact-button-header">CONTACT</a></li>
-      </ul>
-    </nav>
+    <?php include('includes/navigation.inc.php'); ?>
   </header>
   <main id="main">
     <h1>Projects</h1>
@@ -89,13 +45,11 @@
                           assets/images/aebele_home.png 1200w">
           <source srcset="assets/images/aebele_home_small.webp 600w,
                           assets/images/aebele_home_small.png 600w">
-          <img src="assets/images/aebele_home.png" width="1200" height="758" alt="Landing page Aebele interiors"
-            class="thumbnail aebele-thumbnail">
+          <img src="assets/images/aebele_home.png" width="1200" height="758" alt="Landing page Aebele interiors" class="thumbnail aebele-thumbnail">
         </picture>
         <div class="title">
           <h2>Aebele</h2>
-          <a href="project_aebele_interiors.html" class="view-project"
-            aria-label="Take a closer look at the Aebele project">>View project</a>
+          <a href="project_aebele_interiors.php" class="view-project" aria-label="Take a closer look at the Aebele project">>View project</a>
         </div>
       </div>
       <div class="project">
@@ -104,8 +58,7 @@
                           assets/images/mikks_home.png 1200w">
           <source srcset="assets/images/mikks_home_small.webp 600w,
                           assets/images/mikks_home_small.png 600w">
-          <img src="assets/images/mikks_home.png" width="1200" height="758"
-            alt="Landing page Mikks all natural drink mixers" class="thumbnail">
+          <img src="assets/images/mikks_home.png" width="1200" height="758" alt="Landing page Mikks all natural drink mixers" class="thumbnail">
         </picture>
         <div class="title">
           <h2>Mikks</h2>
@@ -118,8 +71,7 @@
                           assets/images/hyer_home.png 1200w">
           <source srcset="assets/images/hyer_home_small.webp 600w,
                           assets/images/hyer_home_small.png 600w">
-          <img src="assets/images/hyer_home.png" width="1200" height="758" alt="Landing page Hyer personalised aviation"
-            class="thumbnail">
+          <img src="assets/images/hyer_home.png" width="1200" height="758" alt="Landing page Hyer personalised aviation" class="thumbnail">
         </picture>
         <div class="title title-hyer ">
           <h2>Hyer</h2>
@@ -132,8 +84,7 @@
                           assets/images/princeton_home.png 1200w">
           <source srcset="assets/images/princeton_home_small.webp 600w,
                           assets/images/princeton_home_small.png 600w">
-          <img src="assets/images/princeton_home.png" width="1200" height="758"
-            alt="Landing page Princeton computational imaging lab" class="thumbnail">
+          <img src="assets/images/princeton_home.png" width="1200" height="758" alt="Landing page Princeton computational imaging lab" class="thumbnail">
         </picture>
         <div class="title">
           <h2>Princeton</h2>
@@ -146,8 +97,7 @@
                           assets/images/gravityglobalgroup_home.png 1200w">
           <source srcset="assets/images/gravityglobalgroup_home_small.webp 600w,
                           assets/images/gravityglobalgroup_home_small.png 600w">
-          <img src="assets/images/gravityglobalgroup_home.png" width="1200" height="758"
-            alt="Landing page gravity global group" class="thumbnail ggg-thumbnail">
+          <img src="assets/images/gravityglobalgroup_home.png" width="1200" height="758" alt="Landing page gravity global group" class="thumbnail ggg-thumbnail">
         </picture>
         <div class="title">
           <h2>Gravity Global</h2>
@@ -161,8 +111,7 @@
                           assets/images/what_is_missing_home.png 1200w">
           <source srcset="assets/images/what_is_missing_home_small.webp 600w,
                           assets/images/what_is_missing_home_small.png 600w">
-          <img src="assets/images/what_is_missing_home.png" width="1200" height="750" alt="Landing page what is missing"
-            class="thumbnail">
+          <img src="assets/images/what_is_missing_home.png" width="1200" height="750" alt="Landing page what is missing" class="thumbnail">
         </picture>
         <div class="title">
           <h2>What is missing? <br> A Memorial to the Planet</h2>
@@ -176,8 +125,7 @@
                           assets/images/dimorph_home.png 1200w">
           <source srcset="assets/images/dimorph_home_small.webp 600w,
                           assets/images/dimorph_home_small.png 600w">
-          <img src="assets/images/dimorph_home.png" width="1200" height="750" alt="Landing page dimorph"
-            class="thumbnail">
+          <img src="assets/images/dimorph_home.png" width="1200" height="750" alt="Landing page dimorph" class="thumbnail">
         </picture>
         <div class="title title-dimorph">
           <h2>Dimorph Creative Web Studio</h2>
@@ -190,8 +138,7 @@
                           assets/images/celia_lopez_1.png 1200w">
           <source srcset="assets/images/celia_lopez_1_small.webp 600w,
                           assets/images/celia_lopez_1_small.png 600w">
-          <img src="assets/images/celia_lopez_1.png" width="1200" height="750" alt="Landing page célia lopez portfolio"
-            class="thumbnail">
+          <img src="assets/images/celia_lopez_1.png" width="1200" height="750" alt="Landing page célia lopez portfolio" class="thumbnail">
         </picture>
         <div class="title">
           <h2>Célia Lopez Interactive & 3D designer</h2>
@@ -201,19 +148,4 @@
       </div>
     </div>
   </main>
-  <footer>
-    <div class="footer-left">
-      <button class="language-switch-footer" aria-label="Change the language to german">EN &#10072; DE</button>
-    </div>
-    <div class="footer-right">
-      <div class="legals">
-        <a href="legal_disclosure.html" class="footer-element"><small>Legal disclosure</small></a>
-        <p class="delimiter">&#10072;</p>
-        <a href="privacy_policy.html" class="footer-element"><small>Privacy policy</small></a>
-      </div>
-      <a href="contact.html" class="footer-element"><small>Contact</small></a>
-    </div>
-  </footer>
-</body>
-
-</html>
+  <?php include('includes/footer.inc.php'); ?>

@@ -451,7 +451,7 @@ document.querySelector("form").addEventListener("submit", function (event) {
     animation.play()
     setTimeout(() => {
       // redirecting to contact reaction page 
-      window.location.href = "/contact_reaction.html";
+      window.location.href = "/contact_reaction.php";
     }, 2000)
 
   }
