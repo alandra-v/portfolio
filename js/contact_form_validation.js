@@ -414,6 +414,14 @@ document.querySelector("form").addEventListener("submit", function (event) {
 
   // send data to backend
   if (Object.keys(validationErrors).length > 0) {
+
+    // remove submit fail msg timer
+    const removeSubmitMessage = () => {
+      setTimeout(() => {
+      document.querySelector("div.alert").remove();
+      }   , 5000);
+    };
+
     // create submit fail message
     const alert = document.createElement("div");
     alert.classList.add("alert");
@@ -422,6 +430,7 @@ document.querySelector("form").addEventListener("submit", function (event) {
     alert.appendChild(alertMsg);
     document.querySelector("div.form-buttons").after(alert);
 
+    removeSubmitMessage();
     // console.error("there are still errors")
   } else {
 
