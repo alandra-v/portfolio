@@ -18,7 +18,9 @@
   <meta name="application-name" content="AVD" />
   <meta name="msapplication-TileColor" content="#FFFFFF" />
   <meta name="msapplication-TileImage" content="favicon/mstile-144x144.png" />
-  <link rel="preload" as="font" href="https://use.typekit.net/zoc8kfz.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/nav.css">
   <link rel="stylesheet" href="css/project.css">
