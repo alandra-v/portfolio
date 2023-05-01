@@ -67,12 +67,12 @@
         </div>
       </div>
       <div class="input-container business-container">
-        <input type="text" id="business" aria-label="business" placeholder="Business">
+        <input type="text" id="business" aria-label="business" autocomplete="organization" placeholder="Business">
         <label for="business" class="placeholder">Business</label>
       </div>
       <div class="address-container">
         <div class="input-container street-container">
-          <input type="text" id="address" aria-label="address" placeholder="*Address" required>
+          <input type="text" id="address" aria-label="address" autocomplete="street-address" placeholder="*Address" required>
           <label for="address" class="placeholder">*Address</label>
         </div>
         <div class="input-container zip-container">
