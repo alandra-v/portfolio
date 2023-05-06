@@ -2,8 +2,9 @@
 /* 
 01  body
 02  error container
-03  media queries min width 1000px
-04  media queries min width 1200px
+03  media queries min width 760px
+04  media queries min width 1000px
+05  media queries min width 1200px
 
 */
 
@@ -77,6 +78,8 @@ a.bth-btn {
   font-weight: 500;
   padding: 0.8rem 1.3rem;
   text-align: center;
+  text-decoration: none;
+  color: #000000;
 }
 
 a.bth-btn:hover {
@@ -84,9 +87,27 @@ a.bth-btn:hover {
   color: #fff;
 }
 
-/* 03 media queries min width 1000px */
+/* 03 media queries min width 760px */
 
-@media (min-width: 1000px) {
+@media (min-width: 760px) {
+
+  div.error-container {
+    align-items: center;
+  }
+
+  div.msg {
+    width: 50%;
+  }
+
+  a.bth_btn {
+    width: 70%;
+  }
+
+}
+
+/* 04 media queries min width 1000px */
+
+@media (min-width: 1024px) {
 
   div.error-container {
     display: grid;
@@ -96,7 +117,11 @@ a.bth-btn:hover {
   }
 
   img.error-polygon {
-    max-width: 600px;
+    max-width: 500px;
+  }
+
+  div.msg {
+    width: 100%;
   }
 
   h1 {
@@ -105,12 +130,16 @@ a.bth-btn:hover {
 
 }
 
-/* 04 media queries min width 1200px */
+/* 05 media queries min width 1200px */
 
 @media (min-width: 1200px) {
 
   div.error-container {
     grid-template-columns: 1fr 1fr;
+  }
+
+  img.error-polygon {
+    max-width: 600px;
   }
 
 }
