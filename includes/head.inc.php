@@ -50,12 +50,14 @@
   if ($currentPage == 'contact.php') {
     echo
     '<link rel="stylesheet" href="css/contact.css">';
+    echo
     '<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.7/lottie.min.js"></script>';
   }
 
   if ($currentPage == 'index.php') {
     echo
     '<link rel="stylesheet" href="css/style.css">';
+    echo
     '<script src="js/home_preview_slider.js" defer></script>';
   }
 
@@ -77,6 +79,7 @@
   if ($currentPage == 'services.php') {
     echo
     '<link rel="stylesheet" href="css/services.css">';
+    echo
     '<script src="js/services.js" defer></script>';
   }
 

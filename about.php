@@ -1,9 +1,7 @@
-<?php
-require_once("includes/head_data.php");
-?>
-<?php
-include("includes/head.inc.php"); // html header und navbar holen 
-?>
+<?php require_once("includes/head_data.php"); ?>
+<?php require_once("includes/nav_data.php"); ?>
+<?php include("includes/head.inc.php"); ?>
+
 
 <body>
   <a href="#main" class="skip-nav-link">Skip to main content</a>
