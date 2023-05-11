@@ -127,7 +127,7 @@ ul.overlay-content {
   right: 0;
 }
 
-a.contact-button-menu {
+nav ul.overlay-content>li:nth-child(5) {
   border: #09c1b2 2px solid;
   box-shadow: 0 0 10px #09c1b2;
   padding: 0.7rem 1.5rem;
@@ -300,7 +300,7 @@ a.skip-nav-link:focus {
     color: #09c1b2;
   }
 
-  nav a.contact-button-header {
+  nav ul.site-nav>li:last-child {
     border: #09c1b2 2px solid;
     box-shadow: 0 0 10px #09c1b2;
     padding: 0.7rem 1.5rem;
