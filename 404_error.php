@@ -1,3 +1,10 @@
+<?php
+require_once("configuration.php");
+
+session_name(CONFIG_SESSION_NAME);
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +35,7 @@
 
 <body>
   <header>
-    <a href="../index.php" class="avd-logo" aria-label="Home"><img src="/portfolio_web_development_villalaz_selina_code/assets/icons/avd_logo_black.svg" class="avd-logo-svg" width="200" height="100" alt="Alandra Villalaz Development logo"></a>
+    <a href="/portfolio_web_development_villalaz_selina_code/index.php" class="avd-logo" aria-label="Home"><img src="/portfolio_web_development_villalaz_selina_code/assets/icons/avd_logo_black.svg" class="avd-logo-svg" width="200" height="100" alt="Alandra Villalaz Development logo"></a>
   </header>
   <main>
     <div class="error-container">
@@ -44,7 +51,13 @@
       <div class="msg">
         <h1>Page not found</h1>
         <p>Sorry, the page you are looking for might have been removed or temporarily unavailable.</p>
-        <a href="/portfolio_web_development_villalaz_selina_code/index.php" class="bth-btn">Back to home</a>
+        <a href="<?php
+                  if (isset($_SESSION['isloggedin']) && $_SESSION['isloggedin'] == true) {
+                    echo "/portfolio_web_development_villalaz_selina_code/admin/index.php";
+                  } else {
+                    echo "/portfolio_web_development_villalaz_selina_code/index.php";
+                  }
+                  ?>" class="bth-btn">Back to home</a>
       </div>
     </div>
   </main>
