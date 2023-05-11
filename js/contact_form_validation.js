@@ -98,7 +98,7 @@ function titleValidation() {
   title = titleInput.value;
   if (title == "") {
     // console.error("No title provided");
-    validationErrors.title = "Title is required";
+    validationErrors.title = "Please select a title";
     detectErrorMsg();
     displayErrorMsg(
       validationErrors.title,
@@ -120,7 +120,7 @@ function givenNameValidation() {
   givenName = givenNameInput.value;
   if (!givenName) {
     // console.error("No given name provided");
-    validationErrors.givenName = "First name is required";
+    validationErrors.givenName = "Please enter your first name";
     detectErrorMsg("given-name");
     displayErrorMsg(
       validationErrors.givenName,
@@ -152,7 +152,7 @@ function familyNameValidation() {
   familyName = familyNameInput.value;
   if (!familyName) {
     // console.error("No family name provided");
-    validationErrors.familyName = "Last name is required";
+    validationErrors.familyName = "Please enter your last name";
     detectErrorMsg();
     displayErrorMsg(
       validationErrors.familyName,
@@ -188,7 +188,7 @@ function addressValidation() {
   address = addressInput.value;
   if (!address) {
     // console.error("No address provided");
-    validationErrors.address = "Address is required";
+    validationErrors.address = "Please enter your address";
     detectErrorMsg();
     displayErrorMsg(
       validationErrors.address,
@@ -212,7 +212,7 @@ function zipValidation() {
   zip = zipInput.value;
   if (!zip) {
     // console.error("No zip provided");
-    validationErrors.zip = "Postal code is required";
+    validationErrors.zip = "Please enter your postal code";
     detectErrorMsg();
     displayErrorMsg(
       validationErrors.zip,
@@ -250,7 +250,7 @@ function townValidation() {
   town = townInput.value;
   if (!town) {
     // console.error("No town provided");
-    validationErrors.town = "Town is required";
+    validationErrors.town = "Please enter your town";
     detectErrorMsg();
     displayErrorMsg(
       validationErrors.town,
@@ -270,7 +270,7 @@ function telValidation() {
   tel = telInput.value;
   if (!tel) {
     // console.error("No tel provided");
-    validationErrors.tel = "Phone number is required";
+    validationErrors.tel = "Please enter your phone number";
     displayErrorMsg(
       validationErrors.tel,
       "tel-container",
@@ -298,7 +298,7 @@ function emailValidation() {
   email = emailInput.value;
   if (!email) {
     // console.error("No email provided");
-    validationErrors.email = "Email address is required";
+    validationErrors.email = "Please enter your email address";
     displayErrorMsg(
       validationErrors.email,
       "email-container",
@@ -326,7 +326,7 @@ function messageValidation() {
   message = messageTextarea.value;
   if (!message) {
     // console.error("No message provided");
-    validationErrors.message = "Message is required";
+    validationErrors.message = "Please enter your message";
     detectErrorMsg();
     displayErrorMsg(
       validationErrors.message,
