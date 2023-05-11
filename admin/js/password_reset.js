@@ -1,6 +1,6 @@
-//************
+//**********************
 // Variables
-//************
+//**********************
 const passwordInput = document.querySelector("#new-password");
 const passwordConfirmationInput = document.querySelector("#password-confirmation");
 const submitBtn = document.querySelector("button.reset-password");
@@ -29,9 +29,9 @@ const containsSymbol =
 /^(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹])/;
 const validLength = /^.{8,}$/;
 
-//************
+//**********************
 // Functions
-//************
+//**********************
 
 // check for error messages
 function detectErrorMsg(containerName) {

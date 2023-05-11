@@ -1,15 +1,15 @@
-/******************/
-/* SERVICES NAV */
-/*****************/
+//**********************
+// SERVICES NAV
+//**********************
 
 $("button.services-navigation").click(function () {
   $("div.services-nav").toggle();
 });
 
 
-/******************/
-/* DROP-DOWN'S */
-/*****************/
+//**********************
+// DROP-DOWN'S
+//**********************
 
 $("button.drop-down-icon").click(function () {
 
@@ -26,9 +26,9 @@ $("button.drop-down-icon").click(function () {
 });
 
 
-/******************/
-/* ROTATE WINGS */
-/*****************/
+//**********************
+// ROTATE WINGS
+//**********************
 
 const wingsArr = $("img.wings");
 
