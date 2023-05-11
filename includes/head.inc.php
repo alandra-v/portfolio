@@ -37,55 +37,55 @@
   <!-- dynamic stylesheets & scripts-->
   <?php
 
-  if ($currentPage == 'about.php') {
-    echo
-    '<link rel="stylesheet" href="css/about.css">';
-  }
+  switch ($currentPage) {
+    case 'about.php':
+      echo
+      '<link rel="stylesheet" href="css/about.css">';
+      break;
 
-  if ($currentPage == 'contact_reaction.php') {
-    echo
-    '<link rel="stylesheet" href="css/contact_reaction.css">';
-  }
+    case 'contact_reaction.php':
+      echo
+      '<link rel="stylesheet" href="css/contact_reaction.css">';
+      break;
 
-  if ($currentPage == 'contact.php') {
-    echo
-    '<link rel="stylesheet" href="css/contact.css">';
-    echo
-    '<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.7/lottie.min.js"></script>';
-  }
+    case 'contact.php':
+      echo
+      '<link rel="stylesheet" href="css/contact.css">',
+      '<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.7/lottie.min.js"></script>',
+      '<script src="js/contact_form_validation.js" defer></script>';
+      break;
 
-  if ($currentPage == 'index.php') {
-    echo
-    '<link rel="stylesheet" href="css/style.css">';
-    echo
-    '<script src="js/home_preview_slider.js" defer></script>';
-  }
+    case 'index.php':
+      echo
+      '<link rel="stylesheet" href="css/style.css">',
+      '<script src="js/home_preview_slider.js" defer></script>';
+      break;
 
-  if ($currentPage == 'legal_disclosure.php') {
-    echo
-    '<link rel="stylesheet" href="css/legal_disclosure.css">';
-  }
+    case 'legal_disclosure.php':
+      echo
+      '<link rel="stylesheet" href="css/legal_disclosure.css">';
+      break;
 
-  if ($currentPage == 'privacy_policy.php') {
-    echo
-    '<link rel="stylesheet" href="css/privacy_policy.css">';
-  }
+    case 'privacy_policy.php':
+      echo
+      '<link rel="stylesheet" href="css/privacy_policy.css">';
+      break;
 
-  if ($currentPage == 'project_aebele_interiors.php') {
-    echo
-    '<link rel="stylesheet" href="css/project.css">';
-  }
+    case 'project_aebele_interiors.php':
+      echo
+      '<link rel="stylesheet" href="css/project.css">';
+      break;
 
-  if ($currentPage == 'services.php') {
-    echo
-    '<link rel="stylesheet" href="css/services.css">';
-    echo
-    '<script src="js/services.js" defer></script>';
-  }
+    case 'services.php':
+      echo
+      '<link rel="stylesheet" href="css/services.css">',
+      '<script src="js/services.js" defer></script>';
+      break;
 
-  if ($currentPage == 'work.php') {
-    echo
-    '<link rel="stylesheet" href="css/work.css">';
+    case 'work.php':
+      echo
+      '<link rel="stylesheet" href="css/work.css">';
+      break;
   }
 
   ?>
