@@ -116,7 +116,7 @@ a:hover {
 div.user-title-container {
   display: flex;
   align-content: center;
-  gap: 5rem;
+  gap: 2rem;
   margin: 1.5rem 0;
 }
 
@@ -152,7 +152,7 @@ div.radio-input-options {
   position: relative;
   height: 2.5rem;
   width: 80vw;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 
 div.terms-and-conditions-container {
@@ -285,6 +285,8 @@ span.error-span {
   text-align: left;
   width: 100%;
   margin-top: 0.5rem;
+  position: relative;
+  z-index: 999;
 }
 
 div.alert {
@@ -315,6 +317,10 @@ div.alert>p {
 
   div.separator {
    width: 25%;
+  }
+
+  div.user-title-container {
+    gap: 5rem;
   }
 
   div.password-requirements {
