@@ -1,7 +1,10 @@
-<!-- <?php //require("includes/registration_and_login/registration_script.php");
+<?php require("includes/registration_and_login/registration_script.php");
+?>
+<!-- <?php //require("includes/registration_and_login/registration_script_test.php");
       ?> -->
 <?php require_once("includes/admin_head_data.php"); ?>
 <?php require_once("includes/admin_head.inc.php"); ?>
+
 
 <body>
   <header>
@@ -24,7 +27,8 @@
           <p>Already have an account? <a href="login.php">Log In</a></p>
         </div>
         <div class="third-party-registration">
-          <!-- third party registrations will be implemented at a later date -->
+          <!-- NOTE -->
+          <!-- third party registrations will be implemented at a later stage -->
           <a href="#" class="third-party">
             <img class="third-party-icon" src="../assets/icons/google_icon.svg" width="48" height="48" alt="">
             <p>Continue with Google</p>
@@ -44,84 +48,99 @@
           <div class="user-title-container">
             <label for="user-title" aria-label="title">*Title</label>
             <select name="titles" id="user-title">
-              <option value="">Title</option>
-              <option value="mr">Mr.</option>
-              <option value="mrs">Mrs.</option>
-              <option value="ms">Ms.</option>
-              <option value="ms">Other</option>
+              <?php
+              // output <option>s w/ value
+              foreach ($titleArray as $key => $value) {
+                echo "<option value=\"" . $key . "\"";
+                if ($key == $title) {
+                  echo " selected";
+                }
+                echo ">" . $value . "</option>";
+              }
+              ?>
             </select>
-            <?php echo isset($errorMessages['title']) ? '<br><span style="color:red;">' . $errorMessages['title'] . '</span>' : ''; ?>
           </div>
+          <?= isset($errorMessages['title']) ? '<span class="error-span">' . $errorMessages['title'] . '</span>' : ''; ?>
           <fieldset class="gender-radio-inputs">
-            <legend>Please select your gender:</legend>
+            <legend id="radio-legend">Please select your gender:</legend>
             <div class="radio-input-options">
-              <label for="woman">
-                <input type="radio" id="woman" value="woman" name="gender" checked>
-                Woman</label>
-              <label for="man">
-                <input type="radio" id="man" value="man" name="gender">
-                Man</label>
-              <label for="transgender">
-                <input type="radio" id="transgender" value="transgender" name="gender">
-                Transgender</label>
-              <label for="non-binary">
-                <input type="radio" id="non-binary" value="non-binary" name="gender">
-                Non-binary</label>
-              <label for="no-response">
-                <input type="radio" id="no-response" value="no-response" name="gender">
-                Prefer not to respond</label>
+              <?php
+              // output radio button <input>s with <label>
+              foreach ($genderArray as $key => $value) {
+                echo "<label for=\"" . $key . "\"" . ">";
+                echo "<input type=\"radio\"";
+                echo " value=\"" . $key . "\"";
+                echo " name=\"gender\"";
+                echo " id=\"" . $key . "\"";
+                if ($key == $gender) {
+                  echo "checked";
+                }
+                echo ">\n";
+                echo $value;
+                echo "</label>";
+                echo "<br>\n\n";
+              }
+              ?>
+              <?= isset($errorMessages['gender']) ? '<span class="error-span">' . $errorMessages['gender'] . '</span>' : ''; ?>
             </div>
           </fieldset>
           <div class="flex-container">
             <div class="input-container given-name-container">
-              <input type="text" id="given-name" name="given-name" aria-label="given-name" placeholder="*First name" required>
+              <input type="text" id="given-name" name="given-name" aria-label="given-name" placeholder="*First name" value="<?= $givenName ?>" required>
               <label for="given-name" class="placeholder">*First name</label>
-              <?php echo isset($errorMessages['givenName']) ? '<br><span style="color:red;">' . $errorMessages['givenName'] . '</span>' : ''; ?>
+              <?= isset($errorMessages['givenName']) ? '<span class="error-span">' . $errorMessages['givenName'] . '</span>' : ''; ?>
             </div>
             <div class="input-container family-name-container">
-              <input type="text" id="family-name" name="family-name" aria-label="family-name" placeholder="*Last name" required>
+              <input type="text" id="family-name" name="family-name" aria-label="family-name" placeholder="*Last name" value="<?= $familyName ?>" required>
               <label for="family-name" class="placeholder">*Last name</label>
-              <?php echo isset($errorMessages['familyName']) ? '<br><span style="color:red;">' . $errorMessages['familyName'] . '</span>' : ''; ?>
+              <?= isset($errorMessages['familyName']) ? '<span class="error-span">' . $errorMessages['familyName'] . '</span>' : ''; ?>
             </div>
           </div>
           <div class="input-container username-container">
-            <input type="text" id="username" name="username" aria-label="username" placeholder="*Username (please use 4-16 characters)" autocomplete="off" required>
+            <input type="text" id="username" name="username" aria-label="username" placeholder="*Username (please use 4-16 characters)" value="<?= $username ?>" autocomplete="off" required>
             <label for="username" class="placeholder">*Username</label>
-            <?php echo isset($errorMessages['username']) ? '<br><span style="color:red;">' . $errorMessages['username'] . '</span>' : ''; ?>
+            <?= isset($errorMessages['username']) ? '<span class="error-span">' . $errorMessages['username'] . '</span>' : ''; ?>
+            <?= isset($dbErrorMessage) ? '<span class="error-span">' . $dbErrorMessage . '</span>' : ''; ?>
           </div>
           <div class="flex-container">
             <div class="input-container email-container">
-              <input type="email" id="email" name="email" aria-label="email" placeholder="*E-mail" required>
+              <input type="email" id="email" name="email" aria-label="email" placeholder="*E-mail" value="<?= $email ?>" required>
               <label for="email" class="placeholder">*E-mail</label>
-              <?php echo isset($errorMessages['email']) ? '<br><span style="color:red;">' . $errorMessages['email'] . '</span>' : ''; ?>
+              <?= isset($errorMessages['email']) ? '<span class="error-span">' . $errorMessages['email'] . '</span>' : ''; ?>
             </div>
             <div class="input-container email-confirmation-container">
-              <input type="email" id="email-confirmation" name="email-confirmation" aria-label="email confirmation" placeholder="*Confirm e-mail" required>
+              <input type="email" id="email-confirmation" name="email-confirmation" aria-label="email confirmation" placeholder="*Confirm e-mail" value="<?= $emailConfirmation ?>" required>
               <label for="email-confirmation" class="placeholder">*Confirm e-mail</label>
-              <?php echo isset($errorMessages['emailConfirmation']) ? '<br><span style="color:red;">' . $errorMessages['emailConfirmation'] . '</span>' : ''; ?>
+              <?= isset($errorMessages['emailConfirmation']) ? '<span class="error-span">' . $errorMessages['emailConfirmation'] . '</span>' : ''; ?>
             </div>
           </div>
           <div class="flex-container">
             <div class="input-container password-container">
-              <input type="password" id="password" name="password" aria-label="password" placeholder="*Password" autocomplete="off" required>
+              <input type="password" id="password" name="password" aria-label="password" placeholder="*Password" value="<?= $password ?>" autocomplete="off" required>
               <i role="button" class="fa fa-eye password-toggle" aria-label="show password"></i>
               <label for="password" class="placeholder">*Password</label>
-              <?php echo isset($errorMessages['password']) ? '<br><span style="color:red;">' . $errorMessages['password'] . '</span>' : ''; ?>
+              <?= isset($errorMessages['password']) ? '<span class="error-span">' . $errorMessages['password'] . '</span>' : ''; ?>
             </div>
             <div class="input-container password-confirmation-container">
-              <input type="password" id="password-confirmation" name="password-confirmation" aria-label="password confirmation" placeholder="*Confirm password" autocomplete="off" required>
+              <input type="password" id="password-confirmation" name="password-confirmation" aria-label="password confirmation" placeholder="*Confirm password" value="<?= $passwordConfirmation ?>" autocomplete="off" required>
               <i role="button" class="fa fa-eye password-toggle" aria-label="show password"></i>
               <label for="password-confirmation" class="placeholder">*Confirm password</label>
-              <?php echo isset($errorMessages['passwordConfirmation']) ? '<br><span style="color:red;">' . $errorMessages['passwordConfirmation'] . '</span>' : ''; ?>
+              <?= isset($errorMessages['passwordConfirmation']) ? '<span class="error-span">' . $errorMessages['passwordConfirmation'] . '</span>' : ''; ?>
             </div>
           </div>
           <div class="terms-and-conditions-container">
-            <input type="checkbox" id="terms-and-conditions" name="agree" value="terms-and-conditions" aria-label="Accept the terms and conditions" required>
+            <input type="checkbox" id="terms" name="terms" aria-label="Accept the terms and conditions" value="agree" <?= $termsChecked ?> required>
             <label for="terms-and-conditions">I have read and agree to the<a href="#">Terms & Conditions</a>.</label>
           </div>
-          <?php echo isset($errorMessages['termsAndConditions']) ? '<br><span style="color:red;">' . $errorMessages['termsAndConditions'] . '</span>' : ''; ?>
+          <?= isset($errorMessages['termsAndConditions']) ? '<span class="error-span">' . $errorMessages['termsAndConditions'] . '</span>' : ''; ?>
           <button type="submit" value="register" name="register" class="form-submit">Create Account</button>
-          <?php echo isset($errorMessages['form']) ? '<br><span style="color:red;">' . $errorMessages['form'] . '</span>' : ''; ?>
+          <?php if (isset($errorMessages['error'])) :
+          ?>
+            <div class="alert">
+              <p><?= $errorMessages['error'] ?></p>
+            </div>
+          <?php endif;
+          ?>
         </form>
       </div>
     </div>

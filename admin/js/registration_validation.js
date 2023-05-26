@@ -12,7 +12,8 @@ const emailInput = document.querySelector("#email");
 const emailConfirmationInput = document.querySelector("#email-confirmation");
 const passwordInput = document.querySelector("#password");
 const passwordConfirmationInput = document.querySelector("#password-confirmation");
-const termsAndConditionsInput = document.querySelector('#terms-and-conditions');
+const termsAndConditionsInput = document.querySelector("#terms-and-conditions");
+
 
 // password toggle
 const passwordToggles = document.querySelectorAll(".password-toggle");
@@ -24,11 +25,12 @@ const errorColor = "#F50404";
 
 
 // user input value collection
-let title, givenName, familyName, username, email, emailConfirmation, password, passwordConfirmation;
-let gender = genderInput[0].value;
-let data = {};
+let title, gender, givenName, familyName, username, email, emailConfirmation, password, passwordConfirmation;
+// let gender = genderInput[0].value;
+// let data = {};
 let validationErrors = {
   title,
+  gender,
   givenName,
   familyName,
   username,
@@ -59,7 +61,7 @@ const validLength = /^.{8,}$/;
 
 // check for error messages
 function detectErrorMsg(containerName) {
-  if (document.querySelector(`.${containerName} span`)) {
+  if (document.querySelector(`.${containerName}>span`)) {
     document
       .querySelectorAll(`.${containerName} span`)
       .forEach((spanElement) => {
@@ -68,13 +70,20 @@ function detectErrorMsg(containerName) {
   }
 }
 
-// display error message
+//display error message
 function displayErrorMsg(errorMessage, containerName, inputID, selector = "label") {
   const errorDisplay = createErrorSpan(errorMessage);
   document.querySelector(`.${containerName} ${selector}`).after(errorDisplay);
   document.querySelector(`#${inputID}`).style.borderColor = errorColor;
   document.querySelector(`#${inputID}`).setAttribute("aria-invalid", "true");
 }
+
+// display error message radio buttons
+function displayErrorMsgRadioBtn(errorMessage, containerName) {
+  const errorDisplay = createErrorSpan(errorMessage);
+  document.querySelector(`.${containerName}`).after(errorDisplay);
+}
+
 
 // const create error span
 function createErrorSpan(errorMessage) {
@@ -99,8 +108,8 @@ function titleValidation() {
   title = titleInput.value;
   if (title == "") {
     // console.error("No title provided");
-    validationErrors.title = "Please select your title";
-    detectErrorMsg();
+    validationErrors.title = "Please select a title";
+    detectErrorMsg("user-title-container");
     displayErrorMsg(
       validationErrors.title,
       "user-title-container",
@@ -109,21 +118,32 @@ function titleValidation() {
   } else {
     delete validationErrors.title;
     validStyle("user-title");
-    // console.log(validationErrors);
   }
+
 }
 
 
-// console.log(gender);
+function genderValidation() {
+  detectErrorMsg("gender-radio-inputs");
 
-/* ERROR??? */
 
-function showSelected() {
-  if (this.checked) {
-    gender = this.value;
-    console.log(gender);
+  let checkedGender = document.querySelector('input[name = "gender"]:checked');
+  
+  if(!checkedGender) {
+    console.log("GENDER ERROR");
+    validationErrors.gender = "Please select your gender";
+    console.log(validationErrors.gender);
+    detectErrorMsg("gender-radio-inputs");
+    displayErrorMsgRadioBtn(
+      validationErrors.gender,
+      "radio-input-options");
+  } else {
+    detectErrorMsg("gender-radio-inputs");
+    delete validationErrors.gender;
   }
+
 }
+
 
 
 function givenNameValidation() {
@@ -142,7 +162,6 @@ function givenNameValidation() {
   } else {
       // console.info(`${givenName} is valid`);
       delete validationErrors.givenName;
-      detectErrorMsg();
       validStyle("given-name");
       // console.log(validationErrors);
     }
@@ -164,7 +183,6 @@ function familyNameValidation() {
   } else {
       // console.info(`${familyName} is valid`);
       delete validationErrors.familyName;
-      detectErrorMsg();
       validStyle("family-name");
       // console.log(validationErrors);
     }
@@ -236,7 +254,7 @@ function emailConfirmationValidation() {
 
   emailConfirmation = emailConfirmationInput.value;
   if (!emailConfirmation) {
-    console.error("No email confirmation provided");
+    // console.error("No email confirmation provided");
     validationErrors.emailConfirmation = "Please confirm your email address";
     displayErrorMsg(
       validationErrors.emailConfirmation,
@@ -293,7 +311,7 @@ passwordTogglesArr.forEach((item) => {
 
 function passwordRequirements() {
 
-  console.log("focusin");
+  // console.log("focusin");
 
   const requirementsContainer = document.createElement("div");
   requirementsContainer.classList.add("password-requirements");
@@ -342,7 +360,7 @@ function passwordValidation() {
     errorMsgPassword();
   } else if (whitespace.test(password)) {
     validationErrors.password = "Password must not contain whitespaces.";
-    console.log("Password must not contain whitespaces.");
+    // console.log("Password must not contain whitespaces.");
     errorMsgPassword();
   } else if (!containsUppercase.test(password)) {
     validationErrors.password = "Password must have at least one uppercase character.";
@@ -403,7 +421,7 @@ function passwordConfirmationValidation() {
 // input field validations
 titleInput.addEventListener("focusout", titleValidation);
 for (const radioButton of genderInput) {
-  radioButton.addEventListener("change", showSelected);
+  radioButton.addEventListener("change", genderValidation);
 }
 givenNameInput.addEventListener("focusout", givenNameValidation);
 familyNameInput.addEventListener("focusout", familyNameValidation);
@@ -422,19 +440,31 @@ passwordConfirmationInput.addEventListener("focusout", passwordConfirmationValid
 // form validation on "submit"
 document.querySelector("form").addEventListener("submit", function (event) {
 
-  event.preventDefault();
+  titleValidation();
+  genderValidation();
+  givenNameValidation();
+  familyNameValidation();
+  usernameValidation();
+  emailValidation();
+  emailConfirmationValidation();
+  passwordValidation();
+  passwordConfirmationValidation();
 
-   // remove submit error msg timer
-   const removeSubmitMessage = () => {
-    setTimeout(() => {
-    document.querySelector("div.alert").remove();
-    }   , 5000);
-  };
+
 
   if (Object.keys(validationErrors).length > 0) {
    
 
-    // create submit error msg
+    event.preventDefault();
+
+    // remove submit fail msg timer
+    const removeSubmitMessage = () => {
+      setTimeout(() => {
+      document.querySelector("div.alert").remove();
+      }   , 5000);
+    };
+
+    // create submit fail message
     const alert = document.createElement("div");
     alert.classList.add("alert");
     const alertMsg = document.createElement("p");
@@ -445,45 +475,29 @@ document.querySelector("form").addEventListener("submit", function (event) {
     removeSubmitMessage();
 
     console.error("there are still errors")
-    console.log(validationErrors);
+    // console.log(validationErrors);
 
   } else if(!termsAndConditionsInput.checked) {
-    console.log("not accepted");
-    // create checkbox erros msg
-    const alert = document.createElement("div");
-    alert.classList.add("alert");
-    const alertMsg = document.createElement("p");
-    alertMsg.innerText = "❗️ Please accept Terms & Conditions"
-    alert.appendChild(alertMsg);
-    document.querySelector("button.form-submit").after(alert);
 
-    removeSubmitMessage();
+    console.log("terms not accepted");
+
+    event.preventDefault();
+
 
   } else if(termsAndConditionsInput.checked && Object.keys(validationErrors).length == 0) {
-
-    // remove checkbbox error msg
 
     // remove submit fail message
     if (document.querySelector("div.alert")) {
       document.querySelector("div.alert").style.display = "none";
     }
     // disable submit button to prevent double submit
-    document.querySelector("button.form-submit").disabled = true;
+    document.querySelector("button.submit").disabled = true;
 
-    data.title = title;
-    data.gender = gender;
-    data.givenName = givenName;
-    data.familyName = familyName;
-    data.username = username;
-    data.email = email;
-    data.emailConfirmation = emailConfirmation;
-    data.password = password;
-    data.passwordConfirmation = passwordConfirmation;
 
     //send form (data object) to backend
     console.log("sending form data to backend");
 
-    // call php doc
+
 
 
   }
