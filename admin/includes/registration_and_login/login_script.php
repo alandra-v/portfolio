@@ -1,52 +1,49 @@
 <?php
 
-require_once("../configuration.php");
-// require_once("../../../configuration.php");
+// require_once("../configuration.php");
+require_once("../../../configuration.php");
+require("function.php");
 
 session_name(CONFIG_SESSION_NAME);
 session_start();
 
-require_once('includes/mysql_connect.php');
-// require_once('../mysql_connect.php');
+// require_once('includes/mysql_connect.php');
+require_once('../mysql_connect.php');
 
 $isLoggedIn = false;
 
-// if (isset($_POST['login'])) {
+$errorMessage = '❗️ Username or password incorrect';
 
-if (isset($_POST['username-email']) && isset($_POST['password'])) {
+$usernameOrEmail = desinfect($_POST['username-email']);
+$password = desinfect($_POST['password']);
 
+if (isset($usernameOrEmail) && isset($password)) {
 
-  $query = "SELECT * FROM `user` WHERE `user_name` = ?"; // OR `email` = ?
+  $query = "SELECT * FROM `user` WHERE `user_name` = ? OR `user_email`= ?";
 
-  $statement = $dbo->prepare($query);
-  $statement->execute([$_POST['username-email']]);
-  $record = $statement->fetch();
+  $stmt = $dbo->prepare($query);
+  $stmt->execute(array($usernameOrEmail, $usernameOrEmail));
+  $record = $stmt->fetch();
 
 
   if (empty($record)) {
-    $errorMessage = 'No username or password provided.';
+    header("Location: ../../login.php?error=" . $errorMessage);
+    return;
+  }
+
+
+  if (password_verify($password, $record['user_password'])) {
+
+    $_SESSION['isloggedin'] = true;
+    $_SESSION['username'] = $record['user_name'];
+    $_SESSION['userID'] = $record['ID'];
+
+    $_SESSION['useragent'] = $_SERVER['HTTP_USER_AGENT'];
+    $_SESSION['userip'] = $_SERVER['REMOTE_ADDR'];
+    $_SESSION['timestamp'] = time();
+
+    header("Location: ../../index.php");
   } else {
-
-    // echo '<pre>';
-    // print_r($record);
-    // echo '</pre>';
-
-    if (password_verify($_POST['password'], $record['user_password'])) {
-
-      $_SESSION['isloggedin'] = true;
-      $_SESSION['username'] = $record['user_name'];
-      $_SESSION['userID'] = $record['ID'];
-
-      $_SESSION['useragent'] = $_SERVER['HTTP_USER_AGENT'];
-      $_SESSION['userip'] = $_SERVER['REMOTE_ADDR'];
-      $_SESSION['timestamp'] = time();
-
-      // echo 'du bist eingeloggt';
-      header("Location: index.php");
-    } else {
-
-      $errorMessage = 'Username or password incorrect';
-    }
+    header("Location: ../../login.php?error=" . $errorMessage);
   }
 }
-// };

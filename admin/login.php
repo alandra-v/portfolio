@@ -1,5 +1,3 @@
-<?php require("includes/registration_and_login/login_script.php");
-?>
 <?php require_once("includes/admin_head_data.php"); ?>
 <?php require_once("includes/admin_head.inc.php"); ?>
 
@@ -42,8 +40,8 @@
           }
           ?>
         </div>
-        <!-- <form action="includes/registration_and_login/login_script.php" method="POST" id="login-form" autocomplete="off" novalidate> -->
-        <form action="" method="POST" id="login-form" autocomplete="off" novalidate>
+        <form action="includes/registration_and_login/login_script.php" method="POST" id="login-form" autocomplete="off" novalidate>
+          <!-- <form action="" method="POST" id="login-form" autocomplete="off" novalidate> -->
           <div class="input-container username-container">
             <input type="text" id="username-or-email" name="username-email" aria-label="username or email" placeholder="Username or Email" required>
             <label for="username-or-email" class="placeholder">Username or Email</label>
@@ -54,7 +52,11 @@
             <i role="button" class="fa fa-eye password-toggle" aria-label="show password"></i>
           </div>
           <a href="password_forgotten.php" class="forgotten-password">Forgotten password?</a>
-          <?php echo isset($errorMessage) ? '<br><span style="color:red;">' . $errorMessage . '</span>' : ''; ?>
+          <?php if (isset($_GET['error'])) : ?>
+            <div class="alert">
+              <p><?= $_GET['error'] ?></p>
+            </div>
+          <?php endif; ?>
           <button type="submit" value="login" name="login" class="form-submit">Log In</button>
         </form>
       </div>

@@ -6,12 +6,14 @@ const usernameInput = document.querySelector("#username-or-email");
 const passwordInput = document.querySelector("#password");
 const lockClosed = document.querySelector(".lock-polygon-closed");
 const lockOpen = document.querySelector(".lock-polygon-open")
+const submitBtn = document.querySelector(".form-submit");
+const inputsArr = document.querySelectorAll("input");
 
 const passwordToggle = document.querySelector(".password-toggle");
 console.log(passwordToggle);
 
 // styling colors
-const validColor = "#008000";
+const validColor = "#000000";
 const errorColor = "#F50404";
 
 // user input value collection
@@ -129,6 +131,7 @@ function passwordVisibility () {
 }
 
 
+
 //**********************
 // EventListeners
 //**********************
@@ -137,48 +140,49 @@ passwordToggle.addEventListener("click", passwordVisibility);
 usernameInput.addEventListener("focusout", usernameValidation);
 passwordInput.addEventListener("focusout", passwordValidation);
 
-document.querySelector("form").addEventListener("submit", function (event) {
 
-  event.preventDefault();
+submitBtn.addEventListener("click", function (event) {
 
-  // remove submit error msg timer
-  const removeSubmitMessage = () => {
-    setTimeout(() => {
-    document.querySelector("div.alert").remove();
-    }   , 5000);
-  };
+  usernameValidation();
+  passwordValidation();
 
   if (Object.keys(validationErrors).length > 0) {
 
-    usernameValidation();
-    passwordValidation();
+    event.preventDefault();
 
-      // create submit error msg
-      const alert = document.createElement("div");
-      alert.classList.add("alert");
-      const alertMsg = document.createElement("p");
-      alertMsg.innerText = "❗️ Please fill out username and password"
-      alert.appendChild(alertMsg);
-      document.querySelector("button.form-submit").after(alert);
-  
-      removeSubmitMessage();
-  
-      console.error("there are still errors")
-      console.log(validationErrors);
+    // remove submit fail msg timer
+    const removeSubmitMessage = () => {
+      setTimeout(() => {
+      document.querySelector("div.alert").remove();
+      }   , 5000);
+    };
+
+    // create submit fail message
+    const alert = document.createElement("div");
+    alert.classList.add("alert");
+    const alertMsg = document.createElement("p");
+    alertMsg.innerText = "❗️ Please fill out all required fields correctly"
+    alert.appendChild(alertMsg);
+    document.querySelector("button.form-submit").after(alert);
+
+    removeSubmitMessage();
+
+    console.error("there are still errors")
+    // console.log(validationErrors);
+
 
   } else {
+
     // remove submit fail message
     if (document.querySelector("div.alert")) {
       document.querySelector("div.alert").style.display = "none";
     }
-    // disable submit button to prevent double submit
-    document.querySelector("button.form-submit").disabled = true;
 
     data.username = username;
     data.password = password;
     
-     //send form (data object) to backend
-     console.log("sending form data to backend");
+    //send form (data object) to backend
+    console.log("sending form data to backend");
   }
 
 });
