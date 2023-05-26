@@ -178,9 +178,16 @@ if (
       $dbo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
       $query = "INSERT INTO `user` (`user_name`, `user_email`, `user_password`, `user_given_name`, `user_family_name`, `user_title`, `user_gender`) 
-      VALUES ('$username', '$email', '$pwdHash', '$givenName', '$familyName', '$title', '$gender')";
+      VALUES (:username, :email, :pwdHash, :givenName, :familyName, :title, :gender)";
 
       $stmt = $dbo->prepare($query);
+      $stmt->bindParam(':username', $username);
+      $stmt->bindParam(':email', $email);
+      $stmt->bindParam(':pwdHash', $pwdHash);
+      $stmt->bindParam(':givenName', $givenName);
+      $stmt->bindParam(':familyName', $familyName);
+      $stmt->bindParam(':title', $title);
+      $stmt->bindParam(':gender', $gender);
       $stmt->execute();
 
       // relocate to login
