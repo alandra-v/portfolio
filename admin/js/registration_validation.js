@@ -12,7 +12,7 @@ const emailInput = document.querySelector("#email");
 const emailConfirmationInput = document.querySelector("#email-confirmation");
 const passwordInput = document.querySelector("#password");
 const passwordConfirmationInput = document.querySelector("#password-confirmation");
-const termsAndConditionsInput = document.querySelector("#terms-and-conditions");
+const termsAndConditionsInput = document.querySelector("#terms");
 
 
 // password toggle
@@ -25,7 +25,7 @@ const errorColor = "#F50404";
 
 
 // user input value collection
-let title, gender, givenName, familyName, username, email, emailConfirmation, password, passwordConfirmation;
+let title, gender, givenName, familyName, username, email, emailConfirmation, password, passwordConfirmation, terms;
 // let gender = genderInput[0].value;
 // let data = {};
 let validationErrors = {
@@ -37,7 +37,8 @@ let validationErrors = {
   email,
   emailConfirmation,
   password,
-  passwordConfirmation
+  passwordConfirmation,
+  terms
 };
 
 
@@ -412,6 +413,22 @@ function passwordConfirmationValidation() {
   
 }
 
+function checkboxValidation() {
+
+  detectErrorMsg("terms-and-conditions-container");
+
+  if (!termsAndConditionsInput.checked) {
+    validationErrors.terms = "Please accept Terms & Conditions";
+    detectErrorMsg("terms-and-conditions-container");
+    displayErrorMsgRadioBtn(
+      validationErrors.terms,
+      "terms-after");
+  } else {
+    delete validationErrors.terms;
+  }
+
+}
+
 
 //**********************
 // EventListeners
@@ -449,7 +466,7 @@ document.querySelector("form").addEventListener("submit", function (event) {
   emailConfirmationValidation();
   passwordValidation();
   passwordConfirmationValidation();
-
+  checkboxValidation();
 
 
   if (Object.keys(validationErrors).length > 0) {
@@ -477,14 +494,7 @@ document.querySelector("form").addEventListener("submit", function (event) {
     console.error("there are still errors")
     // console.log(validationErrors);
 
-  } else if(!termsAndConditionsInput.checked) {
-
-    console.log("terms not accepted");
-
-    event.preventDefault();
-
-
-  } else if(termsAndConditionsInput.checked && Object.keys(validationErrors).length == 0) {
+  } else if(Object.keys(validationErrors).length == 0) {
 
     // remove submit fail message
     if (document.querySelector("div.alert")) {
