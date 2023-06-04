@@ -95,7 +95,7 @@
     <!-- ADDRESS AND GOOGLE MAPS -->
     <section class="address">
       <!-- NOTE -->
-      <!-- the current google maps embed will be replaced by the usage of the google maps ebmed API -->
+      <!-- the current Google Maps embed will be replaced by the usage of the Google Maps ebmed API -->
       <div class="gmap_canvas">
         <iframe title="Google maps embed" width="700" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=zurich&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
         </iframe>
