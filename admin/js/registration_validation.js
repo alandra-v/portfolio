@@ -28,6 +28,7 @@ const errorColor = "#F50404";
 let title, gender, givenName, familyName, username, email, emailConfirmation, password, passwordConfirmation, terms;
 // let gender = genderInput[0].value;
 // let data = {};
+let requirementsList;
 let validationErrors = {
   title,
   gender,
@@ -309,43 +310,8 @@ passwordTogglesArr.forEach((item) => {
   });
 });
 
-
-function passwordRequirements() {
-
-  // console.log("focusin");
-
-  const requirementsContainer = document.createElement("div");
-  requirementsContainer.classList.add("password-requirements");
-  const requirementsTitle = document.createElement("p");
-  requirementsTitle.innerText = "Password requirements:";
-  requirementsContainer.append(requirementsTitle);
-  const requirementsList = document.createElement("ul");
-  requirementsList.classList.add("requirements-list");
-  requirementsContainer.append(requirementsList);
-
-  const requirements = `
-  <li>Must contain at least <b>8 characters</b></li>
-  <li>Must contain at least <b>one lowercase letter</b></li>
-  <li>Must contain at least <b>one capital letter</b></li>
-  <li>Must contain at least <b>one number</b></li>
-  <li>Must contain at least <b>one special character</b></li>
-  <li>Must <b>not contain spaces</b></li>
-  `;
-  requirementsList.innerHTML = requirements;
-
-  passwordInput.after(requirementsContainer);
-
-}
-
-
-function removeRequirements() {
-  if (document.querySelector("div.password-requirements")) {
-    document.querySelector("div.password-requirements").remove();
-  }
-}
-
-
 function passwordValidation() {
+
   detectErrorMsg("password-container");
 
   password = passwordInput.value;
@@ -356,34 +322,102 @@ function passwordValidation() {
     "password")
   }
 
-  if (!password) {
-    validationErrors.password = "Please enter a password";
-    errorMsgPassword();
-  } else if (whitespace.test(password)) {
-    validationErrors.password = "Password must not contain whitespaces.";
-    // console.log("Password must not contain whitespaces.");
-    errorMsgPassword();
-  } else if (!containsUppercase.test(password)) {
-    validationErrors.password = "Password must have at least one uppercase character.";
-    errorMsgPassword();
-  } else if (!containsLowercase.test(password)) {
-    validationErrors.password = "Password must have at least one lowercase character.";
-    errorMsgPassword();
-  } else if (!containsNumber.test(password)) {
-    validationErrors.password = "Password must contain at least one digit.";
-    errorMsgPassword();
-  } else if (!containsSymbol.test(password)) {
-    validationErrors.password = "Password must contain at least one special symbol.";
-    errorMsgPassword();
-  } else if (!validLength.test(password)) {
-    validationErrors.password = "Password must be at least 8 characters long.";
+  
+  if (!password || 
+    whitespace.test(password) || 
+    !containsUppercase.test(password) || 
+    !containsLowercase.test(password) ||
+    !containsNumber.test(password) ||
+    !containsSymbol.test(password) ||
+    !validLength.test(password)
+    ) {
+    validationErrors.password = "Please make sure your password meets all requirements";
+    // createRequirements();
     errorMsgPassword();
   } else {
     console.info(`${password} is valid`);
     delete validationErrors.password;
     validStyle("password");
   }
+
+  // createRequirements(passwordInput);
+  // console.log("focusin");
 }
+
+
+// password requirements 
+function createRequirements() {
+
+  const requirementsContainer = document.createElement("div");
+  requirementsContainer.classList.add("password-requirements");
+  const requirementsTitle = document.createElement("p");
+  requirementsTitle.innerText = "Password requirements:";
+  requirementsContainer.append(requirementsTitle);
+  const list = document.createElement("ul");
+  list.classList.add("requirements-list");
+  requirementsContainer.append(list);
+
+  requirementsList = list;
+  updateRequirementsList(requirementsList);
+  passwordInput.after(requirementsContainer);
+
+}
+
+function requirementsCheck(inputValue) {
+
+  let requirements = {};
+
+  requirements.nowhitespace= "Password must not contain whitespaces.";
+  requirements.uppercaseletter = "Password must have at least one uppercase character.";
+  requirements.lowercaseletter = "Password must have at least one lowercase character.";
+  requirements.digit = "Password must contain at least one digit.";
+  requirements.specialcharacter = "Password must contain at least one special symbol.";
+  requirements.passwordlength = "Password must be at least 8 characters long.";
+  
+
+  if(!whitespace.test(inputValue)) delete requirements.nowhitespace;
+  if (containsUppercase.test(inputValue)) delete requirements.uppercaseletter;
+  if (containsLowercase.test(inputValue)) delete requirements.lowercaseletter;
+  if (containsNumber.test(inputValue)) delete requirements.digit;
+  if (containsSymbol.test(inputValue)) delete requirements.specialcharacter;
+  if (validLength.test(inputValue)) delete requirements.passwordlength;
+
+  console.log(requirements);
+  return requirements;
+  
+}
+
+function templateHandling(requirements) {
+  let template = '';
+  if (Object.keys(requirements).length === 0) {
+    // removeRequirementsContainer();
+    template = "strong password &#9989";
+    return template;
+    console.log("handling if");
+  } else { 
+    for (const [key, value] of Object.entries(requirements)) {
+      template += [value] + "</br>";
+    };
+    console.log("handling else");
+    return template;
+  }
+}
+
+function updateRequirementsList(list) {
+  const requirements = requirementsCheck(passwordInput.value);
+  const template = templateHandling(requirements);
+  list.innerHTML = template;
+
+}
+
+function removeRequirementsContainer() {
+
+  if (document.querySelector("div.password-requirements")) {
+    document.querySelector("div.password-requirements").remove();
+  }
+
+}
+
 
 function passwordConfirmationValidation() {
   detectErrorMsg("password-confirmation-container");
@@ -445,9 +479,13 @@ familyNameInput.addEventListener("focusout", familyNameValidation);
 usernameInput.addEventListener("focusout", usernameValidation);
 emailInput.addEventListener("focusout", emailValidation);
 emailConfirmationInput.addEventListener("focusout", emailConfirmationValidation);
-passwordInput.addEventListener("focusin", passwordRequirements);
-passwordInput.addEventListener("focusout", removeRequirements);
+passwordInput.addEventListener("focusin", createRequirements);
 passwordInput.addEventListener("focusout", passwordValidation);
+passwordInput.addEventListener("focusout", removeRequirementsContainer);
+passwordInput.addEventListener("keyup", () => {
+  updateRequirementsList(requirementsList);
+
+});
 passwordConfirmationInput.addEventListener("focusout", passwordConfirmationValidation);
 
 
