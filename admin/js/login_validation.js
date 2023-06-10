@@ -4,10 +4,7 @@
 
 const usernameInput = document.querySelector("#username-or-email");
 const passwordInput = document.querySelector("#password");
-const lockClosed = document.querySelector(".lock-polygon-closed");
-const lockOpen = document.querySelector(".lock-polygon-open")
 const submitBtn = document.querySelector(".form-submit");
-const inputsArr = document.querySelectorAll("input");
 
 const passwordToggle = document.querySelector(".password-toggle");
 console.log(passwordToggle);

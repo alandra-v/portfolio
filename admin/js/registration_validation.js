@@ -44,9 +44,7 @@ let validationErrors = {
 
 
 // RegEx
-const nameRegEx = /^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{1,}$/;
 const usernameRegEx = /^.{4,16}$/;
-// const usernameRegExMax = /^[A-Za-z0-9_.-]{4,16}$/;
 const emailRegEx =
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 const whitespace = /^(?=.*\s)/;
@@ -396,8 +394,8 @@ function templateHandling(requirements) {
     console.log("handling if");
   } else { 
     for (const [key, value] of Object.entries(requirements)) {
-      template += [value] + "</br>";
-    };
+      template += [value] + "<br>";
+    }
     console.log("handling else");
     return template;
   }
