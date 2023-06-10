@@ -1,8 +1,7 @@
 <?php
 require_once("configuration.php");
-
-session_name(CONFIG_SESSION_NAME);
-session_start();
+// require("/portfolio_web_development_villalaz_selina_code/admin/Controller/Controller.php");
+require("admin/Controller/Controller.php");
 
 ?>
 <!DOCTYPE html>
@@ -52,7 +51,7 @@ session_start();
         <h1>Page not found</h1>
         <p>Sorry, the page you are looking for might have been removed or temporarily unavailable.</p>
         <a href="<?php
-                  if (isset($_SESSION['isloggedin']) && $_SESSION['isloggedin'] == true) {
+                  if (isset($_SESSION['auth_status'])) {
                     echo "/portfolio_web_development_villalaz_selina_code/admin/index.php";
                   } else {
                     echo "/portfolio_web_development_villalaz_selina_code/index.php";
