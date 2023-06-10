@@ -1,6 +1,8 @@
-<?php require_once("includes/head_data.php"); ?>
-<?php require_once("includes/nav_data.php"); ?>
-<?php include("includes/head.inc.php"); ?>
+<?php
+require_once("includes/head_data.php");
+require_once("includes/nav_data.php");
+include("includes/head.inc.php");
+?>
 
 <body>
   <a href="#main" class="skip-nav-link">Skip to main content</a>
@@ -74,6 +76,7 @@
           <button type="submit" class="submit" aria-label="Submit the contact form"></button>
         </div>
       </div>
+      <p class="upload-requirements">Please only upload images or pdf files.</p>
     </form>
     <!-- SCHEDULING SECTION -->
     <section class="scheduling">

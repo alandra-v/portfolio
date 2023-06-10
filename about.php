@@ -1,6 +1,8 @@
-<?php require_once("includes/head_data.php"); ?>
-<?php require_once("includes/nav_data.php"); ?>
-<?php include("includes/head.inc.php"); ?>
+<?php
+require_once("includes/head_data.php");
+require_once("includes/nav_data.php");
+include("includes/head.inc.php");
+?>
 
 
 <body>

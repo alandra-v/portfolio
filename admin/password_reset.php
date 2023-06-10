@@ -1,5 +1,7 @@
-<?php require_once("includes/admin_head_data.php"); ?>
-<?php require_once("includes/admin_head.inc.php"); ?>
+<?php
+require_once("includes/admin_head_data.php");
+require_once("includes/admin_head.inc.php");
+?>
 
 <body>
   <header>
