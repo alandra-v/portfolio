@@ -9,24 +9,24 @@
   <div class="overlay-menu">
     <ul class="overlay-content">
       <?php
-      foreach ($navArray as $main) {
+      foreach ($navArray as $main) :
       ?>
-        <li><a href="<?php echo $main['link']; ?>" <?php if ($currentPage == $main['link']) {
-                                                      echo 'active';
-                                                    } ?>><?php echo $main['title']; ?></a></li>
+        <li><a href="<?= $main['link']; ?>" <?php if ($currentPage == $main['link']) {
+                                              echo 'active';
+                                            } ?>><?= $main['title']; ?></a></li>
       <?php
-      }
+      endforeach;
       ?>
       <li>
         <ul class="small-menu">
           <?php
-          foreach ($legalsArray as $main) {
+          foreach ($legalsArray as $main) :
           ?>
-            <li><a href="<?php echo $main['link']; ?>" <?php if ($currentPage == $main['link']) {
-                                                          echo 'active';
-                                                        } ?>><?php echo $main['title']; ?></a></li>
+            <li><a href="<?= $main['link']; ?>" <?php if ($currentPage == $main['link']) {
+                                                  echo 'active';
+                                                } ?>><?= $main['title']; ?></a></li>
           <?php
-          }
+          endforeach;
           ?>
         </ul>
       </li>
@@ -54,13 +54,13 @@
   </ul>
   <ul class="site-nav">
     <?php
-    foreach ($navArray as $main) {
+    foreach ($navArray as $main) :
     ?>
-      <li><a href="<?php echo $main['link']; ?>" <?php if ($currentPage == $main['link']) {
-                                                    echo 'active';
-                                                  } ?>><?php echo $main['title']; ?></a></li>
+      <li><a href="<?= $main['link']; ?>" <?php if ($currentPage == $main['link']) {
+                                            echo 'active';
+                                          } ?>><?= $main['title']; ?></a></li>
     <?php
-    }
+    endforeach;
     ?>
   </ul>
 </nav>
