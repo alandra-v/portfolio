@@ -69,14 +69,17 @@ include("includes/head.inc.php");
       </div>
       <textarea name="message" id="message" aria-label="your message" cols="30" rows="8" required></textarea>
       <div class="form-buttons">
-        <div class="dropbox">
+        <!-- NOTE -->
+        <!-- file upload will be fully implemented and validated at a later stage -->
+        <!-- <div class="dropbox">
           <input type="file" id="input-file" aria-label="Chose file" multiple>
-        </div>
+        </div> -->
+        <div class="placeholder-for-file-input"></div>
         <div id="lottie-container">
           <button type="submit" class="submit" aria-label="Submit the contact form"></button>
         </div>
       </div>
-      <p class="upload-requirements">Please only upload images or pdf files.</p>
+      <!-- <p class="upload-requirements">Please only upload images or pdf files.</p> -->
     </form>
     <!-- SCHEDULING SECTION -->
     <section class="scheduling">

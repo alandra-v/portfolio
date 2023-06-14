@@ -34,7 +34,7 @@ let validationErrors = {
 };
 
 business = businessInput.value;
-file = fileInput.value;
+// file = fileInput.value;
 // file input container (dropbox)
 const dropbox = document.querySelector(".dropbox");
 
@@ -370,6 +370,8 @@ emailInput.addEventListener("focusout", emailValidation);
 messageTextarea.addEventListener("focusout", messageValidation);
 
 /* FILE INPUT DRAG AND DROP */
+/* NOTE */
+/* will be fully implemented and validated at a later stage */
 
 // to check if browser supports drag and drop:
 
@@ -381,28 +383,28 @@ messageTextarea.addEventListener("focusout", messageValidation);
 // if (isAdvancedUpload) {
 // console.log("this browser supports advanced upload");
 
-dropbox.addEventListener("dragover", (event) => {
-  // prevent file from being opened in browser
-  event.preventDefault();
-  // console.log("dragover");
-  dropbox.classList.add("highlight");
-});
+// dropbox.addEventListener("dragover", (event) => {
+//   // prevent file from being opened in browser
+//   event.preventDefault();
+//   // console.log("dragover");
+//   dropbox.classList.add("highlight");
+// });
 
-dropbox.addEventListener("dragleave", () => {
-  // console.log("dragleave");
-  dropbox.classList.remove("highlight");
-});
+// dropbox.addEventListener("dragleave", () => {
+//   // console.log("dragleave");
+//   dropbox.classList.remove("highlight");
+// });
 
-dropbox.addEventListener("drop", (event) => {
-  // console.log("drop");
-  dropbox.classList.remove("highlight");
-  // process the drop
-  [...event.dataTransfer.files].forEach((file, i) => {
-    // console.log(`… file[${i}].name = ${file.name}`);
-  });
-  // handleFiles();
-  // upload dragged&dropped files with e.g. ajax
-});
+// dropbox.addEventListener("drop", (event) => {
+//   // console.log("drop");
+//   dropbox.classList.remove("highlight");
+//   // process the drop
+//   [...event.dataTransfer.files].forEach((file, i) => {
+//     // console.log(`… file[${i}].name = ${file.name}`);
+//   });
+//   // handleFiles();
+//   // upload dragged&dropped files with e.g. ajax
+// });
 
 // }
 
@@ -451,7 +453,7 @@ document.querySelector("form").addEventListener("submit", function (event) {
     data.tel = tel;
     data.email = email;
     data.message = message;
-    data.file = file;
+    // data.file = file;
 
     //send form (data object) to backend
     // console.log("sending form data to backend");
@@ -476,5 +478,5 @@ let animation = lottie.loadAnimation({
   renderer: "svg",
   loop: false,
   autoplay: false,
-  path: "../assets/animation/send_animation.json",
+  path: "assets/animation/send_animation.json",
 });
