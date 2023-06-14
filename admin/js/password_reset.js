@@ -3,10 +3,11 @@
 //**********************
 const passwordInput = document.querySelector("#new-password");
 const passwordConfirmationInput = document.querySelector("#password-confirmation");
+const passwordConfirmationContainer = document.querySelector(".password-confirmation-container");
 const submitBtn = document.querySelector("button.reset-password");
 
 const passwordToggles = document.querySelectorAll(".password-toggle");
-const passwordTogglesArr = [...passwordToggles]
+const passwordTogglesArr = [...passwordToggles];
 
 // styling colors
 const validColor = "#008000";
@@ -83,7 +84,6 @@ function passwordValidation () {
     errorMsgPassword();
   } else if (whitespace.test(password)) {
     validationErrors.password = "Password must not contain whitespaces.";
-    console.log("Password must not contain whitespaces.");
     errorMsgPassword();
   } else if (!containsUppercase.test(password)) {
     validationErrors.password = "Password must have at least one uppercase character.";
@@ -101,7 +101,6 @@ function passwordValidation () {
     validationErrors.password = "Password must be at least 8 characters long.";
     errorMsgPassword();
   } else {
-    console.info(`${password} is valid`);
     delete validationErrors.password;
     validStyle("new-password");
   }
@@ -120,19 +119,89 @@ function passwordConfirmationValidation() {
   }
 
   if (!passwordConfirmation) {
-    // console.error("No email confirmation provided");
     validationErrors.passwordConfirmation = "Please confirm your new password";
     errorMsgPasswordConfirmation();
   } else if (passwordConfirmation!==password){
-    console.error("passwords dont match");
     validationErrors.passwordConfirmation = "Passwords don't match. Take another look.";
     errorMsgPasswordConfirmation();
   } else {
-    // console.info(`${password} matches`);
     delete validationErrors.passwordConfirmation;
     validStyle("password-confirmation");
   }
   
+}
+
+
+// password requirements 
+function createRequirements() {
+
+  const requirementsContainer = document.createElement("div");
+  requirementsContainer.classList.add("password-requirements");
+  const requirementsTitle = document.createElement("p");
+  requirementsTitle.innerText = "Password requirements:";
+  requirementsContainer.append(requirementsTitle);
+  const list = document.createElement("ul");
+  list.classList.add("requirements-list");
+  requirementsContainer.append(list);
+
+  requirementsList = list;
+  updateRequirementsList(requirementsList);
+  passwordConfirmationContainer.after(requirementsContainer);
+
+}
+
+function requirementsCheck(inputValue) {
+
+  let requirements = {};
+
+  requirements.nowhitespace= "Password must not contain whitespaces.";
+  requirements.uppercaseletter = "Password must have at least one uppercase character.";
+  requirements.lowercaseletter = "Password must have at least one lowercase character.";
+  requirements.digit = "Password must contain at least one digit.";
+  requirements.specialcharacter = "Password must contain at least one special symbol.";
+  requirements.passwordlength = "Password must be at least 8 characters long.";
+  
+
+  if(!whitespace.test(inputValue)) delete requirements.nowhitespace;
+  if (containsUppercase.test(inputValue)) delete requirements.uppercaseletter;
+  if (containsLowercase.test(inputValue)) delete requirements.lowercaseletter;
+  if (containsNumber.test(inputValue)) delete requirements.digit;
+  if (containsSymbol.test(inputValue)) delete requirements.specialcharacter;
+  if (validLength.test(inputValue)) delete requirements.passwordlength;
+
+  // console.log(requirements);
+  return requirements;
+  
+}
+
+function templateHandling(requirements) {
+  let template = '';
+  if (Object.keys(requirements).length === 0) {
+    template = "strong password &#9989";
+    return template;
+    // console.log("handling if");
+  } else { 
+    for (const [key, value] of Object.entries(requirements)) {
+      template += [value] + "<br>";
+    }
+    // console.log("handling else");
+    return template;
+  }
+}
+
+function updateRequirementsList(list) {
+  const requirements = requirementsCheck(passwordInput.value);
+  const template = templateHandling(requirements);
+  list.innerHTML = template;
+
+}
+
+function removeRequirementsContainer() {
+
+  if (document.querySelector("div.password-requirements")) {
+    document.querySelector("div.password-requirements").remove();
+  }
+
 }
 
 
@@ -142,6 +211,12 @@ function passwordConfirmationValidation() {
 
 // input field validations
 passwordInput.addEventListener("focusout", passwordValidation);
+passwordInput.addEventListener("focusin", createRequirements);
+passwordInput.addEventListener("focusout", removeRequirementsContainer);
+passwordInput.addEventListener("keyup", () => {
+  updateRequirementsList(requirementsList);
+
+});
 passwordConfirmationInput.addEventListener("focusout", passwordConfirmationValidation);
 
 passwordTogglesArr.forEach((item) => {
@@ -212,7 +287,7 @@ document.querySelector("form").addEventListener("submit", function (event) {
     submitBtn.disabled = true;
 
      //send form (data object) to backend
-     console.log("sending form data to backend");
+    //  console.log("sending form data to backend");
   }
 
 });

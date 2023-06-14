@@ -21,15 +21,6 @@ require_once("includes/admin_head.inc.php");
           <label for="password-confirmation" class="placeholder">Confirm new password</label>
           <i class="fa fa-eye password-toggle" aria-label="show password"></i>
         </div>
-        <p><b>New password:</b></p>
-        <ul class="password-rules">
-          <li>Must contain at least <b>8 characters</b></li>
-          <li>Must contain at least <b>one lowercase letter</b></li>
-          <li>Must contain at least <b>one capital letter</b></li>
-          <li>Must contain at least <b>one number</b></li>
-          <li>Must contain at least <b>one special character</b></li>
-          <li>Must <b>not contain spaces</b></li>
-        </ul>
         <div class="buttons">
           <button type="submit" class="reset-password">Reset password</button>
           <a href="login.php">Return to login</a>
