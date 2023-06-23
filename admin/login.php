@@ -1,10 +1,18 @@
-<?php require_once("includes/admin_head_data.php"); ?>
-<?php require_once("includes/admin_head.inc.php"); ?>
+<?php
+// require_once("../configuration.php");
+require_once(__DIR__ . '/Controller/Login.php');
+$Login = new Login();
+$Response = [];
+if (isset($_POST) && count($_POST) > 0) $Response = $Login->login($_POST);
+
+require_once(__DIR__ . '/includes/admin_head_data.php');
+require_once(__DIR__ . '/includes/admin_head.inc.php');
+?>
 
 
 <body>
   <header>
-    <a href="../index.php" class="avd-logo" aria-label="Home"><img src="../assets/icons/avd_logo_black.svg" class="avd-logo-svg" width="200" height="100" alt="Alandra Villalaz Development logo"></a>
+    <a href="../index" class="avd-logo" aria-label="Home"><img src="../assets/icons/avd_logo_black.svg" class="avd-logo-svg" width="200" height="100" alt="Alandra Villalaz Development logo"></a>
   </header>
   <main>
     <div class="login-container">
@@ -14,33 +22,23 @@
                           ../assets/illustrations/lock_closed.png 1200w">
           <source srcset="../assets/illustrations/lock_closed_small.webp 600w,
                           ../assets/illustrations/lock_closed_small.png 600w">
-          <img src="../assets/illustrations/lock_closed.png" width="338" height="486" alt="lock outline polygon" class="lock-polygon-closed">
+          <img src="../assets/illustrations/lock_closed.png" width="338" height="469" alt="lock outline polygon" class="lock-polygon-closed">
         </picture>
-        <!-- <picture>
-          <source media="(min-width: 760px)" srcset="../assets/illustrations/lock_open.webp 1200w,
-                          ../assets/illustrations/lock_open.png 1200w">
-          <source srcset="../assets/illustrations/lock_open_small.webp 600w,
-                          ../assets/illustrations/lock_open_small.png 600w">
-          <img src="../assets/illustrations/lock_open.png" width="338" height="486" alt="lock outline polygon" class="lock-polygon-open">
-        </picture> -->
       </div>
       <div class="login">
         <h1>Log In</h1>
         <div class="switch-to-registration">
           <?php
-          if (isset($_GET['status'])) {
-            if ($_GET['status'] == 'registered') {
-              echo '<p>Thank you for your registration, you will receive an email shortly to verify your email address.</p>';
-            } else if ($_GET['status'] == 'loggedout') {
-              echo '<p>You have successfully been logged out.</p>',
-              '<p>Don\'t have an account? <a href="registration.php">Create Account</a></p>';
+          if (isset($_GET['userStatus'])) {
+            if ($_GET['userStatus'] == 'loggedout') {
+              echo '<p>You have successfully been logged out.</p>';
+            } else if ($_GET['userStatus'] == 'removed') {
+              echo '<p>Your account has successfully been removed.</p>';
             }
-          } else {
-            echo '<p>Don\'t have an account? <a href="registration.php">Create Account</a></p>';
           }
           ?>
         </div>
-        <form action="includes/registration_and_login/login_script.php" method="POST" id="login-form" autocomplete="off" novalidate>
+        <form action="" method="POST" id="login-form" autocomplete="off" novalidate>
           <!-- <form action="" method="POST" id="login-form" autocomplete="off" novalidate> -->
           <div class="input-container username-container">
             <input type="text" id="username-or-email" name="username-email" aria-label="username or email" placeholder="Username or Email" required>
@@ -51,10 +49,10 @@
             <label for="password" class="placeholder">Password</label>
             <i role="button" class="fa fa-eye password-toggle" aria-label="show password"></i>
           </div>
-          <a href="password_forgotten.php" class="forgotten-password">Forgotten password?</a>
+          <a href="password_forgotten" class="forgotten-password">Forgotten password?</a>
           <?php if (isset($_GET['error'])) : ?>
             <div class="alert">
-              <p><?= $_GET['error'] ?></p>
+              <p><?= '❗️ Username or password incorrect' ?></p>
             </div>
           <?php endif; ?>
           <button type="submit" value="login" name="login" class="form-submit">Log In</button>
@@ -72,7 +70,7 @@
         <p class="delimiter">&#10072;</p>
         <a href="#" class="footer-element"><small>Privacy policy</small></a>
       </div>
-      <a href="../contact.php" class="footer-element"><small>Contact</small></a>
+      <a href="../contact" class="footer-element"><small>Contact</small></a>
     </div>
   </footer>
 </body>
