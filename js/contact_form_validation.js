@@ -13,7 +13,7 @@ const townInput = document.querySelector("#town");
 const telInput = document.querySelector("#tel");
 const emailInput = document.querySelector("#email");
 const messageTextarea = document.querySelector("#message");
-const fileInput = document.querySelector("#input-file");
+// const fileInput = document.querySelector("#input-file");
 
 const validColor = "#008000";
 const errorColor = "#F50404";
@@ -36,7 +36,7 @@ let validationErrors = {
 business = businessInput.value;
 // file = fileInput.value;
 // file input container (dropbox)
-const dropbox = document.querySelector(".dropbox");
+// const dropbox = document.querySelector(".dropbox");
 
 // console.log(fileInput.files)
 
@@ -96,7 +96,7 @@ function titleValidation() {
   detectErrorMsg("user-title-container");
 
   title = titleInput.value;
-  if (title == "") {
+  if (title === "") {
     // console.error("No title provided");
     validationErrors.title = "Please select a title";
     detectErrorMsg();
