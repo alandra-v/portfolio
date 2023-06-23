@@ -1,0 +1,228 @@
+/* TOC */
+/* 
+01  body
+02  forms
+03  account security section
+04  delete account section
+05  media queries min width 760px
+06  media queries min width 820px
+
+*/
+
+/* 01 body */
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+}
+
+h2, h3 {
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1rem;
+}
+
+hr.title-separator {
+  opacity: 0.5;
+  margin-bottom: 1rem;
+}
+
+/* 02 forms */
+
+div.section-container {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+section {
+  height: max-content;
+}
+
+div.input-container {
+  position: relative;
+  height: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+input {
+  border-color: rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  padding: 0.3rem;
+}
+
+div.user-title-container {
+  display: flex;
+  align-content: center;
+  gap: 2rem;
+  margin: 1.5rem 0;
+}
+
+label[for="user-title"] {
+  position: initial;
+  transform: translateY(0%);
+  opacity: 1;
+  color: #000;
+}
+
+fieldset {
+  border: none;
+  margin-bottom: 1rem;
+}
+
+fieldset label {
+  display: flex;
+  gap: 1rem;
+}
+
+div.flex-container,
+div.form-flex-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+div.form-flex-container {
+  gap: 0;
+}
+
+div.confirmation {
+  border: 2px solid rgb(4,78,72);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5rem;
+  padding: 0.8rem;
+  font-size: 0.8rem;
+}
+
+/* 03 account security section */
+
+div.acc-sec-grid {
+  display: grid;
+  grid-template-columns: 0.1fr 1fr;
+  align-items: center;
+}
+
+i.first {
+  grid-column: 1/2 ;
+  grid-row: 1/2;
+}
+
+i.second {
+  grid-column: 1/2 ;
+  grid-row: 3/4;
+}
+
+div.acc-sec-grid h3.email {
+  grid-column: 2/3 ;
+  grid-row: 1/2;
+}
+
+div.acc-sec-grid h3.two-step {
+  grid-column: 2/3 ;
+  grid-row: 3/4;
+}
+
+div.acc-sec-grid button.email-verification {
+  grid-column: 2/3 ;
+  grid-row: 2/3;
+}
+
+div.acc-sec-grid button.two-step-verification {
+  grid-column: 2/3 ;
+  grid-row: 4/5;
+}
+
+i.fa-circle-exclamation {
+  color: #f50404;
+}
+
+i.fa-check {
+  color: #126dff;
+}
+
+/* 04 delete account section */
+
+section.delete-acc {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 80px;
+}
+
+section.acc-security button {
+  color: #126dff;
+}
+
+section.acc-security button:hover {
+text-decoration: underline;
+}
+
+button.save-changes,
+a.delete-acc-btn {
+  display: block;
+  background-color: rgb(4,78,72);
+  border: rgb(2,43,40) 1px solid;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.6rem 1.3rem;
+  text-align: center;
+  width: 100%;
+}
+
+div.delete-warning {
+  display: none;
+}
+
+/* 05 media queries min width 760px */
+
+@media (min-width: 760px) {
+
+  section.acc-security,
+  section.update-password {
+    width: 80%;
+  }
+
+}
+
+/* 06 media queries min width 820px */
+
+@media (min-width: 820px) {
+
+  div.section-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  div.section-container>section {
+    width: 80%;
+  }
+
+  section {
+    max-width: 1000px;
+  }
+
+  section.delete-acc {
+    margin-bottom: 0;
+  }
+
+  div.flex-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  button.save-changes:hover,
+  a.delete-acc-btn:hover {
+    background-color: transparent;
+    color: #000;
+    transition: all 0.5s ease;
+  }
+
+}
