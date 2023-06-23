@@ -5,34 +5,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <title>AVD Admin - <?php echo $pageTitle[$currentPage]; ?></title>
-  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="../assets/favicon/apple-touch-icon-57x57.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/favicon/apple-touch-icon-114x114.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/favicon/apple-touch-icon-72x72.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/favicon/apple-touch-icon-144x144.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="../assets/favicon/apple-touch-icon-120x120.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../assets/favicon/apple-touch-icon-152x152.png" />
-  <link rel="icon" id="16" type="image/png" href="../assets/favicon/favicon-16x16.png" sizes="16x16" />
-  <link rel="icon" id="ico" href="../assets/favicon/favicon.ico">
+  <title>AVD Admin - <?= $pageTitle[$currentPage]; ?></title>
+  <link rel="icon" id="ico" href="<?= BASE_URL . 'assets/favicon/favicon.ico' ?>">
+  <link rel="icon" id="16" type="image/png" href="<?= BASE_URL . 'assets/favicon/favicon-16x16.png' ?>" sizes="16x16" />
   <meta name="application-name" content="AVD" />
   <meta name="msapplication-TileColor" content="#FFFFFF" />
-  <meta name="msapplication-TileImage" content="../favicon/mstile-144x144.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
-  <!-- stylesheets -->
-  <link rel="stylesheet" href="../css/reset.css">
-  <link rel="stylesheet" href="css/admin_header.css">
-  <link rel="stylesheet" href="../css/footer.css">
-  <link rel="stylesheet" href="../css/back_to_top_btn.css">
-
-  <!-- scripts -->
-  <script src="../js/back_to_top_btn.js" defer></script>
-  <script src="../js/favicon_match_media.js" defer></script>
 
   <!-- dynamic stylesheets & scripts-->
   <?php
@@ -40,35 +21,184 @@
   switch ($currentPage) {
     case 'login.php':
       echo
-      '<link rel="stylesheet" href="css/admin_login.css">';
-      // '<script src="js/login_validation.js" defer></script>';
-      break;
-
-    case 'registration.php':
-      echo
-      '<link rel="stylesheet" href="css/admin_registration.css">',
-      '<script src="js/registration_validation.js" defer></script>';
+      '<link rel="stylesheet" href="' . BASE_URL . 'css/reset.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/admin_header.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'css/footer.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/login.css">',
+      '<script src="' . BASE_URL . 'js/favicon_match_media.js" defer></script>',
+      '<script src="' . BASE_URL . 'admin/js/login_validation.js" defer></script>';
       break;
 
     case 'password_forgotten.php':
       echo
-      '<link rel="stylesheet" href="css/password_forgotten.css">',
-      '<script src="js/password_forgotten.js" defer></script>';
+      '<link rel="stylesheet" href="' . BASE_URL . 'css/reset.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/admin_header.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'css/footer.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/password_forgotten.css">',
+      '<script src="' . BASE_URL . 'js/favicon_match_media.js" defer></script>',
+      '<script src="' . BASE_URL . 'admin/js/password_forgotten.js" defer></script>';
       break;
 
     case 'password_reset.php':
       echo
-      '<link rel="stylesheet" href="css/password_reset.css">',
-      '<script src="js/password_reset.js" defer></script>';
+      '<link rel="stylesheet" href="' . BASE_URL . 'css/reset.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/admin_header.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'css/footer.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/password_forgotten.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/password_reset.css">',
+      '<script src="' . BASE_URL . 'js/favicon_match_media.js" defer></script>',
+      '<script src="' . BASE_URL . 'admin/js/password_reset.js" defer></script>';
+      break;
+
+
+      /* Content Management System */
+
+    case 'index.php':
+      echo
+      '<link rel="stylesheet" href="' . BASE_URL . 'css/reset.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'css/back_to_top_btn.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/style.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/cms_nav.css">',
+      '<script src="' . BASE_URL . 'js/favicon_match_media.js" defer></script>',
+      '<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>',
+      '<script src="' . BASE_URL . 'js/back_to_top_btn.js" defer></script>',
+      '<script src="' . BASE_URL . 'admin/js/cms_nav.js" defer></script>';
+      break;
+
+    case 'user_registration.php':
+      echo
+      '<link rel="stylesheet" href="' . BASE_URL . 'css/reset.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'css/back_to_top_btn.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/admin_header.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'css/footer.css">',
+      '<script src="' . BASE_URL . 'js/favicon_match_media.js" defer></script>',
+      '<script src="' . BASE_URL . 'js/back_to_top_btn.js" defer></script>',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/registration.css">',
+      '<script src="' . BASE_URL . 'admin/js/registration_validation.js" defer></script>';
+      break;
+
+    case 'account_settings.php':
+      echo
+      '<link rel="stylesheet" href="' . BASE_URL . 'css/reset.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'css/back_to_top_btn.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/account_settings.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/cms_nav.css">',
+      '<script src="' . BASE_URL . 'js/favicon_match_media.js" defer></script>',
+      '<script src="' . BASE_URL . 'js/back_to_top_btn.js" defer></script>',
+      '<script src="' . BASE_URL . 'admin/js/cms_nav.js" defer></script>',
+      '<script src="' . BASE_URL . 'admin/js/confirmation.js" defer></script>';
+
+      break;
+
+    case 'user_read.php':
+      echo
+      '<link rel="stylesheet" href="' . BASE_URL . 'css/reset.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'css/back_to_top_btn.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/user_read.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/cms_nav.css">',
+      '<script src="' . BASE_URL . 'js/favicon_match_media.js" defer></script>',
+      '<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>',
+      '<script src="' . BASE_URL . 'js/back_to_top_btn.js" defer></script>',
+      '<script src="' . BASE_URL . 'admin/js/cms_nav.js" defer></script>',
+      '<script src="' . BASE_URL . 'admin/js/drop_down.js" defer></script>',
+      '<script src="' . BASE_URL . 'admin/js/confirmation.js" defer></script>';
+      break;
+
+    case 'media_library.php':
+      echo
+      '<link rel="stylesheet" href="' . BASE_URL . 'css/reset.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'css/back_to_top_btn.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/media_library.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/cms_nav.css">',
+      '<script src="' . BASE_URL . 'js/favicon_match_media.js" defer></script>',
+      '<script src="' . BASE_URL . 'js/back_to_top_btn.js" defer></script>',
+      '<script src="' . BASE_URL . 'admin/js/cms_nav.js" defer></script>',
+      '<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>',
+      '<script src="' . BASE_URL . 'admin/js/confirmation.js" defer></script>';
+      break;
+
+    case 'media_upload.php':
+      echo
+      '<link rel="stylesheet" href="' . BASE_URL . 'css/reset.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'css/back_to_top_btn.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/media_upload.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/cms_nav.css">',
+      '<script src="' . BASE_URL . 'js/favicon_match_media.js" defer></script>',
+      '<script src="' . BASE_URL . 'js/back_to_top_btn.js" defer></script>',
+      '<script src="' . BASE_URL . 'admin/js/cms_nav.js" defer></script>';
+      break;
+
+    case 'media_update.php':
+      echo
+      '<link rel="stylesheet" href="' . BASE_URL . 'css/reset.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'css/back_to_top_btn.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/media_update.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/cms_nav.css">',
+      '<script src="' . BASE_URL . 'js/favicon_match_media.js" defer></script>',
+      '<script src="' . BASE_URL . 'js/back_to_top_btn.js" defer></script>',
+      '<script src="' . BASE_URL . 'admin/js/cms_nav.js" defer></script>';
+      break;
+
+    case 'projects_read.php':
+      echo
+      '<link rel="stylesheet" href="' . BASE_URL . 'css/reset.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'css/back_to_top_btn.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/projects_read.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/cms_nav.css">',
+      '<script src="' . BASE_URL . 'js/favicon_match_media.js" defer></script>',
+      '<script src="' . BASE_URL . 'js/back_to_top_btn.js" defer></script>',
+      '<script src="' . BASE_URL . 'admin/js/cms_nav.js" defer></script>',
+      '<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>',
+      '<script src="' . BASE_URL . 'admin/js/confirmation.js" defer></script>';
+      break;
+
+    case 'project_create.php':
+      echo
+      '<link rel="stylesheet" href="' . BASE_URL . 'css/reset.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'css/back_to_top_btn.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/project_create.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/cms_nav.css">',
+      '<script src="' . BASE_URL . 'js/favicon_match_media.js" defer></script>',
+      '<script src="' . BASE_URL . 'js/back_to_top_btn.js" defer></script>',
+      '<script src="' . BASE_URL . 'admin/js/cms_nav.js" defer></script>';
+      break;
+
+    case 'project_update.php':
+      echo
+      '<link rel="stylesheet" href="' . BASE_URL . 'css/reset.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'css/back_to_top_btn.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/projects_update.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/cms_nav.css">',
+      '<script src="' . BASE_URL . 'js/favicon_match_media.js" defer></script>',
+      '<script src="' . BASE_URL . 'js/back_to_top_btn.js" defer></script>',
+      '<script src="' . BASE_URL . 'admin/js/cms_nav.js" defer></script>';
+      break;
+
+    case 'contacts_read.php':
+      echo
+      '<link rel="stylesheet" href="' . BASE_URL . 'css/reset.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'css/back_to_top_btn.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/contacts_read.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/cms_nav.css">',
+      '<script src=" ' . BASE_URL . 'js/favicon_match_media.js" defer></script>',
+      '<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>',
+      '<script src="' . BASE_URL . 'js/back_to_top_btn.js" defer></script>',
+      '<script src="' . BASE_URL . 'admin/js/cms_nav.js" defer></script>',
+      '<script src="' . BASE_URL . 'admin/js/drop_down.js" defer></script>',
+      '<script src="' . BASE_URL . 'admin/js/confirmation.js" defer></script>';
+      break;
+
+    case 'contact_update.php':
+      echo
+      '<link rel="stylesheet" href="' . BASE_URL . 'css/reset.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'css/back_to_top_btn.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/contacts_update.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/cms_nav.css">',
+      '<script src="' . BASE_URL . 'js/favicon_match_media.js" defer></script>',
+      '<script src="' . BASE_URL . 'js/back_to_top_btn.js" defer></script>',
+      '<script src="' . BASE_URL . 'admin/js/cms_nav.js" defer></script>';
       break;
   }
-
-  // if ($currentPage == 'index.php') {
-  //   echo
-  //   '<link rel="stylesheet" href="css/password_reset.css">';
-  //   echo
-  //   '<script src="js/password_reset.js" defer></script>';
-  // }
 
   ?>
 </head>
