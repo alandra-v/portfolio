@@ -6,12 +6,12 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 
 $navArray = array(
   array(
-    'link' => 'index.php',
+    'link' => '../dashboard/index',
     'icon' => 'fa-solid fa-chart-line nav-icon',
     'title' => 'Dashboard'
   ),
   array(
-    'link' => 'media_library.php',
+    'link' => '../media_library/media_library',
     'icon' => 'fa-solid fa-photo-film nav-icon',
     'title' => 'Media library'
   ),
@@ -22,7 +22,7 @@ $navArray = array(
     'title' => 'Content',
     'subnav' => array(
       array(
-        'link' => 'projects_read.php',
+        'link' => '../projects/projects_read',
         'title' => 'Projects'
       ),
       // NOTE
@@ -34,12 +34,12 @@ $navArray = array(
     )
   ),
   array(
-    'link' => 'contacts_read.php',
+    'link' => '../contacts/contacts_read',
     'icon' => 'fa-regular fa-address-book nav-icon',
     'title' => 'Contacts'
   ),
   array(
-    'link' => 'user_read.php',
+    'link' => '../user/user_read',
     'icon' => 'fa-solid fa-user nav-icon',
     'title' => 'User'
   ),
@@ -51,12 +51,12 @@ $navArray = array(
     'title' => 'Plugins'
   ),
   array(
-    'link' => 'account_settings.php',
+    'link' => '../user/account_settings',
     'icon' => 'fa-solid fa-gear nav-icon',
     'title' => 'Settings'
   ),
   array(
-    'link' => 'logout.php',
+    'link' => '../logout',
     'icon' => 'fa-solid fa-arrow-right-from-bracket',
     'title' => 'Logout'
   ),
