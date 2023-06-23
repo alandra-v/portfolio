@@ -228,6 +228,8 @@ i.password-toggle {
   opacity: 0.7;
 }
 
+/* password requirements */
+
 div.password-requirements {
   background-color: #ebebeb;
   font-size: 0.8rem;
@@ -260,6 +262,8 @@ div.password-requirements li {
   list-style: disc;
   margin-left: 20px;
 }
+
+/* submit */
 
 button.form-submit {
   display: block;
@@ -300,8 +304,6 @@ div.alert>p {
   font-size: 1rem;
   padding: 0.5rem;
 }
-
-/* password requirements style */
 
 /* 06  media queries min width 760px */
 
