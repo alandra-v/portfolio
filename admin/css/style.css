@@ -1,0 +1,84 @@
+/* TOC */
+/* 
+01  body
+02  media queries min width 860px
+03  media queries min width 1200px
+
+*/
+
+/* 01 body */
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+}
+
+h2, h3 {
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1rem;
+}
+
+hr.title-separator {
+  opacity: 0.5;
+  margin-bottom: 1rem;
+}
+
+div.dump>p {
+  overflow-wrap: break-word;
+}
+
+div.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+i.fa-xmark {
+  color: #fff;
+}
+
+button.change-password {
+  display: block;
+  background-color: rgb(4,78,72);
+  border: rgb(2,43,40) 1px solid;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.6rem 1.3rem;
+  text-align: center;
+}
+
+/* 02 media queries min width 860px */
+
+@media (min-width: 860px) {
+
+  section {
+    width: 80%;
+  }
+
+  button.change-password:hover {
+    background-color: transparent;
+    color: #000;
+    transition: all 0.5s ease;
+  }
+
+}
+
+/* 03 media queries min width 1200px */
+
+@media (min-width: 1200px) {
+
+  div.section-content {
+    width: 70%;
+  }
+  
+}
