@@ -1,0 +1,93 @@
+/* TOC */
+/* 
+01  body
+02  form
+03  media queries min width 820px
+04  media queries min width 1000px
+
+*/
+
+/* 01 body */
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+hr.title-separator {
+  opacity: 0.5;
+  margin-bottom: 1rem;
+}
+
+/* 02 form */
+
+div.input-container {
+  position: relative;
+  height: 2.5rem;
+  /* width: 80vw; */
+  margin-bottom: 5rem;
+}
+
+div.status-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input {
+  border-color: rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  width: 100%;
+}
+
+button.create-btn {
+  display: block;
+  background-color: rgb(4,78,72);
+  border: rgb(2,43,40) 1px solid;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.6rem 1.3rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+span.error-span {
+  color: #F50404;
+}
+
+/* 03 media queries min width 820px */
+
+@media (min-width: 820px) {
+  
+  section {
+    width: 80%;
+    max-width: 1000px;
+  }
+
+  input {
+    width: 80%;
+  }
+
+  div.status-container {
+    width: 50%;
+  }
+
+  button.create-btn:hover {
+    background-color: transparent;
+    color: #000;
+    transition: all 0.5s ease;
+  }
+
+}
+
+/* 04 media queries min width 1000px */
+
+@media (min-width: 1000px) {
+
+  section {
+    width: 65%;
+  }
+
+}
