@@ -1,7 +1,7 @@
 <?php
-require_once("includes/head_data.php");
-require_once("includes/nav_data.php");
-include("includes/head.inc.php");
+require_once(__DIR__ . '/includes/head_data.php');
+require_once(__DIR__ . '/includes/nav_data.php');
+include(__DIR__ . '/includes/head.inc.php');
 ?>
 
 
@@ -9,9 +9,9 @@ include("includes/head.inc.php");
   <a href="#main" class="skip-nav-link">Skip to main content</a>
   <header>
     <div class="background-img">
-      <?php include('includes/navigation.inc.php'); ?>
+      <?php include(__DIR__ . '/includes/navigation.inc.php'); ?>
       <h1>We are AVD</h1>
-      <a href="contact.php" class="hero-section-button">GET IN TOUCH</a>
+      <a href="contact" class="hero-section-button">GET IN TOUCH</a>
     </div>
   </header>
   <main id="main">
@@ -72,7 +72,7 @@ include("includes/head.inc.php");
         <p class="date">2017 - 2020</p>
       </div>
     </section>
-    <a href="contact.php" class="contact-button">CONTACT</a>
+    <a href="contact" class="contact-button">CONTACT</a>
     <section class="recognitions">
       <div class="title-section">
         <h2>Recognitions</h2>
@@ -86,7 +86,7 @@ include("includes/head.inc.php");
         <p>Cssdesignawards website of the month</p>
         <p class="date">05.2021</p>
       </div>
-      <a href="work.php" class="view-projects-button">VIEW PROJECTS</a>
+      <a href="work" class="view-projects-button">VIEW PROJECTS</a>
     </section>
   </main>
-  <?php include('includes/footer.inc.php'); ?>
+  <?php include(__DIR__ . '/includes/footer.inc.php'); ?>

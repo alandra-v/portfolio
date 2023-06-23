@@ -1,11 +1,13 @@
 <?php
-require_once("includes/admin_head_data.php");
-require_once("includes/admin_head.inc.php");
+require_once(dirname(__DIR__) . '/configuration.php');
+
+require_once(__DIR__ . '/includes/admin_head_data.php');
+require_once(__DIR__ . '/includes/admin_head.inc.php');
 ?>
 
 <body>
   <header>
-    <a href="../index.php" class="avd-logo" aria-label="Home"><img src="../assets/icons/avd_logo_black.svg" class="avd-logo-svg" width="200" height="100" alt="Alandra Villalaz Development logo"></a>
+    <a href="../index" class="avd-logo" aria-label="Home"><img src="../assets/icons/avd_logo_black.svg" class="avd-logo-svg" width="200" height="100" alt="Alandra Villalaz Development logo"></a>
   </header>
   <main>
     <div class="container">
@@ -20,7 +22,7 @@ require_once("includes/admin_head.inc.php");
         </div>
         <div class="buttons">
           <button type="submit" class="reset-password">Reset password</button>
-          <a href="login.php">Return to login</a>
+          <a href="login">Return to login</a>
         </div>
       </form>
     </div>
@@ -35,7 +37,7 @@ require_once("includes/admin_head.inc.php");
         <p class="delimiter">&#10072;</p>
         <a href="#" class="footer-element"><small>Privacy policy</small></a>
       </div>
-      <a href="../contact.php" class="footer-element"><small>Contact</small></a>
+      <a href="../contact" class="footer-element"><small>Contact</small></a>
     </div>
   </footer>
 </body>

@@ -1,13 +1,13 @@
 <?php
-require_once("includes/head_data.php");
-require_once("includes/nav_data.php");
-include("includes/head.inc.php");
+require_once(__DIR__ . '/includes/head_data.php');
+require_once(__DIR__ . '/includes/nav_data.php');
+include(__DIR__ . '/includes/head.inc.php');
 ?>
 
 <body>
   <a href="#main" class="skip-nav-link">Skip to main content</a>
   <header>
-    <?php include('includes/navigation.inc.php'); ?>
+    <?php include(__DIR__ . '/includes/navigation.inc.php'); ?>
   </header>
   <main id="main">
     <section class="hero-section">
@@ -50,8 +50,8 @@ include("includes/head.inc.php");
       <iframe title="Aebele Interiors home page" class="mobile" src="https://aebeleinteriors.com/" frameborder="0" width="200" height="400"></iframe>
     </div>
     <div class="buttons">
-      <a href="contact.php" class="contact-button">LET'S TALK</a>
-      <a href="work.php" class="back-button">>Back to overview</a>
+      <a href="contact" class="contact-button">LET'S TALK</a>
+      <a href="work" class="back-button">>Back to overview</a>
     </div>
   </main>
-  <?php include('includes/footer.inc.php'); ?>
+  <?php include(__DIR__ . '/includes/footer.inc.php'); ?>

@@ -1,13 +1,13 @@
 <?php
-require_once("includes/head_data.php");
-require_once("includes/nav_data.php");
-include("includes/head.inc.php");
+require_once(__DIR__ . '/includes/head_data.php');
+require_once(__DIR__ . '/includes/nav_data.php');
+include(__DIR__ . '/includes/head.inc.php');
 ?>
 
 <body>
   <a href="#main" class="skip-nav-link">Skip to main content</a>
   <header>
-    <?php include('includes/navigation.inc.php'); ?>
+    <?php include(__DIR__ . '/includes/navigation.inc.php'); ?>
     <section>
       <p class="hero-text-1">A unique partner for <br>unique projects.</p>
       <p class="hero-text-2">We love small projects with passion as much as complex platforms. Regardless of the project
@@ -73,7 +73,7 @@ include("includes/head.inc.php");
             <p class="category">Before the technical implementation, the prototype is tested on various terminals.</p>
           </div>
         </div>
-        <a href="contact.php" class="button-get-in-touch">GET IN TOUCH</a>
+        <a href="contact" class="button-get-in-touch">GET IN TOUCH</a>
       </div>
     </div>
 
@@ -147,7 +147,7 @@ include("includes/head.inc.php");
               a big difference.</p>
           </div>
         </div>
-        <a href="contact.php" class="button-get-in-touch">GET IN TOUCH</a>
+        <a href="contact" class="button-get-in-touch">GET IN TOUCH</a>
       </div>
     </div>
 
@@ -191,7 +191,7 @@ include("includes/head.inc.php");
 
 
     <hr class="services-end">
-    <a href="contact.php" class="get-in-touch-button">GET IN TOUCH</a>
+    <a href="contact" class="get-in-touch-button">GET IN TOUCH</a>
 
   </main>
-  <?php include('includes/footer.inc.php'); ?>
+  <?php include(__DIR__ . '/includes/footer.inc.php'); ?>

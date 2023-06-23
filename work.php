@@ -1,13 +1,13 @@
 <?php
-require_once("includes/head_data.php");
-require_once("includes/nav_data.php");
-include("includes/head.inc.php");
+require_once(__DIR__ . '/includes/head_data.php');
+require_once(__DIR__ . '/includes/nav_data.php');
+include(__DIR__ . '/includes/head.inc.php');
 ?>
 
 <body>
   <a href="#main" class="skip-nav-link">Skip to main content</a>
   <header>
-    <?php include('includes/navigation.inc.php'); ?>
+    <?php include(__DIR__ . '/includes/navigation.inc.php'); ?>
   </header>
   <main id="main">
     <h1>Projects</h1>
@@ -23,7 +23,7 @@ include("includes/head.inc.php");
         </picture>
         <div class="title">
           <h2>Aebele</h2>
-          <a href="project_aebele_interiors.php" class="view-project" aria-label="Take a closer look at the Aebele project">>View project</a>
+          <a href="project_aebele_interiors" class="view-project" aria-label="Take a closer look at the Aebele project">>View project</a>
         </div>
       </div>
       <div class="project">
@@ -122,4 +122,4 @@ include("includes/head.inc.php");
       </div>
     </div>
   </main>
-  <?php include('includes/footer.inc.php'); ?>
+  <?php include(__DIR__ . '/includes/footer.inc.php'); ?>

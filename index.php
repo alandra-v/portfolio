@@ -1,19 +1,19 @@
 <?php
-require_once("includes/head_data.php");
-require_once("includes/nav_data.php");
-include("includes/head.inc.php");
+require_once(__DIR__ . '/includes/head_data.php');
+require_once(__DIR__ . '/includes/nav_data.php');
+include(__DIR__ . '/includes/head.inc.php');
 ?>
 
 <body>
   <a href="#main" class="skip-nav-link">Skip to main content</a>
   <header>
     <div class="background-img">
-      <?php include('includes/navigation.inc.php'); ?>
+      <?php include(__DIR__ . '/includes/navigation.inc.php'); ?>
       <!-- HERO SECTION -->
       <section class="hero">
         <h1>A unique partner for <br> unique projects</h1>
         <p class="hero-text">Custom web design & development for your brand</p>
-        <a href="contact.php" class="contact-button-hero">LET'S TALK</a>
+        <a href="contact" class="contact-button-hero">LET'S TALK</a>
       </section>
     </div>
   </header>
@@ -124,7 +124,7 @@ include("includes/head.inc.php");
           </div>
         </div>
       </div>
-      <a href="contact.php" class="contact-button-services">LET'S TALK</a>
+      <a href="contact" class="contact-button-services">LET'S TALK</a>
     </section>
     <!-- PROJECT PREVIEWS SECTION -->
     <section class="project-previews">
@@ -153,7 +153,7 @@ include("includes/head.inc.php");
                   <source srcset="assets/images/aebele_3_small.webp 600w, assets/images/aebele_3_small.png 600w"><img src="assets/images/aebele_3.png" width="1200" height="758" alt="Shop Aebele interiors" class="preview-img">
                 </picture>
                 <p class="project-title">Aebele</p>
-                <a href="project_aebele_interiors.php" class="view-project">>View project</a>
+                <a href="project_aebele_interiors" class="view-project">>View project</a>
               </div>
             </li>
 
@@ -296,7 +296,7 @@ include("includes/head.inc.php");
           </div>
         </div>
       </div>
-      <a href="work.php" class="projects-button">VIEW PROJECTS</a>
+      <a href="work" class="projects-button">VIEW PROJECTS</a>
     </section>
   </main>
-  <?php include('includes/footer.inc.php'); ?>
+  <?php include(__DIR__ . '/includes/footer.inc.php'); ?>
