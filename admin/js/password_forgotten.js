@@ -43,7 +43,7 @@ document.querySelector("form").addEventListener("submit", function (event) {
     submitBtn.disabled = true;
 
      //send form (data object) to backend
-     console.log("sending form data to backend");
+    //  console.log("sending form data to backend");
   }
 
 });

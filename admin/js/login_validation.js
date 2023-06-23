@@ -7,7 +7,6 @@ const passwordInput = document.querySelector("#password");
 const submitBtn = document.querySelector(".form-submit");
 
 const passwordToggle = document.querySelector(".password-toggle");
-console.log(passwordToggle);
 
 // styling colors
 const validColor = "#000000";
@@ -72,11 +71,11 @@ function usernameValidation () {
   }
 
   if (!username) {
-    console.error("No username provided");
+    // console.error("No username provided");
     validationErrors.username = "Please enter your username";
     errorMsgUsername();
   } else {
-    console.info(`${username} matches`);
+    // console.info(`${username} matches`);
     delete validationErrors.username;
     validStyle("username-or-email");
   }
@@ -96,11 +95,11 @@ function passwordValidation () {
   }
 
   if (!password) {
-    console.error("No password provided");
+    // console.error("No password provided");
     validationErrors.password = "Please enter your password";
     errorMsgPassword();
   } else {
-    console.info(`${password} matches`);
+    // console.info(`${password} matches`);
     delete validationErrors.password;
     validStyle("password");
   }
@@ -110,7 +109,6 @@ function passwordValidation () {
 
 // password visibility toggle
 function passwordVisibility () {
-  console.log("click");
 
   // toggle the "type"-attribute
   const typePassword =
@@ -138,14 +136,13 @@ usernameInput.addEventListener("focusout", usernameValidation);
 passwordInput.addEventListener("focusout", passwordValidation);
 
 
-submitBtn.addEventListener("click", function (event) {
+submitBtn.addEventListener("click", function () {
 
   usernameValidation();
   passwordValidation();
 
   if (Object.keys(validationErrors).length > 0) {
 
-    event.preventDefault();
 
     // remove submit fail msg timer
     const removeSubmitMessage = () => {
@@ -164,7 +161,7 @@ submitBtn.addEventListener("click", function (event) {
 
     removeSubmitMessage();
 
-    console.error("there are still errors")
+    // console.error("there are still errors")
     // console.log(validationErrors);
 
 
@@ -179,7 +176,7 @@ submitBtn.addEventListener("click", function (event) {
     data.password = password;
     
     //send form (data object) to backend
-    console.log("sending form data to backend");
+    // console.log("sending form data to backend");
   }
 
 });

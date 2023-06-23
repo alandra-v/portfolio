@@ -223,7 +223,7 @@ passwordTogglesArr.forEach((item) => {
 
   item.addEventListener("click", function () {
 
-    if(this==passwordToggles[0]) {
+    if(this===passwordToggles[0]) {
       // toggle the "type"-attribute
       const typePassword =
       passwordInput.getAttribute("type") === "password" ? "text" : "password";

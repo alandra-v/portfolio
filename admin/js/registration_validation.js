@@ -106,7 +106,7 @@ function titleValidation() {
   detectErrorMsg("user-title-container");
 
   title = titleInput.value;
-  if (title == "") {
+  if (title === "") {
     // console.error("No title provided");
     validationErrors.title = "Please select a title";
     detectErrorMsg("user-title-container");
@@ -130,9 +130,8 @@ function genderValidation() {
   let checkedGender = document.querySelector('input[name = "gender"]:checked');
   
   if(!checkedGender) {
-    console.log("GENDER ERROR");
     validationErrors.gender = "Please select your gender";
-    console.log(validationErrors.gender);
+    // console.log(validationErrors.gender);
     detectErrorMsg("gender-radio-inputs");
     displayErrorMsgRadioBtn(
       validationErrors.gender,
@@ -152,7 +151,6 @@ function givenNameValidation() {
 
   givenName = givenNameInput.value;
   if (!givenName) {
-    // console.error("No given name provided");
     validationErrors.givenName = "Please enter your first name";
     detectErrorMsg("given-name");
     displayErrorMsg(
@@ -160,10 +158,8 @@ function givenNameValidation() {
       "given-name-container",
       "given-name");
   } else {
-      // console.info(`${givenName} is valid`);
       delete validationErrors.givenName;
       validStyle("given-name");
-      // console.log(validationErrors);
     }
 }
 
@@ -173,7 +169,6 @@ function familyNameValidation() {
 
   familyName = familyNameInput.value;
   if (!familyName) {
-    // console.error("No family name provided");
     validationErrors.familyName = "Please enter your last name";
     detectErrorMsg();
     displayErrorMsg(
@@ -181,10 +176,8 @@ function familyNameValidation() {
       "family-name-container",
       "family-name");
   } else {
-      // console.info(`${familyName} is valid`);
       delete validationErrors.familyName;
       validStyle("family-name");
-      // console.log(validationErrors);
     }
 }
 
@@ -194,28 +187,24 @@ function usernameValidation() {
 
   username = usernameInput.value;
   if (!username) {
-    // console.error("No email provided");
     validationErrors.username = "Please enter a username";
     displayErrorMsg(
       validationErrors.username,
       "username-container",
       "username")
   } else if (!usernameRegEx.test(username)) {
-      // console.error("Invalid email address");
       validationErrors.username = "Username must be between 4 and 16 characters";
       displayErrorMsg(
         validationErrors.username,
         "username-container",
         "username")
   } else if (whitespace.test(username)) {
-      // console.error("Invalid email address");
       validationErrors.username = "Username must not conain spaces";
        displayErrorMsg(
         validationErrors.username,
         "username-container",
         "username")
   } else {
-      // console.info(`${username} is valid`);
       delete validationErrors.username;
       validStyle("username");
   }
@@ -261,7 +250,6 @@ function emailConfirmationValidation() {
       "email-confirmation-container",
       "email-confirmation")
   } else if (emailConfirmation!==email){
-      console.error("Passwords dont match");
       validationErrors.emailConfirmation = "Email addresses don't match. Take another look.";
       displayErrorMsg(
         validationErrors.emailConfirmation,
@@ -279,7 +267,7 @@ passwordTogglesArr.forEach((item) => {
 
   item.addEventListener("click", function () {
 
-    if(this==passwordToggles[0]) {
+    if(this===passwordToggles[0]) {
       // toggle the "type"-attribute
       const typePassword =
       passwordInput.getAttribute("type") === "password" ? "text" : "password";
@@ -330,16 +318,12 @@ function passwordValidation() {
     !validLength.test(password)
     ) {
     validationErrors.password = "Please make sure your password meets all requirements";
-    // createRequirements();
     errorMsgPassword();
   } else {
-    console.info(`${password} is valid`);
     delete validationErrors.password;
     validStyle("password");
   }
 
-  // createRequirements(passwordInput);
-  // console.log("focusin");
 }
 
 
@@ -380,7 +364,7 @@ function requirementsCheck(inputValue) {
   if (containsSymbol.test(inputValue)) delete requirements.specialcharacter;
   if (validLength.test(inputValue)) delete requirements.passwordlength;
 
-  console.log(requirements);
+  // console.log(requirements);
   return requirements;
   
 }
@@ -388,15 +372,14 @@ function requirementsCheck(inputValue) {
 function templateHandling(requirements) {
   let template = '';
   if (Object.keys(requirements).length === 0) {
-    // removeRequirementsContainer();
     template = "strong password &#9989";
     return template;
-    console.log("handling if");
+    // console.log("handling if");
   } else { 
     for (const [key, value] of Object.entries(requirements)) {
       template += [value] + "<br>";
     }
-    console.log("handling else");
+    // console.log("handling else");
     return template;
   }
 }
@@ -430,15 +413,12 @@ function passwordConfirmationValidation() {
   }
 
   if (!passwordConfirmation) {
-    // console.error("No email confirmation provided");
     validationErrors.passwordConfirmation = "Please confirm your password";
     errorMsgPasswordConfirmation();
   } else if (passwordConfirmation!==password){
-    console.error("passwords dont match");
     validationErrors.passwordConfirmation = "Passwords don't match. Take another look.";
     errorMsgPasswordConfirmation();
   } else {
-    // console.info(`${password} matches`);
     delete validationErrors.passwordConfirmation;
     validStyle("password-confirmation");
   }
@@ -527,10 +507,10 @@ document.querySelector("form").addEventListener("submit", function (event) {
 
     removeSubmitMessage();
 
-    console.error("there are still errors")
+    // console.error("there are still errors")
     // console.log(validationErrors);
 
-  } else if(Object.keys(validationErrors).length == 0) {
+  } else if(Object.keys(validationErrors).length === 0) {
 
     // remove submit fail message
     if (document.querySelector("div.alert")) {
@@ -541,7 +521,7 @@ document.querySelector("form").addEventListener("submit", function (event) {
 
 
     //send form (data object) to backend
-    console.log("sending form data to backend");
+    // console.log("sending form data to backend");
 
 
 
