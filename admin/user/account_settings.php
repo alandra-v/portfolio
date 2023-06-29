@@ -23,15 +23,31 @@ if (isset($_GET['id'])) {
 }
 // or session id?
 
-if (isset($_POST['profile-info']) && count($_POST) > 0) {
-  $Response = $Settings->editProfileInfo($_POST, $_GET['id']);
-} else if (isset($_POST['update-password']) && count($_POST) > 0) {
-  $Response = $Settings->editLoginInfo($_POST, $_GET['id']);
-} else if (isset($_POST['login-info']) && count($_POST) > 0) {
-  $Response = $Settings->editLoginInfo($_POST, $_GET['id']);
-}
 
-if (isset($_GET['remove'])) $Settings->deleteAccount($_GET['remove']);
+if (isset($_POST['profile-info']) && count($_POST) > 0) {
+  if (isset($_GET['id'])) {
+    $Response = $Settings->editProfileInfo($_POST, $_GET['id']);
+  } else {
+    $Response = $Settings->editProfileInfo($_POST, $_SESSION['data']['ID']);
+  }
+} else if (isset($_POST['update-password']) && count($_POST) > 0) {
+  if (isset($_GET['id'])) {
+    $Response = $Settings->editPassword($_POST, $_GET['id']);
+  } else {
+    $Response = $Settings->editPassword($_POST, $_SESSION['data']['ID']);
+  }
+} else if (isset($_POST['login-info']) && count($_POST) > 0) {
+  if (isset($_GET['id'])) {
+    $Response = $Settings->editLoginInfo($_POST, $_GET['id']);
+  } else {
+    $Response = $Settings->editLoginInfo($_POST, $_SESSION['data']['ID']);
+  }
+} else if (isset($_GET['deleteUser'])) {
+  $foundUser = $Settings->getUser($_GET['deleteUser']);
+  if ($foundUser) {
+    $Settings->deleteUser($foundUser['data']);
+  }
+}
 
 ?>
 
@@ -39,11 +55,12 @@ if (isset($_GET['remove'])) $Settings->deleteAccount($_GET['remove']);
 <body>
   <?php include(dirname(__DIR__) . '/includes/cms/navigation.inc.php'); ?>
   <main>
+    <?php include(dirname(__DIR__) . '/includes/cms/confirmation.php'); ?>
     <div class="section-container">
       <section class="profile-info">
-        <h2>Profile Information <?= ucfirst($User['data']['user_name']); ?></h2>
+        <h2>Profile Information <?= $User['data']['user_name']; ?></h2>
         <hr class="title-separator">
-        <form action="" method="POST" class="profile-info">
+        <form action="" method="POST" class="profile-info" novalidate>
           <div class="user-title-container">
             <label for="user-title" aria-label="title">Title</label>
             <select name="titles" id="user-title">
@@ -116,17 +133,30 @@ if (isset($_GET['remove'])) $Settings->deleteAccount($_GET['remove']);
           </div>
         </section>
         <section class="update-password">
-          <h2>Update <?= ucfirst($User['data']['user_name']); ?>'s Password</h2>
+          <h2>Update <?= $User['data']['user_name']; ?>'s Password</h2>
           <hr class="title-separator">
-          <form action="" method="POST" class="edit-password">
+          <form action="" method="POST" class="edit-password" novalidate>
             <div class="form-flex-container">
               <div class="input-container">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password">
+                <label for="password-original">Enter your current password</label>
+                <input type="password" id="password-original" name="password-original" value="<?= (isset($_POST['password-original'])) ? $_POST['password-original'] : '' ?>">
+                <?php if (isset($Response['password-original']) && !empty($Response['password-original'])) : ?>
+                  <span class="error-span"><?= $Response['password-original']; ?></span>
+                <?php endif; ?>
               </div>
               <div class="input-container">
-                <label for="password-confirmation">Confirm password</label>
-                <input type="password" id="password-confirmation" name="password-confirmation">
+                <label for="password-new">New password</label>
+                <input type="password" id="password-new" name="password-new" value="<?= (isset($_POST['password-new'])) ? $_POST['password-new'] : '' ?>">
+                <?php if (isset($Response['password-new']) && !empty($Response['password-new'])) : ?>
+                  <span class="error-span"><?= $Response['password-new']; ?></span>
+                <?php endif; ?>
+              </div>
+              <div class="input-container">
+                <label for="password-confirmation">Confirm new password</label>
+                <input type="password" id="password-confirmation" name="password-confirmation" value="<?= (isset($_POST['password-confirmation'])) ? $_POST['password-confirmation'] : '' ?>">
+                <?php if (isset($Response['password-confirmation']) && !empty($Response['password-confirmation'])) : ?>
+                  <span class="error-span"><?= $Response['password-confirmation']; ?></span>
+                <?php endif; ?>
               </div>
             </div>
             <button class="save-changes" type="submit" name="update-password">Update Password</button>
@@ -134,45 +164,50 @@ if (isset($_GET['remove'])) $Settings->deleteAccount($_GET['remove']);
         </section>
       </div>
       <section class="login-info">
-        <h2>Login Information <?= ucfirst($User['data']['user_name']); ?></h2>
+        <h2>Login Information <?= $User['data']['user_name']; ?></h2>
         <hr class="title-separator">
-        <form action="" method="POST" class="credentials">
+        <form action="" method="POST" class="credentials" novalidate>
           <div class="input-container">
             <label for="username">Username</label>
-            <input type="text" id="username" name="username" value="<?= $User['data']['user_name'];
-                                                                    ?>">
+            <input type="text" id="username" name="username" value="<?= (isset($_POST['username'])) ? $_POST['username'] : $User['data']['user_name'] ?>">
+            <!-- <input type="text" id="username" name="username" value="<?= $User['data']['user_name']; ?>"> -->
+            <?php if (isset($Response['username']) && !empty($Response['username'])) : ?>
+              <span class="error-span"><?= $Response['username']; ?></span>
+            <?php endif; ?>
           </div>
           <div class="form-flex-container">
             <div class="input-container">
               <label for="email">Email</label>
-              <input type="email" id="email" name="email" value="<?= $User['data']['user_email'];
-                                                                  ?>">
+              <input type="email" id="email" name="email" value="<?= (isset($_POST['email'])) ? $_POST['email'] : $User['data']['user_email'] ?>">
+              <!-- <input type="email" id="email" name="email" value="<?= $User['data']['user_given_name']; ?>"> -->
+              <?php if (isset($Response['email']) && !empty($Response['email'])) : ?>
+                <span class="error-span"><?= $Response['email']; ?></span>
+              <?php endif; ?>
             </div>
             <div class="input-container">
-              <label for="email-confirmation">Confirm e-mail</label>
-              <input type="email" id="email-confirmation" name="email-confirmation">
+              <label for="email-confirmation">Confirm new e-mail</label>
+              <input type="email" id="email-confirmation" name="email-confirmation" value="<?= (isset($_POST['email-confirmation'])) ? $_POST['email-confirmation'] : '' ?>">
+              <?php if (isset($Response['email-confirmation']) && !empty($Response['email-confirmation'])) : ?>
+                <span class="error-span"><?= $Response['email-confirmation']; ?></span>
+              <?php endif; ?>
             </div>
           </div>
           <button class="save-changes" type="submit" name="login-info">Save all changes</button>
         </form>
       </section>
-      <section class="delete-acc">
-        <h2>Close your account</h2>
-        <hr class="title-separator">
-        <div class="flex-container">
-          <p>All data associated with this account will be irrevocably deleted.</p>
-          <a href="?remove=<?= $User['data']['ID']; ?>" class="delete-acc-btn" data-confirm="<?= $User['data']['user_name'] ?>">Close Account</a>
-        </div>
-        <!-- <div class="delete-warning">
-          <p>Are you sure you want to delete your account?</p>
-          <p>All data associated with this account will be irrevocably deleted.</p>
+      <?php if ($_SESSION['data']['ID'] == $User['data']['ID'] && $User['data']['user_group'] != 0) : ?>
+        <section class="delete-acc">
+          <h2>Close your account</h2>
+          <hr class="title-separator">
           <div class="flex-container">
-            <button class="dont-delete">Go back</button>
-            <button class="delete">Delete account</button>
+            <p>All data associated with this account will be irrevocably deleted.</p>
+            <!-- Delete btn -->
+            <button class="delete-btn" onclick="
+                  showModal('Are you sure you want to delete <?= $User['data']['user_name'] ?>\'s user account? All data associated with this account will be irreversibly deleted!',
+                  '?deleteUser=<?= $User['data']['ID'] ?>' )">Close Account</button>
           </div>
-        </div> -->
-    </div>
-    </section>
+        </section>
+      <?php endif; ?>
 
   </main>
 
