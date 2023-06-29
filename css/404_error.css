@@ -41,7 +41,7 @@ div.error-container {
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  gap: 3rem;
 }
 
 div.error-polygon-container {
@@ -71,7 +71,7 @@ h1 {
 
 a.bth-btn {
   display: block;
-  border: #09c1b2 1.5px solid;
+  border: #09c1b2 1px solid;
   box-shadow: 0 0 10px #09c1b2;
   background: transparent;
   font-size: 1rem;
@@ -99,7 +99,7 @@ a.bth-btn:hover {
     width: 50%;
   }
 
-  a.bth_btn {
+  a.bth-btn {
     width: 70%;
   }
 
