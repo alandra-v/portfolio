@@ -26,14 +26,26 @@ a.add-new {
   display: block;
   width: calc(100% - 62px);
   max-width: 1200px;
-  background-color: rgb(4,78,72);
-  border: rgb(2,43,40) 1px solid;
-  color: #fff;
+  background-color: var(--lightGreen);
+  border: var(--darkGreen) 1px solid;
+  color: var(--white);
   font-size: 1rem;
   font-weight: 500;
   padding: 0.6rem 1.3rem;
   text-align: center;
   margin: 3rem auto 1rem auto;
+}
+
+div.confirmation {
+  border: 2px solid var(--lightGreen);
+  width: calc(100% - 62px);
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem auto 5rem auto;
+  padding: 0.8rem;
+  font-size: 0.8rem;
 }
 
 /* 02 grid & flex */
@@ -63,7 +75,7 @@ div.container {
   height: 100%;
   max-width: 450px;
   padding: 2rem;
-  box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+  box-shadow: var(--boxShadow);
   font-size: 1.2rem;
 }
 
@@ -103,20 +115,27 @@ img.logo {
 h2 {
   font-size: 1.3rem;
   font-weight: 500;
+  text-align: center;
 }
 
 i.fa-circle-check,
 i.fa-pencil,
 i.fa-trash {
-  color: #000;
+  color: var(--black);
+}
+
+i.fa-pencil,
+i.fa-trash {
+  padding: 0.3rem;
 }
 
 i.fa-circle-exclamation {
-  color: #f50404;
+  color: var(--errorRed);
 }
 
 a.website-url {
   text-decoration: underline;
+  font-size: 0.8rem;
 }
 
 p.label {
@@ -164,6 +183,12 @@ p.project-id {
     min-width: 350px;
   }
 
+  a.update-btn:hover,
+  button.delete-btn:hover {
+    background: var(--mediumHover);
+    transition: all 0.5s ease;
+  }
+
 }
 
 /* 06 media queries min width 1250px */
@@ -180,7 +205,7 @@ p.project-id {
 
   a.add-new:hover {
     background-color: transparent;
-    color: #000;
+    color: var(--black);
     transition: all 0.5s ease;
   }
 
