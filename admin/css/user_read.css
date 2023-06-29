@@ -18,9 +18,9 @@ body {
 a.add-new {
   display: block;
   width: 100%;
-  background-color: rgb(4,78,72);
-  border: rgb(2,43,40) 1px solid;
-  color: #fff;
+  background-color: var(--lightGreen);
+  border: var(--darkGreen) 1px solid;
+  color: var(--white);
   font-size: 1rem;
   font-weight: 500;
   padding: 0.6rem 1.3rem;
@@ -30,13 +30,13 @@ a.add-new {
 
 a.add-new:hover {
   background-color: transparent;
-  color: #000;
+  color: var(--black);
   transition: all 0.5s ease;
 }
 
 
 div.confirmation {
-  border: 2px solid rgb(4,78,72);
+  border: 2px solid var(--lightGreen);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -50,7 +50,7 @@ div.confirmation {
 ul.user-list {
   margin: 30px;
   padding: 2rem;
-  box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+  box-shadow: var(--boxShadow);
 }
 
 
@@ -82,7 +82,7 @@ div.flex-container-operations-desktop {
 }
 
 i.fa-chevron-down {
-  z-index: 999;
+  z-index: 900;
 }
 
 /* 03 tiles */
@@ -91,10 +91,16 @@ i.fa-pencil,
 i.fa-trash,
 i.fa-chevron-down,
 i.fa-envelope {
-  color: #000;
+  color: var(--black);
 }
 
-div.user-information {
+i.fa-pencil,
+i.fa-trash,
+i.fa-chevron-down {
+  padding: 0.3rem;
+}
+
+div.information {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -109,7 +115,7 @@ i.label {
 }
 
 hr.parting-line {
-  border: 0.3px solid #000;
+  border: 0.3px solid var(--black);
   opacity: 0.5;
   width: 100%;
   margin: 3rem auto;
@@ -131,8 +137,8 @@ p.date {
     display: none;
   }
 
-  i.fa-pencil, 
-  i.fa-trash,
+  a.update-btn, 
+  button.delete-btn,
   button.drop-down {
     margin-left: 30px;
   }
@@ -149,7 +155,7 @@ p.date {
     width: 15%;
   }
 
-  div.user-information {
+  div.information {
     width: 75%;
   }
 
@@ -163,7 +169,7 @@ p.date {
     max-width: 1000px;
   }
 
-  div.user-information {
+  div.information {
     width: 50%;
   }
 

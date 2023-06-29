@@ -25,9 +25,9 @@ a.add-new {
   display: block;
   width: calc(100% - 62px);
   max-width: 1200px;
-  background-color: rgb(4,78,72);
-  border: rgb(2,43,40) 1px solid;
-  color: #fff;
+  background-color: var(--lightGreen);
+  border: var(--darkGreen) 1px solid;
+  color: var(--white);
   font-size: 1rem;
   font-weight: 500;
   padding: 0.6rem 1.3rem;
@@ -36,7 +36,7 @@ a.add-new {
 }
 
 div.confirmation {
-  border: 2px solid rgb(4,78,72);
+  border: 2px solid var(--lightGreen);
   width: calc(100% - 62px);
   max-width: 1200px;
   display: flex;
@@ -74,7 +74,7 @@ div.container {
   height: 100%;
   max-width: 450px;
   padding: 2rem;
-  box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+  box-shadow: var(--boxShadow);
   font-size: 1.2rem;
 }
 
@@ -90,11 +90,13 @@ div.flex-container-operations {
 div.flex-container-operations {
   width: 90%;
   font-size: 1.5rem;
+  margin-top: auto;
 }
 
 i.fa-pencil,
 i.fa-trash {
-  color: #000;
+  color: var(--black);
+  padding: 0.3rem;
 }
 
 p.label {
@@ -152,6 +154,12 @@ p.img-path {
     min-width: 350px;
   }
 
+  a.update-btn:hover,
+  button.delete-btn:hover {
+    background: var(--mediumHover);
+    transition: all 0.5s ease;
+  }
+
 }
 
 /* 06 media queries min width 1250px */
@@ -168,7 +176,7 @@ p.img-path {
 
   a.add-new:hover {
     background-color: transparent;
-    color: #000;
+    color: var(--black);
     transition: all 0.5s ease;
   }
 
