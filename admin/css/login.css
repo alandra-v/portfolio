@@ -17,7 +17,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: 300;
-  color: #000000;
+  color: var(--black);
 }
 
 /* 02 login container */
@@ -27,7 +27,7 @@ div.login-container {
   left: 50%;
   transform: translateX(-50%);
   width: 85%;
-  box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+  box-shadow: var(--boxShadow);
   padding: 2rem;
   margin: 1rem 0 5rem 0;
 }
@@ -94,8 +94,8 @@ div.switch-to-registration {
 
 .input-container>input:focus,
 .input-container>input:valid {
-  color: #000;
-  border-bottom: 0.1rem solid #000;
+  color: var(--black);
+  border-bottom: 0.1rem solid var(--black);
 }
 
 .input-container>input:focus+label,
@@ -104,8 +104,8 @@ div.switch-to-registration {
   top: 0.5rem;
   left: 0;
   transform: translateY(-100%) scale(0.75);
-  color: #000;
-  background: #fff;
+  color: var(--black);
+  background: var(--white);
   width: 100%;
 }
 
@@ -131,8 +131,8 @@ a.forgotten-password {
 
 button.form-submit {
   display: block;
-  border: #09c1b2 2px solid;
-  box-shadow: 0 0 10px #09c1b2;
+  border: var(--cyan) 2px solid;
+  box-shadow: 0 0 10px var(--cyan);
   background: transparent;
   font-size: 1.2rem;
   font-weight: 700;
@@ -142,14 +142,14 @@ button.form-submit {
 }
 
 button.form-submit:hover {
-  background-color: #09c1b2;
-  color: #fff;
+  background-color: var(--cyan);
+  color: var(--white);
 }
 
 /* validation error style */
 
 span.error-span {
-  color: #F50404;
+  color: var(--errorRed);
   font-size: 0.8rem;
   text-align: left;
   width: 100%;
@@ -158,8 +158,8 @@ span.error-span {
 
 div.alert {
   opacity: 1;
-  border-left: 5px solid #F50404;
-  box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+  border-left: 5px solid var(--errorRed);
+  box-shadow: var(--boxShadow);
 }
 
 div.alert>p {

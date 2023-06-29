@@ -43,14 +43,19 @@ div.flex-container {
 }
 
 i.fa-xmark {
-  color: #fff;
+  color: var(--white);
 }
 
-button.change-password {
+/* div.login-activiy,
+div.failed-login-attempts {
+  overflow: scroll;
+} */
+
+a.change-password {
   display: block;
-  background-color: rgb(4,78,72);
-  border: rgb(2,43,40) 1px solid;
-  color: #fff;
+  background-color: var(--lightGreen);
+  border: var(--darkGreen) 1px solid;
+  color: var(--white);
   font-size: 0.8rem;
   font-weight: 500;
   padding: 0.6rem 1.3rem;
@@ -65,9 +70,9 @@ button.change-password {
     width: 80%;
   }
 
-  button.change-password:hover {
+  a.change-password:hover {
     background-color: transparent;
-    color: #000;
+    color: var(--black);
     transition: all 0.5s ease;
   }
 
