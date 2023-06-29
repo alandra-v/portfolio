@@ -3,7 +3,22 @@ require_once(dirname(__DIR__) . '/Controller/User.php');
 $Data = new User();
 $Response = [];
 $User = $Data->getUsers();
-if (isset($_GET['delete'])) $Data->deleteUser($_GET['delete']);
+if (isset($_GET['deleteUser'])) {
+  $foundUser = $Data->getUser($_GET['deleteUser']);
+  // $Data->deleteUser($foundUser['data']);
+  // echo '<pre>';
+  // print_r($foundUser);
+  // echo '</pre>';
+  // return;
+  if ($foundUser) {
+    // header('Location: user_read?userStatus=' . $foundUser['data']['ID'] . '&ID=' . $_GET['deleteUser']);
+    // // return;
+    $Data->deleteUser($foundUser['data']);
+  } else {
+    header('Location: user_read?userStatus=' . $foundUser['data']['ID']);
+  }
+}
+
 
 require_once(dirname(__DIR__) . '/includes/admin_head_data.php');
 require_once(dirname(__DIR__) . '/includes/admin_head.inc.php');
@@ -15,6 +30,7 @@ require_once(dirname(__DIR__) . '/includes/cms/nav_data.php');
 <body>
   <?php include(dirname(__DIR__) . '/includes/cms/navigation.inc.php'); ?>
   <main>
+    <?php include(dirname(__DIR__) . '/includes/cms/confirmation.php'); ?>
     <ul class="user-list">
       <a href="user_registration" class="add-new">
         <i class="fa-solid fa-plus"></i>
@@ -27,12 +43,17 @@ require_once(dirname(__DIR__) . '/includes/cms/nav_data.php');
         </div>
       <?php elseif (isset($_GET['userStatus']) && $_GET['userStatus'] == 'updated') : ?>
         <div class="confirmation">
-          <p><?= 'Your account information has been updated.' ?></p>
+          <p><?= 'The account information has been updated.' ?></p>
           <button class="close-confirmation"><i class="fa-solid fa-xmark"></i></button>
         </div>
       <?php elseif (isset($_GET['userStatus']) && $_GET['userStatus'] == 'deleted') : ?>
         <div class="confirmation">
           <p><?= 'Account has successfully been deleted.' ?></p>
+          <button class="close-confirmation"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+      <?php elseif (isset($_GET['userStatus']) && $_GET['userStatus'] == 'violation') : ?>
+        <div class="confirmation">
+          <p><?= 'Something went wrong. You don\'t have the rights to perform this action.' ?></p>
           <button class="close-confirmation"><i class="fa-solid fa-xmark"></i></button>
         </div>
       <?php endif; ?>
@@ -47,19 +68,26 @@ require_once(dirname(__DIR__) . '/includes/cms/nav_data.php');
               <div class="flex-container-operations-desktop">
                 <?php if ($_SESSION['data']['ID'] == $user['ID'] || $_SESSION['data']['user_group'] == 0) : ?>
                   <!-- Edit btn -->
-                  <a href="account_settings?id=<?= $user['ID'] ?>">
+                  <a href="account_settings?id=<?= $user['ID'] ?>" class="update-btn">
                     <i class="fa-solid fa-pencil" aria-label="edit"></i>
                   </a>
                   <!-- Delete btn -->
-                  <a href="?delete=<?= $user['ID']; ?>" class="delete-btn" data-confirm="<?= $user['user_name'] ?>">
-                    <i class="fa-solid fa-trash" aria-label="delete"></i>
-                  </a>
+                  <?php if ($user['user_group'] != 0) : ?>
+                    <button class="delete-btn" data-confirm="mod-<?= $user['ID']; ?>" onclick="
+                  showModal('Are you sure you want to delete <?= $user['user_name'] ?>\'s user account? All data associated with this account will be irreversibly deleted!',
+                  '?deleteUser=<?= $user['ID']; ?>' )">
+                      <i class="fa-solid fa-trash" aria-label="delete"></i>
+                    </button>
+                  <?php endif; ?>
                 <?php endif; ?>
                 <button class="drop-down"><i class="fa-solid fa-chevron-down"></i></button>
               </div>
+
+
+
               <button class="drop-down mobile-drop-down"><i class="fa-solid fa-chevron-down"></i></button>
             </div>
-            <div class="user-information hidden">
+            <div class="information hidden">
               <div class="flex-container">
                 <p class="label">Title:</p>
                 <p><?= $user['user_title'] ?></p>
@@ -82,19 +110,31 @@ require_once(dirname(__DIR__) . '/includes/cms/nav_data.php');
               </div>
             </div>
           </div>
+
+
+
+
           <?php if ($_SESSION['data']['ID'] == $user['ID'] || $_SESSION['data']['user_group'] == 0) : ?>
             <div class="flex-container-operations-mobile">
               <!-- Edit btn -->
-              <a href="account_settings?id=<?= $user['ID'] ?>">
+              <a href="account_settings?id=<?= $user['ID'] ?>" class="update-btn">
                 <i class="fa-solid fa-pencil" aria-label="edit"></i>
               </a>
               <!-- Delete btn -->
-              <a href="?delete=<?= $user['ID']; ?>" class="delete-btn" data-confirm="<?= $user['user_name'] ?>">
-                <i class="fa-solid fa-trash" aria-label="delete"></i>
-              </a>
+              <?php if ($user['user_group'] != 0) : ?>
+                <button class="delete-btn" data-confirm="mod-<?= $user['ID']; ?>" onclick="
+                  showModal('Are you sure you want to delete <?= $user['user_name'] ?>\'s user account? All data associated with this account will be irreversibly deleted!',
+                  '?deleteUser=<?= $user['ID']; ?>' )">
+                  <i class="fa-solid fa-trash" aria-label="delete"></i>
+                </button>
+              <?php endif; ?>
             </div>
           <?php endif; ?>
           </div>
+
+
+
+
         </li>
         <hr class="parting-line">
       <?php endforeach; ?>
