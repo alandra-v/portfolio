@@ -1,0 +1,95 @@
+dialog.modal {
+  padding: 3rem;
+  border: 0;
+  z-index: 999;
+}
+
+dialog.modal::backdrop {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+dialog.modal>h2 {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+dialog.modal>p {
+  margin-bottom: 1rem;
+}
+
+dialog.modal>div.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-between;
+  gap: 1rem;
+}
+
+div.password-confirm {
+  justify-self: flex-end;
+  margin-bottom: 1rem;
+}
+
+button.modal-cancel,
+a.modal-confirm {
+  display: block;
+  width: 100%;
+  background-color: var(--lightGreen);
+  border: var(--darkGreen) 1px solid;
+  color: var(--white);
+  font-size: 1rem;
+  padding: 0.6rem 1.3rem;
+  text-align: center;
+}
+
+button.modal-cancel {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+@media (min-width: 820px) {
+
+  dialog.modal {
+    max-width: 50%;
+  }
+
+}
+
+@media (min-width: 1000px) {
+
+  a.update-btn:hover,
+  button.delete-btn:hover {
+    background: var(--mediumHover);
+    transition: all 0.5s ease;
+  }
+
+  dialog.modal {
+    max-width: 70%;
+  }
+
+  dialog.modal>div.flex {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0;
+  }
+
+  button.modal-cancel,
+  /* button.modal-confirm, */
+  a.modal-confirm {
+    width: 40%;
+  }
+
+  button.modal-cancel:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+    transition: all 0.5s ease;
+  }
+
+  a.modal-confirm:hover {
+  /* button.modal-confirm:hover { */
+    background-color: var(--white);
+    border: var(--darkGreen) 1px solid;
+    color: var(--black);
+    transition: all 0.5s ease;
+  }
+
+}
