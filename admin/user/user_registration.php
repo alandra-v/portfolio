@@ -12,9 +12,9 @@ $genders = $Register->genderArray;
 
 
 if (isset($_POST) && count($_POST) > 0) {
-  echo "<pre>";
-  print_r($_POST);
-  echo "</pre>";
+  // echo "<pre>";
+  // print_r($_POST);
+  // echo "</pre>";
   $Response = $Register->register($_POST);
 }
 
