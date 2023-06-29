@@ -15,12 +15,24 @@ body {
   font-style: normal;
 }
 
+div.confirmation {
+  border: 2px solid var(--lightGreen);
+  width: calc(100% - 62px);
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 3rem auto;
+  padding: 0.8rem;
+  font-size: 0.8rem;
+}
+
 /* 02 grid & flex */
 
 ul.user-list {
   margin: 30px;
   padding: 2rem;
-  box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+  box-shadow: var(--boxShadow);
 }
 
 div.container {
@@ -59,12 +71,18 @@ i.fa-trash,
 i.fa-chevron-down,
 i.fa-phone,
 i.fa-envelope {
-  color: #000;
+  color: var(--black);
+}
+
+i.fa-pencil,
+i.fa-trash,
+i.fa-chevron-down {
+  padding: 0.3rem;
 }
 
 /* 03 tiles */
 
-div.user-information {
+div.information {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -79,7 +97,7 @@ i.label {
 }
 
 hr.parting-line {
-  border: 0.3px solid #000;
+  border: 0.3px solid var(--black);
   opacity: 0.5;
   width: 100%;
   margin: 3rem auto;
@@ -114,7 +132,7 @@ div.hidden {
     width: 15%;
   }
 
-  div.user-information {
+  div.information {
     width: 75%;
   }
 
@@ -128,8 +146,15 @@ div.hidden {
     max-width: 1000px;
   }
 
-  div.user-information {
+  div.information {
     width: 50%;
   }
+
+  a.update-btn:hover,
+  button.delete-btn:hover {
+    background: var(--mediumHover);
+    transition: all 0.5s ease;
+  }
+
 
 }
