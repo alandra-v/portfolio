@@ -48,7 +48,7 @@ require(__DIR__ . '/admin/Controller/Controller.php');
       </div>
       <div class="msg">
         <h1>Page not found</h1>
-        <p>Sorry, the page you are looking for might have been removed or temporarily unavailable.</p>
+        <p>Sorry, the page you are looking for might have been removed or is temporarily unavailable.</p>
         <a href="<?php
                   if (isset($_SESSION['auth_status'])) {
                     echo BASE_URL . '/admin/dashboard/index';

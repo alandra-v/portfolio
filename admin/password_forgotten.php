@@ -14,7 +14,7 @@ require_once(__DIR__ . '/includes/admin_head.inc.php');
       <h1>Forgot your password?</h1>
       <!-- NOTE  -->
       <!-- Account recovery will  be implemented at a later stage  -->
-      <p>Please enter your username or email address. You will revceive an email message with instructions on how to reset your password. If you don't have access to your email anymore, you can try <a href="#">account recovery</a></p>
+      <p>Please enter your username or email address. You will receive an email message with instructions on how to reset your password. If you don't have access to your email anymore, you can try <a href="#">account recovery</a></p>
       <form action="" method="POST" id="login-form" novalidate>
         <div class="input-container">
           <input type="text" id="username-email" name="username-email" aria-label="username or email" autocomplete="email" placeholder="Username or email" required>

@@ -39,7 +39,7 @@
 </nav>
 <div class="navbar">
   <!-- NOTE -->
-  <!-- breadcrum navigation will be implemented at a later stage -->
+  <!-- breadcrumb navigation will be implemented at a later stage -->
   <ol class="breadcrumb-nav">
     <li>
       <a href="#">
