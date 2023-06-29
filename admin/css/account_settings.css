@@ -34,6 +34,11 @@ hr.title-separator {
   margin-bottom: 1rem;
 }
 
+span.error-span {
+  color: var(--errorRed);
+  font-size: 0.8rem;
+}
+
 /* 02 forms */
 
 div.section-container {
@@ -48,7 +53,7 @@ section {
 div.input-container {
   position: relative;
   height: 2.5rem;
-  margin-bottom: 3rem;
+  margin: 1rem 0 3rem 0;
 }
 
 input {
@@ -68,7 +73,7 @@ label[for="user-title"] {
   position: initial;
   transform: translateY(0%);
   opacity: 1;
-  color: #000;
+  color: var(--black);
 }
 
 fieldset {
@@ -93,7 +98,7 @@ div.form-flex-container {
 }
 
 div.confirmation {
-  border: 2px solid rgb(4,78,72);
+  border: 2px solid var(--lightGreen);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -141,11 +146,11 @@ div.acc-sec-grid button.two-step-verification {
 }
 
 i.fa-circle-exclamation {
-  color: #f50404;
+  color: var(--errorRed);
 }
 
 i.fa-check {
-  color: #126dff;
+  color: var(--checkedBlue);
 }
 
 /* 04 delete account section */
@@ -157,7 +162,7 @@ section.delete-acc {
 }
 
 section.acc-security button {
-  color: #126dff;
+  color: var(--checkedBlue);
 }
 
 section.acc-security button:hover {
@@ -165,20 +170,16 @@ text-decoration: underline;
 }
 
 button.save-changes,
-a.delete-acc-btn {
+button.delete-btn {
   display: block;
-  background-color: rgb(4,78,72);
-  border: rgb(2,43,40) 1px solid;
-  color: #fff;
+  background-color: var(--lightGreen);
+  border: var(--darkGreen) 1px solid;
+  color: var(--white);
   font-size: 0.8rem;
   font-weight: 500;
   padding: 0.6rem 1.3rem;
   text-align: center;
   width: 100%;
-}
-
-div.delete-warning {
-  display: none;
 }
 
 /* 05 media queries min width 760px */
@@ -219,9 +220,9 @@ div.delete-warning {
   }
 
   button.save-changes:hover,
-  a.delete-acc-btn:hover {
+  button.delete-btn:hover {
     background-color: transparent;
-    color: #000;
+    color: var(--black);
     transition: all 0.5s ease;
   }
 
