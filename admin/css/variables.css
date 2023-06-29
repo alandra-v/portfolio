@@ -1,0 +1,17 @@
+:root {
+  --black: #000000;
+  --white: #FFFFFF;
+  --errorRed: #F50404;
+  --checkedBlue: #126DFF;
+  --cyan: #09C1B2;
+  --darkGreen: rgb(2,43,40);
+  --lightGreen: rgb(4,78,72);
+  --greenGradient: rgba(2,43,40,1) 0%, rgba(4,78,72,1) 35%;
+  --boxShadow:  0 8px 24px rgba(149, 157, 165, 0.2);
+  --blackBoxShadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  --darkHover: rgba(0, 0, 0, 0.5);
+  --mediumHover: rgba(0, 0, 0, 0.1);
+  --lightHover: rgba(255, 255, 255, 0.1);
+  --backdrop: rgba(0, 0, 0, 0.7);
+  
+}
