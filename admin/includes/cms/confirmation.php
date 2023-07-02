@@ -3,6 +3,6 @@
   <p class="msg"></p>
   <div class="flex">
     <button class="modal-cancel">Cancel</button>
-    <a href="" class="modal-confirm" type="submit">Delete</a>
+    <a href="" class="modal-confirm">Delete</a>
   </div>
 </dialog>
