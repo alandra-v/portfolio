@@ -1,3 +1,6 @@
+<?php
+require_once(__DIR__ . '/nav_data.php');
+?>
 <nav>
   <a href="index.php" class="avd-logo" aria-label="Home"><img src="assets/icons/avd_logo_black.svg" class="avd-logo-svg" width="200" height="100" alt="Alandra Villalaz Development logo"></a>
   <button class="burger-nav" aria-label="Open the navigation">

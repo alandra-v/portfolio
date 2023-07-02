@@ -1,5 +1,5 @@
 <?php
-require(dirname(__DIR__) . '/configuration.php')
+require_once(__DIR__ . '/head_data.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
