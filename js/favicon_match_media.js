@@ -1,15 +1,14 @@
 let favicon16x16 = document.getElementById("16");
 let faviconICO = document.getElementById("ico");
+const url = window.location.href;
+const pathArray = window.location.pathname.split('/');
+// console.log(pathArray);
 
 const darkModeListener = (e) => {
   if (e.matches) {
-    // console.log("dark");
-    favicon16x16.setAttribute("href", "assets/favicon/favicon-16x16-fff.png");
-    faviconICO.setAttribute("href", "assets/favicon/favicon-fff.ico");
+    setWhite();
   } else {
-    // console.log("light");
-    favicon16x16.setAttribute("href", "assets/favicon/favicon-16x16.png");
-    faviconICO.setAttribute("href", "assets/favicon/favicon.ico");
+    setBlack();
   }
 }
 
@@ -18,9 +17,59 @@ window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", dar
 
 // check mode on load
 if (window.matchMedia && window.matchMedia("(prefers-color-scheme:dark)").matches) {
-  favicon16x16.setAttribute("href", "assets/favicon/favicon-16x16-fff.png");
-  faviconICO.setAttribute("href", "assets/favicon/favicon-fff.ico");
+  setWhite();
 } else {
-  favicon16x16.setAttribute("href", "assets/favicon/favicon-16x16.png");
-  faviconICO.setAttribute("href", "assets/favicon/favicon.ico");
+  setBlack();
+}
+
+function setWhite() {
+  if (favicon16x16) {
+
+    if (/admin/.test(url)) {
+      if (pathArray.length == 4) {
+        favicon16x16.setAttribute("href", "../assets/favicon/favicon-16x16-fff.png");
+      } else if (pathArray.length == 5) {
+      favicon16x16.setAttribute("href", "../../assets/favicon/favicon-16x16-fff.png");
+      }
+    } else {
+      favicon16x16.setAttribute("href", "assets/favicon/favicon-16x16-fff.png");
+    }
+
+  }
+
+  if (/admin/.test(url)) {
+    if (pathArray.length == 4) {
+      faviconICO.setAttribute("href", "../assets/favicon/favicon-fff.ico");
+    } else if (pathArray.length == 5) {
+      faviconICO.setAttribute("href", "../../assets/favicon/favicon-fff.ico");
+    }
+  } else {
+    faviconICO.setAttribute("href", "assets/favicon/favicon-fff.ico");
+  }
+}
+
+function setBlack() {
+  if (favicon16x16) {
+    if (/admin/.test(url)) {
+      if (pathArray.length == 4) {
+        favicon16x16.setAttribute("href", "../assets/favicon/favicon-16x16.png");
+      } else if (pathArray.length == 5) {
+        favicon16x16.setAttribute("href", "../../assets/favicon/favicon-16x16.png");
+      }
+    } else {
+      favicon16x16.setAttribute("href", "assets/favicon/favicon-16x16.png");
+    }
+
+  }
+
+  if (/admin/.test(url)) {
+    if (pathArray.length == 4) {
+      faviconICO.setAttribute("href", "../assets/favicon/favicon.ico");
+    } else if (pathArray.length == 5) {
+      faviconICO.setAttribute("href", "../../assets/favicon/favicon.ico");
+    }
+  } else {
+    faviconICO.setAttribute("href", "assets/favicon/favicon.ico");
+  }
+
 }
