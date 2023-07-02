@@ -1,7 +1,20 @@
 <?php
-require_once(__DIR__ . '/includes/head_data.php');
-require_once(__DIR__ . '/includes/nav_data.php');
+require_once(__DIR__ . '/configuration.php');
+
+// require_once(__DIR__ . '/includes/head_data.php');
+// require_once(__DIR__ . '/includes/nav_data.php');
 include(__DIR__ . '/includes/head.inc.php');
+
+require_once('admin/Controller/ContactForm.php');
+
+$Contact = new ContactForm();
+$Response = [];
+$titles = $Contact->titleArray;
+if (isset($_POST) && count($_POST) > 0) {
+  $Response = $Contact->addContact($_POST);
+}
+
+
 ?>
 
 <body>
@@ -15,66 +28,104 @@ include(__DIR__ . '/includes/head.inc.php');
       <hr class="title">
     </div>
     <!-- CONTACT FORM -->
-    <form method="post" id="contact-form" novalidate>
+    <form method="POST" id="contact-form" novalidate>
       <div class="user-title-container">
         <label for="user-title" aria-label="title">*Title</label>
         <select name="titles" id="user-title">
-          <option value="">Title</option>
-          <option value="mr">Mr.</option>
-          <option value="mrs">Mrs.</option>
-          <option value="ms">Ms.</option>
-          <option value="ms">Other</option>
+          <?php
+          // output <option>s w/ value
+          foreach ($titles as $key => $value) {
+            echo "<option value=\"" . $key . "\"";
+            if (isset($_POST['titles']) && $_POST['titles'] == "$key") {
+              echo " selected";
+            }
+            echo ">" . $value . "</option>";
+          }
+          ?>
         </select>
       </div>
+      <?php if (isset($Response['title']) && !empty($Response['title'])) : ?>
+        <span class="error-span"><?= $Response['title']; ?></span>
+      <?php endif; ?>
       <div class="names-container">
         <div class="input-container given-name-container">
-          <input type="text" id="given-name" aria-label="given-name" autocomplete="given-name" placeholder="*First name" required>
+          <input type="text" id="given-name" name="given-name" aria-label="given-name" autocomplete="given-name" placeholder="*First name" value="<?= (isset($_POST['given-name'])) ? $_POST['given-name'] : ''  ?>" required>
           <label for="given-name" class="placeholder">*First name</label>
+          <?php if (isset($Response['given-name']) && !empty($Response['given-name'])) : ?>
+            <span class="error-span"><?= $Response['given-name']; ?></span>
+          <?php endif; ?>
         </div>
         <div class="input-container family-name-container">
-          <input type="text" id="family-name" aria-label="family-name" autocomplete="family-name" placeholder="*Last name" required>
+          <input type="text" id="family-name" name="family-name" aria-label="family-name" autocomplete="family-name" placeholder="*Last name" value="<?= (isset($_POST['family-name'])) ? $_POST['family-name'] : ''  ?>" required>
           <label for="family-name" class="placeholder">*Last name</label>
+          <?php if (isset($Response['family-name']) && !empty($Response['family-name'])) : ?>
+            <span class="error-span"><?= $Response['family-name']; ?></span>
+          <?php endif; ?>
         </div>
       </div>
       <div class="input-container business-container">
-        <input type="text" id="business" aria-label="business" autocomplete="organization" placeholder="Business">
+        <input type="text" id="business" name="business" aria-label="business" autocomplete="organization" placeholder="Business" value="<?= (isset($_POST['business'])) ? $_POST['business'] : ''  ?>">
         <label for="business" class="placeholder">Business</label>
       </div>
       <div class="address-container">
         <div class="input-container street-container">
-          <input type="text" id="address" aria-label="address" autocomplete="street-address" placeholder="*Address" required>
+          <input type="text" id="address" name="address" aria-label="address" autocomplete="street-address" placeholder="*Address" value="<?= (isset($_POST['address'])) ? $_POST['address'] : ''  ?>" required>
           <label for="address" class="placeholder">*Address</label>
+          <?php if (isset($Response['address']) && !empty($Response['address'])) : ?>
+            <span class="error-span"><?= $Response['address']; ?></span>
+          <?php endif; ?>
         </div>
         <div class="input-container zip-container">
-          <input type="text" id="zip" aria-label="zip" autocomplete="postal-code" placeholder="*Post code" required>
+          <input type="text" id="zip" name="zip" aria-label="zip" autocomplete="postal-code" placeholder="*Post code" value="<?= (isset($_POST['zip'])) ? $_POST['zip'] : ''  ?>" required>
           <label for="zip" class="placeholder">*Post code</label>
+          <?php if (isset($Response['zip']) && !empty($Response['zip'])) : ?>
+            <span class="error-span"><?= $Response['zip']; ?></span>
+          <?php endif; ?>
         </div>
       </div>
       <div class="input-container town-container">
-        <input type="text" id="town" aria-label="town" placeholder="*Town" required>
+        <input type="text" id="town" name="town" aria-label="town" placeholder="*Town" value="<?= (isset($_POST['town'])) ? $_POST['town'] : ''  ?>" required>
         <label for="town" class="placeholder">*Town</label>
+        <?php if (isset($Response['town']) && !empty($Response['town'])) : ?>
+          <span class="error-span"><?= $Response['town']; ?></span>
+        <?php endif; ?>
       </div>
       <div class="contact-methods-container">
         <div class="input-container tel-container">
-          <input type="tel" id="tel" aria-label="phone-number" autocomplete="tel" placeholder="*Tel" required>
+          <input type="tel" id="tel" name="tel" aria-label="phone-number" autocomplete="tel" placeholder="*Tel" value="<?= (isset($_POST['tel'])) ? $_POST['tel'] : ''  ?>" required>
           <label for="tel" class="placeholder">*Tel <small>(please include country code)</small></label>
+          <?php if (isset($Response['tel']) && !empty($Response['tel'])) : ?>
+            <span class="error-span"><?= $Response['tel']; ?></span>
+          <?php endif; ?>
         </div>
         <div class="input-container email-container">
-          <input type="email" id="email" aria-label="email" autocomplete="email" placeholder="*E-mail" required>
+          <input type="email" id="email" name="email" aria-label="email" autocomplete="email" placeholder="*E-mail" value="<?= (isset($_POST['email'])) ? $_POST['email'] : ''  ?>" required>
           <label for="email" class="placeholder">*E-mail</label>
+          <?php if (isset($Response['email']) && !empty($Response['email'])) : ?>
+            <span class="error-span"><?= $Response['email']; ?></span>
+          <?php endif; ?>
         </div>
       </div>
       <div class="message-container">
         <label for="message">*Message <small>(min. 30 characters)</small></label>
+        <?php if (isset($Response['message']) && !empty($Response['message'])) : ?>
+          <span class="error-span"><?= $Response['message']; ?></span>
+        <?php endif; ?>
       </div>
-      <textarea name="message" id="message" aria-label="your message" cols="30" rows="8" required></textarea>
+      <textarea name="message" id="message" aria-label="your message" cols="30" rows="8" required><?= (isset($_POST['message'])) ? $_POST['message'] : ''  ?></textarea>
       <div class="form-buttons">
         <!-- NOTE -->
         <!-- file upload will be fully implemented and validated at a later stage -->
         <!-- <div class="dropbox">
           <input type="file" id="input-file" aria-label="Chose file" multiple>
         </div> -->
-        <div class="placeholder-for-file-input"></div>
+        <div class="terms-container">
+          <input type="checkbox" id="terms" name="terms" aria-label="Accept the terms and conditions" value="agree" <?= (isset($_POST['terms']) && $_POST['terms'] == "agree") ? "checked" : '' ?> required>
+          <label for="terms" class="checkbox">I have read and agree to the <a href="#" class="terms">Privacy Policy</a>.</label>
+        </div>
+        <?php if (isset($Response['terms']) && !empty($Response['terms'])) : ?>
+          <span class="error-span error-span-checkbox"><?= $Response['terms']; ?></span>
+        <?php endif; ?>
         <div id="lottie-container">
           <button type="submit" class="submit" aria-label="Submit the contact form"></button>
         </div>
