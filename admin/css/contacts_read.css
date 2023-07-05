@@ -17,14 +17,13 @@ body {
 
 div.confirmation {
   border: 2px solid var(--lightGreen);
-  width: calc(100% - 62px);
-  max-width: 1200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 3rem auto;
   padding: 0.8rem;
   font-size: 0.8rem;
+  width: 90%;
+  margin: 30px auto 3rem auto;
 }
 
 /* 02 grid & flex */
@@ -116,6 +115,11 @@ div.hidden {
 
 @media (min-width: 820px) {
 
+  div.confirmation {
+    margin: 30px 30px 3rem 30px;
+    width: 94%;
+  }
+
   div.flex-container-operations-mobile {
     display: none;
   }
@@ -142,7 +146,8 @@ div.hidden {
 
 @media (min-width: 1000px) {
 
-  ul.user-list {
+  ul.user-list,
+  div.confirmation {
     max-width: 1000px;
   }
 
