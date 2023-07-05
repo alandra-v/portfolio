@@ -15,6 +15,13 @@ h2 {
   margin-bottom: 0.5rem;
 }
 
+div.flex-container-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
 hr.title-separator {
   opacity: 0.5;
   margin-bottom: 1rem;
@@ -36,16 +43,16 @@ div.status-container {
 }
 
 input {
-  border-color: rgba(0, 0, 0, 0.4);
+  border-color: var(--darkHover);
   border-radius: 5px;
   width: 100%;
 }
 
 button.create-btn {
   display: block;
-  background-color: rgb(4,78,72);
-  border: rgb(2,43,40) 1px solid;
-  color: #fff;
+  background-color: var(--lightGreen);
+  border: var(--darkGreen) 1px solid;
+  color: var(--white);
   font-size: 0.8rem;
   font-weight: 500;
   padding: 0.6rem 1.3rem;
@@ -54,12 +61,19 @@ button.create-btn {
 }
 
 span.error-span {
-  color: #F50404;
+  color: var(--errorRed);
+  font-size: 0.8rem;
 }
 
 /* 03 media queries min width 820px */
 
 @media (min-width: 820px) {
+
+  div.flex-container-title {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
   
   section {
     width: 80%;
@@ -76,7 +90,7 @@ span.error-span {
 
   button.create-btn:hover {
     background-color: transparent;
-    color: #000;
+    color: var(--black);
     transition: all 0.5s ease;
   }
 
@@ -85,6 +99,10 @@ span.error-span {
 /* 04 media queries min width 1000px */
 
 @media (min-width: 1000px) {
+
+  a.go-back:hover {
+    text-decoration: underline;
+  }
 
   section {
     width: 65%;
