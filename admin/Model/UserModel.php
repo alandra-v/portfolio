@@ -85,32 +85,6 @@ class UserModel extends Db
 
 
   /**
-   * @param string
-   * @return array
-   * ? Returns a user record based on the method parameter
-   **/
-  public function fetchUsername(string $username): array
-  {
-    $this->query("SELECT * FROM `user` WHERE user_name=:username");
-    $this->bind('username', $username);
-    $this->execute();
-    $User = $this->fetch();
-
-    if (!empty($User)) {
-      $Response = array(
-        'status' => true,
-        'data' => $User
-      );
-    } else {
-      $Response = array(
-        'status' => false,
-        'data' => []
-      );
-    }
-    return $Response;
-  }
-
-  /**
    * @param array|int
    * @return array
    * ? Updates user profile information
