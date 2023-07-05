@@ -1,3 +1,4 @@
+<?php require_once(__DIR__ . '/nav_data.php'); ?>
 <nav class="sidebar">
   <div class="logo-details">
     <img src="<?= BASE_URL . '/assets/icons/avd_logo.svg' ?>" width="200" height="100" alt="Alandra Villalaz Development logo" class="avd-logo-nav">
@@ -34,7 +35,6 @@
 <?php
     endforeach;
 ?>
-</li>
   </ul>
 </nav>
 <div class="navbar">

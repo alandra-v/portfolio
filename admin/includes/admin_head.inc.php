@@ -1,3 +1,4 @@
+<?php require_once(__DIR__ . '/admin_head_data.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -156,7 +157,7 @@
     case 'project_update.php':
       echo
       '<link rel="stylesheet" href="' . BASE_URL . 'css/back_to_top_btn.css">',
-      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/project_update.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/update.css">',
       '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/cms_nav.css">',
       '<script src="' . BASE_URL . 'js/back_to_top_btn.js" defer></script>',
       '<script src="' . BASE_URL . 'admin/js/cms_nav.js" defer></script>';
@@ -178,7 +179,7 @@
     case 'contact_update.php':
       echo
       '<link rel="stylesheet" href="' . BASE_URL . 'css/back_to_top_btn.css">',
-      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/contacts_update.css">',
+      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/update.css">',
       '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/cms_nav.css">',
       '<script src="' . BASE_URL . 'js/back_to_top_btn.js" defer></script>',
       '<script src="' . BASE_URL . 'admin/js/cms_nav.js" defer></script>';

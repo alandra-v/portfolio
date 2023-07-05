@@ -1,7 +1,5 @@
 <?php
 require_once(dirname(__DIR__) . '/configuration.php');
-
-require_once(__DIR__ . '/includes/admin_head_data.php');
 require_once(__DIR__ . '/includes/admin_head.inc.php');
 ?>
 
