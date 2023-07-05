@@ -18,19 +18,6 @@ class Project extends Controller
 
     if (!isset($_SESSION['auth_status'])) header('Location: ../login');
     $this->projectModel = new ProjectModel();
-
-    // if (!isset($_POST['token']) || !isset($_SESSION['token'])) {
-    //   // token not set
-    //   exit('Security alert!');
-    // } else if (time() >= $_SESSION['token-expire']) {
-    //   // token expired
-    //   exit('Security alert! Please reload the form');
-    // } else if ($_POST['token'] == $_SESSION['token']) {
-    //   unset($_SESSION['token']);
-    // } else {
-    //   // invalid token
-    //   exit('Security alert!');
-    // }
   }
 
 
@@ -87,6 +74,8 @@ class Project extends Controller
       'status' => $status
     );
 
+    $Payload['title'] = ucwords($Payload['title']);
+
     $Response = $this->projectModel->createProject($Payload);
 
     if (!$Response['status']) {
@@ -112,17 +101,6 @@ class Project extends Controller
 
 
   /**
-   * @param null|void
-   * @return array
-   * ? Returns an array of projects with their associated images by calling the fetchJoinedProjects method on the ProjectModel
-   **/
-  public function getJoinedProjects(): array
-  {
-    return $this->projectModel->fetchJoinedProjects();
-  }
-
-
-  /**
    * @param int
    * @return array
    * ? Returns an array of project information by calling the fetchProject method on the ProjectModel
@@ -130,17 +108,6 @@ class Project extends Controller
   public function getProject(int $id): array
   {
     return $this->projectModel->fetchProject($id);
-  }
-
-
-  /**
-   * @param int
-   * @return array
-   * ? Returns an array of project information which its associated images by calling the fetchJoinedProject method on the ProjectModel
-   **/
-  public function getJoinedProject(int $id): array
-  {
-    return $this->projectModel->fetchJoinedProject($id);
   }
 
 
@@ -197,6 +164,8 @@ class Project extends Controller
       'url' => $url,
       'status' => $status
     );
+
+    $Payload['title'] = ucwords($Payload['title']);
 
     $Response = $this->projectModel->editProject($Payload, $id);
 
