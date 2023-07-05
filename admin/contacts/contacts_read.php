@@ -2,40 +2,64 @@
 require_once(dirname(__DIR__) . '/Controller/Contact.php');
 $Data = new Contact();
 $Response = [];
-$Contact = $Data->getContacts();
+$Contacts = $Data->getContacts();
 if (isset($_GET['delete'])) $Data->deleteContact($_GET['delete']);
-
-require_once(dirname(__DIR__) . '/includes/admin_head_data.php');
+// echo '<pre>';
+// print_r($Contacts['data']);
+// echo '</pre>';
+// return;
+// require_once(dirname(__DIR__) . '/includes/admin_head_data.php');
 require_once(dirname(__DIR__) . '/includes/admin_head.inc.php');
-require_once(dirname(__DIR__) . '/includes/cms/nav_data.php');
+// require_once(dirname(__DIR__) . '/includes/cms/nav_data.php');
 
 ?>
 
 <body>
   <?php include(dirname(__DIR__) . '/includes/cms/navigation.inc.php'); ?>
   <main>
+    <?php if (isset($_GET['contactStatus']) && $_GET['contactStatus'] == 'deleted') : ?>
+      <div class="confirmation">
+        <p><?= 'Contact has successfully been deleted.' ?></p>
+        <button class="close-confirmation"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+    <?php elseif (isset($_GET['contactStatus']) && $_GET['contactStatus'] == 'updated') : ?>
+      <div class="confirmation">
+        <p><?= 'Contact has successfully been updated.' ?></p>
+        <button class="close-confirmation"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+    <?php endif; ?>
+    <?php include(dirname(__DIR__) . '/includes/cms/confirmation.php'); ?>
+    <?php if (!$Contacts['data']) : ?>
+      <div class="confirmation">
+        <p><?= 'No contacts have been saved yet.' ?></p>
+      </div>
+    <?php endif; ?>
     <ul class="user-list">
-      <?php foreach ($Contact['data'] as $contact) : ?>
+      <?php foreach ($Contacts['data'] as $contact) : ?>
         <li>
           <div class="container">
             <div class="user">
-              <p><?= $contact['contact_given_name'] . ' ' . $contact['contact_family_name'] ?></p>
+              <div class="name">
+                <p><?= $contact['contact_given_name'] . ' ' . $contact['contact_family_name'] ?></p>
+                <p><?= ($contact['contact_business']) ? $contact['contact_business'] : '' ?></p>
+              </div>
               <div class="flex-container-operations-desktop">
-                <?php if ($_SESSION['data']['user_group'] == 0) : ?>
-                  <!-- Edit btn -->
-                  <a href="contacts_update?id= <?= $contact['ID'] ?>">
-                    <i class="fa-solid fa-pencil" aria-label="edit"></i>
-                  </a>
-                  <!-- Delete btn -->
-                  <button type="submit" name="delete" data-confirm="<?= $contact['ID'] ?>" value="<?= $contact['ID'] ?>">
-                    <i class="fa-solid fa-trash" aria-label="delete"></i>
-                  </button>
-                <?php endif; ?>
+
+                <!-- Edit btn -->
+                <a href="contact_update?id=<?= $contact['ID'] ?>" class="update-btn">
+                  <i class="fa-solid fa-pencil" aria-label="edit"></i>
+                </a>
+                <!-- Delete btn -->
+                <button class="delete-btn" onclick="
+                  showModal('Are you sure you want to delete <?= $contact['contact_given_name'] ?>\'s contact? All data associated with this contact will be irreversibly deleted!',
+                  '?delete=<?= $contact['ID'] ?>' )">
+                  <i class="fa-solid fa-trash" aria-label="delete"></i>
+                </button>
                 <button class="drop-down"><i class="fa-solid fa-chevron-down"></i></button>
               </div>
               <button class="drop-down mobile-drop-down"><i class="fa-solid fa-chevron-down"></i></button>
             </div>
-            <div class="user-information hidden">
+            <div class="information hidden">
               <div class="flex-container">
                 <p class="label">Title:</p>
                 <p><?= $contact['contact_title'] ?></p>
@@ -61,21 +85,23 @@ require_once(dirname(__DIR__) . '/includes/cms/nav_data.php');
                 <p class="date"><?= date("d.M.Y", strtotime($contact['created'])); ?> at <?= date("H:m:s", strtotime($contact['created'])); ?></p>
               </div>
             </div>
-            <?php if ($_SESSION['data']['user_group'] == 0) : ?>
-              <div class="flex-container-operations-mobile">
-                <!-- Edit btn -->
-                <a href="contacts_update.php?id= <?= $contact['ID'] ?>">
-                  <i class="fa-solid fa-pencil" aria-label="edit"></i>
-                </a>
-                <!-- Delete btn -->
-                <button type="submit" name="delete" data-confirm="<?= $contact['ID'] ?>" value="<?= $contact['ID'] ?>">
-                  <i class="fa-solid fa-trash" aria-label="delete"></i>
-                </button>
-              </div>
-            <?php endif; ?>
+
+            <div class="flex-container-operations-mobile">
+              <!-- Edit btn -->
+              <a href="contact_update.php?id=<?= $contact['ID'] ?>">
+                <i class="fa-solid fa-pencil" aria-label="edit"></i>
+              </a>
+              <!-- Delete btn -->
+              <button class="delete-btn" onclick="
+                  showModal('Are you sure you want to delete <?= $contact['contact_given_name'] ?>\'s contact? All data associated with this contact will be irreversibly deleted!',
+                  '?delete=<?= $contact['ID'] ?>' )">
+                <i class="fa-solid fa-trash" aria-label="delete"></i>
+              </button>
+            </div>
+
           </div>
+          <hr class="parting-line">
         </li>
-        <hr class="parting-line">
       <?php endforeach; ?>
     </ul>
   </main>
