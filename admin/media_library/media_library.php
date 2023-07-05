@@ -5,11 +5,7 @@ $Response = [];
 $Images = $Data->getImages();
 if (isset($_GET['delete'])) $Data->deleteImage($_GET['delete']);
 
-require_once(dirname(__DIR__) . '/includes/admin_head_data.php');
 require_once(dirname(__DIR__) . '/includes/admin_head.inc.php');
-require_once(dirname(__DIR__) . '/includes/cms/nav_data.php');
-
-
 
 ?>
 
@@ -35,12 +31,17 @@ require_once(dirname(__DIR__) . '/includes/cms/nav_data.php');
         <p><?= 'Your media has successfully been deleted.' ?></p>
         <button class="close-confirmation"><i class="fa-solid fa-xmark"></i></button>
       </div>
+    <?php elseif (!$Images['data']) : ?>
+      <div class="confirmation">
+        <p><?= 'No media has been uploaded yet.' ?></p>
+      </div>
     <?php endif; ?>
+    <?php include(dirname(__DIR__) . '/includes/cms/confirmation.php'); ?>
     <ul class="media">
       <?php foreach ($Images['data'] as $image) : ?>
         <li>
           <div class="container">
-            <div class="img-container"><img src="../../assets/images/uploads/<?= $image['img'] ?>" alt="<?= $image['img_alt_text'] ?>" class="thumbnail"></div>
+            <div class="img-container"><img src="<?= BASE_URL . '/assets/images/uploads/' . $image['img'] ?>" alt="<?= $image['img_alt_text'] ?>" class="thumbnail"></div>
             <div class="flex-container">
               <p class="label">ID: <?= $image['ID'] ?></p>
               <p class="label">Project ID: <?= $image['img_project_id'] ?></p>
@@ -69,18 +70,20 @@ require_once(dirname(__DIR__) . '/includes/cms/nav_data.php');
               <p class="label">IMG:</p>
               <p class="img-path"><?= $image['img'] ?></p>
             </div>
-            <?php if ($_SESSION['data']['user_group'] == 0) : ?>
-              <div class="flex-container-operations">
-                <!-- Edit btn -->
-                <a href="media_update?id= <?= $image['ID'] ?>">
-                  <i class="fa-solid fa-pencil" aria-label="edit"></i>
-                </a>
-                <!-- Delete btn -->
-                <a href="?delete=<?= $image['ID']; ?>" class="delete-img-btn" data-confirm="<?= $image['ID'] ?>">
-                  <i class="fa-solid fa-trash" aria-label="delete"></i>
-                </a>
-              </div>
-            <?php endif; ?>
+
+            <div class="flex-container-operations">
+              <!-- Edit btn -->
+              <a href="media_update?id= <?= $image['ID'] ?>" class="update-btn">
+                <i class="fa-solid fa-pencil" aria-label="edit"></i>
+              </a>
+              <!-- Delete btn -->
+              <button class="delete-btn" onclick="
+                  showModal('Are you sure you want to delete the image <?= $image['img'] ?>? The image will be irreversibly deleted!',
+                  '?delete=<?= $image['ID'] ?>' )">
+                <i class="fa-solid fa-trash" aria-label="delete"></i>
+              </button>
+            </div>
+
           </div>
         </li>
       <?php endforeach; ?>
