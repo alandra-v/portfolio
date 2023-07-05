@@ -17,7 +17,7 @@ body {
 
 a.add-new {
   display: block;
-  width: 100%;
+  width: 90%;
   background-color: var(--lightGreen);
   border: var(--darkGreen) 1px solid;
   color: var(--white);
@@ -25,7 +25,7 @@ a.add-new {
   font-weight: 500;
   padding: 0.6rem 1.3rem;
   text-align: center;
-  margin-bottom: 3rem;
+  margin: 30px auto 3rem auto;
 }
 
 a.add-new:hover {
@@ -34,15 +34,15 @@ a.add-new:hover {
   transition: all 0.5s ease;
 }
 
-
 div.confirmation {
   border: 2px solid var(--lightGreen);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 5rem;
   padding: 0.8rem;
   font-size: 0.8rem;
+  width: 90%;
+  margin: 30px auto 3rem auto;
 }
 
 /* 02 grid & flex */
@@ -133,6 +133,12 @@ p.date {
 
 @media (min-width: 820px) {
 
+  div.confirmation,
+  a.add-new {
+    margin: 30px 30px 3rem 30px;
+    width: 94%;
+  }
+
   div.flex-container-operations-mobile {
     display: none;
   }
@@ -165,7 +171,9 @@ p.date {
 
 @media (min-width: 1000px) {
 
-  ul.user-list {
+  ul.user-list,
+  div.confirmation,
+  a.add-new {
     max-width: 1000px;
   }
 
