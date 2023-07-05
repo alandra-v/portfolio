@@ -1,6 +1,7 @@
 <?php
 require_once(__DIR__ . '/Controller.php');
 require_once(dirname(__DIR__) . '/Model/UserModel.php');
+require_once(dirname(__DIR__) . '/Model/RegisterModel.php');
 
 class User extends Controller
 {
@@ -24,16 +25,18 @@ class User extends Controller
   ];
 
   private $userModel;
+  private $registerModel;
 
   /**
    * @param null|void
    * @return null|void
-   * ? Checks if the user session is set and creates a new instance of the UserModel
+   * ? Checks if the user session is set and creates a new instance of the UserModel and RegisterModel
    **/
   public function __construct()
   {
     if (!isset($_SESSION['auth_status'])) header('Location: ../login');
     $this->userModel = new UserModel();
+    $this->registerModel = new RegisterModel();
   }
 
   /**
@@ -126,6 +129,10 @@ class User extends Controller
         'familyName' => $familyName
       );
 
+      foreach ($Payload as $key => &$value) {
+        $value = ucwords($value);
+      }
+
 
       // if no errors send data
       $Response = $this->userModel->updateUserProfileInfo($Payload, $id);
@@ -156,7 +163,7 @@ class User extends Controller
       $email = $this->desinfect($data['email']);
       $emailConfirmation = $this->desinfect($data['email-confirmation']);
 
-      $UsernameStatus = $this->userModel->fetchUsername($username)['status'];
+      $UsernameStatus = $this->registerModel->fetchUser($username)['status'];
       $EmailStatus = $this->userModel->fetchEmail($email)['status'];
       $Data = $this->userModel->fetchUser($_GET['id'])['data'];
 
