@@ -1,11 +1,8 @@
 <?php
 require_once(__DIR__ . '/Controller.php');
-// require_once(dirname(__DIR__) . '/Model/DashboardModel.php');
 
 class Dashboard extends Controller
 {
-  // private $dashboardModel;
-
 
   /**
    * @param null|void
