@@ -78,68 +78,51 @@ class Register extends Controller
 
     if (empty($title)) {
       $errorMessages['title'] = 'Please select your title';
-      return $errorMessages;
     } else if (!array_key_exists($title, $this->titleArray)) {
       $errorMessages['title'] = 'Something went wrong <br> Please select your title';
-      return $errorMessages;
     }
 
     if (empty($gender)) {
       $errorMessages['gender'] = 'Please select your gender';
-      return $errorMessages;
     } else if (!array_key_exists($gender, $this->genderArray)) {
-      return $errorMessages;
       $errorMessages['gender'] = 'Something went wrong <br> Please select your gender';
     }
 
     if (empty($givenName)) {
       $errorMessages['givenName'] = 'Please enter your first name';
-      return $errorMessages;
     } else if (strlen($givenName) > 255) {
       $errorMessages['givenName'] = 'Please enter less than 255 characters';
-      return $errorMessages;
     }
 
     if (empty($familyName)) {
       $errorMessages['familyName'] = 'Please enter your last name';
-      return $errorMessages;
     } else if (strlen($familyName) > 255) {
       $errorMessages['familyName'] = 'Please enter less than 255 characters';
-      return $errorMessages;
     }
 
     if (empty($username)) {
       $errorMessages['username'] = 'Please enter a username';
-      return $errorMessages;
     } else if (!preg_match('/^[A-Za-z0-9_.-]{4,16}$/', $username)) {
       $errorMessages['username'] = 'Invalid username';
       // print_r($errorMessages['username']);
-      return $errorMessages;
     } else if (!empty($UsernameStatus)) {
       $errorMessages['username'] = 'This username is already taken';
-      return $errorMessages;
     }
 
     if (empty($email)) {
       $errorMessages['email'] = 'Please enter your email address';
-      return $errorMessages;
     } else if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
       $errorMessages['email'] = 'Invalid email address';
-      return $errorMessages;
     } else if (strlen($email) > 255) {
       $errorMessages['email'] = 'Please enter less than 255 characters';
-      return $errorMessages;
     } else if (!empty($EmailStatus)) {
       $errorMessages['email'] = 'This email is already taken';
-      return $errorMessages;
     }
 
     if (empty($emailConfirmation)) {
       $errorMessages['emailConfirmation'] = 'Please confirm your email address';
-      return $errorMessages;
     } else if ($_POST['email'] !== $_POST['email-confirmation']) {
       $errorMessages['emailConfirmation'] = 'Email addresses don\'t match. Take another look.';
-      return $errorMessages;
     }
 
     $uppercase    = preg_match('@[A-Z]@', $password);
@@ -150,25 +133,24 @@ class Register extends Controller
 
     if (empty($password)) {
       $errorMessages['password'] = 'Please enter a password';
-      return $errorMessages;
     } else if (!$uppercase || !$lowercase || !$number || !$specialChars || $whiteSpace || strlen($password) < 8) {
       $errorMessages['password'] = 'Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.';
-      return $errorMessages;
     } else if (strlen($password) > 255) {
       $errorMessages['password'] = 'Please enter less than 255 characters';
-      return $errorMessages;
     }
 
     if (empty($passwordConfirmation)) {
       $errorMessages['passwordConfirmation'] = 'Please confirm your password';
-      return $errorMessages;
     } else if ($password !== $passwordConfirmation) {
       $errorMessages['passwordConfirmation'] = 'Passwords don\'t match. Take another look.';
-      return $errorMessages;
     }
 
     if (!isset($_POST['terms'])) {
       $errorMessages['terms'] = 'Please accept Terms & Conditions';
+    }
+
+    $hasErrors = array_filter($errorMessages);
+    if (!empty($hasErrors)) {
       return $errorMessages;
     }
 
@@ -185,8 +167,11 @@ class Register extends Controller
       'userGroup' => 1
     );
 
-
-
+    $keys = array_keys($Payload);
+    $keysToModify = array_slice($keys, 0, 4);
+    foreach ($keysToModify as $key) {
+      $Payload[$key] = ucwords($Payload[$key]);
+    }
 
     // if no errors send data
     $Response = $this->registerModel->createUser($Payload);
