@@ -1,6 +1,4 @@
 <?php
-
-// require_once("../configuration.php");
 require_once(dirname(__DIR__) . '/Controller/Register.php');
 
 $defaultGenderValue = 'woman';
@@ -17,8 +15,6 @@ if (isset($_POST) && count($_POST) > 0) {
   // echo "</pre>";
   $Response = $Register->register($_POST);
 }
-
-require_once(dirname(__DIR__) . '/includes/admin_head_data.php');
 require_once(dirname(__DIR__) . '/includes/admin_head.inc.php');
 ?>
 
