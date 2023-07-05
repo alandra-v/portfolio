@@ -1,12 +1,9 @@
 <?php
 require_once(dirname(__DIR__) . '/Controller/User.php');
 
-require_once(dirname(__DIR__) . '/includes/admin_head_data.php');
 require_once(dirname(__DIR__) . '/includes/admin_head.inc.php');
-require_once(dirname(__DIR__) . '/includes/cms/nav_data.php');
 
 
-// require_once("../configuration.php");
 
 $Settings = new User();
 $Response = [];
@@ -21,7 +18,6 @@ if (isset($_GET['id'])) {
 } else {
   $User = $Settings->getUser($_SESSION['data']['ID']);
 }
-// or session id?
 
 
 if (isset($_POST['profile-info']) && count($_POST) > 0) {
@@ -104,11 +100,12 @@ if (isset($_POST['profile-info']) && count($_POST) > 0) {
           </fieldset>
           <div class="input-container">
             <label for="given-name">First name</label>
-            <input type="text" id="given-name" name="given-name" value="<?= $User['data']['user_given_name']; ?>">
+            <input type="text" id="given-name" name="given-name" value="<?= (isset($_POST['given-name'])) ? $_POST['given-name'] : $User['data']['user_given_name'] ?>">
+
           </div>
           <div class="input-container">
             <label for="family-name">Last name</label>
-            <input type="text" id="family-name" name="family-name" value="<?= $User['data']['user_family_name']; ?>">
+            <input type="text" id="family-name" name="family-name" value="<?= (isset($_POST['family-name'])) ? $_POST['family-name'] : $User['data']['user_family_name'] ?>">
           </div>
           <button class="save-changes" type="submit" name="profile-info">Save all changes</button>
         </form>
