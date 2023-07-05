@@ -2,12 +2,7 @@
 require_once(dirname(__DIR__) . '/Controller/Dashboard.php');
 $Dashboard = new Dashboard();
 
-require_once(dirname(__DIR__) . '/includes/admin_head_data.php');
 require_once(dirname(__DIR__) . '/includes/admin_head.inc.php');
-require_once(dirname(__DIR__) . '/includes/cms/nav_data.php');
-
-
-
 
 ?>
 
@@ -29,7 +24,7 @@ require_once(dirname(__DIR__) . '/includes/cms/nav_data.php');
         <!-- <div class="login-activity"></div> -->
         <div class="flex-container">
           <p>This wasn't me </p>
-          <button class="change-password">Change password</button>
+          <a href="../user/account_settings" class="change-password">Change password</a>
         </div>
 
         <h2>Failed login attempts</h2>
@@ -37,7 +32,7 @@ require_once(dirname(__DIR__) . '/includes/cms/nav_data.php');
         <!-- <div class="failed-login-attempts"></div> -->
         <div class="flex-container">
           <p>This wasn't me </p>
-          <button class="change-password">Change password</button>
+          <a href="../user/account_settings" class="change-password">Change password</a>
         </div>
       </div>
     </section>
