@@ -14,13 +14,14 @@ const telInput = document.querySelector("#tel");
 const emailInput = document.querySelector("#email");
 const messageTextarea = document.querySelector("#message");
 // const fileInput = document.querySelector("#input-file");
+const termsInput = document.querySelector("#terms");
 
 const validColor = "#008000";
 const errorColor = "#F50404";
 
 // user input value collection
 let title, givenName, familyName, address, zip, town, tel, email, message, file;
-let data = {};
+// let data = {};
 let validationErrors = {
   title,
   givenName,
@@ -31,6 +32,7 @@ let validationErrors = {
   tel,
   email,
   message,
+  terms
 };
 
 business = businessInput.value;
@@ -73,6 +75,12 @@ function displayErrorMsg(errorMessage, containerName, inputID, selector = "label
   document.querySelector(`.${containerName} ${selector}`).after(errorDisplay);
   document.querySelector(`#${inputID}`).style.borderColor = errorColor;
   document.querySelector(`#${inputID}`).setAttribute("aria-invalid", "true");
+}
+
+// display error message checkbox
+function displayErrorMsgCheckbox(errorMessage, containerName) {
+  const errorDisplay = createErrorSpan(errorMessage);
+  document.querySelector(`.${containerName}`).after(errorDisplay);
 }
 
 // const create error span
@@ -354,6 +362,22 @@ function messageValidation() {
 
 // console.log(data);
 
+function checkboxValidation() {
+
+  detectErrorMsg("terms-container");
+
+  if (!termsInput.checked) {
+    validationErrors.terms = "Please accept the Privacy Policy";
+    detectErrorMsg("terms-container");
+    displayErrorMsgCheckbox(
+      validationErrors.terms,
+      "terms-container");
+  } else {
+    delete validationErrors.terms;
+  }
+
+}
+
 //**********************
 // EventListeners
 //**********************
@@ -412,10 +436,21 @@ messageTextarea.addEventListener("focusout", messageValidation);
 // form validation on "submit"
 document.querySelector("form").addEventListener("submit", function (event) {
 
-  event.preventDefault();
+  titleValidation();
+  givenNameValidation();
+  familyNameValidation();
+  addressValidation();
+  zipValidation();
+  townValidation();
+  telValidation();
+  emailValidation();
+  messageValidation();
+  checkboxValidation();
 
   // send data to backend
   if (Object.keys(validationErrors).length > 0) {
+
+    event.preventDefault();
 
     // remove submit fail msg timer
     const removeSubmitMessage = () => {
@@ -434,7 +469,7 @@ document.querySelector("form").addEventListener("submit", function (event) {
 
     removeSubmitMessage();
     // console.error("there are still errors")
-  } else {
+  } else if(Object.keys(validationErrors).length === 0) {
 
     // remove submit fail message
     if (document.querySelector("div.alert")) {
@@ -443,27 +478,12 @@ document.querySelector("form").addEventListener("submit", function (event) {
     // disable submit button to prevent double submit
     document.querySelector("button.submit").disabled = true;
 
-    data.title = title;
-    data.givenName = givenName;
-    data.familyName = familyName;
-    data.business = business;
-    data.address = address;
-    data.zip = zip;
-    data.town = town;
-    data.tel = tel;
-    data.email = email;
-    data.message = message;
-    // data.file = file;
-
     //send form (data object) to backend
     // console.log("sending form data to backend");
 
     // play send animation
     animation.play()
-    setTimeout(() => {
-      // redirecting to contact reaction page 
-      window.location.href = "/contact_reaction.php";
-    }, 2000)
+    setTimeout(() => {}, 2000)
 
   }
 });
