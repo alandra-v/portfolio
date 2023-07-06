@@ -10,18 +10,18 @@ class User extends Controller
 
   public $titleArray = [
     '' => 'Title',
-    'mr' => 'Mr.',
-    'mrs' => 'Mrs.',
-    'ms' => 'Ms.',
-    'other' => 'Other'
+    'Mr' => 'Mr.',
+    'Mrs' => 'Mrs.',
+    'Ms' => 'Ms.',
+    'Other' => 'Other'
   ];
 
   public $genderArray = [
-    'woman' => 'Woman',
-    'man' => 'Man',
-    'transgender' => 'Transgender',
-    'non-binary' => 'Non-binary',
-    'no-response' => 'Prefer not to respond'
+    'Woman' => 'Woman',
+    'Man' => 'Man',
+    'Transgender' => 'Transgender',
+    'Non-binary' => 'Non-binary',
+    'No-response' => 'Prefer not to respond'
   ];
 
   private $userModel;

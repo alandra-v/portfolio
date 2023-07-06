@@ -8,10 +8,10 @@ class Contact extends Controller
 
   public $titleArray = [
     '' => 'Title',
-    'mr' => 'Mr.',
-    'mrs' => 'Mrs.',
-    'ms' => 'Ms.',
-    'other' => 'Other'
+    'Mr' => 'Mr.',
+    'Mrs' => 'Mrs.',
+    'Ms' => 'Ms.',
+    'Other' => 'Other'
   ];
 
   //NOTE
