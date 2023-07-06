@@ -189,10 +189,10 @@ class Media extends Controller
 
   /**
    * @param array|int
-   * @return array
+   * @return 
    * ? Redirects user to the media library after updating the given image
    **/
-  public function editImage(array $data, int $id, $files): array
+  public function editImage(array $data, int $id, $files)
   {
 
     $altText = $this->desinfect($data['alt-text']);
@@ -211,7 +211,7 @@ class Media extends Controller
       if ($files['image']['size'] <= $this->maxFileSize) {
 
         $originalImgName = $data['original'];
-        $imgPath = $this->targetDir . $originalImgName;
+        $imgPath = $this->targetDir . '/' . $originalImgName;
 
         $file = $files['image'];
         // $file = $this->desinfect($files['image']);
@@ -321,6 +321,13 @@ class Media extends Controller
    **/
   public function deleteImage(int $id)
   {
+    $image = $this->mediaModel->fetchImage($id);
+
+    $imgPath = $this->targetDir . '/' . $image['data']['img'];
+    if (file_exists($imgPath)) {
+      unlink($imgPath);
+    }
+
     if ($this->mediaModel->deleteImage($id)) header("Location: media_library?deleted");
   }
 }
