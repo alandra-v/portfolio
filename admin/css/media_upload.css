@@ -31,9 +31,11 @@ hr.title-separator {
 
 div.input-container {
   position: relative;
-  height: 2.5rem;
-  /* width: 80vw; */
   margin-bottom: 5rem;
+}
+
+i.fa-circle-exclamation {
+  color: var(--errorRed);
 }
 
 input {
