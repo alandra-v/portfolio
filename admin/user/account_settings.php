@@ -64,7 +64,9 @@ if (isset($_POST['profile-info']) && count($_POST) > 0) {
               // output <option>s w/ value
               foreach ($titles as $key => $value) {
                 echo "<option value=\"" . $key . "\"";
-                if (isset($User['data']['user_title']) && $User['data']['user_title'] == $key) {
+                if (isset($_POST['titles']) && $_POST['titles'] == $key) {
+                  echo " selected";
+                } else if (isset($User['data']['user_title']) && $User['data']['user_title'] == $key) {
                   echo " selected";
                 }
                 echo ">" . $value . "</option>";
@@ -84,7 +86,9 @@ if (isset($_POST['profile-info']) && count($_POST) > 0) {
                 echo " value=\"" . $key . "\"";
                 echo " name=\"gender\"";
                 echo " id=\"" . $key . "\"";
-                if (isset($User['data']['user_gender']) && $User['data']['user_gender'] == $key) {
+                if (isset($_POST['gender']) && $_POST['gender'] == $key) {
+                  echo "checked";
+                } else if (isset($User['data']['user_gender']) && $User['data']['user_gender'] == $key) {
                   echo "checked";
                 }
                 echo ">\n";
