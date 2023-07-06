@@ -5,8 +5,9 @@
 03  tiles
 04  media queries min width 760px
 05  media queries min width 820px
-06  media queries min width 1250px
-07  media queries min width 1500px
+06  media queries min width 1000px
+07  media queries min width 1250px
+08  media queries min width 1500px
 
 */
 
@@ -172,7 +173,17 @@ p.img-path {
 
 }
 
-/* 06 media queries min width 1250px */
+/* 06 media queries min width 1000px */
+
+@media (min-width:1000px) {
+
+  p.img-path {
+    max-width: 20vw;
+  }
+
+}
+
+/* 07 media queries min width 1250px */
 
 @media (min-width:1250px) {
 
@@ -194,13 +205,9 @@ p.img-path {
     width: 80%;
   }
 
-  p.img-path {
-    max-width: 20vw;
-  }
-
 }
 
-/* 07 media queries min width 1500px */
+/* 08 media queries min width 1500px */
 
 @media (min-width:1500px) {
 
