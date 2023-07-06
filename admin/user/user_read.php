@@ -2,17 +2,10 @@
 require_once(dirname(__DIR__) . '/Controller/User.php');
 $Data = new User();
 $Response = [];
-$User = $Data->getUsers();
+$Users = $Data->getUsers();
 if (isset($_GET['deleteUser'])) {
   $foundUser = $Data->getUser($_GET['deleteUser']);
-  // $Data->deleteUser($foundUser['data']);
-  // echo '<pre>';
-  // print_r($foundUser);
-  // echo '</pre>';
-  // return;
   if ($foundUser) {
-    // header('Location: user_read?userStatus=' . $foundUser['data']['ID'] . '&ID=' . $_GET['deleteUser']);
-    // // return;
     $Data->deleteUser($foundUser['data']);
   } else {
     header('Location: user_read?userStatus=' . $foundUser['data']['ID']);
@@ -20,9 +13,7 @@ if (isset($_GET['deleteUser'])) {
 }
 
 
-require_once(dirname(__DIR__) . '/includes/admin_head_data.php');
 require_once(dirname(__DIR__) . '/includes/admin_head.inc.php');
-require_once(dirname(__DIR__) . '/includes/cms/nav_data.php');
 
 
 ?>
@@ -31,33 +22,33 @@ require_once(dirname(__DIR__) . '/includes/cms/nav_data.php');
   <?php include(dirname(__DIR__) . '/includes/cms/navigation.inc.php'); ?>
   <main>
     <?php include(dirname(__DIR__) . '/includes/cms/confirmation.php'); ?>
+    <a href="user_registration" class="add-new">
+      <i class="fa-solid fa-plus"></i>
+      <span>Register a new user</span>
+    </a>
+    <?php if (isset($_GET['userStatus']) && $_GET['userStatus'] == 'registered') : ?>
+      <div class="confirmation">
+        <p><?= 'Thank you for your registration.' ?></p>
+        <button class="close-confirmation"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+    <?php elseif (isset($_GET['userStatus']) && $_GET['userStatus'] == 'updated') : ?>
+      <div class="confirmation">
+        <p><?= 'The account information has been updated.' ?></p>
+        <button class="close-confirmation"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+    <?php elseif (isset($_GET['userStatus']) && $_GET['userStatus'] == 'deleted') : ?>
+      <div class="confirmation">
+        <p><?= 'Account has successfully been deleted.' ?></p>
+        <button class="close-confirmation"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+    <?php elseif (isset($_GET['userStatus']) && $_GET['userStatus'] == 'violation') : ?>
+      <div class="confirmation">
+        <p><?= 'Something went wrong. You don\'t have the rights to perform this action.' ?></p>
+        <button class="close-confirmation"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+    <?php endif; ?>
     <ul class="user-list">
-      <a href="user_registration" class="add-new">
-        <i class="fa-solid fa-plus"></i>
-        <span>Register a new user</span>
-      </a>
-      <?php if (isset($_GET['userStatus']) && $_GET['userStatus'] == 'registered') : ?>
-        <div class="confirmation">
-          <p><?= 'Thank you for your registration.' ?></p>
-          <button class="close-confirmation"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-      <?php elseif (isset($_GET['userStatus']) && $_GET['userStatus'] == 'updated') : ?>
-        <div class="confirmation">
-          <p><?= 'The account information has been updated.' ?></p>
-          <button class="close-confirmation"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-      <?php elseif (isset($_GET['userStatus']) && $_GET['userStatus'] == 'deleted') : ?>
-        <div class="confirmation">
-          <p><?= 'Account has successfully been deleted.' ?></p>
-          <button class="close-confirmation"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-      <?php elseif (isset($_GET['userStatus']) && $_GET['userStatus'] == 'violation') : ?>
-        <div class="confirmation">
-          <p><?= 'Something went wrong. You don\'t have the rights to perform this action.' ?></p>
-          <button class="close-confirmation"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-      <?php endif; ?>
-      <?php foreach ($User['data'] as $user) : ?>
+      <?php foreach ($Users['data'] as $user) : ?>
         <li>
           <div class="container">
             <div class="user">
@@ -82,9 +73,6 @@ require_once(dirname(__DIR__) . '/includes/cms/nav_data.php');
                 <?php endif; ?>
                 <button class="drop-down"><i class="fa-solid fa-chevron-down"></i></button>
               </div>
-
-
-
               <button class="drop-down mobile-drop-down"><i class="fa-solid fa-chevron-down"></i></button>
             </div>
             <div class="information hidden">
@@ -110,10 +98,6 @@ require_once(dirname(__DIR__) . '/includes/cms/nav_data.php');
               </div>
             </div>
           </div>
-
-
-
-
           <?php if ($_SESSION['data']['ID'] == $user['ID'] || $_SESSION['data']['user_group'] == 0) : ?>
             <div class="flex-container-operations-mobile">
               <!-- Edit btn -->
@@ -131,10 +115,6 @@ require_once(dirname(__DIR__) . '/includes/cms/nav_data.php');
             </div>
           <?php endif; ?>
           </div>
-
-
-
-
         </li>
         <hr class="parting-line">
       <?php endforeach; ?>
