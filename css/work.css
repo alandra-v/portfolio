@@ -117,8 +117,8 @@ h2>a {
     position: relative;
   }
 
-  div.project-aebele,
-  div.project-ggg {
+  div.project:nth-child(7n+1),
+  div.project:nth-child(7n+5) {
     position: relative;
     right: 15%;
     gap: 8rem;
@@ -130,8 +130,8 @@ h2>a {
     text-align: right;
   }
 
-  div.project-hyer,
-  div.project-dimorph {
+  div.project:nth-child(odd):nth-child(7n+3),
+  div.project:nth-child(odd):nth-child(7n+7) {
     display: -webkit-box;
     display: flex;
     -webkit-box-orient: vertical;
@@ -140,13 +140,13 @@ h2>a {
     gap: 3rem;
   }
 
-  div.project-hyer .thumbnail,
-  div.project-dimorph .thumbnail {
+  div.project:nth-child(odd):nth-child(7n+3) .thumbnail,
+  div.project:nth-child(odd):nth-child(7n+7) .thumbnail {
     width: 100%;
   }
 
-  div.title-hyer,
-  div.title-dimorph {
+  div.project:nth-child(odd):nth-child(7n+3) > div.title,
+  div.project:nth-child(odd):nth-child(7n+7) > div.title {
     margin-bottom: 0;
   }
 
@@ -155,8 +155,8 @@ h2>a {
     max-width: 600px;
   }
 
-  img.aebele-thumbnail,
-  img.ggg-thumbnail {
+  div.project:nth-child(odd):nth-child(7n+1) img.thumbnail,
+  div.project:nth-child(odd):nth-child(7n+5) img.thumbnail {
     position: relative;
     left: 30%;
   }
@@ -210,8 +210,8 @@ h2>a {
     left: 5%;
   }
 
-  div.project-aebele,
-  div.project-ggg {
+  div.project:nth-child(odd):nth-child(7n+1),
+  div.project:nth-child(odd):nth-child(7n+5){
     gap: 12rem;
   }
 
@@ -220,8 +220,8 @@ h2>a {
     max-width: 800px;
   }
 
-  div.project-hyer .thumbnail,
-  div.project-dimorph .thumbnail {
+  div.project:nth-child(odd):nth-child(7n+3) .thumbnail,
+  div.project:nth-child(odd):nth-child(7n+7) .thumbnail {
     max-width: 1000px;
   }
 
