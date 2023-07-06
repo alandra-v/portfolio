@@ -182,26 +182,26 @@ a.back-button {
     width: 40vw;
   }
 
-  img.img-1 {
+  img.img-0 {
     z-index: 1;
     left: 10%;
   }
 
-  img.img-1:hover {
+  img.img-0:hover {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
     -webkit-transition: 0.5s;
     transition: 0.5s;
   }
 
-  img.img-2 {
+  img.img-1 {
     position: absolute;
     z-index: 0;
     left: 35%;
     top: 40%;
   }
 
-  img.img-2:hover {
+  img.img-1:hover {
     z-index: 1;
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
@@ -210,7 +210,7 @@ a.back-button {
   }
 
   img.logo {
-    width: 40px;
+    width: 8rem;
     height: auto;
     left: 92%;
     bottom: 100%;
