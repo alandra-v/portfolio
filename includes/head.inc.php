@@ -74,7 +74,7 @@ require_once(__DIR__ . '/head_data.php');
       '<link rel="stylesheet" href="' . BASE_URL . 'css/privacy_policy.css">';
       break;
 
-    case 'project_aebele_interiors.php':
+    case 'project.php':
       echo
       '<link rel="stylesheet" href="' . BASE_URL . 'css/project.css">';
       break;
