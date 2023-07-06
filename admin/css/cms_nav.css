@@ -26,7 +26,7 @@ ul.nav-list {
 
 nav.sidebar.open {
   width: 100%;
-  background: linear-gradient(rgba(2,43,40,1) 0%, rgba(4,78,72,1) 35%);
+  background: linear-gradient(var(--greenGradient));
   padding: 6px 14px;
   height: 100vh;
   z-index: 999;
@@ -89,7 +89,7 @@ nav.sidebar li a {
 }
 
 nav.sidebar li a .links_name {
-  color: #fff;
+  color: var(--white);
   font-size: 15px;
   font-weight: 400;
   white-space: nowrap;
@@ -113,7 +113,7 @@ nav.sidebar.open li i.drop-down-icon {
 }
 
 nav.sidebar i {
-  color: #fff;
+  color: var(--white);
   height: 60px;
   min-width: 50px;
   font-size: 28px;
@@ -125,7 +125,7 @@ nav.sidebar li i{
   height: 50px;
   line-height: 50px;
   font-size: 18px;
-  color: #fff;
+  color: var(--white);
 }
 
 i.close-sidebar {
@@ -170,11 +170,11 @@ display: none;
 }
 
 .submenu-item {
-  display: flex;
+  display: none;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  width: 155.4px;
+  width: 155px;
 }
 
 .submenu-item a {
@@ -193,7 +193,7 @@ div.navbar {
   padding: 30px;
   justify-content: space-between;
   font-size: 28px;
-  background: linear-gradient(rgba(2,43,40,1) 0%, rgba(4,78,72,1) 35%);
+  background: linear-gradient(var(--greenGradient));
   transition: transform 0.3s;
   z-index: 999;
 }
@@ -214,7 +214,7 @@ div.navbar-content {
 i.fa-user,
 i.fa-inbox,
 i.sidebar-toggle-mobile {
-  color: #fff;
+  color: var(--white);
 }
 
 .overflow-hidden {
@@ -247,15 +247,11 @@ div.active-admin-quicknav.open {
   position: absolute;
   bottom: 100%;
   right: 0;
-  background-color: #fff;
+  background-color: var(--white);
   z-index: 3;
-  box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+  box-shadow: var(--boxShadow);
   padding: 5rem 2rem 5rem 11rem;
   animation: appear 0.5s;
-}
-
-nav.sidebar.open div.active-admin-quicknav.open {
-  z-index: 1000;
 }
 
 div.active-admin-quicknav.open ~ main::after,
@@ -266,7 +262,7 @@ main.backdrop::after {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--darkHover);
   z-index: 1;
 }
 
@@ -275,13 +271,13 @@ div.active-admin-quicknav[closing] {
 }
 
 hr.active-admin-separator {
-  border: 0.3px solid #000;
+  border: 0.3px solid var(--black);
   opacity: 0.3;
   width: 100%;
 }
 
 i.fa-arrow-right-from-bracket {
-  color: #000;
+  color: var(--black);
 }
 
 
@@ -294,16 +290,15 @@ main {
   width: 100%;
   transition: all 0.5s ease;
   min-height: 100vh;
-  /* z-index: -1; */
 }
 
 /************/
 /* @TODDO */
 /************/
-nav.sidebar.open ~ main,
+/* nav.sidebar.open ~ main
 nav.sidebar.open ~ div.navbar {
 overflow: hidden;
-}
+} */
 
 nav.sidebar.open ~ main::after {
   content: "";
@@ -312,7 +307,7 @@ nav.sidebar.open ~ main::after {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--darkHover);
   z-index: 1;
 }
 
@@ -322,7 +317,7 @@ nav.sidebar.open ~ div.navbar {
 
 section {
   width: 95%;
-  box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+  box-shadow: var(--boxShadow);
   padding: 2rem;
   margin: 15px auto;
 }
@@ -336,7 +331,7 @@ section {
 
   nav.sidebar {
     width: 78px;
-    background: linear-gradient(rgba(2,43,40,1) 0%, rgba(4,78,72,1) 35%);
+    background: linear-gradient(var(--greenGradient));
     padding: 6px 14px;
     z-index: 99;
   }
@@ -367,7 +362,7 @@ section {
   nav.sidebar.open .logo-details .sidebar-toggle-desktop {
     left: 90%;
     font-size: 18px;
-    color: #fff;
+    color: var(--white);
   }
 
   /* general styling */
@@ -386,11 +381,12 @@ section {
   /* tooltips */
 
   nav.sidebar li .tooltip {
+    display: block;
     position: absolute;
     top: -20px;
     left: calc(100% + 15px);
     z-index: 4;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--blackBoxShadow);
     padding: 6px 12px;
     font-size: 15px;
     font-weight: 400;
@@ -400,14 +396,10 @@ section {
     transition: 0s;
   }
 
-  nav.sidebar.open li .tooltip {
-    display: none;
-  }
-
   /* hover effects */
 
   nav.sidebar li a:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--lightHover);
     transition: all 0.5s ease;
   }
 
@@ -418,7 +410,7 @@ section {
 
   nav.sidebar li:hover .tooltip {
     opacity: 1;
-    background-color: #fff;
+    background-color: var(--white);
     pointer-events: auto;
     transition: all 0.4s ease;
     top: 50%;
@@ -459,23 +451,23 @@ section {
 
   div.navbar {
     height: auto;
-    display: flex;
     gap: 2rem;
     padding: 26px 30px;
-    justify-content: space-between;
+    align-items: center;
     font-size: 18px;
-    background: #fff;
+    background: var(--white);
   }
 
   div.navbar-content {
     flex-direction: row;
+    align-items: initial;
     gap: 2rem;
     width: auto;
   }
 
   i.fa-user,
   i.fa-inbox {
-    color: #000;
+    color: var(--black);
   }
 
   /* breadcrumb navigation */
@@ -533,7 +525,7 @@ section {
 
   section {
     width: 50%;
-    box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+    box-shadow: var(--boxShadow);
     padding: 2rem;
     margin: 30px;
   }
