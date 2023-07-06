@@ -30,16 +30,16 @@ require_once(dirname(__DIR__) . '/includes/admin_head.inc.php');
             // output <option>s w/ value
             foreach ($titles as $key => $value) {
               echo "<option value=\"" . $key . "\"";
-              if (isset($_POST['titles']) && $_POST['titles'] === $value) {
-                echo ' selected';
-              } elseif (isset($Contact['data']['contact_title']) && $Contact['data']['contact_title'] === $value) {
-                echo ' selected';
+              if (isset($_POST['titles']) && $_POST['titles'] == $key) {
+                echo " selected";
+              } else if (isset($Contact['data']['contact_title']) && $Contact['data']['contact_title'] == $key) {
+                echo " selected";
               }
               echo ">" . $value . "</option>";
             }
-            // foreach ($options as $value => $label) {
-            //   $selected = ((isset($_POST['titles']) && $_POST['titles'] === $value) || (isset($Contact['data']['contact_title']) && $Contact['data']['contact_title'] === $value)) ? 'selected' : '';
-            //   echo "<option value=\"$value\" $selected>$label</option>";
+            // foreach ($titles as $key => $value) {
+            //   $selected = ((isset($Contact['data']['contact_title']) && $Contact['data']['contact_title'] === $key) || (isset($_POST['titles']) && $_POST['titles'] === $key)) ? 'selected' : '';
+            //   echo "<option value=\"$key\" $selected>$value</option>";
             // }
             ?>
           </select>
@@ -50,15 +50,15 @@ require_once(dirname(__DIR__) . '/includes/admin_head.inc.php');
         <div class="input-container">
           <label for="given-name">Given name:</label>
           <input name="given-name" type="text" id="given-name" value="<?= (isset($_POST['given-name'])) ? $_POST['given-name'] : $Contact['data']['contact_given_name'] ?>">
-          <?php if (isset($Response['givenName']) && !empty($Response['givenName'])) : ?>
-            <span class="error-span"><?= $Response['givenName']; ?></span>
+          <?php if (isset($Response['given-name']) && !empty($Response['given-name'])) : ?>
+            <span class="error-span"><?= $Response['given-name']; ?></span>
           <?php endif; ?>
         </div>
         <div class="input-container">
           <label for="family-name">Family name:</label>
           <input name="family-name" type="text" id="family-name" value="<?= (isset($_POST['family-name'])) ? $_POST['family-name'] : $Contact['data']['contact_family_name'] ?>">
-          <?php if (isset($Response['familyName']) && !empty($Response['familyName'])) : ?>
-            <span class="error-span"><?= $Response['familyName']; ?></span>
+          <?php if (isset($Response['family-name']) && !empty($Response['family-name'])) : ?>
+            <span class="error-span"><?= $Response['family-name']; ?></span>
           <?php endif; ?>
         </div>
         <div class="input-container">
