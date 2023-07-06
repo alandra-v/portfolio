@@ -1,7 +1,18 @@
 <?php
-require_once(__DIR__ . '/includes/head_data.php');
-require_once(__DIR__ . '/includes/nav_data.php');
+
+require_once('admin/Controller/ProjectRead.php');
+
+$DataProjects = new ProjectRead();
+$Response = [];
+$Projects = $DataProjects->getCompletedProjectsHome();
+// $Images = $DataProjects->getImages();
+
 include(__DIR__ . '/includes/head.inc.php');
+
+
+// echo '<pre>';
+// print_r($Images['data']);
+// echo '</pre>';
 ?>
 
 <body>
@@ -137,153 +148,21 @@ include(__DIR__ . '/includes/head.inc.php');
       <div class="previews-container">
         <div class="previews">
           <ul class="previews-ul">
-            <li>
-              <div class="project">
-                <picture>
-                  <source media="(min-width:760px)" srcset="assets/images/aebele_home.webp 1200w, assets/images/aebele_home.png 1200w">
-                  <source srcset="assets/images/aebele_home_small.webp 600w, assets/images/aebele_home_small.png 600w">
-                  <img src="assets/images/aebele_home.png" width="1200" height="758" alt="Landing page Aebele interiors" class="preview-img">
-                </picture>
-                <picture>
-                  <source media="(min-width:760px)" srcset="assets/images/aebele_2.webp 1200w, assets/images/aebele_2.png 1200w">
-                  <source srcset="assets/images/aebele_2_small.webp 600w, assets/images/aebele_2_small.png 600w"><img src="assets/images/aebele_2.png" width="1200" height="758" alt="Gallery page Aebele interiors" class="preview-img">
-                </picture>
-                <picture>
-                  <source media="(min-width:760px)" srcset="assets/images/aebele_3.webp 1200w, assets/images/aebele_3.png 1200w">
-                  <source srcset="assets/images/aebele_3_small.webp 600w, assets/images/aebele_3_small.png 600w"><img src="assets/images/aebele_3.png" width="1200" height="758" alt="Shop Aebele interiors" class="preview-img">
-                </picture>
-                <p class="project-title">Aebele</p>
-                <a href="project_aebele_interiors" class="view-project">>View project</a>
-              </div>
-            </li>
-
-            <li>
-              <div class="project">
-                <picture>
-                  <source media="(min-width:760px)" srcset="assets/images/hyer_2.webp 1200w, assets/images/hyer_2.png 1200w">
-                  <source srcset="assets/images/hyer_2_small.webp 600w, assets/images/hyer_2_small.png 600w"><img src="assets/images/hyer_2.png" width="1200" height="758" alt="Example page Hyer personalised aviation" class="preview-img">
-                </picture>
-                <picture>
-                  <source media="(min-width:760px)" srcset="assets/images/hyer_3.webp 1200w, assets/images/hyer_3.png 1200w">
-                  <source srcset="assets/images/hyer_3_small.webp 600w, assets/images/hyer_3_small.png 600w"><img src="assets/images/hyer_3.png" width="1200" height="758" alt="Financial advantages section on page Hyer personalised aviation" class="preview-img">
-                </picture>
-                <picture>
-                  <source media="(min-width:760px)" srcset="assets/images/hyer_home.webp 1200w, assets/images/hyer_home.png 1200w">
-                  <source srcset="assets/images/hyer_home_small.webp 600w, assets/images/hyer_home_small.png 600w">
-                  <img src="assets/images/hyer_home.png" width="1200" height="758" alt="Landing page Hyer personalised aviation" class="preview-img">
-                </picture>
-                <p class="project-title">Hyer</p>
-                <a href="#" class="view-project">>View project</a>
-              </div>
-            </li>
-
-            <li>
-              <div class="project">
-                <picture>
-                  <source media="(min-width:760px)" srcset="assets/images/mikks_2.webp 1200w, assets/images/mikks_2.png 1200w">
-                  <source srcset="assets/images/mikks_2_small.webp 600w, assets/images/mikks_2_small.png 600w"><img src="assets/images/mikks_2.png" width="1200" height="758" alt="Recipe page Mikks all natural drink mixers" class="preview-img">
-                </picture>
-                <picture>
-                  <source media="(min-width:760px)" srcset="assets/images/mikks_3.webp 1200w, assets/images/mikks_3.png 1200w">
-                  <source srcset="assets/images/mikks_3_small.webp 600w, assets/images/mikks_3_small.png 600w"><img src="assets/images/mikks_3.png" width="1200" height="758" alt="Product page Mikks all natural drink mixers" class="preview-img">
-                </picture>
-                <picture>
-                  <source media="(min-width:760px)" srcset="assets/images/mikks_home.webp 1200w, assets/images/mikks_home.png 1200w">
-                  <source srcset="assets/images/mikks_home_small.webp 600w, assets/images/mikks_home_small.png 600w">
-                  <img src="assets/images/mikks_home.png" width="1200" height="758" alt="Landing page Mikks all natural drink mixers" class="preview-img">
-                </picture>
-                <p class="project-title">Mikks</p>
-                <a href="#" class="view-project">>View project</a>
-              </div>
-            </li>
-
-            <li>
-              <div class="project">
-                <picture>
-                  <source media="(min-width:760px)" srcset="assets/images/gravityglobalgroup_home.webp 1200w, assets/images/gravityglobalgroup_home.png 1200w">
-                  <source srcset="assets/images/gravityglobalgroup_home_small.webp 600w, assets/images/gravityglobalgroup_home_small.png 600w">
-                  <img src="assets/images/gravityglobalgroup_home.png" width="1200" height="758" alt="Landing page gravity global group" class="preview-img">
-                </picture>
-                <picture>
-                  <source media="(min-width:760px)" srcset="assets/images/gravityglobalgroup_1.webp 1200w, assets/images/gravityglobalgroup_1.png  1200w">
-                  <source srcset="assets/images/gravityglobalgroup_1_small.webp 600w, assets/images/gravityglobalgroup_1_small.png 600w">
-                  <img src="assets/images/gravityglobalgroup_1.png" width="1200" height="750" alt="Idea page gravity global group" class="preview-img">
-                </picture>
-                <picture>
-                  <source media="(min-width:760px)" srcset="assets/images/gravityglobalgroup_2.webp 1200w, assets/images/gravityglobalgroup_2.png 1200w">
-                  <source srcset="assets/images/gravityglobalgroup_2_small.webp 600w, assets/images/gravityglobalgroup_2_small.png 600w">
-                  <img src="assets/images/gravityglobalgroup_2.png" width="1200" height="750" alt="Gravity global group healthcare" class="preview-img">
-                </picture>
-                <p class="project-title">Gravity Global</p>
-                <a href="#" class="view-project">>View project</a>
-              </div>
-            </li>
-
-            <li>
-              <div class="project">
-                <picture>
-                  <source media="(min-width:760px)" srcset="assets/images/what_is_missing_home.webp 1200w, assets/images/what_is_missing_home.png 1200w">
-                  <source srcset="assets/images/what_is_missing_home_small.webp 600w, assets/images/what_is_missing_home_small.png 600w">
-                  <img src="assets/images/what_is_missing_home.png" width="1200" height="750" alt="Landing page of whatismissing.org" class="preview-img">
-                </picture>
-                <picture>
-                  <source media="(min-width:760px)" srcset="assets/images/what_is_missing_1.webp 1200w, assets/images/what_is_missing_1.png 1200w">
-                  <source srcset="assets/images/what_is_missing_1_small.webp 600w, assets/images/what_is_missing_1_small.png 600w">
-                  <img src="assets/images/what_is_missing_1.png" width="1200" height="750" alt="Navigation of whatismissing.org" class="preview-img">
-                </picture>
-                <picture>
-                  <source media="(min-width:760px)" srcset="assets/images/what_is_missing_2.webp 1200w, assets/images/what_is_missing_2.png 1200w">
-                  <source srcset="assets/images/what_is_missing_2_small.webp 600w, assets/images/what_is_missing_2_small.png 600w">
-                  <img src="assets/images/what_is_missing_2.png" width="1200" height="750" alt="Greenprint overview of whatismissing.org" class="preview-img">
-                </picture>
-                <p class="project-title">What is missing? A Memorial to the Planet</p>
-                <a href="#" class="view-project">>View project</a>
-              </div>
-            </li>
-
-            <li>
-              <div class="project">
-                <picture>
-                  <source media="(min-width:760px)" srcset="assets/images/dimorph_home.webp 1200w, assets/images/dimorph_home.png 1200w">
-                  <source srcset="assets/images/dimorph_home_small.webp 600w, assets/images/dimorph_home_small.png 600w">
-                  <img src="assets/images/dimorph_home.png" width="1200" height="750" alt="Dimorph Createive Web Studio landing page" class="preview-img">
-                </picture>
-                <picture>
-                  <source media="(min-width:760px)" srcset="assets/images/dimorph_1.webp 1200w, assets/images/dimorph_1.png 1200w">
-                  <source srcset="assets/images/dimorph_1_small.webp 600w, assets/images/dimorph_1_small.png  600w">
-                  <img src="assets/images/dimorph_1.png " width="1200" height="750" alt="Dimorph work page" class="preview-img">
-                </picture>
-                <picture>
-                  <source media="(min-width:760px)" srcset="assets/images/dimorph_2.webp  1200w, assets/images/dimorph_2.png  1200w">
-                  <source srcset="assets/images/dimorph_2_small.webp  600w, assets/images/dimorph_2_small.png  600w">
-                  <img src="assets/images/dimorph_2.png " width="1200" height="750" alt="Dimorph studio page" class="preview-img">
-                </picture>
-                <p class="project-title">Dimorph Creative Web Studio</p>
-                <a href="#" class="view-project">>View project</a>
-              </div>
-            </li>
-
-            <li>
-              <div class="project">
-                <picture>
-                  <source media="(min-width:760px)" srcset="assets/images/celia_lopez_1.webp 1200w, assets/images/celia_lopez_1.png 1200w">
-                  <source srcset="assets/images/celia_lopez_1_small.webp 600w, assets/images/celia_lopez_1_small.png 600w">
-                  <img src="assets/images/celia_lopez_1.png" width="1200" height="750" alt="Célia Lopez projects page" class="preview-img">
-                </picture>
-                <picture>
-                  <source media="(min-width:760px)" srcset="assets/images/celia_lopez_2.webp 1200w, assets/images/celia_lopez_2.png 1200w">
-                  <source srcset="assets/images/celia_lopez_2_small.webp 600w, assets/images/celia_lopez_2_small.png 600w">
-                  <img src="assets/images/celia_lopez_2.png" width="1200" height="750" alt="Célia Lopez everdays page" class="preview-img">
-                </picture>
-                <picture>
-                  <source media="(min-width:760px)" srcset="assets/images/celia_lopez_3.webp 1200w, assets/images/celia_lopez_3.png 281200w48w">
-                  <source srcset="assets/images/celia_lopez_3_small.webp 600w, assets/images/celia_lopez_3_small.png 600w">
-                  <img src="assets/images/celia_lopez_3.png" width="1200" height="750" alt="Célia Lopez everydays preview" class="preview-img">
-                </picture>
-                <p class="project-title">Célia Lopez Interactive & 3D designer</p>
-                <a href="#" class="view-project">>View project</a>
-              </div>
-            </li>
+            <?php foreach ($Projects as $project) : ?>
+              <li>
+                <div class="project">
+                  <?php foreach ($project['images'] as $image) : ?>
+                    <picture>
+                      <source media="(min-width:760px)" srcset="assets/images/uploads/<?= $image['img_webp'] ?> 1200w, assets/images/uploads/<?= $image['img'] ?> 1200w">
+                      <source srcset="assets/images/uploads/<?= $image['img_small_webp'] ?> 600w, assets/images/uploads/<?= $image['img_small'] ?> 600w">
+                      <img src="assets/images/uploads/<?= $image['img'] ?>" width="1200" height="758" alt="<?= $image['img_alt_text'] ?>" class="preview-img">
+                    </picture>
+                  <?php endforeach; ?>
+                  <p class="project-title"><?= $project['project_title'] ?></p>
+                  <a href="project?id=<?= $project['project_id'] ?>" class="view-project">>View project</a>
+                </div>
+              </li>
+            <?php endforeach; ?>
           </ul>
         </div>
       </div>
