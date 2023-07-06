@@ -1,10 +1,11 @@
 <?php
 require_once(dirname(__DIR__) . '/Controller/Media.php');
-// require_once(dirname(dirname(__DIR__)) . '/configuration.php');
+require_once(dirname(__DIR__) . '/Controller/Project.php');
+
 $uploadValidation = new Media();
 $Response = [];
 
-if (isset($_POST) && count($_POST) > 0 && isset($_FILES)) {
+if (isset($_POST['upload']) && count($_POST) > 0 && isset($_FILES)) {
   $Response = $uploadValidation->uploadImage($_POST, $_FILES);
 }
 
@@ -12,9 +13,11 @@ foreach ($uploadValidation->errorsArr as $error) {
   $Response['error'] .= $error . "<br>";
 }
 
-require_once(dirname(__DIR__) . '/includes/admin_head_data.php');
+$Data = new Project();
+$Projects = $Data->getProjects();
+
 require_once(dirname(__DIR__) . '/includes/admin_head.inc.php');
-require_once(dirname(__DIR__) . '/includes/cms/nav_data.php');
+
 
 ?>
 
@@ -22,13 +25,17 @@ require_once(dirname(__DIR__) . '/includes/cms/nav_data.php');
   <?php include(dirname(__DIR__) . '/includes/cms/navigation.inc.php'); ?>
   <main>
     <section>
-      <h2>Upload new image</h2>
+      <div class="flex-container-title">
+        <h2>Upload new image:</h2>
+        <a href="media_library.php" class="go-back">Back to overview &#11152;</a>
+      </div>
       <hr class="title-separator">
       <form action="" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="MAX_FILE_SIZE" value="<?= $uploadValidation->maxFileSize ?>">
         <div class="input-container">
-          <label for="image">Upload image:</label>
-          <input type="file" accept="image/*" name="image" id="image" value="<?= (isset($_FILES['image'])) ? $_FILES['image'] : '' ?>">
+          <label for="image">Upload image:<br><i class="fa-solid fa-circle-exclamation"></i>
+            Make sure, that if you upload a landing page image you include "home" in the filename!</label>
+          <input type="file" accept="image/*" name="image" id="image">
           <!-- for testing -->
           <!-- <input type="file" name="image" id="image"> -->
           <?php if (isset($Response['error']) && !empty($Response['error'])) : ?>
@@ -45,24 +52,27 @@ require_once(dirname(__DIR__) . '/includes/cms/nav_data.php');
           <?php endif; ?>
         </div>
         <div class="input-container">
-          <label for="project-id">Enter project id:</label>
-          <input name="project-id" type="number" id="project-id" value="<?= (isset($_POST['project-id'])) ? $_POST['project-id'] : '' ?>">
+          <label for="project-id" aria-label="project-id">Choose the corresponding project:</label>
+          <select class="projects" name="projects" id="project-id">
+            <option value="">Choose project</option>
+            <?php foreach ($Projects['data'] as $value) : ?>
+              <option value="<?= $value['ID']; ?>" <?= (isset($_POST['projects']) && $_POST['projects'] == $value['ID']) ? " selected" : ""; ?>>
+                <?= $value['project_title']; ?>
+              </option>
+            <?php endforeach; ?>
+          </select>
           <?php if (isset($Response['projectID']) && !empty($Response['projectID'])) : ?>
             <span class="error-span"><?= $Response['projectID']; ?></span>
           <?php endif; ?>
         </div>
 
         <button type="submit" name="upload" class="upload-btn">Upload</button>
-        <?php //if (isset($Response['status'])) : 
-        ?>
-        <span class="error-span"><? ?></span>
-        <? //endif; 
-        ?>
+        <?php if (isset($Response['status']) && !$Response['status']) :  ?>
+          <span class="error-span"><?= $Response['status'] ?></span>
+        <?php endif; ?>
       </form>
     </section>
-</body>
-</main>
-
+  </main>
 </body>
 
 </html>
