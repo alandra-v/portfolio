@@ -198,7 +198,7 @@ class ProjectModel extends Db
   /**
    * @param int
    * @return bool
-   * ? Deletes the given project from database
+   * ? Deletes the given project from database and all associated images
    **/
   public function deleteProject(int $id): bool
   {
