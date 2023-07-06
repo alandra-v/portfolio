@@ -61,12 +61,12 @@ class ProjectModel extends Db
   /**
    * @param null|void
    * @return array
-   * ? Returns an array of projects with their associated images
+   * ? Returns an array of completed projects
    **/
-  public function fetchJoinedProjects(): array
+  public function fetchCompletedProjects(): array
   {
-    $this->query("SELECT * FROM project ORDER BY created DESC
-    INNER JOIN project_img ON project.ID = project_img.img_project_id");
+    $this->query("SELECT * FROM `project` WHERE `project_status` = 1 ORDER BY created DESC ");
+    // $this->execute();
     $Project = $this->fetchAll();
 
     if (count($Project) > 0) {
@@ -94,7 +94,6 @@ class ProjectModel extends Db
   {
     $this->query("SELECT * FROM `project` WHERE `ID` = :id");
     $this->bind('id', $id);
-    // $this->execute();
     $Project = $this->fetch();
 
     if (count($Project) > 0) {
@@ -114,12 +113,56 @@ class ProjectModel extends Db
 
 
   /**
-   * @param int
+   * @param null|void
    * @return array
-   * ? Returns an array of project information with its associated images based on the method parameter
+   * ? Returns an array of project information (of a completed project) based on the method parameter
    **/
-  public function fetchJoinedProject(): array
+  public function fetchCompletedProject(int $id): array
   {
+    $this->query("SELECT * FROM `project` WHERE `project_status` = 1 AND `ID` = :id ORDER BY created DESC");
+    $this->bind('id', $id);
+    $Project = $this->fetch();
+
+    if (count($Project) > 0) {
+      $Response = array(
+        'status' => true,
+        'data' => $Project
+      );
+      return $Response;
+    }
+
+    $Response = array(
+      'status' => false,
+      'data' => []
+    );
+    return $Response;
+  }
+
+
+  /**
+   * @param null|void
+   * @return array
+   * ? Returns an array of project IDs
+   **/
+  public function fetchProjectIDs(): array
+  {
+    $this->query("SELECT ID FROM `project`");
+
+    $ID = $this->fetchAll();
+
+    if (count($ID) > 0) {
+      $Response = array(
+        'status' => true,
+        'data' => $ID
+      );
+      return $Response;
+    }
+
+    $Response = array(
+      'status' => false,
+      'data' => []
+    );
+    return $Response;
   }
 
 
@@ -159,7 +202,10 @@ class ProjectModel extends Db
    **/
   public function deleteProject(int $id): bool
   {
-    $this->query("DELETE FROM `project` WHERE `ID` = :id");
+    $this->query("DELETE project, project_img
+    FROM project
+    LEFT JOIN project_img ON project.ID = project_img.img_project_id
+    WHERE project.ID = :id");
     $this->bind('id', $id);
     $deleted = $this->execute();
 
