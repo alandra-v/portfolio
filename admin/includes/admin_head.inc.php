@@ -31,7 +31,9 @@
       '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/admin_header.css">',
       '<link rel="stylesheet" href="' . BASE_URL . 'css/footer.css">',
       '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/login.css">',
-      '<script src="' . BASE_URL . 'admin/js/login_validation.js" defer></script>';
+      '<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>',
+      '<script src="' . BASE_URL . 'admin/js/login_validation.js" defer></script>',
+      '<script src="' . BASE_URL . 'admin/js/drop_down.js" defer></script>';
       break;
 
     case 'password_forgotten.php':
@@ -154,7 +156,7 @@
       '<script src="' . BASE_URL . 'admin/js/cms_nav.js" defer></script>';
       break;
 
-    case 'project_update.php':
+    case ($currentPage == 'project_update.php' || $currentPage == 'contact_update.php'):
       echo
       '<link rel="stylesheet" href="' . BASE_URL . 'css/back_to_top_btn.css">',
       '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/update.css">',
@@ -176,14 +178,14 @@
       '<script src="' . BASE_URL . 'admin/js/confirmation.js" defer></script>';
       break;
 
-    case 'contact_update.php':
-      echo
-      '<link rel="stylesheet" href="' . BASE_URL . 'css/back_to_top_btn.css">',
-      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/update.css">',
-      '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/cms_nav.css">',
-      '<script src="' . BASE_URL . 'js/back_to_top_btn.js" defer></script>',
-      '<script src="' . BASE_URL . 'admin/js/cms_nav.js" defer></script>';
-      break;
+      // case 'contact_update.php':
+      //   echo
+      //   '<link rel="stylesheet" href="' . BASE_URL . 'css/back_to_top_btn.css">',
+      //   '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/update.css">',
+      //   '<link rel="stylesheet" href="' . BASE_URL . 'admin/css/cms_nav.css">',
+      //   '<script src="' . BASE_URL . 'js/back_to_top_btn.js" defer></script>',
+      //   '<script src="' . BASE_URL . 'admin/js/cms_nav.js" defer></script>';
+      //   break;
   }
 
   ?>
