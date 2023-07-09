@@ -26,9 +26,9 @@ function setWhite() {
   if (favicon16x16) {
 
     if (/admin/.test(url)) {
-      if (pathArray.length == 4) {
+      if (pathArray.length = 4) {
         favicon16x16.setAttribute("href", "../assets/favicon/favicon-16x16-fff.png");
-      } else if (pathArray.length == 5) {
+      } else if (pathArray.length = 5) {
       favicon16x16.setAttribute("href", "../../assets/favicon/favicon-16x16-fff.png");
       }
     } else {
@@ -38,9 +38,9 @@ function setWhite() {
   }
 
   if (/admin/.test(url)) {
-    if (pathArray.length == 4) {
+    if (pathArray.length = 4) {
       faviconICO.setAttribute("href", "../assets/favicon/favicon-fff.ico");
-    } else if (pathArray.length == 5) {
+    } else if (pathArray.length = 5) {
       faviconICO.setAttribute("href", "../../assets/favicon/favicon-fff.ico");
     }
   } else {
@@ -51,9 +51,9 @@ function setWhite() {
 function setBlack() {
   if (favicon16x16) {
     if (/admin/.test(url)) {
-      if (pathArray.length == 4) {
+      if (pathArray.length = 4) {
         favicon16x16.setAttribute("href", "../assets/favicon/favicon-16x16.png");
-      } else if (pathArray.length == 5) {
+      } else if (pathArray.length = 5) {
         favicon16x16.setAttribute("href", "../../assets/favicon/favicon-16x16.png");
       }
     } else {
@@ -63,9 +63,9 @@ function setBlack() {
   }
 
   if (/admin/.test(url)) {
-    if (pathArray.length == 4) {
+    if (pathArray.length = 4) {
       faviconICO.setAttribute("href", "../assets/favicon/favicon.ico");
-    } else if (pathArray.length == 5) {
+    } else if (pathArray.length = 5) {
       faviconICO.setAttribute("href", "../../assets/favicon/favicon.ico");
     }
   } else {
