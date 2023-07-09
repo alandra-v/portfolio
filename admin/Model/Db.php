@@ -18,6 +18,9 @@ class Db
    */
   public function __construct()
   {
+    // NOTE
+    // In the future a firewall can help mitigate SQL Injection and Cross-Site Scripting (XSS) Attack risks
+
     // Connection DSN
     $dsn = 'mysql:host=' . $this->dbHost . ';dbname=' . $this->dbName;
     // Additional PDO Options
@@ -77,7 +80,7 @@ class Db
    * @return bool
    * ? Executes a PDO statement object
    **/
-  public function execute()
+  public function execute(): bool
   {
     $this->dbStmt->execute();
     return true;
@@ -106,4 +109,4 @@ class Db
     $this->execute();
     return $this->dbStmt->fetchAll(PDO::FETCH_ASSOC);
   }
-};
+}
