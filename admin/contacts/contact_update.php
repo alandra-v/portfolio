@@ -24,7 +24,7 @@ require_once(dirname(__DIR__) . '/includes/admin_head.inc.php');
       <hr class="title-separator">
       <form action="" method="POST" novalidate>
         <div class="input-container">
-          <label for="user-title" aria-label="title">*Title</label>
+          <label for="titles" aria-label="title">*Title</label>
           <select name="titles" id="title">
             <?php
             // output <option>s w/ value
