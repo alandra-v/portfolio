@@ -9,7 +9,7 @@
 /* 01 body */
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat);
   font-style: normal;
 }
 

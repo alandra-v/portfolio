@@ -9,6 +9,11 @@
 
 /* 01 body */
 
+body {
+  font-family: var(--font-montserrat);
+  font-style: normal;
+}
+
 h2 {
   font-size: 1.5rem;
   font-weight: 500;

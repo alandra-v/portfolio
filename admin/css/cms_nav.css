@@ -9,6 +9,11 @@
 
 */
 
+body {
+  font-family: var(--font-montserrat);
+  font-style: normal;
+}
+
 /* 01 sidebar */
 
 nav.sidebar {
