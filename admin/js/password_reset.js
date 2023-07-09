@@ -3,7 +3,6 @@
 //**********************
 const passwordInput = document.querySelector("#new-password");
 const passwordConfirmationInput = document.querySelector("#password-confirmation");
-const passwordConfirmationContainer = document.querySelector(".password-confirmation-container");
 const submitBtn = document.querySelector("button.reset-password");
 
 // styling colors
