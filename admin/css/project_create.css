@@ -9,6 +9,11 @@
 
 /* 01 body */
 
+body {
+  font-family: var(--font-montserrat);
+  font-style: normal;
+}
+
 h2 {
   font-size: 1.5rem;
   font-weight: 500;
@@ -34,6 +39,10 @@ div.input-container {
   height: 2.5rem;
   /* width: 80vw; */
   margin-bottom: 5rem;
+}
+
+i.fa-circle-exclamation {
+  color: var(--errorRed);
 }
 
 div.status-container {

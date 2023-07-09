@@ -14,7 +14,7 @@
 /* 01 body */
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat);
   font-style: normal;
 }
 
@@ -104,12 +104,22 @@ div.flex-container-operations {
 /* 03 tiles */
 
 div.img-container {
-  /* height: 5rem; */
-  width: 5rem;
+  width: 7rem;
+  height: 5rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 img.logo {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
+}
+
+i.fa-folder-open {
+  color:#D6D6D6 ;
 }
 
 h2 {
