@@ -2,17 +2,11 @@
 require_once(__DIR__ . '/Controller.php');
 require_once(dirname(__DIR__) . '/Model/MediaModel.php');
 require_once(dirname(__DIR__) . '/Model/ProjectModel.php');
-// require_once(dirname(dirname(__DIR__)) . '/configuration.php');
 
 class Media extends Controller
 {
   private $mediaModel;
   private $projectModel;
-
-  public $targetDir = TARGET_DIR;
-  public $allowedMimeTypes = ALLOWED_MIME_TYPES;
-  public $allowedExtensions = ALLOWED_EXTENSIONS;
-  public $maxFileSize = MAX_FILE_SIZE;
 
   public $errorsArr = [];
 
@@ -54,14 +48,6 @@ class Media extends Controller
     $altText = $this->desinfect($data['alt-text']);
     $projectID = $this->desinfect($data['projects']);
 
-    $file = $files['image'];
-
-    $fileName = basename($file['name']);
-    $sanitizedFilename = strtolower($this->sanitize($fileName));
-    $fileTmp = $file['tmp_name'];
-    $fileSize = $file['size'];
-    $fileError = $file['error'];
-
     $Error = array(
       'image' => '',
       'altText' => '',
@@ -69,68 +55,44 @@ class Media extends Controller
       'status' => false
     );
 
-    $Response = $this->ckeckFileError($fileError);
 
-
-    if ($fileError === UPLOAD_ERR_OK) {
-
-      if ($fileSize <= $this->maxFileSize) {
-
-        // check MIME-type
-        $filepath = str_replace(' ', '\\ ', $fileTmp);
-        $finfo = finfo_open(FILEINFO_MIME_TYPE);
-        $mimeSecure = finfo_file($finfo, $filepath);
-        finfo_close($finfo);
-        if (in_array($mimeSecure, $this->allowedMimeTypes)) {
-
-          // check file extension
-          $ext = strtolower(pathinfo($sanitizedFilename, PATHINFO_EXTENSION));
-          if (in_array($ext, $this->allowedExtensions)) {
-            // generate a unique name for the image
-            // $uniqueName = uniqid(('image_') . '_' . time());
-            $uniqueName = uniqid(($sanitizedFilename) . '__' . time());
-
-            // Append the file extension to the unique name
-            $uniqueName .= '.' . $ext;
-            // Move the uploaded file to a directory
-            $uploadPath = $this->targetDir . '/' . $uniqueName;
-            move_uploaded_file($fileTmp, $uploadPath);
-            // $Error['image'] = 'The image has been uploaded successfully to &quot;' . $targetDir . '&quot;.';
-            $image = $uniqueName;
-          } else {
-            $Error['image'] = 'Image does not have an allowed file extension. Only JPG, PNG and SVG files are allowed.';
-            $Error['status'] = true;
-          }
-        } else {
-          $Error['image'] = 'File does not have an allowed media type. Please choose a different file.';
-          $Error['status'] = true;
-        }
-      } else {
-        $Error['image'] = 'The image must be less than 3 MB.';
+    $image = '';
+    if (isset($files['image']['name']) && $files['image']['size'] > 0) {
+      // return header('Location: media_library?file=exist');
+      $Return = $this->processUploadedFile($files);
+      // echo '<pre>';
+      // print_r($Return);
+      // echo '</pre>';
+      // exit;
+      if ($Return['error']['status']) {
+        $Error['image'] = $Return['error']['image'];
         $Error['status'] = true;
+      } else {
+        $image = $Return['filename'];
+        // echo $image;
+        // exit;
       }
     } else {
-      $Error['image'] = 'Sorry, there was an error uploading your image. Please try again.';
-      $Error['status'] = true;
-    }
-
-    if (empty($altText)) {
-      $Error['altText'] = 'Please provide an alternative text.';
+      $Error['image'] = 'Please choose an image.';
       $Error['status'] = true;
     }
 
     $projectsArray = $this->projectModel->fetchProjectIDs();
-    // echo '<pre>';
-    // print_r($projectsArray['data']);
-    // // print_r($projectsArray);
-    // echo '</pre>';
-
     $found = false;
     foreach ($projectsArray['data'] as $array) {
       if ($array['ID'] == $projectID) {
         $found = true;
         break;
       }
+    }
+    // echo '<pre>';
+    // print_r($projectsArray);
+    // echo '</pre>';
+    // exit;
+
+    if (empty($altText)) {
+      $Error['altText'] = 'Please provide an alternative text.';
+      $Error['status'] = true;
     }
 
     if (empty($projectID)) {
@@ -150,8 +112,10 @@ class Media extends Controller
       'projectID' => $projectID,
       'image' => $image
     );
-
-    $Payload['altText'] = ucfirst($Payload['altText']);
+    // echo '<pre>';
+    // print_r($Payload);
+    // echo '</pre>';
+    // exit;
 
     $Response = $this->mediaModel->uploadImage($Payload);
 
@@ -159,7 +123,6 @@ class Media extends Controller
       $Response['status'] = 'Sorry, An unexpected error occurred and your request could not be completed.';
       return $Response;
     }
-
 
     header('Location: media_library?created');
   }
@@ -189,15 +152,18 @@ class Media extends Controller
 
   /**
    * @param array|int
-   * @return 
+   * @return array
    * ? Redirects user to the media library after updating the given image
    **/
-  public function editImage(array $data, int $id, $files)
+  public function editImage(array $data, int $id, array $files): array
   {
-
     $altText = $this->desinfect($data['alt-text']);
     $projectID = $this->desinfect($data['projects']);
     $image = $data['original'];
+    if ($data['original']) {
+      $originalImgName = $data['original'];
+      $imgPath = $this->targetDir . '/' . $originalImgName;
+    }
 
     $Error = array(
       'image' => '',
@@ -206,67 +172,21 @@ class Media extends Controller
       'status' => false
     );
 
-
     if (isset($files['image']['name']) && 0 < $files['image']['size']) {
-      if ($files['image']['size'] <= $this->maxFileSize) {
-
-        $originalImgName = $data['original'];
-        $imgPath = $this->targetDir . '/' . $originalImgName;
-
-        $file = $files['image'];
-        // $file = $this->desinfect($files['image']);
-
-        $fileName = basename($file['name']);
-        $sanitizedFilename = strtolower($this->sanitize($fileName));
-        $fileTmp = $file['tmp_name'];
-        // $fileSize = $file['size']; 
-        $fileError = $file['error'];
-
-        $Response = $this->ckeckFileError($fileError);
-
-        if ($fileError === UPLOAD_ERR_OK) {
+      $Return = $this->processUploadedFile($files);
+      if ($Return['error']['status']) {
+        $Error['image'] = $Return['error']['image'];
+        $Error['status'] = true;
+      } else {
+        $image = $Return['filename'];
+        if ($data['original']) {
           // Delete the original image
           if (file_exists($imgPath)) {
             unlink($imgPath);
           }
-
-          // check MIME-type
-          $filepath = str_replace(' ', '\\ ', $fileTmp);
-          $finfo = finfo_open(FILEINFO_MIME_TYPE);
-          $mimeSecure = finfo_file($finfo, $filepath);
-          finfo_close($finfo);
-          if (in_array($mimeSecure, $this->allowedMimeTypes)) {
-
-            // check file extension
-            $ext = strtolower(pathinfo($sanitizedFilename, PATHINFO_EXTENSION));
-            if (in_array($ext, $this->allowedExtensions)) {
-              // generate a unique name for the image
-              $uniqueName = uniqid(($sanitizedFilename) . '__' . time());
-              // Append the file extension to the unique name
-              $uniqueName .= '.' . $ext;
-              // Move the uploaded file to a directory
-              $uploadPath = $this->targetDir . '/' . $uniqueName;
-              move_uploaded_file($fileTmp, $uploadPath);
-              // $Error['image'] = 'The image has been uploaded successfully to &quot;' . $targetDir . '&quot;.';
-              $image = $uniqueName;
-            } else {
-              $Error['image'] = 'Image does not have an allowed file extension. Only JPG, PNG and SVG files are allowed.';
-              $Error['status'] = true;
-            }
-          } else {
-            $Error['image'] = 'File does not have an allowed media type. Please choose a different file.';
-            $Error['status'] = true;
-          }
-        } else {
-          $Error['image'] = 'Sorry, there was an error uploading your image. Please try again.';
-          $Error['status'] = true;
         }
-      } else {
-        $Error['image'] = 'The image must be less than 3 MB.';
-        $Error['status'] = true;
       }
     }
-
 
     if (empty($altText)) {
       $Error['altText'] = 'Please provide an alternative text.';
@@ -300,8 +220,6 @@ class Media extends Controller
       'image' => $image
     );
 
-    $Payload['altText'] = ucfirst($Payload['altText']);
-
     $Response = $this->mediaModel->editImage($Payload, $id);
 
     if (!$Response['status']) {
@@ -309,9 +227,9 @@ class Media extends Controller
       return $Response;
     }
 
-
     header('Location: media_library?updated');
   }
+
 
 
   /**

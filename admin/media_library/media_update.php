@@ -37,9 +37,7 @@ require_once(dirname(__DIR__) . '/includes/admin_head.inc.php');
           <input type="file" accept="image/jpg, image/jpeg, image/png, image/svg" name="image" id="image">
           <!-- for testing -->
           <!-- <input type="file" name="image" id="image"> -->
-          <?php if (isset($Response['error']) && !empty($Response['error'])) : ?>
-            <span class="error-span"><?= $Response['error']; ?></span>
-          <?php elseif (isset($Response['image']) && !empty($Response['image'])) : ?>
+          <?php if (isset($Response['image']) && !empty($Response['image'])) : ?>
             <span class="error-span"><?= $Response['image']; ?></span>
           <?php endif; ?>
         </div>
