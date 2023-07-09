@@ -8,6 +8,8 @@ class Login extends Controller
   private $loginModel;
   //NOTE
   //sensitive information will be encrypted in the future
+  // NOTE
+  // A firewall can help mitigate Brute Force Attack risks in the future
 
   /**
    * @param null|void
@@ -26,9 +28,9 @@ class Login extends Controller
    * @return null|void
    * ? Logs login attempts by calling the addLoginAttempt method on the LoginModel
    **/
-  public function loginLog($ip, $time)
+  public function loginLog($ip, $username)
   {
-    $this->loginModel->addLoginAttempt($ip, $time);
+    $this->loginModel->addLoginAttempt($ip, $username);
   }
 
 
@@ -44,48 +46,74 @@ class Login extends Controller
     $password = $this->desinfect($data['password']);
 
     $UsernameRecords = $this->loginModel->fetchUser($username);
-    // $TotalCount = $this->loginModel->checkloginAttempts($ip, $time);
 
-    if (!$UsernameRecords['status']) {
-      if (password_verify($password, $UsernameRecords['data']['user_password'])) {
-        $Response = array(
-          'status' => true
-        );
-
-        $_SESSION['data'] = $UsernameRecords['data'];
-        $_SESSION['auth_status'] = true;
-        $_SESSION['userip'] = $_SERVER['REMOTE_ADDR'];
-        $_SESSION['useragent'] = $_SERVER['HTTP_USER_AGENT'];
-        $_SESSION['timestamp'] = $_SERVER['REQUEST_TIME'];
-
-        unset($_SESSION['data']['user_title']);
-        unset($_SESSION['data']['user_gender']);
-        unset($_SESSION['data']['user_given_name']);
-        unset($_SESSION['data']['user_family_name']);
-        unset($_SESSION['data']['user_email']);
-        unset($_SESSION['data']['user_password']);
-        unset($_SESSION['data']['created']);
-
-
-        // mysqli_query($con,"delete from loginlogs where IpAddress='$ip_address'");
-
-        header('Location: dashboard/index');
-      }
-      // else {
-
-      // $this->TotalCount++;
-      // $time = $time - 30;
-
-      // if ($TotalCount == 3) {
-      //   $Response = 'To many failed login attempts. Please try again after 30 sec.';
-      // }
-
-
-    }
-    header('Location: login?error');
-    $Response = array(
+    $errorMsg = array(
       'status' => false,
+      'error' => ''
     );
-    return $Response;
+
+    $ip = '';
+    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+      $ip = $_SERVER['HTTP_CLIENT_IP'];
+    } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+      $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    } else {
+      $ip = $_SERVER['REMOTE_ADDR'];
+    }
+
+    $totalIPCount = $this->loginModel->checkIPAttempts($ip);
+    $totalUsernameCount = $this->loginModel->checkUsernameAttempts($username);
+
+    if ($totalIPCount == 5) {
+      $errorMsg['error'] = "Account locked for security reasons.";
+      $this->loginModel->blockIP($ip);
+      if ($totalUsernameCount == 5) {
+        $this->loginModel->deactivateAcc($username);
+      }
+    } else if ($totalUsernameCount == 5) {
+      $errorMsg['error'] = "Account locked for security reasons.";
+      $this->loginModel->deactivateAcc($username);
+    } else if (!$UsernameRecords['status']) {
+      if ($UsernameRecords['data']['user_acc_status'] == 1) {
+
+        if (password_verify($password, $UsernameRecords['data']['user_password'])) {
+
+          $errorMsg['status'] = true;
+
+          $_SESSION['data'] = $UsernameRecords['data'];
+          $_SESSION['auth_status'] = true;
+          $_SESSION['userip'] = $_SERVER['REMOTE_ADDR'];
+          $_SESSION['useragent'] = $_SERVER['HTTP_USER_AGENT'];
+          $_SESSION['timestamp'] = $_SERVER['REQUEST_TIME'];
+
+          unset($_SESSION['data']['user_title']);
+          unset($_SESSION['data']['user_gender']);
+          unset($_SESSION['data']['user_given_name']);
+          unset($_SESSION['data']['user_family_name']);
+          unset($_SESSION['data']['user_email']);
+          unset($_SESSION['data']['user_password']);
+          unset($_SESSION['data']['created']);
+
+          //delete login log data after successful user login  
+          $this->loginModel->deleteLoginAttempt($ip);
+
+          header('Location: dashboard/index');
+        } else {
+          $totalIPCount++;
+          $remainedAttmp = 5 - $totalIPCount;
+
+          if ($remainedAttmp == 0) {
+            $errorMsg['error'] = "Account locked for security reasons.";
+          }
+          $errorMsg['error'] = "Username or password incorrect";
+          $this->loginModel->addLoginAttempt($ip, $username);
+        }
+      } else {
+        $errorMsg['error'] = "Account locked for security reasons.";
+      }
+    } else {
+      $errorMsg['error'] = "Username or password incorrect";
+    }
+    return $errorMsg;
   }
 }

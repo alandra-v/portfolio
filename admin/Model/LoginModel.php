@@ -14,8 +14,8 @@ class LoginModel extends Db
 
     $this->bind('username', $usernameOrEmail);
     $this->bind('email', $usernameOrEmail);
-    $this->execute(array($usernameOrEmail, $usernameOrEmail));
-    // $this->execute();
+    // $this->execute(array($usernameOrEmail, $usernameOrEmail));
+    // $this->fetch();
 
     $User = $this->fetch();
 
@@ -37,32 +37,83 @@ class LoginModel extends Db
 
 
   /**
-   * @param 
-   * @return 
+   * @param string
+   * @return null|void
    * ? Adds a login attempt to the database based on the method parameters
    **/
-  public function addLoginAttempt($ip, $time)
+  public function addLoginAttempt($ip, $username)
   {
-    $this->query("INSERT INTO `login_attempt_count` (ip_address, time_count) VALUES (:ip, :time)");
+    $this->query("INSERT INTO `login_log` (ip_address, username) VALUES (:ip, :username)");
     $this->bind('ip', $ip);
-    $this->bind('time', $time);
+    $this->bind('username', $username);
     $this->execute();
-    // missing return statement?
   }
 
 
   /**
-   * @param 
-   * @return 
-   * ? Counts login attempts in the database based on the method parameters
+   * @param string
+   * @return int
+   * ? Counts login attempts based on ip address
    **/
-  public function checkloginAttempts($ip, $time)
+  public function checkIPAttempts($ip): int
   {
-    $this->query("SELECT COUNT(*) AS total_attempts FROM `user` where time_count>:time AND ip_address = :ip");
+    $this->query("SELECT COUNT(*) AS total_count FROM login_log WHERE ip_address=:ip");
     $this->bind('ip', $ip);
-    $this->bind('time', $time);
-    $result = $this->fetch();
-    $total_count = $result['total_attempts'];
-    return $total_count;
+    $Count = $this->fetch();
+    return $Count['total_count'];
+  }
+
+
+  /**
+   * @param string
+   * @return int
+   * ? Counts login attempts based on username
+   **/
+  public function checkUsernameAttempts($username): int
+  {
+    $this->query("SELECT COUNT(*) AS total_count FROM login_log WHERE username=:username");
+    $this->bind('username', $username);
+    $Count = $this->fetch();
+    return $Count['total_count'];
+  }
+
+
+  /**
+   * @param string
+   * @return null|void
+   * ? Blocks given ip address from logging in
+   **/
+  public function blockIP($ip)
+  {
+    $this->query("UPDATE `login_log` SET blocked_ip=:ip");
+    $this->bind('ip', $ip);
+    $this->execute();
+  }
+
+
+  /**
+   * @param string
+   * @return null|void
+   * ? Deactivates user account base on given username
+   **/
+  public function deactivateAcc($username)
+  {
+    $this->query("UPDATE `user` SET user_acc_status=:false WHERE user_name=:username");
+    $this->bind('username', $username);
+    $this->bind('false', 0);
+    $this->execute();
+  }
+
+
+  /**
+   * @param string
+   * @return null|void
+   * ? Deletes login attempts for specified ip address
+   **/
+  public function deleteLoginAttempt($ip)
+  {
+    $this->query("DELETE FROM `login_log` WHERE ip_address=:ip");
+    $this->bind('ip', $ip);
+    $this->execute();
   }
 }

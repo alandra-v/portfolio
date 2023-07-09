@@ -1,14 +1,16 @@
 <?php
-// require_once("../configuration.php");
+
 require_once(__DIR__ . '/Controller/Login.php');
 $Login = new Login();
 $Response = [];
-if (isset($_POST) && count($_POST) > 0) $Response = $Login->login($_POST);
 
-require_once(__DIR__ . '/includes/admin_head_data.php');
+if (isset($_POST) && count($_POST) > 0) {
+  $Response = $Login->login($_POST);
+}
+
+
 require_once(__DIR__ . '/includes/admin_head.inc.php');
 ?>
-
 
 <body>
   <header>
@@ -50,9 +52,24 @@ require_once(__DIR__ . '/includes/admin_head.inc.php');
             <i role="button" class="fa fa-eye password-toggle" aria-label="show password"></i>
           </div>
           <a href="password_forgotten" class="forgotten-password">Forgotten password?</a>
-          <?php if (isset($_GET['error'])) : ?>
+          <?php if (isset($Response['error']) && !empty($Response['error'])) : ?>
             <div class="alert">
-              <p><?= '❗️ Username or password incorrect' ?></p>
+              <?php if ($Response['error'] == 'Account locked for security reasons.') : ?>
+                <div class="flex-container">
+                <?php endif; ?>
+                <p>❗️ <?= $Response['error'] ?></p>
+                <?php if ($Response['error'] == 'Account locked for security reasons.') : ?>
+                  <button class="login-drop-down"><i class="fa-solid fa-chevron-down"></i></button>
+                </div>
+                <div class="information hidden">
+                  <p>We have detected suspicious activity on your account, and as a security measure, it has been temporarily locked. To ensure the safety of your account and personal information, please follow these steps:</p>
+                  <ol>
+                    <li>Reset your password: Click on the 'Forgot Password' link to reset your password. Choose a strong and unique password that you haven't used before.</li>
+                    <li>Verify your account: We may require additional verification steps to ensure your identity. Please provide the requested information accurately.</li>
+                    <li>Contact Support: If you believe this lockout is in error or need further assistance, please contact our support team at <a href="avd.support@gmail.com">avd.support@gmail.com</a>.</li>
+                  </ol>
+                </div>
+              <?php endif; ?>
             </div>
           <?php endif; ?>
           <button type="submit" value="login" name="login" class="form-submit">Log In</button>

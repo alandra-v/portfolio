@@ -14,10 +14,8 @@
 /* 01 body */
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-montserrat);
   font-style: normal;
-  font-weight: 300;
-  color: var(--black);
 }
 
 /* 02 login container */
@@ -160,11 +158,37 @@ div.alert {
   opacity: 1;
   border-left: 5px solid var(--errorRed);
   box-shadow: var(--boxShadow);
+  background-color: var(--white);
+  margin-top: 0.5rem;
+  max-width: 490px;
 }
 
 div.alert>p {
   font-size: 1rem;
   padding: 0.5rem;
+}
+
+div.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  gap: 2rem;
+}
+
+div.hidden {
+  display: none;
+}
+
+div.information,
+ol {
+  padding: 1rem;
+  font-size: 0.8rem;
+}
+
+ol {
+  list-style-type: decimal;
+  margin-left: 1rem;
 }
 
 /* 05  media queries min width 760px */
@@ -219,6 +243,11 @@ div.alert>p {
 
   i.password-toggle {
     left: 70%;
+  }
+
+
+  button.form-submit {
+    margin: 2rem auto 3.5rem auto;
   }
 
 }
