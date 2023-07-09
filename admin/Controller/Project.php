@@ -7,6 +7,13 @@ class Project extends Controller
 
   private $projectModel;
 
+  // public $targetDir = TARGET_DIR;
+  // public $allowedMimeTypes = ALLOWED_MIME_TYPES;
+  // public $allowedExtensions = ALLOWED_EXTENSIONS;
+  // public $maxFileSize = MAX_FILE_SIZE;
+
+  public $errorsArr = [];
+
 
   /**
    * @param null|void
@@ -15,9 +22,15 @@ class Project extends Controller
    **/
   public function __construct()
   {
+    $targetDir = TARGET_DIR;
 
     if (!isset($_SESSION['auth_status'])) header('Location: ../login');
     $this->projectModel = new ProjectModel();
+
+    // Checks if target directory exists, if not creates one
+    if (!is_dir($targetDir)) {
+      mkdir($targetDir);
+    }
   }
 
 
@@ -26,18 +39,20 @@ class Project extends Controller
    * @return array
    * ? Redirects user to the project read page after creating the given project
    **/
-  public function createProject(array $data): array
+  public function createProject(array $data, array $files): array
   {
-
     $title = $this->desinfect($data['title']);
     $year = $this->desinfect($data['year']);
     $url = $this->desinfect($data['website-url']);
+    $alt = $this->desinfect($data['alt-text']);
 
 
     $Error = array(
       'title' => '',
       'year' => '',
       'url' => '',
+      'image' => '',
+      'alt-text' => '',
       'status' => '',
       'errorStatus' => false
     );
@@ -57,6 +72,26 @@ class Project extends Controller
       $Error['errorStatus'] = true;
     }
 
+    $image = '';
+    if (isset($files['image']['name']) && $files['image']['size'] > 0) {
+      $Return = $this->processUploadedFile($files);
+      if ($Return['error']['status']) {
+        $Error['image'] = $Return['error']['image'];
+        $Error['status'] = true;
+      } else {
+        $image = $Return['filename'];
+        // echo $image;
+        // exit;
+      }
+    }
+
+    if (isset($files['image']['name']) && $files['image']['size'] > 0) {
+      if (empty($alt)) {
+        $Error['alt-text'] = 'Please provide an alternative text for the logo.';
+        $Error['errorStatus'] = true;
+      }
+    }
+
     if (isset($data['status'])) {
       $status = 1;
     } else {
@@ -71,10 +106,17 @@ class Project extends Controller
       'title' => $title,
       'year' => $year,
       'url' => $url,
+      'logo' => $image,
+      'altText' => $alt,
       'status' => $status
     );
+    // echo '<pre>';
+    // print_r($Payload);
+    // echo '</pre>';
+    // exit;
 
     $Payload['title'] = ucwords($Payload['title']);
+    $Payload['altText'] = ucwords($Payload['altText']);
 
     $Response = $this->projectModel->createProject($Payload);
 
@@ -116,19 +158,26 @@ class Project extends Controller
    * @return array
    * ? Redirects user to project read page after updating 
    **/
-  public function editProject(array $data, int $id): array
+  public function editProject(array $data, int $id, array $files): array
   {
-
 
     $title = $this->desinfect($data['title']);
     $year = $this->desinfect($data['year']);
     $url = $this->desinfect($data['website-url']);
-
+    $alt = $this->desinfect($data['alt-text']);
+    $image = '';
+    if ($data['original']) {
+      $originalImgName = $data['original'];
+      $imgPath = $this->targetDir . '/' . $originalImgName;
+      $image = $data['original'];
+    }
 
     $Error = array(
       'title' => '',
       'year' => '',
       'url' => '',
+      'image' => '',
+      'alt-text' => '',
       'status' => '',
       'errorStatus' => false
     );
@@ -148,6 +197,29 @@ class Project extends Controller
       $Error['errorStatus'] = true;
     }
 
+    if (isset($files['image']['name']) && $files['image']['size'] > 0) {
+      $Return = $this->processUploadedFile($files);
+      if ($Return['error']['status']) {
+        $Error['image'] = $Return['error']['image'];
+        $Error['status'] = true;
+      } else {
+        $image = $Return['filename'];
+        if ($data['original']) {
+          // Delete the original image
+          if (file_exists($imgPath)) {
+            unlink($imgPath);
+          }
+        }
+      }
+    }
+
+    if (isset($files['image']['name']) && $files['image']['size'] > 0 || $data['original']) {
+      if (empty($alt)) {
+        $Error['alt-text'] = 'Please provide an alternative text for the logo.';
+        $Error['errorStatus'] = true;
+      }
+    }
+
     if (isset($data['status'])) {
       $status = 1;
     } else {
@@ -162,10 +234,17 @@ class Project extends Controller
       'title' => $title,
       'year' => $year,
       'url' => $url,
+      'logo' => $image,
+      'altText' => $alt,
       'status' => $status
     );
+    // echo '<pre>';
+    // print_r($Payload);
+    // echo '</pre>';
+    // exit;
 
     $Payload['title'] = ucwords($Payload['title']);
+    $Payload['altText'] = ucwords($Payload['altText']);
 
     $Response = $this->projectModel->editProject($Payload, $id);
 
@@ -187,6 +266,13 @@ class Project extends Controller
    **/
   public function deleteProject(int $id)
   {
+    $project = $this->projectModel->fetchProject($id);
+
+    $imgPath = $this->targetDir . '/' . $project['data']['project_logo'];
+    if (file_exists($imgPath)) {
+      unlink($imgPath);
+    }
+
     if ($this->projectModel->deleteProject($id)) header("Location: projects_read?deleted");
   }
 }

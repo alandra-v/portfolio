@@ -5,9 +5,7 @@ $Response = [];
 $Projects = $Data->getProjects();
 if (isset($_GET['delete'])) $Data->deleteProject($_GET['delete']);
 
-require_once(dirname(__DIR__) . '/includes/admin_head_data.php');
 require_once(dirname(__DIR__) . '/includes/admin_head.inc.php');
-require_once(dirname(__DIR__) . '/includes/cms/nav_data.php');
 
 
 ?>
@@ -35,13 +33,22 @@ require_once(dirname(__DIR__) . '/includes/cms/nav_data.php');
         <p><?= 'Your project and all associated images have successfully been deleted.' ?></p>
         <button class="close-confirmation"><i class="fa-solid fa-xmark"></i></button>
       </div>
+    <?php elseif (!$Projects['data']) : ?>
+      <div class="confirmation">
+        <p><?= 'No projects have been added yet.' ?></p>
+      </div>
     <?php endif; ?>
+    <?php include(dirname(__DIR__) . '/includes/cms/confirmation.php'); ?>
     <ul class="project-list">
       <?php foreach ($Projects['data'] as $project) : ?>
         <li>
           <div class="container">
             <div class="img-container">
-              <img src="<?= dirname(__DIR__) ?>/assets/images/uploads/<?= $project['project_logo'] ?>" alt="" class="logo">
+              <?php if ($project['project_logo']) : ?>
+                <img src="<?= BASE_URL . '/assets/images/uploads/' . $project['project_logo'] ?>" alt="<?= $project['project_logo_alt_text'] ?>" class="logo">
+              <?php else : ?>
+                <i class="fa-solid fa-folder-open"></i>
+              <?php endif; ?>
             </div>
             <h2><?= $project['project_title'] ?></h2>
             <div class="flex-container">
@@ -64,18 +71,20 @@ require_once(dirname(__DIR__) . '/includes/cms/nav_data.php');
               <p class="label">Created on:</p>
               <p class="date"><?= date("d.M.Y", strtotime($project['created'])); ?> at <?= date("H:m:s", strtotime($project['created'])); ?></p>
             </div>
-            <?php if ($_SESSION['data']['user_group'] == 0) : ?>
-              <div class="flex-container-operations">
-                <!-- Edit btn -->
-                <a href="project_update?id= <?= $project['ID'] ?>">
-                  <i class="fa-solid fa-pencil" aria-label="edit"></i>
-                </a>
-                <!-- Delete btn -->
-                <a href="?delete=<?= $project['ID']; ?>" class="delete-project-btn" data-confirm="<?= $project['ID'] ?>">
-                  <i class="fa-solid fa-trash" aria-label="delete"></i>
-                </a>
-              </div>
-            <?php endif; ?>
+
+            <div class="flex-container-operations">
+              <!-- Edit btn -->
+              <a href="project_update?id= <?= $project['ID'] ?>" class="update-btn">
+                <i class="fa-solid fa-pencil" aria-label="edit"></i>
+              </a>
+              <!-- Delete btn -->
+              <button class="delete-btn" onclick="
+                  showModal('Are you sure you want to delete the <?= $project['project_title'] ?> project and all associated images? The project and images will be irreversibly deleted!',
+                  '?delete=<?= $project['ID'] ?>' )">
+                <i class="fa-solid fa-trash" aria-label="delete"></i>
+              </button>
+            </div>
+
           </div>
         </li>
       <?php endforeach; ?>

@@ -10,10 +10,12 @@ class ProjectModel extends Db
    **/
   public function createProject(array $project): array
   {
-    $this->query("INSERT INTO `project` (project_title, project_year, project_link, project_status ) 
-    VALUES (:title, :year, :link, :status)");
+    $this->query("INSERT INTO `project` (project_title, project_year, project_logo, project_logo_alt_text, project_link, project_status ) 
+    VALUES (:title, :year, :logo, :altText, :link, :status)");
     $this->bind('title', $project['title']);
     $this->bind('year', $project['year']);
+    $this->bind('logo', $project['logo']);
+    $this->bind('altText', $project['altText']);
     $this->bind('link', $project['url']);
     $this->bind('status', $project['status']);
 
@@ -173,10 +175,12 @@ class ProjectModel extends Db
    **/
   public function editProject(array $project, int $id): array
   {
-    $this->query("UPDATE `project` SET project_title=:title, project_year=:year, project_link=:link, project_status=:status WHERE ID=:id");
+    $this->query("UPDATE `project` SET project_title=:title, project_year=:year, project_logo=:logo, project_logo_alt_text=:altText, project_link=:link, project_status=:status WHERE ID=:id");
 
     $this->bind('title', $project['title']);
     $this->bind('year', $project['year']);
+    $this->bind('logo', $project['logo']);
+    $this->bind('altText', $project['altText']);
     $this->bind('link', $project['url']);
     $this->bind('status', $project['status']);
     $this->bind('id', $id);

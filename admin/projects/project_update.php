@@ -3,12 +3,11 @@ require_once(dirname(__DIR__) . '/Controller/Project.php');
 
 $projectData = new Project();
 $Response = [];
+$Project = $projectData->getProject($_GET['id']);
 
 if (isset($_POST) && count($_POST) > 0) {
-  $Response = $projectData->editProject($_POST, $_GET['id']);
+  $Response = $projectData->editProject($_POST, $_GET['id'], $_FILES);
 }
-
-$Project = $projectData->getProject($_GET['id']);
 
 require_once(dirname(__DIR__) . '/includes/admin_head.inc.php');
 
@@ -23,7 +22,7 @@ require_once(dirname(__DIR__) . '/includes/admin_head.inc.php');
         <a href="projects_read.php" class="go-back">Back to overview &#11152;</a>
       </div>
       <hr class="title-separator">
-      <form action="" method="POST">
+      <form action="" method="POST" enctype="multipart/form-data">
         <div class="input-container">
           <label for="title">Project title:</label>
           <input type="text" name="title" id="title" value="<?= (isset($_POST['title'])) ? $_POST['title'] : $Project['data']['project_title'] ?>">
@@ -43,6 +42,26 @@ require_once(dirname(__DIR__) . '/includes/admin_head.inc.php');
           <input name="website-url" type="text" id="website-url" value="<?= (isset($_POST['website-url'])) ? $_POST['website-url'] : $Project['data']['project_link'] ?>">
           <?php if (isset($Response['url']) && !empty($Response['url'])) : ?>
             <span class="error-span"><?= $Response['url']; ?></span>
+          <?php endif; ?>
+        </div>
+        <div class="thumbnail">
+          <img class="img-thumbnail" src="<?= BASE_URL . '/assets/images/uploads/' . $Project['data']['project_logo'] ?>" alt="<?= $Project['data']['project_logo_alt_text'] ?>">
+        </div>
+        <input type="text" name="original" class="visually-hidden" value="<?= $Project['data']['project_logo'] ?>">
+        <div class="input-container">
+          <label for="image">Upload logo:</label>
+          <input type="file" accept="image/jpg, image/jpeg, image/png, image/svg" name="image" id="image">
+          <!-- for testing -->
+          <!-- <input type="file" name="image" id="image"> -->
+          <?php if (isset($Response['image']) && !empty($Response['image'])) : ?>
+            <span class="error-span"><?= $Response['image']; ?></span>
+          <?php endif; ?>
+        </div>
+        <div class="input-container">
+          <label for="alt-text">Enter alternative text:</label>
+          <input name="alt-text" type="text" id="alt-text" value="<?= (isset($_POST['alt-text'])) ? $_POST['alt-text'] : $Project['data']['project_logo_alt_text'] ?>">
+          <?php if (isset($Response['alt-text']) && !empty($Response['alt-text'])) : ?>
+            <span class="error-span"><?= $Response['alt-text']; ?></span>
           <?php endif; ?>
         </div>
         <div class="input-container status-container">
