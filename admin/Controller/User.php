@@ -346,12 +346,10 @@ class User extends Controller
 
       if ($usergroup == 0) {
         header('Location: user_read?userStatus=violation');
-        return;
       } else if ($_SESSION['data']['user_group'] == 0 || $_SESSION['data']['ID'] == $user['ID']) {
         if ($this->userModel->deleteUser($user['ID'])) header('Location: user_read?userStatus=deleted');
       } else {
         header('Location: user_read?userStatus=violation');
-        return;
       }
     }
   }
