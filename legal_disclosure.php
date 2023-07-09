@@ -16,6 +16,6 @@ include(__DIR__ . '/includes/head.inc.php');
       <h1>Legal disclosure</h1>
       <hr class="title">
     </div>
-    <p>Selina Alandra Villalaz <br>Via Lieptgas 3 <br>7018 Flims-Waldhaus <br>E-mail: alandra.villalaz@gmail.com</p>
+    <p>Selina Alandra Villalaz <br>7018 Flims-Waldhaus <br>E-mail: alandra.villalaz@gmail.com</p>
   </main>
   <?php include(__DIR__ . '/includes/footer.inc.php'); ?>
