@@ -17,3 +17,20 @@ $("button.drop-down").on("click", function () {
   }
 
 });
+
+
+$('.login-drop-down').click(function(e) {
+  e.preventDefault();
+  $('.information').toggleClass('hidden');
+  if ($('.information').hasClass('hidden')) {
+    $(this).css("transform", "rotate(360deg)");
+    if ($(window).width() > 1000) {
+      $('.alert').css('position', 'initial');
+    }
+  } else {
+    $(this).css("transform", "rotate(180deg)");
+    if ($(window).width() > 1000) {
+      $('.alert').css('position', 'absolute');
+    }
+  }
+});
