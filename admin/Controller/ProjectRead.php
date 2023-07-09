@@ -94,7 +94,7 @@ class ProjectRead
   /**
    * @param null|void
    * @return array
-   * ? Returns an array of completed projects for the portfolio langing page by calling the processProjects method with parameters
+   * ? Returns an array of completed projects for the portfolio landing page by calling the processProjects method with parameters
    **/
   public function getCompletedProjectsHome(): array
   {

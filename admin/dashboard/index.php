@@ -13,7 +13,7 @@ require_once(dirname(__DIR__) . '/includes/admin_head.inc.php');
     <section class="var-dump">
       <h2>Overview</h2>
       <hr class="title-separator">
-      <p><?= "Welcome to the admin's area, " . htmlspecialchars($_SESSION['data']['user_name']) . "!" ?></p>
+      <p><?= "Welcome to the admin area, " . htmlspecialchars($_SESSION['data']['user_name']) . "!" ?></p>
     </section>
     <section class=" login-history">
       <div class="section-content">
