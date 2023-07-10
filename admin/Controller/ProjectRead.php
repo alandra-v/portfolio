@@ -70,6 +70,9 @@ class ProjectRead
   private function processProject($id, $maxImageCount): array
   {
     $this->Project = $this->projectModel->fetchCompletedProject($id);
+    if (is_bool($this->Project)) {
+      header('Location:' . BASE_URL . '404_error.php');
+    }
 
     $images = [];
     $imageCount = 0;

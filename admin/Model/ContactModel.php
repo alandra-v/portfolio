@@ -43,7 +43,10 @@ class ContactModel extends Db
     // $this->execute();
     $Contact = $this->fetch();
 
-    if (!empty($Contact)) {
+    if (is_bool($Contact)) {
+      header('Location:' . BASE_URL . '404_error');
+      return false;
+    } else if (!empty($Contact)) {
       $Response = array(
         'status' => true,
         'data' => $Contact

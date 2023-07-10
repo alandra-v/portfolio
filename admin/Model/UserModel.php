@@ -43,7 +43,10 @@ class UserModel extends Db
     $this->execute();
     $User = $this->fetch();
 
-    if (!empty($User)) {
+    if (is_bool($User)) {
+      header('Location:' . BASE_URL . '404_error');
+      return false;
+    } else if (!empty($User)) {
       $Response = array(
         'status' => true,
         'data' => $User

@@ -149,7 +149,12 @@ class Project extends Controller
    **/
   public function getProject(int $id): array
   {
-    return $this->projectModel->fetchProject($id);
+    $Project = $this->projectModel->fetchProject($id);
+    if (is_bool($Project)) {
+      header('Location:' . BASE_URL . '404_error.php');
+    } else {
+      return $Project;
+    }
   }
 
 
@@ -273,6 +278,6 @@ class Project extends Controller
       unlink($imgPath);
     }
 
-    if ($this->projectModel->deleteProject($id)) header("Location: projects_read?deleted");
+    if ($this->projectModel->deleteProject($id)) header('Location: projects_read?deleted');
   }
 }

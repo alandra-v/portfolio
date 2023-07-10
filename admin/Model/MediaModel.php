@@ -69,7 +69,10 @@ class MediaModel extends Db
     // $this->execute();
     $Img = $this->fetch();
 
-    if (count($Img) > 0) {
+    if (is_bool($Img)) {
+      header('Location:' . BASE_URL . '404_error');
+      return false;
+    } else if (count($Img) > 0) {
       $Response = array(
         'status' => true,
         'data' => $Img

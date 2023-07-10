@@ -98,7 +98,10 @@ class ProjectModel extends Db
     $this->bind('id', $id);
     $Project = $this->fetch();
 
-    if (count($Project) > 0) {
+    if (is_bool($Project)) {
+      header('Location:' . BASE_URL . '404_error');
+      return false;
+    } else if (count($Project) > 0) {
       $Response = array(
         'status' => true,
         'data' => $Project
@@ -116,16 +119,18 @@ class ProjectModel extends Db
 
   /**
    * @param null|void
-   * @return array
+   * @return array|bool
    * ? Returns an array of project information (of a completed project) based on the method parameter
    **/
-  public function fetchCompletedProject(int $id): array
+  public function fetchCompletedProject(int $id)
   {
     $this->query("SELECT * FROM `project` WHERE `project_status` = 1 AND `ID` = :id ORDER BY created DESC");
     $this->bind('id', $id);
     $Project = $this->fetch();
 
-    if (count($Project) > 0) {
+    if (is_bool($Project)) {
+      return false;
+    } else if (count($Project) > 0) {
       $Response = array(
         'status' => true,
         'data' => $Project
