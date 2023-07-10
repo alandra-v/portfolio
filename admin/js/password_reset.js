@@ -1,13 +1,13 @@
 //**********************
 // Variables
 //**********************
-const passwordInput = document.querySelector("#new-password");
-const passwordConfirmationInput = document.querySelector("#password-confirmation");
-const submitBtn = document.querySelector("button.reset-password");
+const passwordInput = document.querySelector('#new-password');
+const passwordConfirmationInput = document.querySelector('#password-confirmation');
+const submitBtn = document.querySelector('button.reset-password');
 
 // styling colors
-const validColor = "#008000";
-const errorColor = "#F50404";
+const validColor = '#008000';
+const errorColor = '#F50404';
 
 // user input value collection
 let password, passwordConfirmation;
@@ -42,17 +42,17 @@ function detectErrorMsg(containerName) {
 }
 
 // display error message
-function displayErrorMsg(errorMessage, containerName, inputID, selector = "label") {
+function displayErrorMsg(errorMessage, containerName, inputID, selector = 'label') {
   const errorDisplay = createErrorSpan(errorMessage);
   document.querySelector(`.${containerName} ${selector}`).after(errorDisplay);
   document.querySelector(`#${inputID}`).style.borderColor = errorColor;
-  document.querySelector(`#${inputID}`).setAttribute("aria-invalid", "true");
+  document.querySelector(`#${inputID}`).setAttribute('aria-invalid', 'true');
 }
 
 // const create error span
 function createErrorSpan(errorMessage) {
-  const errorSpan = document.createElement("span");
-  errorSpan.classList.add("error-span");
+  const errorSpan = document.createElement('span');
+  errorSpan.classList.add('error-span');
   errorSpan.innerText = errorMessage;
   return errorSpan;
 }
@@ -60,69 +60,69 @@ function createErrorSpan(errorMessage) {
 // valid input field style
 function validStyle(inputID) {
   document.querySelector(`#${inputID}`).style.borderColor = validColor;
-  document.querySelector(`#${inputID}`).setAttribute("aria-invalid", "false");
+  document.querySelector(`#${inputID}`).setAttribute('aria-invalid', 'false');
 }
 
 function passwordValidation () {
-  detectErrorMsg("password-container");
+  detectErrorMsg('password-container');
 
   password = passwordInput.value;
 
   const errorMsgPassword = () => {
     displayErrorMsg(
       validationErrors.password,
-      "password-container",
-      "new-password")
+      'password-container',
+      'new-password')
   }
 
   if (!password) {
-    validationErrors.password = "Please enter a new password";
+    validationErrors.password = 'Please enter a new password';
     errorMsgPassword();
   } else if (whitespace.test(password)) {
-    validationErrors.password = "Password must not contain whitespaces.";
+    validationErrors.password = 'Password must not contain whitespaces.';
     errorMsgPassword();
   } else if (!containsUppercase.test(password)) {
-    validationErrors.password = "Password must have at least one uppercase character.";
+    validationErrors.password = 'Password must have at least one uppercase character.';
     errorMsgPassword();
   } else if (!containsLowercase.test(password)) {
-    validationErrors.password = "Password must have at least one lowercase character.";
+    validationErrors.password = 'Password must have at least one lowercase character.';
     errorMsgPassword();
   } else if (!containsNumber.test(password)) {
-    validationErrors.password = "Password must contain at least one digit.";
+    validationErrors.password = 'Password must contain at least one digit.';
     errorMsgPassword();
   } else if (!containsSymbol.test(password)) {
-    validationErrors.password = "Password must contain at least one special symbol.";
+    validationErrors.password = 'Password must contain at least one special symbol.';
     errorMsgPassword();
   } else if (!validLength.test(password)) {
-    validationErrors.password = "Password must be at least 8 characters long.";
+    validationErrors.password = 'Password must be at least 8 characters long.';
     errorMsgPassword();
   } else {
     delete validationErrors.password;
-    validStyle("new-password");
+    validStyle('new-password');
   }
 }
 
 function passwordConfirmationValidation() {
-  detectErrorMsg("password-confirmation-container");
+  detectErrorMsg('password-confirmation-container');
 
   passwordConfirmation = passwordConfirmationInput.value;
 
   const errorMsgPasswordConfirmation = () => {
     displayErrorMsg(
       validationErrors.passwordConfirmation,
-      "password-confirmation-container",
-      "password-confirmation")
+      'password-confirmation-container',
+      'password-confirmation')
   }
 
   if (!passwordConfirmation) {
-    validationErrors.passwordConfirmation = "Please confirm your new password";
+    validationErrors.passwordConfirmation = 'Please confirm your new password';
     errorMsgPasswordConfirmation();
   } else if (passwordConfirmation!==password){
-    validationErrors.passwordConfirmation = "Passwords don't match. Take another look.";
+    validationErrors.passwordConfirmation = 'Passwords don\'t match. Take another look.';
     errorMsgPasswordConfirmation();
   } else {
     delete validationErrors.passwordConfirmation;
-    validStyle("password-confirmation");
+    validStyle('password-confirmation');
   }
   
 }
@@ -133,18 +133,18 @@ function passwordConfirmationValidation() {
 //**********************
 
 // input field validations
-passwordInput.addEventListener("focusout", passwordValidation);
-passwordConfirmationInput.addEventListener("focusout", passwordConfirmationValidation);
+passwordInput.addEventListener('focusout', passwordValidation);
+passwordConfirmationInput.addEventListener('focusout', passwordConfirmationValidation);
 
 
-document.querySelector("form").addEventListener("submit", function (event) {
+document.querySelector('form').addEventListener('submit', function (event) {
 
   event.preventDefault();
 
   // remove submit error msg timer
   const removeSubmitMessage = () => {
     setTimeout(() => {
-    document.querySelector("div.alert").remove();
+    document.querySelector('div.alert').remove();
     submitBtn.disabled = false;
     }   , 5000);
   };
@@ -152,26 +152,26 @@ document.querySelector("form").addEventListener("submit", function (event) {
   if (!passwordInput.value || !passwordConfirmationInput.value) {
 
       // create submit error msg
-      const alert = document.createElement("div");
-      alert.classList.add("alert");
-      const alertMsg = document.createElement("p");
-      alertMsg.innerText = "❗️ Please enter and confirm your new password"
+      const alert = document.createElement('div');
+      alert.classList.add('alert');
+      const alertMsg = document.createElement('p');
+      alertMsg.innerText = '❗️ Please enter and confirm your new password'
       alert.appendChild(alertMsg);
-      document.querySelector("ul.password-rules").after(alert);
+      document.querySelector('ul.password-rules').after(alert);
       submitBtn.disabled = true;
 
       removeSubmitMessage();
 
   } else {
     // remove submit fail message
-    if (document.querySelector("div.alert")) {
-      document.querySelector("div.alert").style.display = "none";
+    if (document.querySelector('div.alert')) {
+      document.querySelector('div.alert').style.display = 'none';
     }
     // disable submit button to prevent double submit
     submitBtn.disabled = true;
 
      //send form (data object) to backend
-    //  console.log("sending form data to backend");
+    //  console.log('sending form data to backend');
   }
 
 });

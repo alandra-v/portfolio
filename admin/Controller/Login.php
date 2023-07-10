@@ -65,13 +65,13 @@ class Login extends Controller
     $totalUsernameCount = $this->loginModel->checkUsernameAttempts($username);
 
     if ($totalIPCount == 5) {
-      $errorMsg['error'] = "Account locked for security reasons.";
+      $errorMsg['error'] = 'Account locked for security reasons.';
       $this->loginModel->blockIP($ip);
       if ($totalUsernameCount == 5) {
         $this->loginModel->deactivateAcc($username);
       }
     } else if ($totalUsernameCount == 5) {
-      $errorMsg['error'] = "Account locked for security reasons.";
+      $errorMsg['error'] = 'Account locked for security reasons.';
       $this->loginModel->deactivateAcc($username);
     } else if (!$UsernameRecords['status']) {
       if ($UsernameRecords['data']['user_acc_status'] == 1) {
@@ -103,16 +103,16 @@ class Login extends Controller
           $remainedAttmp = 5 - $totalIPCount;
 
           if ($remainedAttmp == 0) {
-            $errorMsg['error'] = "Account locked for security reasons.";
+            $errorMsg['error'] = 'Account locked for security reasons.';
           }
-          $errorMsg['error'] = "Username or password incorrect";
+          $errorMsg['error'] = 'Username or password incorrect';
           $this->loginModel->addLoginAttempt($ip, $username);
         }
       } else {
-        $errorMsg['error'] = "Account locked for security reasons.";
+        $errorMsg['error'] = 'Account locked for security reasons.';
       }
     } else {
-      $errorMsg['error'] = "Username or password incorrect";
+      $errorMsg['error'] = 'Username or password incorrect';
     }
     return $errorMsg;
   }

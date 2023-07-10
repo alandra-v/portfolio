@@ -85,10 +85,10 @@ class User extends Controller
 
 
       if (empty($title)) {
-        $errorMessages['title'] = 'Please select your title';
+        $errorMessages['titles'] = 'Please select your title';
         $errorMessages['status'] = true;
       } else if (!array_key_exists($title, $this->titleArray)) {
-        $errorMessages['title'] = 'Something went wrong <br> Please select your title';
+        $errorMessages['titles'] = 'Something went wrong <br> Please select your title';
         $errorMessages['status'] = true;
       }
 
@@ -101,18 +101,18 @@ class User extends Controller
       }
 
       if (empty($givenName)) {
-        $errorMessages['givenName'] = 'Please enter your first name';
+        $errorMessages['given-name'] = 'Please enter your first name';
         $errorMessages['status'] = true;
       } else if (strlen($givenName) > 255) {
-        $errorMessages['givenName'] = 'Please enter less than 255 characters';
+        $errorMessages['given-name'] = 'Please enter less than 255 characters';
         $errorMessages['status'] = true;
       }
 
       if (empty($familyName)) {
-        $errorMessages['familyName'] = 'Please enter your last name';
+        $errorMessages['family-name'] = 'Please enter your last name';
         $errorMessages['status'] = true;
       } else if (strlen($familyName) > 255) {
-        $errorMessages['familyName'] = 'Please enter less than 255 characters';
+        $errorMessages['family-name'] = 'Please enter less than 255 characters';
         $errorMessages['status'] = true;
       }
 

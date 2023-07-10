@@ -246,6 +246,6 @@ class Media extends Controller
       unlink($imgPath);
     }
 
-    if ($this->mediaModel->deleteImage($id)) header("Location: media_library?deleted");
+    if ($this->mediaModel->deleteImage($id)) header('Location: media_library?deleted');
   }
 }
