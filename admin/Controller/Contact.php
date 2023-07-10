@@ -84,15 +84,15 @@ class Contact extends Controller
 
 
     if (empty($title)) {
-      $errorMessages['title'] = 'Please select your title';
+      $errorMessages['title'] = 'Please select a title';
       $errorMessages['errorStatus'] = true;
     } else if (!array_key_exists($title, $this->titleArray)) {
-      $errorMessages['title'] = 'Something went wrong <br> Please select your title';
+      $errorMessages['title'] = 'Something went wrong <br> Please select a title';
       $errorMessages['errorStatus'] = true;
     }
 
     if (empty($givenName)) {
-      $errorMessages['given-name'] = 'Please enter your first name';
+      $errorMessages['given-name'] = 'Please enter a first name';
       $errorMessages['errorStatus'] = true;
     } else if (strlen($givenName) > 255) {
       $errorMessages['given-name'] = 'Please enter less than 255 characters';
@@ -100,7 +100,7 @@ class Contact extends Controller
     }
 
     if (empty($familyName)) {
-      $errorMessages['family-name'] = 'Please enter your last name';
+      $errorMessages['family-name'] = 'Please enter a last name';
       $errorMessages['errorStatus'] = true;
     } else if (strlen($familyName) > 255) {
       $errorMessages['family-name'] = 'Please enter less than 255 characters';
@@ -109,13 +109,13 @@ class Contact extends Controller
 
 
     if (empty($address)) {
-      $errorMessages['address'] = 'Please enter your address';
+      $errorMessages['address'] = 'Please enter an address';
       $errorMessages['errorStatus'] = true;
     }
 
 
     if (empty($zip)) {
-      $errorMessages['zip'] = 'Please enter your postal code';
+      $errorMessages['zip'] = 'Please enter a postal code';
       $errorMessages['errorStatus'] = true;
     } else if (!preg_match('/^[a-z0-9][a-z0-9\- ]{0,10}[a-z0-9]$/', $zip)) {
       $errorMessages['zip'] = 'Invalid postal code';
@@ -123,12 +123,12 @@ class Contact extends Controller
     }
 
     if (empty($town)) {
-      $errorMessages['town'] = 'Please enter your town';
+      $errorMessages['town'] = 'Please enter a town';
       $errorMessages['errorStatus'] = true;
     }
 
     if (empty($tel)) {
-      $errorMessages['tel'] = 'Please enter your phone number';
+      $errorMessages['tel'] = 'Please enter a phone number';
       $errorMessages['errorStatus'] = true;
     } else if (!preg_match('/^(\+|00)(?:[0-9] ?){6,14}[0-9]$/', $tel)) {
       $errorMessages['tel'] = 'Invalid format, please use 00 or + followed by country code';
@@ -137,7 +137,7 @@ class Contact extends Controller
 
 
     if (empty($email)) {
-      $errorMessages['email'] = 'Please enter your email address';
+      $errorMessages['email'] = 'Please enter an email address';
       $errorMessages['errorStatus'] = true;
     } else if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
       $errorMessages['email'] = 'Invalid email address';
@@ -146,7 +146,7 @@ class Contact extends Controller
       $errorMessages['email'] = 'Please enter less than 255 characters';
       $errorMessages['errorStatus'] = true;
     } else if (!empty($EmailStatus)) {
-      $errorMessages['email'] = 'This email is already taken';
+      $errorMessages['email'] = 'This email is already registered';
       $errorMessages['errorStatus'] = true;
     }
 
@@ -180,7 +180,7 @@ class Contact extends Controller
       return $Response;
     }
 
-    header("Location: contacts_read?contactStatus=updated");
+    header('Location: contacts_read?contactStatus=updated');
     return true;
   }
 
@@ -192,6 +192,6 @@ class Contact extends Controller
    */
   public function deleteContact(int $id)
   {
-    if ($this->contactModel->deleteContact($id)) header("Location: contacts_read?contactStatus=deleted");
+    if ($this->contactModel->deleteContact($id)) header('Location: contacts_read?contactStatus=deleted');
   }
 }
