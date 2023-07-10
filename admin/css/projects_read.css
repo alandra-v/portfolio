@@ -73,7 +73,7 @@ div.container {
   align-items: center;
   gap: 1.5rem;
   height: 100%;
-  max-width: 450px;
+  max-width: 350px;
   padding: 2rem;
   box-shadow: var(--boxShadow);
   font-size: 1.2rem;
@@ -161,10 +161,6 @@ p.project-id {
 /* 04 media queries min width 760px */
 
 @media (min-width: 760px) {
-
-  div.container {
-    max-width: 350px;
-  }
 
   div.flex-container {
     width: 60%;
