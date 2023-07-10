@@ -1,8 +1,6 @@
 <?php
 require_once(__DIR__ . '/configuration.php');
 
-// require_once(__DIR__ . '/includes/head_data.php');
-// require_once(__DIR__ . '/includes/nav_data.php');
 include(__DIR__ . '/includes/head.inc.php');
 ?>
 
