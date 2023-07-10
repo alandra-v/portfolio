@@ -72,6 +72,9 @@ if (isset($_POST['profile-info']) && count($_POST) > 0) {
                 echo ">" . $value . "</option>";
               }
               ?>
+              <?php if (isset($Response['titles']) && !empty($Response['titles'])) : ?>
+                <span class="error-span"><?= $Response['titles']; ?></span>
+              <?php endif; ?>
             </select>
           </div>
           <fieldset class="gender-radio-inputs">
@@ -105,11 +108,16 @@ if (isset($_POST['profile-info']) && count($_POST) > 0) {
           <div class="input-container">
             <label for="given-name">First name</label>
             <input type="text" id="given-name" name="given-name" value="<?= (isset($_POST['given-name'])) ? $_POST['given-name'] : $User['data']['user_given_name'] ?>">
-
+            <?php if (isset($Response['given-name']) && !empty($Response['given-name'])) : ?>
+              <span class="error-span"><?= $Response['given-name']; ?></span>
+            <?php endif; ?>
           </div>
           <div class="input-container">
             <label for="family-name">Last name</label>
             <input type="text" id="family-name" name="family-name" value="<?= (isset($_POST['family-name'])) ? $_POST['family-name'] : $User['data']['user_family_name'] ?>">
+            <?php if (isset($Response['family-name']) && !empty($Response['family-name'])) : ?>
+              <span class="error-span"><?= $Response['family-name']; ?></span>
+            <?php endif; ?>
           </div>
           <button class="save-changes" type="submit" name="profile-info">Save all changes</button>
         </form>
@@ -133,36 +141,38 @@ if (isset($_POST['profile-info']) && count($_POST) > 0) {
             <button class="two-step-verification">Enable</button>
           </div>
         </section>
-        <section class="update-password">
-          <h2>Update <?= $User['data']['user_name']; ?>'s Password</h2>
-          <hr class="title-separator">
-          <form action="" method="POST" class="edit-password" novalidate>
-            <div class="form-flex-container">
-              <div class="input-container">
-                <label for="password-original">Enter your current password</label>
-                <input type="password" id="password-original" name="password-original" value="<?= (isset($_POST['password-original'])) ? $_POST['password-original'] : '' ?>">
-                <?php if (isset($Response['password-original']) && !empty($Response['password-original'])) : ?>
-                  <span class="error-span"><?= $Response['password-original']; ?></span>
-                <?php endif; ?>
+        <?php if ($_SESSION['data']['ID'] == $User['data']['ID']) : ?>
+          <section class="update-password">
+            <h2>Update <?= $User['data']['user_name']; ?>'s Password</h2>
+            <hr class="title-separator">
+            <form action="" method="POST" class="edit-password" novalidate>
+              <div class="form-flex-container">
+                <div class="input-container">
+                  <label for="password-original">Enter your current password</label>
+                  <input type="password" id="password-original" name="password-original" value="<?= (isset($_POST['password-original'])) ? $_POST['password-original'] : '' ?>">
+                  <?php if (isset($Response['password-original']) && !empty($Response['password-original'])) : ?>
+                    <span class="error-span"><?= $Response['password-original']; ?></span>
+                  <?php endif; ?>
+                </div>
+                <div class="input-container">
+                  <label for="password-new">New password</label>
+                  <input type="password" id="password-new" name="password-new" value="<?= (isset($_POST['password-new'])) ? $_POST['password-new'] : '' ?>">
+                  <?php if (isset($Response['password-new']) && !empty($Response['password-new'])) : ?>
+                    <span class="error-span"><?= $Response['password-new']; ?></span>
+                  <?php endif; ?>
+                </div>
+                <div class="input-container">
+                  <label for="password-confirmation">Confirm new password</label>
+                  <input type="password" id="password-confirmation" name="password-confirmation" value="<?= (isset($_POST['password-confirmation'])) ? $_POST['password-confirmation'] : '' ?>">
+                  <?php if (isset($Response['password-confirmation']) && !empty($Response['password-confirmation'])) : ?>
+                    <span class="error-span"><?= $Response['password-confirmation']; ?></span>
+                  <?php endif; ?>
+                </div>
               </div>
-              <div class="input-container">
-                <label for="password-new">New password</label>
-                <input type="password" id="password-new" name="password-new" value="<?= (isset($_POST['password-new'])) ? $_POST['password-new'] : '' ?>">
-                <?php if (isset($Response['password-new']) && !empty($Response['password-new'])) : ?>
-                  <span class="error-span"><?= $Response['password-new']; ?></span>
-                <?php endif; ?>
-              </div>
-              <div class="input-container">
-                <label for="password-confirmation">Confirm new password</label>
-                <input type="password" id="password-confirmation" name="password-confirmation" value="<?= (isset($_POST['password-confirmation'])) ? $_POST['password-confirmation'] : '' ?>">
-                <?php if (isset($Response['password-confirmation']) && !empty($Response['password-confirmation'])) : ?>
-                  <span class="error-span"><?= $Response['password-confirmation']; ?></span>
-                <?php endif; ?>
-              </div>
-            </div>
-            <button class="save-changes" type="submit" name="update-password">Update Password</button>
-          </form>
-        </section>
+              <button class="save-changes" type="submit" name="update-password">Update Password</button>
+            </form>
+          </section>
+        <?php endif; ?>
       </div>
       <section class="login-info">
         <h2>Login Information <?= $User['data']['user_name']; ?></h2>
