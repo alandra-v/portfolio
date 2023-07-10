@@ -55,6 +55,7 @@ input {
   border-color: var(--darkHover);
   border-radius: 5px;
   width: 100%;
+  padding: 0.3rem;
 }
 
 button.create-btn {
