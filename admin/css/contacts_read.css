@@ -5,6 +5,7 @@
 03  tiles
 04  media queries min width 760px
 05  media queries min width 1000px
+06  media queries min width 1800px
 
 */
 
@@ -161,5 +162,17 @@ div.hidden {
     transition: all 0.5s ease;
   }
 
+
+}
+
+/* 06  media queries min width 1800px */
+
+@media (min-width: 1800px) {
+
+  ul.user-list,
+  div.confirmation,
+  a.add-new {
+    max-width: 1400px;
+  }
 
 }
