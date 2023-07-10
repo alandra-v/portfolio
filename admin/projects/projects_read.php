@@ -76,7 +76,7 @@ require_once(dirname(__DIR__) . '/includes/admin_head.inc.php');
 
             <div class="flex-container-operations">
               <!-- Edit btn -->
-              <a href="project_update?id= <?= $project['ID'] ?>" class="update-btn">
+              <a href="project_update?id=<?= $project['ID'] ?>" class="update-btn">
                 <i class="fa-solid fa-pencil" aria-label="edit"></i>
               </a>
               <!-- Delete btn -->
