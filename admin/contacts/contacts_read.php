@@ -17,6 +17,8 @@ require_once(dirname(__DIR__) . '/includes/admin_head.inc.php');
 <body>
   <?php include(dirname(__DIR__) . '/includes/cms/navigation.inc.php'); ?>
   <main>
+    <!-- @TODO -->
+    <!-- install search function -->
     <?php if (isset($_GET['contactStatus']) && $_GET['contactStatus'] == 'deleted') : ?>
       <div class="confirmation">
         <p><?= 'Contact has successfully been deleted.' ?></p>

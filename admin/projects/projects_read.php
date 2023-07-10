@@ -14,6 +14,8 @@ require_once(dirname(__DIR__) . '/includes/admin_head.inc.php');
 <body>
   <?php include(dirname(__DIR__) . '/includes/cms/navigation.inc.php'); ?>
   <main>
+    <!-- @TODO -->
+    <!-- install search function -->
     <a href="project_create.php" class="add-new">
       <i class="fa-solid fa-plus"></i>
       <span>Add a new project</span>
