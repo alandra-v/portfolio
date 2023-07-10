@@ -1,5 +1,6 @@
 <?php
-require_once('admin/Model/ContactFormModel.php');
+require_once(dirname(__DIR__) . '/Model/ContactFormModel.php');
+
 
 class ContactForm
 {
@@ -183,11 +184,8 @@ class ContactForm
       return $Response;
     }
 
-    // @TODO send email with message
-    // if (!$Response['email']) {
-    //   $Response['email'] = '';
-    //   return $Response;
-    // }
+    // @TODO 
+    // send message with PHPMailer
 
     // Delay redirecting 2 seconds for animation to finish
     $delay = 2;
@@ -197,6 +195,7 @@ class ContactForm
     $name = $Payload['givenName'];
     $redirectURL = 'contact_reaction?id=' . urlencode($name);
     header('Location:' . $redirectURL);
+
     return true;
   }
 }
