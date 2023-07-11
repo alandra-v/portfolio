@@ -3,7 +3,8 @@
 // base URL configuration
 // --------------------------
 
-define('BASE_URL', 'http://localhost:8888/portfolio_avd/');
+define('BASE_URL', 'https://selinav.mywdd.info/');
+
 // ----------------------
 // session configuration
 // ----------------------
@@ -15,11 +16,10 @@ define('CONFIG_SESSION_LIFETIME', 1800);
 // database configuration
 // ----------------------
 
-define('DB_NAME', 'portfolio_admin'); // Database name
+define('DB_NAME', 'selinav'); // Database name
 define('DB_SERVER', 'localhost'); // Database host
-define('DB_USER', 'root'); // Database root
-define('DB_PASSWORD', 'root'); // Database password
-
+define('DB_USER', 'selinav'); // Database root
+define('DB_PASSWORD', 'Fere588&'); // Database password
 // --------------------------
 // image upload configuration
 // --------------------------
