@@ -1,9 +1,6 @@
 <?php
 require_once(dirname(__DIR__) . '/Controller/User.php');
 
-require_once(dirname(__DIR__) . '/includes/admin_head.inc.php');
-
-
 
 $Settings = new User();
 $Response = [];
@@ -45,6 +42,7 @@ if (isset($_POST['profile-info']) && count($_POST) > 0) {
   }
 }
 
+require_once(dirname(__DIR__) . '/includes/admin_head.inc.php');
 ?>
 
 
