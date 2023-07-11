@@ -33,7 +33,6 @@ nav.sidebar.open {
   width: 100%;
   background: linear-gradient(var(--greenGradient));
   padding: 6px 14px;
-  height: 100vh;
   z-index: 999;
 }
 
@@ -192,7 +191,7 @@ display: none;
 div.navbar {
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 100vw;
   height: 80px;
   display: flex;
   padding: 30px;
@@ -263,7 +262,7 @@ div.active-admin-quicknav.open ~ main::after,
 main.backdrop::after {
   content: "";
   position: absolute;
-  top: 0;
+  top: -10%;
   bottom: 0;
   left: 0;
   right: 0;
@@ -297,14 +296,6 @@ main {
   min-height: 100vh;
 }
 
-/************/
-/* @TODDO */
-/************/
-/* nav.sidebar.open ~ main
-nav.sidebar.open ~ div.navbar {
-overflow: hidden;
-} */
-
 nav.sidebar.open ~ main::after {
   content: "";
   position: absolute;
@@ -326,7 +317,6 @@ section {
   padding: 2rem;
   margin: 15px auto;
 }
-
 
 /* 05 media queries min width 760px */
 
