@@ -31,7 +31,7 @@
 ## About The Project
 
 I am developing a portfolio site primarily to present my previous projects and use it for my future career. A potential customer or employer shall be able to get a first impression of my former work, including references and reviews of clients.
-Furthermore, I want to offer my services being web design, development, branding, SEO (Search Engine Optimization) & SEA (Search Engine Advertising), CMS (Content Management System), and customer support.
+Furthermore, I want to offer my services being web design, development, branding, SEO (Search Engine Optimization) & SEA (Search Engine Advertising), CMS (Content Management System), and customer support.It includes a CMS to manage selected content easily and efficiently, without any programming knowledge. The project is fully responsive and attention was paid to accessibility.
 
 <br>
 
@@ -39,17 +39,17 @@ Furthermore, I want to offer my services being web design, development, branding
 
 <br>
 
-<img align="center" alt="HTML5" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/html/html.png" />
-<img align="center" alt="CSS3" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/css/css.png" />
-<img align="center" alt="JavaScript" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png" />
-<img align="center" alt="PHP" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/php/php.png" />
-<img align="center" alt="MySQL" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/mysql/mysql.png" />
-<img align="center" alt="Visual Studio Code" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/visual-studio-code/visual-studio-code.png" />
-</p>
+<img alt="HTML5" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/html/html.png" />
+<img alt="CSS3" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/css/css.png" />
+<img alt="JavaScript" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png" />
+<img alt="jQuery" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/jquery/jquery.png" />
+<img alt="PHP" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/php/php.png" />
+<img alt="MySQL" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/mysql/mysql.png" />
+<img alt="Visual Studio Code" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/visual-studio-code/visual-studio-code.png" />
 
 <br>
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p style="text-align: right;">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 
@@ -64,14 +64,14 @@ Furthermore, I want to offer my services being web design, development, branding
 <br>
 1. **Install XAMPP** at [https://www.apachefriends.org/](https://www.apachefriends.org/)
 
-2. On windows, PHP is most likely not installed.
+2. On Windows, PHP is most likely not installed.
    Check this in the command line with the command: `php -v`
 
 3. If not installed **add PHP** from XAMPP to the command line:
 
    (if installed ignore this step)
 
-   You can find step by step instructions here: [https://dinocajic.medium.com/add-xampp-php-to-environment-variables-in-windows-10-af20a765b0ce](https://dinocajic.medium.com/add-xampp-php-to-environment-variables-in-windows-10-af20a765b0ce)
+   You can find step-by-step instructions here: [https://dinocajic.medium.com/add-xampp-php-to-environment-variables-in-windows-10-af20a765b0ce](https://dinocajic.medium.com/add-xampp-php-to-environment-variables-in-windows-10-af20a765b0ce)
 
 4. **Install Composer** you can download an installer here: [https://getcomposer.org/doc/00-intro.md](https://getcomposer.org/doc/00-intro.md)
 
@@ -96,7 +96,7 @@ or
 3. **Install PHP** with homebrew
    Check if you already have homebrew in the command line with the command: `brew`
 
-   If you don't already have homebrew you can find step by step instructions here: [https://mac.install.guide/homebrew/3.html](https://mac.install.guide/homebrew/3.html)
+   If you don't already have homebrew you can find step-by-step instructions here: [https://mac.install.guide/homebrew/3.html](https://mac.install.guide/homebrew/3.html)
 
    Test if Homebrew was successfully installed in the command line with the command: `brew help`
 
@@ -104,7 +104,7 @@ or
 
 4. **Install Composer** with [https://formulae.brew.sh/formula/composer](https://formulae.brew.sh/formula/composer)
 
-5. **Add alias to Composer**, you can find intructions here [https://www.chrissy.dev/notes/install-composer-globally-on-mac-os/](https://www.chrissy.dev/notes/install-composer-globally-on-mac-os/) (from step 4.)
+5. **Add alias to Composer**, you can find instructions here [https://www.chrissy.dev/notes/install-composer-globally-on-mac-os/](https://www.chrissy.dev/notes/install-composer-globally-on-mac-os/) (from step 4.)
 
 6. **Test** whether Composer has been installed in the command line with the command: `composer`
 
@@ -112,12 +112,13 @@ or
 
 <br>
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p style="text-align: right;">(<a href="#readme-top">back to top</a>)</p>
 
 ### Installation
 
 <br>
 
+<!-- For future use -->
 <!-- #### Install PHPMailer with Composer
 
 <br>
@@ -139,13 +140,13 @@ Alternatively, if you're not using Composer, you can download PHPMailer as a zip
 
 5. **Add PHPMailer** folder to the "admin" subfolder of the project.
 
-6. Adjust **SMTP connection data** in "config.php" file in the "phpmailer" folder.
+6. Adjust **SMTP connection data** in "config.php" file in the "phpmailer folder".
 
 ![config.php file](/assets/images/rm_md_config_php_file.png)
 
 <br>
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
+<p style="text-align: right;">(<a href="#readme-top">back to top</a>)</p> -->
 
 #### Import Database
 
@@ -154,9 +155,9 @@ Alternatively, if you're not using Composer, you can download PHPMailer as a zip
 
 2. From the main menu choose **Databases**
 
-![create database](/assets/images/rm_md_create_db_ss.png)
+!["create database"](/assets/images/rm_md_create_db_ss.png)
 
-3. In the create database field type in "portfolio_admin". Click Create.
+3. In the "create database" field type in "portfolio_admin". Click Create.
 
 4. Open "portfolio_admin" database
 
@@ -170,19 +171,60 @@ Alternatively, if you're not using Composer, you can download PHPMailer as a zip
 
 <br>
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p style="text-align: right;">(<a href="#readme-top">back to top</a>)</p>
 
 ### Usage
 
 <br>
 The content management system is only accessible to registered and logged-in users.
 
-| Input field | Test user      |
-| ----------- | -------------- |
-| Username    | ally           |
-| E-mail      | ally@gmail.com |
-| Password    | Test-1234      |
+<div style="display: flex; gap: 2rem;">
+    <table>
+        <thead>
+            <tr>
+                <th>Input field</th>
+                <th>Admin</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>E-mail</td>
+                <td>ally@gmail.com</td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td>Test-1234</td>
+            </tr>
+            <tr>
+                <td>Username</td>
+                <td>ally</td>
+            </tr>
+        </tbody>
+    </table>
+    <table>
+        <thead>
+            <tr>
+                <th>Input field</th>
+                <th>Test user</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Username</td>
+                <td>testuser</td>
+            </tr>
+            <tr>
+                <td>E-mail</td>
+                <td>test@gmail.com</td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td>Hallo-123</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 <br>
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p style="text-align: right;">(<a href="#readme-top">back to top</a>)</p>
