@@ -176,6 +176,23 @@ div.business-container>label {
 div.terms-container {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+  height: 1rem;
+}
+
+div.terms-label-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+div.terms-container input {
+  height: 1rem;
+  width: 1rem;
+}
+
+div.terms-container label {
+  margin-bottom: 0.5rem;
 }
 
 label.checkbox {
@@ -215,7 +232,7 @@ label[for="message"] {
 textarea {
   display: inline;
   width: 90%;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 div.form-buttons {
@@ -276,6 +293,8 @@ div.form-buttons>span.error-span {
 }
 
 div.alert {
+  position: absolute;
+  top: 97.5%;
   opacity: 1;
   border-left: 5px solid #F50404;
   box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
@@ -448,7 +467,6 @@ div.address>svg {
   }
 
   div.alert {
-    position: absolute;
     top: 98%;
     right: 0;
   }

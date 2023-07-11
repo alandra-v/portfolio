@@ -364,11 +364,11 @@ function messageValidation() {
 
 function checkboxValidation() {
 
-  detectErrorMsg('terms-container');
+  detectErrorMsg('terms-label-container');
 
   if (!termsInput.checked) {
     validationErrors.terms = 'Please accept the Privacy Policy';
-    detectErrorMsg('terms-container');
+    detectErrorMsg('terms-label-container');
     displayErrorMsgCheckbox(
       validationErrors.terms,
       'terms-container');
