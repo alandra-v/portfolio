@@ -43,7 +43,7 @@ require_once(dirname(__DIR__) . '/includes/admin_head.inc.php');
             <div class="user">
               <div class="name">
                 <p><?= $contact['contact_given_name'] . ' ' . $contact['contact_family_name'] ?></p>
-                <p><?= ($contact['contact_business']) ? $contact['contact_business'] : '' ?></p>
+                <p><?= $contact['contact_business'] ?? '' ?></p>
               </div>
               <div class="flex-container-operations-desktop">
 
