@@ -37,6 +37,8 @@ class Contact extends Controller
    */
   public function getContacts(): array
   {
+    // NOTE
+    // In the future data will be decoded before it is sent to the view
     return $this->contactModel->fetchContacts();
   }
 
@@ -48,6 +50,8 @@ class Contact extends Controller
    */
   public function getContact(int $id): array
   {
+    // NOTE
+    // In the future data will be decoded before it is sent to the view
     return $this->contactModel->fetchContact($id);
   }
 
@@ -154,6 +158,8 @@ class Contact extends Controller
       return $errorMessages;
     }
 
+    // NOTE
+    // In the future data will be encoded before it is sent to the backend
 
     $Payload = array(
       'title' => $title,

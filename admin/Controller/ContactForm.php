@@ -156,7 +156,8 @@ class ContactForm
       return $errorMessages;
     }
 
-
+    // NOTE
+    // In the future data will be encoded before it is sent to the backend
 
     $Payload = array(
       'title' => $title,

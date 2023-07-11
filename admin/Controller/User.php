@@ -46,6 +46,8 @@ class User extends Controller
    **/
   public function getUsers(): array
   {
+    // NOTE
+    // In the future data will be decoded before it is sent to the view
     return $this->userModel->fetchUsers();
   }
 
@@ -57,6 +59,8 @@ class User extends Controller
    **/
   public function getUser(int $id): array
   {
+    // NOTE
+    // In the future data will be decoded before it is sent to the view
     return $this->userModel->fetchUser($id);
   }
 
@@ -121,6 +125,8 @@ class User extends Controller
         return $errorMessages;
       }
 
+      // NOTE
+      // In the future data will be encoded before it is sent to the backend
 
       $Payload = array(
         'title' => $title,
@@ -216,6 +222,8 @@ class User extends Controller
         return $errorMessages;
       }
 
+      // NOTE
+      // In the future data will be encoded before it is sent to the backend
 
       $Payload = array(
         'username' => $username,

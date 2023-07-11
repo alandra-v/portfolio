@@ -102,6 +102,9 @@ class Project extends Controller
       return $Error;
     }
 
+    // NOTE
+    // In the future data will be encoded before it is sent to the backend
+
     $Payload = array(
       'title' => $title,
       'year' => $year,
@@ -138,6 +141,8 @@ class Project extends Controller
    **/
   public function getProjects(): array
   {
+    // NOTE
+    // In the future data will be decoded before it is sent to the view
     return $this->projectModel->fetchProjects();
   }
 
@@ -149,12 +154,9 @@ class Project extends Controller
    **/
   public function getProject(int $id): array
   {
-    $Project = $this->projectModel->fetchProject($id);
-    if (is_bool($Project)) {
-      header('Location:' . BASE_URL . '404_error.php');
-    } else {
-      return $Project;
-    }
+    // NOTE
+    // In the future data will be decoded before it is sent to the view
+    return $this->projectModel->fetchProject($id);
   }
 
 
@@ -234,6 +236,9 @@ class Project extends Controller
     if ($Error['errorStatus']) {
       return $Error;
     }
+
+    // NOTE
+    // In the future data will be encoded before it is sent to the backend
 
     $Payload = array(
       'title' => $title,
