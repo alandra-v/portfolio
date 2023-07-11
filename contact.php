@@ -1,8 +1,5 @@
 <?php
 require_once(__DIR__ . '/configuration.php');
-
-include(__DIR__ . '/includes/head.inc.php');
-
 require_once('admin/Controller/ContactForm.php');
 
 $Contact = new ContactForm();
@@ -12,6 +9,7 @@ if (isset($_POST) && count($_POST) > 0) {
   $Response = $Contact->addContact($_POST);
 }
 
+include(__DIR__ . '/includes/head.inc.php');
 
 ?>
 
@@ -117,13 +115,15 @@ if (isset($_POST) && count($_POST) > 0) {
         <!-- <div class="dropbox">
           <input type="file" id="input-file" aria-label="Chose file" multiple>
         </div> -->
-        <div class="terms-container">
-          <input type="checkbox" id="terms" name="terms" aria-label="Accept the terms and conditions" value="agree" <?= (isset($_POST['terms']) && $_POST['terms'] == "agree") ? "checked" : '' ?> required>
-          <label for="terms" class="checkbox">I have read and agree to the <a href="#" class="terms">Privacy Policy</a>.</label>
+        <div class="terms-label-container">
+          <div class="terms-container">
+            <input type="checkbox" id="terms" name="terms" aria-label="Accept the terms and conditions" value="agree" <?= (isset($_POST['terms']) && $_POST['terms'] == "agree") ? "checked" : '' ?> required>
+            <label for="terms" class="checkbox">I have read and agree to the <a href="#" class="terms">Privacy Policy</a>.</label>
+          </div>
+          <?php if (isset($Response['terms']) && !empty($Response['terms'])) : ?>
+            <span class="error-span error-span-checkbox"><?= $Response['terms']; ?></span>
+          <?php endif; ?>
         </div>
-        <?php if (isset($Response['terms']) && !empty($Response['terms'])) : ?>
-          <span class="error-span error-span-checkbox"><?= $Response['terms']; ?></span>
-        <?php endif; ?>
         <div id="lottie-container">
           <button type="submit" class="submit" aria-label="Submit the contact form"></button>
         </div>
