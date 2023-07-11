@@ -113,7 +113,8 @@ div.img-container {
 }
 
 img.thumbnail {
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 p.img-path {

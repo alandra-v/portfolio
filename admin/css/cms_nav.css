@@ -160,7 +160,8 @@ display: none;
 .submenu.open {
   height: 100%;
   bottom: 100%;
-  animation: reveal 0.8s forwards;
+  -webkit-animation: reveal 0.8s forwards;
+          animation: reveal 0.8s forwards;
   position: relative;
   width: 100%;
   left: 30%;
@@ -170,7 +171,8 @@ display: none;
 }
 
 .submenu[closing] {
-  animation: hide 0.8s;
+  -webkit-animation: hide 0.8s;
+          animation: hide 0.8s;
 }
 
 .submenu-item {
@@ -255,7 +257,8 @@ div.active-admin-quicknav.open {
   z-index: 3;
   box-shadow: var(--boxShadow);
   padding: 5rem 2rem 5rem 11rem;
-  animation: appear 0.5s;
+  -webkit-animation: appear 0.5s;
+          animation: appear 0.5s;
 }
 
 div.active-admin-quicknav.open ~ main::after,
@@ -271,7 +274,8 @@ main.backdrop::after {
 }
 
 div.active-admin-quicknav[closing] {
-  animation: disappear 0.5s;
+  -webkit-animation: disappear 0.5s;
+          animation: disappear 0.5s;
 }
 
 hr.active-admin-separator {
@@ -423,11 +427,13 @@ section {
   .submenu.open {
     height: 100%;
     bottom: 100%;
-    animation: reveal 0.8s forwards;
+    -webkit-animation: reveal 0.8s forwards;
+            animation: reveal 0.8s forwards;
   }
 
   .submenu[closing] {
-    animation: hide 0.8s;
+    -webkit-animation: hide 0.8s;
+            animation: hide 0.8s;
   }
 
   .submenu .submenu-title {
@@ -501,6 +507,8 @@ section {
     bottom: unset;
     padding: 4rem;
     top: 100%;
+    width: -webkit-max-content;
+    width: -moz-max-content;
     width: max-content;
     right: 2%;
   }
@@ -529,6 +537,20 @@ section {
 
 /* 06 keyframes */
 
+@-webkit-keyframes reveal {
+  0% { 
+    transform: translateY(0%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 1;
+  }
+}
+
 @keyframes reveal {
   0% { 
     transform: translateY(0%);
@@ -540,6 +562,20 @@ section {
   100% {
     transform: translateY(100%);
     opacity: 1;
+  }
+}
+
+@-webkit-keyframes hide {
+  0% { 
+    transform: translateY(100%);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    transform: translateY(75%);
+    opacity: 0;
   }
 }
 
@@ -557,12 +593,30 @@ section {
   }
 }
 
+@-webkit-keyframes appear {
+  0% { 
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @keyframes appear {
   0% { 
     opacity: 0;
   }
   100% {
     opacity: 1;
+  }
+}
+
+@-webkit-keyframes disappear {
+  0% { 
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 

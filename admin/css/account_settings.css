@@ -47,6 +47,8 @@ div.section-container {
 }
 
 section {
+  height: -webkit-max-content;
+  height: -moz-max-content;
   height: max-content;
 }
 

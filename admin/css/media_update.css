@@ -39,7 +39,8 @@ div.thumbnail {
 }
 
 img.img-thumbnail {
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   width: 50%;
   height: auto;
 }

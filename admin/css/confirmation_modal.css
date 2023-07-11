@@ -4,6 +4,10 @@ dialog.modal {
   z-index: 999;
 }
 
+dialog.modal::-webkit-backdrop {
+  background: rgba(0, 0, 0, 0.7);
+}
+
 dialog.modal::backdrop {
   background: rgba(0, 0, 0, 0.7);
 }
