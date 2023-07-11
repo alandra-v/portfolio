@@ -36,7 +36,7 @@ class Project extends Controller
 
   /**
    * @param array
-   * @return array
+   * @return array|bool
    * ? Redirects user to the project read page after creating the given project
    **/
   public function createProject(array $data, array $files): array
@@ -136,7 +136,7 @@ class Project extends Controller
 
   /**
    * @param null|void
-   * @return array
+   * @return array|bool
    * ? Returns an array of projects by calling the fetchProjects method on the ProjectModel
    **/
   public function getProjects(): array

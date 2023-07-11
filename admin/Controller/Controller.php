@@ -5,7 +5,7 @@ session_name(CONFIG_SESSION_NAME);
 session_set_cookie_params(CONFIG_SESSION_LIFETIME);
 session_start();
 // stores security token that needs to persist across multiple requests within a user session
-// can protects against CSRF attacks
+// can protect against CSRF attacks
 // $_SESSION['token'] = bin2hex(random_bytes(32));
 // $_SESSION['token-expire'] = time() + 1800;
 session_regenerate_id();
@@ -59,7 +59,7 @@ class Controller
 
   /**
    * @param array
-   * @return string
+   * @return array
    * ? Validates the image upload and sets error messages
    **/
   protected function processUploadedFile(array $files)
@@ -91,7 +91,7 @@ class Controller
 
           if ($this->isAllowedExtension($ext)) {
             $uniqueName = $this->generateUniqueFileName($sanitizedFilename);
-            $uploadPath = $this->moveUploadedFile($fileTmp, $uniqueName);
+            $this->moveUploadedFile($fileTmp, $uniqueName);
 
             $response['filename'] = $uniqueName;
           } else {
@@ -116,7 +116,7 @@ class Controller
    * @return string
    * ? Checks file errors before moving file into temporary directory
    **/
-  protected function checkFileError($fileError)
+  protected function checkFileError($fileError): string
   {
     // Mapping array associating file error codes with user-friendly error messages
     $errorMessages = [
@@ -159,7 +159,7 @@ class Controller
    * @return string
    * ? Retrieves the MIME type of the file
    **/
-  protected function getMimeType($fileTmp)
+  protected function getMimeType($fileTmp): string
   {
     $filepath = str_replace(' ', '\\ ', $fileTmp);
     $finfo = finfo_open(FILEINFO_MIME_TYPE);
@@ -172,10 +172,10 @@ class Controller
 
   /**
    * @param string
-   * @return string
+   * @return bool
    * ? 
    **/
-  protected function isAllowedMimeType($mimeSecure)
+  protected function isAllowedMimeType($mimeSecure): bool
   {
     return in_array($mimeSecure, $this->allowedMimeTypes);
   }
@@ -186,7 +186,7 @@ class Controller
    * @return string
    * ? Retrieves the file extension from the filename
    **/
-  protected function getFileExtension($filename)
+  protected function getFileExtension($filename): string
   {
     return strtolower(pathinfo($filename, PATHINFO_EXTENSION));
   }
@@ -197,7 +197,7 @@ class Controller
    * @return bool
    * ? Checks if the file extension is allowed based on the predefined list of allowed extensions
    **/
-  protected function isAllowedExtension($ext)
+  protected function isAllowedExtension($ext): bool
   {
     return in_array($ext, $this->allowedExtensions);
   }
@@ -208,7 +208,7 @@ class Controller
    * @return string
    * ? Generates a unique filename by appending a timestamp to the sanitized filename
    **/
-  protected function generateUniqueFileName($filename)
+  protected function generateUniqueFileName($filename): string
   {
     $uniqueName = uniqid($filename . '__' . time());
     $ext = $this->getFileExtension($filename);
@@ -223,7 +223,7 @@ class Controller
    * @return string
    * ? Moves the uploaded file to the target directory with the generated unique filename
    **/
-  protected function moveUploadedFile($fileTmp, $uniqueName)
+  protected function moveUploadedFile($fileTmp, $uniqueName): string
   {
     $uploadPath = $this->targetDir . '/' . $uniqueName;
     move_uploaded_file($fileTmp, $uploadPath);

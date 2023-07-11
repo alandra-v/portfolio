@@ -59,7 +59,7 @@ class MediaModel extends Db
 
   /**
    * @param int
-   * @return array
+   * @return array|bool
    * ? Returns an array of image information based on the method parameter
    **/
   public function fetchImage(int $id): array

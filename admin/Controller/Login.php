@@ -39,7 +39,7 @@ class Login extends Controller
    * @return array
    * ? Verifies and redirects a user by calling the login method on the LoginModel
    **/
-  public function login(array $data)
+  public function login(array $data): array
   {
 
     $username = $this->desinfect($data['username-email']);

@@ -33,7 +33,7 @@ class UserModel extends Db
 
   /**
    * @param int
-   * @return array
+   * @return array|bool
    * ? Returns a user record based on the method parameter
    **/
   public function fetchUser(int $id): array

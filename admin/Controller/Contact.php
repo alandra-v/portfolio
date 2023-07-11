@@ -58,7 +58,7 @@ class Contact extends Controller
 
   /**
    * @param array|int
-   * @return array
+   * @return array|bool
    * ? Redirects user to contacts read page after updating 
    */
   public function editContact(array $data, int $id): array

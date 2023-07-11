@@ -33,7 +33,7 @@ class ContactModel extends Db
 
   /**
    * @param int
-   * @return array
+   * @return array|bool
    * ? Returns an array of contact information
    **/
   public function fetchContact(int $id): array
