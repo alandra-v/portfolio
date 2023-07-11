@@ -159,12 +159,12 @@ require_once(dirname(__DIR__) . '/includes/admin_head.inc.php');
           </div>
 
 
-
-          <div class="terms-and-conditions-container">
-            <input type="checkbox" id="terms" name="terms" aria-label="Accept the terms and conditions" value="agree" <?= (isset($_POST['terms']) && $_POST['terms'] == "agree") ? "checked" : '' ?> required>
-            <label for="terms" class="terms-after">I have read and agree to the<a href="#">Terms & Conditions</a>.</label>
+          <div class="label-container">
+            <div class="terms-and-conditions-container">
+              <input type="checkbox" id="terms" name="terms" aria-label="Accept the terms and conditions" value="agree" <?= (isset($_POST['terms']) && $_POST['terms'] == "agree") ? "checked" : '' ?> required>
+              <label for="terms" class="terms-after">I have read and agree to the<a href="#">Terms & Conditions</a>.</label>
+            </div>
           </div>
-
           <?php if (isset($Response['terms']) && !empty($Response['terms'])) : ?>
             <span class="error-span"><?= $Response['terms']; ?></span>
           <?php endif; ?>

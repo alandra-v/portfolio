@@ -316,14 +316,14 @@ function passwordConfirmationValidation() {
 
 function checkboxValidation() {
 
-  detectErrorMsg('terms-and-conditions-container');
+  detectErrorMsg('label-container');
 
   if (!termsAndConditionsInput.checked) {
     validationErrors.terms = 'Please accept Terms & Conditions';
-    detectErrorMsg('terms-and-conditions-container');
+    detectErrorMsg('label-container');
     displayErrorMsgRadioBtn(
       validationErrors.terms,
-      'terms-after');
+      'terms-and-conditions-container');
   } else {
     delete validationErrors.terms;
   }
