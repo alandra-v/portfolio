@@ -115,5 +115,11 @@ class LoginModel extends Db
     $this->query("DELETE FROM `login_log` WHERE ip_address=:ip");
     $this->bind('ip', $ip);
     $this->execute();
+
+    $this->query("SET  @num := 0;
+    UPDATE login_log SET id = @num := (@num+1);
+    ALTER TABLE login_log AUTO_INCREMENT =1;
+    ");
+    $this->execute();
   }
 }
