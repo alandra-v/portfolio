@@ -62,7 +62,7 @@ class MediaModel extends Db
    * @return array|bool
    * ? Returns an array of image information based on the method parameter
    **/
-  public function fetchImage(int $id): array
+  public function fetchImage(int $id)
   {
     $this->query("SELECT * FROM `project_img` WHERE `ID` = :id");
     $this->bind('id', $id);

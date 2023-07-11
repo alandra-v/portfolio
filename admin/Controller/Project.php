@@ -39,7 +39,7 @@ class Project extends Controller
    * @return array|bool
    * ? Redirects user to the project read page after creating the given project
    **/
-  public function createProject(array $data, array $files): array
+  public function createProject(array $data, array $files)
   {
     $title = $this->desinfect($data['title']);
     $year = $this->desinfect($data['year']);
@@ -139,7 +139,7 @@ class Project extends Controller
    * @return array|bool
    * ? Returns an array of projects by calling the fetchProjects method on the ProjectModel
    **/
-  public function getProjects(): array
+  public function getProjects()
   {
     // NOTE
     // In the future data will be decoded before it is sent to the view

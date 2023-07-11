@@ -70,7 +70,7 @@ class User extends Controller
    * @return array|bool
    * ?  Redirects user to the user read page after updating the given user profile information
    **/
-  public function editProfileInfo(array $data, int $id): array
+  public function editProfileInfo(array $data, int $id)
   {
     if ($_SESSION['data']['user_group'] == 0 || $_SESSION['data']['ID'] == $id) {
 
@@ -161,7 +161,7 @@ class User extends Controller
    * @return array|bool
    * ? Redirects user to the user read page after updating the given user login information
    **/
-  public function editLoginInfo(array $data, int $id): array
+  public function editLoginInfo(array $data, int $id)
   {
     if ($_SESSION['data']['user_group'] == 0 || $_SESSION['data']['ID'] == $id) {
 
@@ -253,7 +253,7 @@ class User extends Controller
    * @return array|bool
    * ? Redirects user to the user read page after updating the given user password
    **/
-  public function editPassword(array $data, int $id): array
+  public function editPassword(array $data, int $id)
   {
     if ($_SESSION['data']['user_group'] == 0 || $_SESSION['data']['ID'] == $id) {
 

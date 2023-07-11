@@ -61,7 +61,7 @@ class Contact extends Controller
    * @return array|bool
    * ? Redirects user to contacts read page after updating 
    */
-  public function editContact(array $data, int $id): array
+  public function editContact(array $data, int $id)
   {
     $title = $this->desinfect($data['titles']);
     $givenName = $this->desinfect($data['given-name']);

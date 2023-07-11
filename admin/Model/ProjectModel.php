@@ -92,7 +92,7 @@ class ProjectModel extends Db
    * @return array|bool
    * ? Returns an array of project information based on the method parameter
    **/
-  public function fetchProject(int $id): array
+  public function fetchProject(int $id)
   {
     $this->query("SELECT * FROM `project` WHERE `ID` = :id");
     $this->bind('id', $id);
@@ -122,7 +122,7 @@ class ProjectModel extends Db
    * @return array|bool
    * ? Returns an array of project information (of a completed project) based on the method parameter
    **/
-  public function fetchCompletedProject(int $id): array
+  public function fetchCompletedProject(int $id)
   {
     $this->query("SELECT * FROM `project` WHERE `project_status` = 1 AND `ID` = :id ORDER BY created DESC");
     $this->bind('id', $id);

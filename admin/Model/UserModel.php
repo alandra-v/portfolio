@@ -36,7 +36,7 @@ class UserModel extends Db
    * @return array|bool
    * ? Returns a user record based on the method parameter
    **/
-  public function fetchUser(int $id): array
+  public function fetchUser(int $id)
   {
     $this->query("SELECT * FROM `user` WHERE `ID` = :id");
     $this->bind('id', $id);

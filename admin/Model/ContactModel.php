@@ -36,7 +36,7 @@ class ContactModel extends Db
    * @return array|bool
    * ? Returns an array of contact information
    **/
-  public function fetchContact(int $id): array
+  public function fetchContact(int $id)
   {
     $this->query("SELECT * FROM `contact` WHERE `ID` = :id");
     $this->bind('id', $id);
