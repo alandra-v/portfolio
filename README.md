@@ -62,6 +62,7 @@ Furthermore, I want to offer my services being web design, development, branding
 #### Windows instructions
 
 <br>
+
 1. **Install XAMPP** at [https://www.apachefriends.org/](https://www.apachefriends.org/)
 
 2. On Windows, PHP is most likely not installed.
@@ -82,12 +83,13 @@ Furthermore, I want to offer my services being web design, development, branding
 #### OS X instructions
 
 <br>
+
 1. **Install** XAMPP at [https://www.apachefriends.org/](https://www.apachefriends.org/)
 
-or
+   or
 
-**MAMP** at [https://www.mamp.info](https://www.mamp.info)
-(recommended for OS X)
+   **MAMP** at [https://www.mamp.info](https://www.mamp.info)
+   (recommended for OS X)
 
 2. Check whether and which **version of PHP** is available in the command line with the command: `php -v or php -version`
 
@@ -151,6 +153,7 @@ Alternatively, if you're not using Composer, you can download PHPMailer as a zip
 #### Import Database
 
 <br>
+
 1. Browse to your **phpMyAdmin URL** using your Internet Web Browser, and login using your root or dba user login.
 
 2. From the main menu choose **Databases**
@@ -178,7 +181,9 @@ Alternatively, if you're not using Composer, you can download PHPMailer as a zip
 <br>
 The content management system is only accessible to registered and logged-in users.
 
-<div style="display: flex; gap: 2rem;">
+<br>
+
+<div style="display: flex; justify-content: space-around;">
     <table>
         <thead>
             <tr>
