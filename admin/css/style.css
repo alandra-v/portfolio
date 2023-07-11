@@ -46,11 +46,6 @@ i.fa-xmark {
   color: var(--white);
 }
 
-/* div.login-activiy,
-div.failed-login-attempts {
-  overflow: scroll;
-} */
-
 a.change-password {
   display: block;
   background-color: var(--lightGreen);

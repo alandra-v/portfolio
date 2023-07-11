@@ -167,7 +167,6 @@ main.addEventListener('click', function() {
   if (sidebar.classList.contains('open')) {
     sidebar.classList.remove('open');
     mobileToggle.classList.remove('sidebaropen');
-    // document.body.classList.remove('overflow-hidden');
 
     if (screen.width < 760) {
       main.classList.remove('backdrop');

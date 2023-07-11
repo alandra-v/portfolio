@@ -75,7 +75,6 @@ button.modal-cancel {
   }
 
   button.modal-cancel,
-  /* button.modal-confirm, */
   a.modal-confirm {
     width: 40%;
   }
@@ -86,7 +85,6 @@ button.modal-cancel {
   }
 
   a.modal-confirm:hover {
-  /* button.modal-confirm:hover { */
     background-color: var(--white);
     border: var(--darkGreen) 1px solid;
     color: var(--black);
